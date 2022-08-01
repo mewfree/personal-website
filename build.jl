@@ -98,10 +98,10 @@ for (root, dirs, files) in walkdir("src/notes")
             local exports_both = map(
                 line ->
                     if startswith(line, "#+begin_src") && !contains(line, ":exports")
-                return line * " :exports both"
-            else
-                return line
-            end,
+                        return line * " :exports both"
+                    else
+                        return line
+                    end,
                 split(data, "\n"),
             )
             local joined = join(["#+options: H:6"; exports_both], "\n")
@@ -153,25 +153,25 @@ end
 # Other routes
 routes = [
     (
-        destination = "index.html",
-        source = "index.html",
-        title = "Damien Gonot",
-        heading = "",
-        description = "Homepage of Damien Gonot's personal website.",
+        destination="index.html",
+        source="index.html",
+        title="Damien Gonot",
+        heading="",
+        description="Homepage of Damien Gonot's personal website.",
     ),
     (
-        destination = "about.html",
-        source = "about.org",
-        title = "About - Damien Gonot",
-        heading = "About me",
-        description = "Learn more about Damien Gonot.",
+        destination="about.html",
+        source="about.org",
+        title="About - Damien Gonot",
+        heading="About me",
+        description="Learn more about Damien Gonot.",
     ),
     (
-        destination = "notes.html",
-        source = "notes.org",
-        title = "Notes - Damien Gonot",
-        heading = "Notes",
-        description = "Damien Gonot's public notes.",
+        destination="notes.html",
+        source="notes.org",
+        title="Notes - Damien Gonot",
+        heading="Notes",
+        description="Damien Gonot's public notes.",
     ),
 ]
 
