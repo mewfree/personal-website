@@ -167,6 +167,13 @@ routes = [
         description="Learn more about Damien Gonot.",
     ),
     (
+        destination="citadel.html",
+        source="citadel.org",
+        title="Citadel - Damien Gonot",
+        heading="Citadel",
+        description="Damien Gonot's own citadel.",
+    ),
+    (
         destination="notes.html",
         source="notes.org",
         title="Notes - Damien Gonot",

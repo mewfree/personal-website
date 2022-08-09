@@ -1,0 +1,5 @@
+#+title: Citadel
+
+My own little fortress
+
+[[./images/citadel.png]]
