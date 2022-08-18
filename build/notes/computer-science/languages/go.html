@@ -53,7 +53,7 @@ apple
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">:=</span> <span class="dv">1</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> i <span class="op">&lt;=</span> <span class="dv">5</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="op">&lt;=</span> <span class="dv">5</span> <span class="op">{</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span>i<span class="op">)</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
@@ -65,9 +65,9 @@ apple
 </code></pre><h2 id="ifelse">If/else</h2><p>You can have an if without an else, but no ternary if.</p><div class="sourceCode" id="cb10" data-exports="both"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="ot">true</span> <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="ot">true</span> <span class="op">{</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;This is true!&quot;</span><span class="op">)</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;This is false!&quot;</span><span class="op">)</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><pre class="example"><code>This is true!
@@ -75,14 +75,14 @@ apple
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">:=</span> <span class="dv">2</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">switch</span> i <span class="op">{</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">switch</span> i <span class="op">{</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;one&quot;</span><span class="op">)</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;two&quot;</span><span class="op">)</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">3</span><span class="op">:</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">3</span><span class="op">:</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;three&quot;</span><span class="op">)</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">default</span><span class="op">:</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span><span class="st">&quot;English name is unknown&quot;</span><span class="op">)</span></span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><pre class="example"><code>two
@@ -155,11 +155,11 @@ map[bar:2 foo:1]
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    nums <span class="op">:=</span> <span class="op">[]</span><span class="dt">int</span><span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">}</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> _<span class="op">,</span> num <span class="op">:=</span> <span class="kw">range</span> nums <span class="op">{</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _<span class="op">,</span> num <span class="op">:=</span> <span class="kw">range</span> nums <span class="op">{</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span>num<span class="op">)</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> i<span class="op">,</span> c <span class="op">:=</span> <span class="kw">range</span> <span class="st">&quot;Damien&quot;</span> <span class="op">{</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i<span class="op">,</span> c <span class="op">:=</span> <span class="kw">range</span> <span class="st">&quot;Damien&quot;</span> <span class="op">{</span></span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        fmt<span class="op">.</span>Println<span class="op">(</span>i<span class="op">,</span> c<span class="op">)</span></span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><pre class="example"><code>1
@@ -174,11 +174,11 @@ map[bar:2 foo:1]
 </code></pre><h2 id="functions">Functions</h2><p>Requires explicit returns (won't return last statement). When all parameters are of the same type, it can be placed only at the end.</p><div class="sourceCode" id="cb22" data-exports="both"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> plus<span class="op">(</span>a <span class="dt">int</span><span class="op">,</span> b <span class="dt">int</span><span class="op">)</span> <span class="dt">int</span> <span class="op">{</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> a <span class="op">+</span> b</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> plusPlus<span class="op">(</span>a<span class="op">,</span> b<span class="op">,</span> c <span class="dt">int</span><span class="op">)</span> <span class="dt">int</span> <span class="op">{</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> a <span class="op">+</span> b <span class="op">+</span> c</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b <span class="op">+</span> c</span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
@@ -189,15 +189,15 @@ map[bar:2 foo:1]
 </code></pre><h3 id="multiple-return-values">Multiple Return Values</h3><p>Go functions can return multiple values</p><div class="sourceCode" id="cb24" data-exports="both"><pre class="sourceCode go"><code class="sourceCode go"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&quot;fmt&quot;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> sum<span class="op">(</span>a<span class="op">,</span> b <span class="dt">int</span><span class="op">)</span> <span class="dt">int</span> <span class="op">{</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> a <span class="op">+</span> b</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> product<span class="op">(</span>a<span class="op">,</span> b <span class="dt">int</span><span class="op">)</span> <span class="dt">int</span> <span class="op">{</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> a <span class="op">*</span> b</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">*</span> b</span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> sumProduct<span class="op">(</span>a<span class="op">,</span> b <span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="dt">int</span><span class="op">,</span> <span class="dt">int</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> sum<span class="op">(</span>a<span class="op">,</span> b<span class="op">),</span> product<span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sum<span class="op">(</span>a<span class="op">,</span> b<span class="op">),</span> product<span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span></span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
@@ -210,10 +210,10 @@ product: 8
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> sum<span class="op">(</span>nums <span class="op">...</span><span class="dt">int</span><span class="op">)</span> <span class="dt">int</span> <span class="op">{</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">:=</span> <span class="dv">0</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> _<span class="op">,</span> num <span class="op">:=</span> <span class="kw">range</span> nums <span class="op">{</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _<span class="op">,</span> num <span class="op">:=</span> <span class="kw">range</span> nums <span class="op">{</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> num</span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> total</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
@@ -247,7 +247,7 @@ product: 8
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> <span class="op">(</span>p <span class="op">*</span>person<span class="op">)</span> id<span class="op">()</span> <span class="dt">string</span> <span class="op">{</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> p<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>p<span class="op">.</span>age<span class="op">)</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>p<span class="op">.</span>age<span class="op">)</span></span>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
@@ -276,11 +276,11 @@ Bob-20
 <span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> <span class="op">(</span>p Person<span class="op">)</span> id<span class="op">()</span> <span class="dt">string</span> <span class="op">{</span></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> <span class="st">&quot;person-&quot;</span> <span class="op">+</span> p<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>p<span class="op">.</span>year_of_birth<span class="op">)</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;person-&quot;</span> <span class="op">+</span> p<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>p<span class="op">.</span>year_of_birth<span class="op">)</span></span>
 <span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> <span class="op">(</span>d Dog<span class="op">)</span> id<span class="op">()</span> <span class="dt">string</span> <span class="op">{</span></span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> <span class="st">&quot;dog-&quot;</span> <span class="op">+</span> d<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>d<span class="op">.</span>year_of_birth<span class="op">)</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;dog-&quot;</span> <span class="op">+</span> d<span class="op">.</span>name <span class="op">+</span> <span class="dt">string</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">)</span> <span class="op">+</span> strconv<span class="op">.</span>Itoa<span class="op">(</span>d<span class="op">.</span>year_of_birth<span class="op">)</span></span>
 <span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> printData<span class="op">(</span>l Living<span class="op">)</span> <span class="op">{</span></span>
@@ -304,10 +304,10 @@ dog-Fido-2003
 <span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> min<span class="op">[</span>T Number<span class="op">](</span>x<span class="op">,</span> y T<span class="op">)</span> T <span class="op">{</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> x <span class="op">&lt;</span> y <span class="op">{</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> x</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> y <span class="op">{</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
 <span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> y</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
 <span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> main<span class="op">()</span> <span class="op">{</span></span>
