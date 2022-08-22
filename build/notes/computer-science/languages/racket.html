@@ -67,20 +67,25 @@ x
 </code></pre><pre class="example"><code>1
 2
 #t
-</code></pre><h2 id="lists">Lists</h2><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h2 id="lists">Lists</h2><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (list 1 2 3)
-</code></pre><table><tbody><tr class="odd"><td>1</td><td>2</td><td>3</td></tr></tbody></table><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><pre class="example"><code>&#39;(1 2 3)
+</code></pre><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 &#39;(1 2 3)
-</code></pre><table><tbody><tr class="odd"><td>1</td><td>2</td><td>3</td></tr></tbody></table><h3 id="length">Length</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><pre class="example"><code>&#39;(1 2 3)
+</code></pre><h3 id="length">Length</h3><pre class="racket" data-exports="both"><code>#lang racket
 (length &#39;(1 2 3))
 </code></pre><pre class="example"><code>3
-</code></pre><h3 id="sort">Sort</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="sort">Sort</h3><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (sort &#39;(1 2 3) &gt;)
-</code></pre><table><tbody><tr class="odd"><td>3</td><td>2</td><td>1</td></tr></tbody></table><h3 id="take">Take</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><pre class="example"><code>&#39;(3 2 1)
+</code></pre><h3 id="take">Take</h3><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (take &#39;(1 2 3) 2)
-</code></pre><table><tbody><tr class="odd"><td>1</td><td>2</td></tr></tbody></table><h3 id="map">Map</h3><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><pre class="example"><code>&#39;(1 2)
+</code></pre><h3 id="map">Map</h3><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (map (λ (n) (* 2 n)) &#39;(1 2 3))
-</code></pre><table><tbody><tr class="odd"><td>2</td><td>4</td><td>6</td></tr></tbody></table><h3 id="foldl">Foldl</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><pre class="example"><code>&#39;(2 4 6)
+</code></pre><h3 id="foldl">Foldl</h3><pre class="racket" data-exports="both"><code>#lang racket
 (foldl (λ (acc n) (+ acc n)) 0 &#39;(1 2 3))
 </code></pre><pre class="example"><code>6
 </code></pre><p>Actually a way simpler way of writing it:</p><pre class="racket" data-exports="both"><code>#lang racket
@@ -122,5 +127,5 @@ x
   [8 &#39;eight]
   [9 &#39;nine])
 </code></pre><pre class="example"><code>nine
-</code></pre><h2 id="eval">Eval</h2><div class="sourceCode" id="cb44" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
+</code></pre><h2 id="eval">Eval</h2><div class="sourceCode" id="cb49" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
 </code></pre><h2 id="resources">Resources</h2><h3 id="the-racket-guide">The Racket Guide</h3><p><a href="https://docs.racket-lang.org/guide/index.html">https://docs.racket-lang.org/guide/index.html</a></p><h3 id="the-racket-reference">The Racket Reference</h3><p><a href="https://docs.racket-lang.org/reference/index.html">https://docs.racket-lang.org/reference/index.html</a></p><h3 id="beautiful-racket">Beautiful Racket</h3><p><a href="https://beautifulracket.com/">https://beautifulracket.com/</a></p><h3 id="realm-of-racket">Realm of Racket</h3><p><a href="https://nostarch.com/realmofracket.htm">https://nostarch.com/realmofracket.htm</a></p></div></body></html>
