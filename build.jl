@@ -87,7 +87,11 @@ end
 # Notes
 mkpath("build/notes")
 cp(homedir() * "/meworg/university.org", "src/notes.org")
-run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+if Sys.isapple()
+    run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+else
+    run(`sed -i -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+end
 cp(homedir() * "/meworg/university", "src/notes")
 for (root, dirs, files) in walkdir("src/notes")
     for dir in dirs
@@ -99,7 +103,11 @@ for (root, dirs, files) in walkdir("src/notes")
         slug, type = split(filename, ".")
         slug = replace(slug, "src/notes/" => "")
         if type == "org"
-            run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
+            if Sys.isapple()
+                run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
+            else
+                run(`sed -i 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
+            end
             local data = read(filename, String)
             local exports_both = map(
                 line ->
