@@ -1,0 +1,334 @@
+#+title: Beancount
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Beancount
+
+Double-Entry Accounting from Text Files.
+
+* Syntax
+https://beancount.github.io/docs/beancount_language_syntax.html
+
+directives == entries
+
+A beancount file is a plain text file full of entries.
+Basic syntax: =YYYY-MM-DD <type> ...=
+Order of entries is not important.
+
+** Date format
+Either =YYYY-MM-DD= (2022-02-14) or =YYYY/MM/DD= (2022/02/14).
+
+** Example
+#+begin_src beancount
+2014-02-03 open Assets:US:BofA:Checking
+
+2014-04-10 note Assets:US:BofA:Checking "Called to confirm wire transfer."
+
+2014-05-02 balance Assets:US:BofA:Checking   154.20 USD
+#+end_src
+
+** Accounts
+Commodities are being accumulated in ~accounts~.
+An account name is a colon-separated list of capitalized words which begin with a letter, and whose first word must be one of five account types:
+- Assets
+- Liabilities
+- Equity
+- Income
+- Expenses
+
+Example of account names:
+#+begin_src beancount
+Assets:US:BofA:Checking
+Liabilities:CA:RBC:CreditCard
+Equity:Retained-Earnings
+Income:US:Acme:Salary
+Expenses:Food:Groceries
+#+end_src
+
+** Currencies / Commodities
+The syntax for a currency is a word all in capital letters, like these:
+#+begin_src beancount
+USD
+CAD
+EUR
+MSFT
+IBM
+AIRMILE
+#+end_src
+
+Currency signs like € or $ should never be used, only the currency code (like USD or CAD or EUR).
+
+** Strings
+Whenever we need to insert some free text as part of an entry, it should be surrounded by double-quotes. This applies to the payee and narration fields, mainly; basically anything that’s not a date, a number, a currency, an account name.
+
+** Comments
+Comments can be insert with a =;= before it:
+#+begin_src beancount
+; I paid and left the taxi, forgot to take change, it was cold.
+2015-01-01 * "Taxi home from concert in Brooklyn"
+  Assets:Cash      -20 USD  ; inline comment
+  Expenses:Taxi
+#+end_src
+
+Any line that does not begin as a valid Beancount syntax directive (e.g. with a date) is silently ignored. This way you can insert markup to organize your file for various outline modes, such as org-mode in Emacs.
+
+** Entries
+https://beancount.github.io/docs/beancount_cheat_sheet.html
+
+*** Open
+All accounts need to be declared “open” in order to accept amounts posted to them. You do this by writing a directive that looks like this:
+#+begin_src beancount
+2014-05-01 open Liabilities:CreditCard:CapitalOne     USD
+#+end_src
+
+The general format of the Open directive is:
+=YYYY-MM-DD open Account [ConstraintCurrency,...] ["BookingMethod"]=
+
+*** Close
+Example:
+#+begin_src beancount
+; Closing credit card after fraud was detected.
+2016-11-28 close Liabilities:CreditCard:CapitalOne
+#+end_src
+
+General format:
+=YYYY-MM-DD close Account=
+
+*** Commodity
+Example:
+#+begin_src beancount
+1867-07-01 commodity CAD
+#+end_src
+
+General format:
+=YYYY-MM-DD commodity Currency=
+
+Not mandatory to disclose a commodity before using it (unlike accounts).
+It's useful to add metadata about a commodity:
+#+begin_src beancount
+1867-07-01 commodity CAD
+  name: "Canadian Dollar"
+  asset-class: "cash"
+
+2012-01-01 commodity HOOL
+  name: "Hooli Corporation Class C Shares"
+  asset-class: "stock"
+#+end_src
+
+And get stats by =asset-class= for example.
+
+*** Transactions
+Example:
+#+begin_src beancount
+2014-05-05 txn "Cafe Mogador" "Lamb tagine with wine"
+  Liabilities:CreditCard:CapitalOne         -37.45 USD
+  Expenses:Restaurant
+#+end_src
+
+=txn= can be replaced by a flag. By convention, those flags are commonly used:
+- =*= for a completed/correct transaction
+- =!= for an incomplete/incorrect transaction
+
+General format:
+=YYYY-MM-DD [txn|Flag] [[Payee] Narration] [Flag] Account Amount [{Cost}] [@ Price] [Flag] Account Amount [{Cost}] [@ Price] ...=
+
+**** Postings
+The lines that follow the first line are ~postings~.
+There can be as many postings as we want.
+
+Example of a salary entry:
+#+begin_src beancount
+2014-03-19 * "Acme Corp" "Bi-monthly salary payment"
+  Assets:MyBank:Checking             3062.68 USD     ; Direct deposit
+  Income:AcmeCorp:Salary            -4615.38 USD     ; Gross salary
+  Expenses:Taxes:TY2014:Federal       920.53 USD     ; Federal taxes
+  Expenses:Taxes:TY2014:SocSec        286.15 USD     ; Social security
+  Expenses:Taxes:TY2014:Medicare       66.92 USD     ; Medicare
+  Expenses:Taxes:TY2014:StateNY       277.90 USD     ; New York taxes
+  Expenses:Taxes:TY2014:SDI             1.20 USD     ; Disability insurance
+#+end_src
+
+Arithmetic expressions can be used (=( ) * / - +=):
+#+begin_src beancount
+2014-10-05 * "Costco" "Shopping for birthday"
+  Liabilities:CreditCard:CapitalOne         -45.00          USD
+  Assets:AccountsReceivable:John            ((40.00/3) + 5) USD
+  Assets:AccountsReceivable:Michael         40.00/3         USD
+  Expenses:Shopping
+#+end_src
+
+The sum of postings' balance amounts must be zero.
+
+**** Payee and Narration
+A transaction may have an optional “payee” and/or a “narration.” In the first example above, the payee is “Cafe Mogador” and the narration is “Lamb tagine with wine”.
+
+If you place a single string on a transaction line, it becomes its narration:
+=2014-05-05 * "Lamb tagine with wine"=
+
+If you want to set just a payee, put an empty narration string:
+=2014-05-05 * "Cafe Mogador" ""=
+
+**** Costs and Prices
+Basic example:
+#+begin_src beancount
+2012-11-03 * "Transfer to pay credit card"
+  Assets:MyBank:Checking            -400.00 USD
+  Liabilities:CreditCard             400.00 USD
+#+end_src
+
+Example with USD.CAD conversion with specific conversion rate:
+#+begin_src beancount
+2012-11-03 * "Transfer to account in Canada"
+  Assets:MyBank:Checking            -400.00 USD @ 1.09 CAD
+  Assets:FR:SocGen:Checking          436.01 CAD
+#+end_src
+
+Example with a total cost specified with =@@=:
+#+begin_src beancount
+2012-11-03 * "Transfer to account in Canada"
+  Assets:MyBank:Checking            -400.00 USD @@ 436.01 CAD
+  Assets:FR:SocGen:Checking          436.01 CAD
+#+end_src
+
+When something needs to be held at a specific cost (like a stock for investing to calculate cost basis, capital gains and taxes), it can be specified inside curly brackets:
+#+begin_src beancount
+2014-02-11 * "Bought shares of S&P 500"
+  Assets:ETrade:IVV                10 IVV {183.07 USD}
+  Assets:ETrade:Cash         -1830.70 USD
+#+end_src
+
+#+begin_src beancount
+2014-07-11 * "Sold shares of S&P 500"
+  Assets:ETrade:IVV               -10 IVV {183.07 USD} @ 197.90 USD
+  Assets:ETrade:Cash          1979.90 USD
+  Income:ETrade:CapitalGains
+#+end_src
+
+**** Tags
+Tags can be added to transactions:
+#+begin_src beancount
+2014-04-23 * "Flight to Berlin" #berlin-trip-2014
+  Expenses:Flights              -1230.27 USD
+  Liabilities:CreditCard
+#+end_src
+
+Multiple tags work too:
+#+begin_src beancount
+2014-04-23 * "Flight to Berlin" #berlin-trip-2014 #germany
+  Expenses:Flights              -1230.27 USD
+  Liabilities:CreditCard
+#+end_src
+
+Using =pushtag= / =poptag=:
+#+begin_src beancount
+pushtag #berlin-trip-2014
+
+2014-04-23 * "Flight to Berlin"
+  Expenses:Flights              -1230.27 USD
+  Liabilities:CreditCard
+
+poptag #berlin-trip-2014
+#+end_src
+This way, you can also push multiple tags onto a long, consecutive set of transactions without having to type them all in.
+
+**** Links
+Transactions can be linked together:
+#+begin_src beancount
+2014-02-05 * "Invoice for January" ^invoice-pepe-studios-jan14
+  Income:Clients:PepeStudios           -8450.00 USD
+  Assets:AccountsReceivable
+
+2014-02-20 * "Check deposit - payment from Pepe" ^invoice-pepe-studios-jan14
+  Assets:BofA:Checking                  8450.00 USD
+  Assets:AccountsReceivable
+#+end_src
+
+*** Balance Assertions
+A balance assertion is a way for you to input your statement balance into the flow of transactions. It tells Beancount to verify that the number of units of a particular commodity in some account should equal some expected value at some point in time. For instance, this:
+#+begin_src beancount
+2014-12-26 balance Liabilities:US:CreditCard   -3492.02 USD
+#+end_src
+says “Check that the number of USD units in account =Liabilities:US:CreditCard= on the morning of December 26th, 2014 is -3492.02 USD.”
+
+General format:
+=YYYY-MM-DD balance Account Amount=
+
+*** Pads
+A padding directive automatically inserts a transaction that will make the subsequent balance assertion succeed, if it is needed. It inserts the difference needed to fulfill that balance assertion.
+
+Example:
+#+begin_src beancount
+2014-06-01 pad Assets:BofA:Checking Equity:Opening-Balances
+#+end_src
+
+General format:
+=YYYY-MM-DD pad Account AccountPad=
+
+Realistic example:
+#+begin_src beancount
+; Account was opened way back in the past.
+2002-01-17 open Assets:US:BofA:Checking
+
+2002-01-17 pad Assets:US:BofA:Checking Equity:Opening-Balances
+
+2014-07-09 balance Assets:US:BofA:Checking  987.34 USD
+#+end_src
+
+*** Notes
+Notes can be used to insert a dated comment to a specific account:
+#+begin_src beancount
+2013-11-03 note Liabilities:CreditCard "Called about fraudulent card."
+#+end_src
+
+General format:
+=YYYY-MM-DD note Account Description=
+
+*** Documents
+A Document directive can be used to attach an external file to the journal of an account:
+#+begin_src beancount
+2013-11-03 document Liabilities:CreditCard "/home/joe/stmts/apr-2014.pdf"
+#+end_src
+
+General format:
+=YYYY-MM-DD document Account PathToDocument=
+
+*** Prices
+Price can be used to indicate the price of a commodity (to calculate unrealized capital gains for example):
+#+begin_src beancount
+2014-07-09 price HOOL  579.18 USD
+#+end_src
+
+General format:
+=YYYY-MM-DD price Commodity Price=
+
+*** Events
+Events can be used to track the value of /something/ over time, like location:
+#+begin_src beancount
+2014-07-09 event "location" "Paris, France"
+#+end_src
+
+General format:
+=YYYY-MM-DD event Name Value=
+
+Ideas of what to track:
+- Location: You can use events for tracking the city or country you’re in.
+- Address: If you move around a lot, it’s useful to keep a record of your past home addresses. This is sometimes requested on government forms for immigration. The Green Card application process in the US, for instance,
+- Employer: You can record your date of employment and departure for each job this way. Then you can count the number of days you worked there.
+
+* Commands
+=bean-check {file}= to check the validity of a file.
+
+=bean-web {file}= to view the web interface.
+
+=bean-report {file} {report-name}= to report on ={report-name}=, like =balances=.
+
+=bean-query {file}= to run a query against file.
+
+=bean-format {file}= to re-format the file.
+
+* Trading
+https://beancount.github.io/docs/trading_with_beancount.html
+
+* Accounting Cookbook
+https://beancount.github.io/docs/command_line_accounting_cookbook.html
+
+* Query Language
+https://beancount.github.io/docs/beancount_query_language.html

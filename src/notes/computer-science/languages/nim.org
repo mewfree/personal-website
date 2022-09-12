@@ -1,0 +1,154 @@
+#+title: Nim
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Nim
+
+https://nim-lang.org/
+
+Fast general purpose programming language
+
+* Basics
+#+begin_src nim
+echo "Hello World!"
+#+end_src
+
+#+RESULTS:
+: Hello World!
+
+#+begin_src nim
+echo 1+1
+#+end_src
+
+#+RESULTS:
+: 2
+
+* Variables
+#+begin_src nim
+var letter = 'a'
+echo letter
+#+end_src
+
+#+RESULTS:
+: a
+
+With type declaration:
+#+begin_src nim
+var lang: string = "Nim"
+echo lang
+#+end_src
+
+#+RESULTS:
+: Nim
+
+=let= for immutables:
+#+begin_src nim
+let name: string = "Damien"
+echo name
+#+end_src
+
+#+RESULTS:
+: Damien
+
+=const= for immutables known at compile-time:
+#+begin_src nim
+const number: int = 9
+echo number
+#+end_src
+
+#+RESULTS:
+: 9
+
+* Strings
+Concatenation:
+#+begin_src nim
+var name = "Damien"
+var greeting = "Hello "
+echo greeting & name
+#+end_src
+
+#+RESULTS:
+: Hello Damien
+
+* Containers
+** Arrays
+#+begin_src nim
+echo ['a', 'b', 'c', 'd', 'e']
+#+end_src
+
+#+RESULTS:
+| ['a' | 'b' | 'c' | 'd' | 'e'] |
+
+#+begin_src nim
+let list = ['a', 'b', 'c', 'd', 'e']
+echo list[1]
+echo list[^1]
+#+end_src
+
+#+RESULTS:
+| b |
+| e |
+
+* Countup
+#+begin_src nim
+for i in countup(1, 5):
+  echo i
+#+end_src
+
+#+RESULTS:
+| 1 |
+| 2 |
+| 3 |
+| 4 |
+| 5 |
+
+Shorter syntax for =countup()=:
+#+begin_src nim
+for i in 1 .. 5:
+  echo i
+#+end_src
+
+#+RESULTS:
+| 1 |
+| 2 |
+| 3 |
+| 4 |
+| 5 |
+
+* Control Flow
+#+begin_src nim
+if 1 < 2:
+  echo "Math is right"
+#+end_src
+
+#+RESULTS:
+: Math is right
+
+* For Loops
+#+begin_src nim
+for letter in "Damien":
+  echo letter
+#+end_src
+
+#+RESULTS:
+| D |
+| a |
+| m |
+| i |
+| e |
+| n |
+
+#+begin_src nim
+for index, letter in ['a', 'b', 'c']:
+  echo index, " ", letter
+#+end_src
+
+#+RESULTS:
+| 0 | a |
+| 1 | b |
+| 2 | c |
+
+* Resources
+- https://nim-lang.org/docs/tut1.html
+- https://narimiran.github.io/nim-basics/
+- https://learnxinyminutes.com/docs/nim/
+- https://nim-lang.org/blog/2021/11/15/zen-of-nim.html
+- https://ssalewski.de/nimprogramming.html

@@ -1,0 +1,684 @@
+#+title: UNIX Commands
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / UNIX Commands
+
+* UNIX Commands
+** rm
+ReMoves a file
+#+begin_src bash
+rm ~/tmp/unix_example
+#+end_src
+
+#+RESULTS:
+
+** echo
+Writes =argument= to new line of file
+#+begin_src bash
+echo "yo" >> ~/tmp/unix_example
+#+end_src
+
+#+RESULTS:
+
+** cat
+Display the content of specified file
+
+#+begin_src bash
+cat ~/tmp/unix_example
+#+end_src
+
+#+RESULTS:
+: yo
+
+** sort
+#+begin_src bash
+cat ~/tmp/sort_example
+#+end_src
+
+#+RESULTS:
+| 8 |
+| 4 |
+| 6 |
+| 2 |
+| 3 |
+| 1 |
+| 5 |
+| 9 |
+| 7 |
+
+#+begin_src bash
+sort ~/tmp/sort_example
+#+end_src
+
+#+RESULTS:
+| 1 |
+| 2 |
+| 3 |
+| 4 |
+| 5 |
+| 6 |
+| 7 |
+| 8 |
+| 9 |
+
+Works with pipe operator too:
+#+begin_src bash
+cat ~/tmp/sort_example | sort
+#+end_src
+
+** uniq
+#+begin_src bash
+cat ~/tmp/uniq_example
+#+end_src
+
+#+RESULTS:
+| 2 |
+| 1 |
+| 3 |
+| 3 |
+| 2 |
+| 2 |
+| 2 |
+| 1 |
+
+#+begin_src bash
+cat ~/tmp/uniq_example | uniq
+#+end_src
+
+#+RESULTS:
+| 2 |
+| 1 |
+| 3 |
+| 2 |
+| 1 |
+
+#+begin_src bash
+cat ~/tmp/uniq_example | sort | uniq
+#+end_src
+
+#+RESULTS:
+| 1 |
+| 2 |
+| 3 |
+
+** tail
+Display the last part of a file
+#+begin_src bash
+cat ~/tmp/sort_example | sort | tail -n 5
+#+end_src
+
+#+RESULTS:
+| 5 |
+| 6 |
+| 7 |
+| 8 |
+| 9 |
+
+=tail -f file=: keep reading file until =Ctrl-C=
+
+** less
+=less file=: interactively read =file=
+
+=less -F file= equivalent to =tail -f file=
+
+** grep
+Find patterns in files
+#+begin_src bash
+cat ~/tmp/csv_example
+#+end_src
+
+#+RESULTS:
+| product_id | product_name       | url                      | price | currency |
+|          1 | Nike shoes         | example.com/nike         |    80 | EUR      |
+|          2 | Adidas shoes       | example.com/adidas       |    75 | EUR      |
+|          3 | Puma shoes         | example.com/puma         |    82 | EUR      |
+|          4 | Burton bag         | example.com/burton       |    55 | EUR      |
+|          5 | Canada Goose parka | example.com/canada-goose |   600 | CAD      |
+
+#+begin_src bash
+cat ~/tmp/csv_example | grep "Nike"
+#+end_src
+
+#+RESULTS:
+| 1 | Nike shoes | example.com/nike | 80 | EUR |
+
+** awk
+https://www.gnu.org/software/gawk/manual/gawk.html
+https://earthly.dev/blog/awk-examples/
+https://www.cs.princeton.edu/courses/archive/spring19/cos333/awk.help
+
+#+begin_src bash :results output
+cat ~/tmp/csv_example | awk -F ',' '{print $2}'
+#+end_src
+
+#+RESULTS:
+: product_name
+: Nike shoes
+: Adidas shoes
+: Puma shoes
+: Burton bag
+: Canada Goose parka
+
+#+begin_src bash
+cat ~/tmp/csv_example | awk -F ',' '{print $4}'
+#+end_src
+
+#+RESULTS:
+| price |
+|    80 |
+|    75 |
+|    82 |
+|    55 |
+|   600 |
+
+** sed
+#+begin_src bash
+sed 's/example/amazon/' ~/tmp/csv_example
+#+end_src
+
+#+RESULTS:
+| product_id | product_name       | url                     | price | currency |
+|          1 | Nike shoes         | amazon.com/nike         |    80 | EUR      |
+|          2 | Adidas shoes       | amazon.com/adidas       |    75 | EUR      |
+|          3 | Puma shoes         | amazon.com/puma         |    82 | EUR      |
+|          4 | Burton bag         | amazon.com/burton       |    55 | EUR      |
+|          5 | Canada Goose parka | amazon.com/canada-goose |   600 | CAD      |
+
+** cut
+#+begin_src bash
+cat ~/tmp/csv_example | cut -d',' -f3
+#+end_src
+
+#+RESULTS:
+| url                      |
+| example.com/nike         |
+| example.com/adidas       |
+| example.com/puma         |
+| example.com/burton       |
+| example.com/canada-goose |
+
+** tr
+#+begin_src bash
+cat ~/tmp/csv_example | cut -d',' -f3 | tr / ?
+#+end_src
+
+#+RESULTS:
+| url                      |
+| example.com?nike         |
+| example.com?adidas       |
+| example.com?puma         |
+| example.com?burton       |
+| example.com?canada-goose |
+
+** ncdu
+Faster implementation for SSDs, written in Go: =gdu=
+
+** reset
+Reset comsol to its initial state
+
+** jq
+https://stedolan.github.io/jq/manual/
+=jq file.json= to parse JSON file
+
+*** Pretty printing
+#+begin_src bash :results verbatim
+echo '{"key1":{"key2":"value1"}}' | jq '.'
+#+end_src
+
+#+RESULTS:
+: {
+:   "key1": {
+:     "key2": "value1"
+:   }
+: }
+
+*** Selecting a specific key
+#+begin_src bash :results verbatim
+curl https://api.github.com/repos/mewfree/mewfree | jq '.owner'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "login": "mewfree",
+  "id": 8095395,
+  "node_id": "MDQ6VXNlcjgwOTUzOTU=",
+  "avatar_url": "https://avatars.githubusercontent.com/u/8095395?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/mewfree",
+  "html_url": "https://github.com/mewfree",
+  "followers_url": "https://api.github.com/users/mewfree/followers",
+  "following_url": "https://api.github.com/users/mewfree/following{/other_user}",
+  "gists_url": "https://api.github.com/users/mewfree/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/mewfree/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/mewfree/subscriptions",
+  "organizations_url": "https://api.github.com/users/mewfree/orgs",
+  "repos_url": "https://api.github.com/users/mewfree/repos",
+  "events_url": "https://api.github.com/users/mewfree/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/mewfree/received_events",
+  "type": "User",
+  "site_admin": false
+}
+#+end_example
+
+#+begin_src bash :results verbatim
+curl https://api.github.com/repos/mewfree/mewfree | jq '.owner.html_url'
+#+end_src
+
+#+RESULTS:
+: "https://github.com/mewfree"
+
+*** Selecting elements from an array
+#+begin_src bash :results verbatim
+echo "[1,2,3,4,5]" | jq '.[0]'
+#+end_src
+
+#+RESULTS:
+: 1
+
+#+begin_src bash :results verbatim
+echo "[1,2,3,4,5]" | jq '.[0:2]'
+#+end_src
+
+#+RESULTS:
+: [
+:   1,
+:   2
+: ]
+
+#+begin_src bash :results verbatim
+echo "[1,2,3,4,5]" | jq '.[2:]'
+#+end_src
+
+#+RESULTS:
+: [
+:   3,
+:   4,
+:   5
+: ]
+
+#+begin_src bash :results verbatim
+echo "[1,2,3,4,5]" | jq '.[-2:]'
+#+end_src
+
+#+RESULTS:
+: [
+:   4,
+:   5
+: ]
+
+*** Selecting keys from elements from an array
+#+begin_src bash :results verbatim
+echo '[{"title": "a"}, {"title": "b"}, {"title": "c"}]' | jq '.[].title'
+#+end_src
+
+#+RESULTS:
+: "a"
+: "b"
+: "c"
+
+#+begin_src bash :results verbatim
+echo '[{"title": "a"}, {"title": "b"}, {"title": "c"}]' | jq '.[0].title'
+#+end_src
+
+#+RESULTS:
+: "a"
+
+*** Raw strings
+#+begin_src bash :results verbatim
+echo '[{"title": "a"}, {"title": "b"}, {"title": "c"}]' | jq -r '.[0].title'
+#+end_src
+
+#+RESULTS:
+: a
+
+*** Join strings
+#+begin_src bash :results verbatim
+echo '[{"title": "a"}, {"title": "b"}, {"title": "c"}]' | jq -j '.[].title'
+#+end_src
+
+#+RESULTS:
+: abc
+
+*** Array constructor
+#+begin_src bash :results verbatim
+echo '[{"title": "a"}, {"title": "b"}, {"title": "c"}]' | jq '[ .[].title ]'
+#+end_src
+
+#+RESULTS:
+: [
+:   "a",
+:   "b",
+:   "c"
+: ]
+
+*** Select multiple fields
+By iterating:
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq '.[].type, .[].title'
+#+end_src
+
+#+RESULTS:
+: "movie"
+: "book"
+: "tv show"
+: "The Social Network"
+: "Ready Player One"
+: "Halt And Catch Fire"
+
+Using the pipe operator:
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq '.[] | .type, .title'
+#+end_src
+
+#+RESULTS:
+: "movie"
+: "The Social Network"
+: "book"
+: "Ready Player One"
+: "tv show"
+: "Halt And Catch Fire"
+
+Pipe operator wrapped in array constructor:
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq '[ .[] | .type, .title ]'
+#+end_src
+
+#+RESULTS:
+: [
+:   "movie",
+:   "The Social Network",
+:   "book",
+:   "Ready Player One",
+:   "tv show",
+:   "Halt And Catch Fire"
+: ]
+
+Using the object constructor:
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq '[ .[] | {media_type: .type, title: .title } ]'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[
+  {
+    "media_type": "movie",
+    "title": "The Social Network"
+  },
+  {
+    "media_type": "book",
+    "title": "Ready Player One"
+  },
+  {
+    "media_type": "tv show",
+    "title": "Halt And Catch Fire"
+  }
+]
+#+end_example
+
+*** Sort / Reverse / Length
+#+begin_src bash :results verbatim
+echo '["3","2","1"]' | jq 'sort'
+#+end_src
+
+#+RESULTS:
+: [
+:   "1",
+:   "2",
+:   "3"
+: ]
+
+#+begin_src bash :results verbatim
+echo '["1","2","3"]' | jq 'reverse'
+#+end_src
+
+#+RESULTS:
+: [
+:   "3",
+:   "2",
+:   "1"
+: ]
+
+#+begin_src bash :results verbatim
+echo '["1","2","3"]' | jq 'length'
+#+end_src
+
+#+RESULTS:
+: 3
+
+*** Map / Select
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq 'map({ title: .title })'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[
+  {
+    "title": "The Social Network"
+  },
+  {
+    "title": "Ready Player One"
+  },
+  {
+    "title": "Halt And Catch Fire"
+  }
+]
+#+end_example
+
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq 'map(select(.type == "tv show")) | map({title: .title})'
+#+end_src
+
+#+RESULTS:
+: [
+:   {
+:     "title": "Halt And Catch Fire"
+:   }
+: ]
+
+#+begin_src bash :results verbatim
+echo '[{"type": "movie", "title": "The Social Network", "release_date": "2010"}, {"type": "book", "title": "Ready Player One", "release_date": "2011"}, {"type": "tv show", "title": "Halt And Catch Fire", "release_date": "2014"}]' \
+    | jq 'map(select(.type != "book")) | map({title: .title, date: .release_date})'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[
+  {
+    "title": "The Social Network",
+    "date": "2010"
+  },
+  {
+    "title": "Halt And Catch Fire",
+    "date": "2014"
+  }
+]
+#+end_example
+
+** fx
+=fx file.json= to view and interact with JSON file
+
+** z
+Alternative =cd=?
+https://github.com/rupa/z
+
+** tree
+Display directory structure
+
+=tree -I .git= ignore =.git=
+=tree -a= show "hidden" files
+
+** stow
+https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
+=stow vim= creates a symlink between files in =vim= and upper directory
+
+** shuf
+"shuffle"
+#+begin_src bash
+seq 10 | shuf
+#+end_src
+
+#+RESULTS:
+|  9 |
+|  6 |
+|  7 |
+|  1 |
+| 10 |
+|  5 |
+|  8 |
+|  3 |
+|  2 |
+|  4 |
+
+#+begin_src bash
+seq 10 | shuf -n 1
+#+end_src
+
+#+RESULTS:
+: 9
+
+** dasel
+https://github.com/TomWright/dasel
+=jq= for JSON, YAML, TOML, XML and CSV
+
+Querying for a specific field
+#+begin_src bash :results verbatim
+echo '{"id": 1, "name": "Damien"}' | dasel -r json '.name'
+#+end_src
+
+#+RESULTS:
+: "Damien"
+
+JSON => CSV
+#+begin_src bash :results verbatim
+echo '{"id": 1, "name": "Damien"}' | dasel -r json -w csv
+#+end_src
+
+#+RESULTS:
+: id,name
+: 1,Damien
+
+CSV => JSON
+#+begin_src bash :results verbatim
+printf 'id,name\n1,Damien\n2,Emilie' | dasel -r csv -w json
+#+end_src
+
+#+RESULTS:
+: {
+:   "id": "1",
+:   "name": "Damien"
+: }
+: {
+:   "id": "2",
+:   "name": "Emilie"
+: }
+
+** Miller
+https://miller.readthedocs.io/en/latest/index.html
+Miller is like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON. You get to work with your data using named fields, without needing to count positional column indices.
+
+"=cat=" (unmodified)
+#+begin_src bash :results verbatim
+printf 'id,name\n1,Damien\n2,Emilie' | mlr --csv cat
+#+end_src
+
+#+RESULTS:
+: id,name
+: 1,Damien
+: 2,Emilie
+
+Pretty print
+#+begin_src bash :results verbatim
+printf 'id,name\n1,Damien\n2,Emilie' | mlr --csv --opprint cat
+#+end_src
+
+#+RESULTS:
+: id name
+: 1  Damien
+: 2  Emilie
+
+Select column(s)
+#+begin_src bash :results verbatim
+printf 'id,name\n1,Damien\n2,Emilie' | mlr --csv cut -f name
+#+end_src
+
+#+RESULTS:
+: name
+: Damien
+: Emilie
+
+** htmlq
+https://github.com/mgdm/htmlq
+
+#+begin_src bash :results verbatim
+curl --silent https://www.damiengonot.com/blog | htmlq --text article h3 a
+#+end_src
+
+#+RESULTS:
+#+begin_example
+🧨 Supercharge Your Spreadsheets With Free Emailing 📮
+How to Automatically Pull Facebook Ads Data in Google Spreadsheet?
+Guide to Facebook Insights API (Part 2)
+Guide to Facebook Insights API
+Getting Started with Facebook Marketing API
+Connecting Google Ads Scripts with Google Spreadsheets
+Google Ads Scripts: Programmatically Create Ads
+Google Ads Scripts: Modify Entities
+Google Ads Scripts: Reading Data
+A Brief Introduction to Google Ads Scripts
+#+end_example
+
+** pup
+https://github.com/ericchiang/pup
+
+#+begin_src bash :results verbatim
+curl --silent https://www.damiengonot.com/blog | pup 'article h3 a text{}'
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ðŸ§¨ Supercharge Your Spreadsheets With Free Emailing ðŸ“®
+How to Automatically Pull Facebook Ads Data in Google Spreadsheet?
+Guide to Facebook Insights API (Part 2)
+Guide to Facebook Insights API
+Getting Started with Facebook Marketing API
+Connecting Google Ads Scripts with Google Spreadsheets
+Google Ads Scripts: Programmatically Create Ads
+Google Ads Scripts: Modify Entities
+Google Ads Scripts: Reading Data
+A Brief Introduction to Google Ads Scripts
+#+end_example
+
+No support for emojis?
+
+** ufw
+"UncomplicatedFireWall"
+
+/!\ allow SSH when setting up =ufw= on a remote server so you don't lose the connection
+=sudo ufw allow ssh=
+
+Status: =sudo ufw status=
+Enable: =sudo ufw enable=
+
+Deny incoming but allow outgoing:
+=sudo ufw default deny incoming=
+=sudo ufw default allow outgoing=
+
+** csvquote
+https://github.com/dbro/csvquote
+Enables common unix utlities like cut, awk, wc, head to work correctly with csv data containing delimiters and newlines
+
+* Help
+Traditionally, can use =man {command}= to get info about =command= but can be quite lengthy and lack examples.
+=tldr {command}= solves this problem by being a short cheatsheet with many examples.
+
+* Resources
+https://earthly.dev/blog/command-line-tools/
+https://news.ycombinator.com/item?id=27992073

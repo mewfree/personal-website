@@ -1,0 +1,73 @@
+#+title: Marketing
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Marketing
+
+* [[file:marketing/facebook-ads.org][Facebook Ads]]
+
+* [[file:marketing/google-ads.org][Google Ads]]
+
+* Snap Ads
+** Features
+#+name: URL parameters that can be used
+#+begin_src
+Campaign Name {{ campaign.name }}
+Campaign ID {{ campaign.id }}
+Ad Set Name {{ adSet.name }}
+Ad Set ID {{ adSet.id }}
+Creative Name {{ creative.name }}
+Ad ID {{ ad.id }}
+Creative Headline {{ creative.headline }}
+#+end_src
+
+** Snap Ads API
+*** Ad creation
+https://developers.snapchat.com/api/docs/#create-a-snap-ad
+
+*** Upload image
+https://developers.snapchat.com/api/docs/#upload-media-image
+
+*** Upload file from Google Apps Script
+https://stackoverflow.com/questions/24340340/urlfetchapp-upload-file-multipart-form-data-in-google-apps-script
+
+* LinkedIn Ads
+** LinkedIn Ads API
+*** Permissions
+https://docs.microsoft.com/en-us/linkedin/marketing/getting-started#what-permissions-are-available
+*** Token Generator
+https://www.linkedin.com/developers/news/featured-updates/token-generator-tool
+
+* TikTok Ads
+
+* Twitter Ads
+** Twitter Ads API
+Auth is terrible...
+
+For media upload, have to use "traditional" Twitter API, not Ads API.
+For adding media to ads library, use =media_key=, not =media_id=.
+
+* Emails
+** Mail Studio
+https://mailstudio.app/
+#+begin_quote
+Application for designing beautiful responsive emails that work everywhere.
+#+end_quote
+
+** Plunk
+https://www.useplunk.com/
+#+begin_quote
+Email Marketing like you've never seen before
+
+Plunk is the only email marketing tool built for people that just need the essentials. Create complex, automated email flows in Plunk and trigger them from anywhere through a single API call.
+#+end_quote
+
+* Copywriting
+https://twitter.com/alexgarcia_atx/status/1405155705477156866
+
+* Resources
+https://university.mobileaction.co/
+
+** Marketing for DevTools
+https://www.developermarkepear.com/blog/paid-advertising-developer-marketing
+
+** Freelance Marketers Marketplace
+https://marketerhire.com/

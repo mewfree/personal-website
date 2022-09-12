@@ -1,0 +1,111 @@
+#+title: Google Ads
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../marketing.org][Marketing]] / Google Ads
+
+* Features
+** Location insertion
+https://support.google.com/google-ads/answer/9773001
+** Ads
+*** Responsive Search Ads
+**** Headlines
+Min 3, Max 15
+30 chars max each
+**** Descriptions
+Min 2, Max 4
+90 chars max each
+**** Path 1, Path 2
+15 chars max each
+**** Final Url
+*** Text ads
+Deprecated, only Responsive Search Ads will be used in the future
+**** Final Url
+**** Headline 1
+30 chars max
+**** Headline 2
+30 chars max
+**** Headline 3
+30 chars max
+**** Path 1, Path 2
+15 chars max each
+**** Description 1
+90 chars max
+**** Description 2
+90 chars max
+
+* Google Ads scripts
+** Google Ads Query Language
+https://developers.google.com/google-ads/scripts/docs/reference/adsapp/adsapp#search_2
+
+* Google Ads API
+https://developers.google.com/google-ads/api/docs/concepts/call-structure
+
+** Authentication
+*** OAuth Playground
+https://console.developers.google.com/apis/credentials
+*** Dealing with accounts under a manager account
+https://developers.google.com/google-ads/api/rest/auth#login_customer_id
+
+** Test accounts
+*** Instructions on how to create a Google Ads test account
+https://developers.google.com/google-ads/api/docs/first-call/overview
+https://developers.google.com/adwords/api/docs/guides/accounts-overview#test_accounts
+*** Comparisons with production acctions
+#+begin_quote
+- The TargetingIdeaService and TrafficEstimatorService return dummy data to test accounts.
+- Since test accounts don't serve ads, they also have no metrics. This impacts reports: Values for impressions, costs, etc. will all be zero.
+- Test accounts don't have any associated clicks, so they can't be used to test offline conversion uploads.
+- The DataService won't return bid landscapes for test accounts because bid landscapes are based on ads served from the account.
+- You can only have 50 accounts in the hierarchy of a test manager account.
+- You can't issue mutate operations to BudgetOrderService from test accounts since the accounts don't have associated billing.
+- When testing uploading customer match lists, the test account needs to be added to an existing allowlisted manager account.
+#+end_quote
+*** Displaying data for approval
+Use fake data
+*** Testing with production data
+AdWords SOAP API had a =validateOnly= header, doesn't seem to existe for Google Ads API
+
+** Using the Google Ads API with REST
+https://www.youtube.com/watch?v=2GWx6jI7Ib4&t=1060s
+https://developers.google.com/google-ads/api/rest/overview
+
+*** URL structure
+https://googleads.googleapis.com/v8/customers/1234567890:mutate
+             {base_url}  {api_prefix} {resource_name}   {method}
+
+*** Mutate / Create
+https://developers.google.com/google-ads/api/rest/common/mutate
+
+** Google Ads Query Language
+https://developers.google.com/google-ads/api/docs/query/overview
+https://developers.google.com/google-ads/api/fields/v8/overview_query_builder
+
+*** Get account hierarchy
+#+begin_src sql
+SELECT
+    customer_client.client_customer,
+    customer_client.level,
+    customer_client.manager,
+    customer_client.descriptive_name,
+    customer_client.currency_code,
+    customer_client.time_zone,
+    customer_client.id
+FROM
+    customer_client
+-- WHERE customer_client.level <= 1
+#+end_src
+
+** v9 New Features
+https://ads-developers.googleblog.com/2021/11/announcing-v9-of-google-ads-api.html
+- Performance Max support (one easy-to-use campaign, dynamically allocate budget across Google products)
+- Conversion goals
+- Smart campaigns
+- Video Ad assets
+- Conversions - iOS
+- Assets
+- Responsive Search Ads - Ad Customizer support
+- Hotel Ads
+
+** Resources
+- https://www.youtube.com/watch?v=2QaNf-JGCGU Live Webinar: Migrating to the Google Ads API
+- https://www.youtube.com/watch?v=I0Hf6_gyCUw Intro to Batch Processing in the Google Ads API
+- https://www.youtube.com/watch?v=btpRjpgbEa4 Error Handling, Retry, and Timeouts in Google Ads API

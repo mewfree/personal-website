@@ -1,0 +1,97 @@
+#+title: Chinese
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Chinese
+
+* Pinyin
+- j -> dj
+- q -> tch
+- x -> sh
+- c -> ts
+- y/w -> silent
+- u -> ou
+- ü -> u
+- ou -> ow
+
+** zi ci si zhi chi shi ri
+https://www.youtube.com/watch?v=pS9QAhSBfhE
+https://www.youtube.com/watch?v=Z2YXJiiNREw
+
+* Tones
+- 1 -> -
+- 2 -> /
+- 3 -> V
+- 4 -> \
+
+* Bopomofo / Zhuyin
+https://en.wikipedia.org/wiki/Bopomofo
+
+https://www.reddit.com/r/ChineseLanguage/comments/dkbzji/apps_for_learning_zhuyin/
+
+| Zhuyin | Pinyin    | Wade-Giles | Example                        |
+|--------+-----------+------------+--------------------------------|
+| ㄅ     | b         | p          | 包 bāo ㄅㄠ                    |
+| ㄆ     | p         | pʻ         | 撲 pū ㄆㄨ                     |
+| ㄇ     | m         | m          | 冞 mí ㄇㄧˊ                    |
+| ㄈ     | f         | f          | 匪 fěi ㄈㄟˇ                   |
+| ㄉ     | d         | t          | 地 dì ㄉㄧˋ                    |
+| ㄊ     | t         | tʻ         | 提 tí ㄊㄧˊ                    |
+| ㄋ     | n         | n          | 你 nǐ ㄋㄧˇ                    |
+| ㄌ     | l         | l          | 利 lì ㄌㄧˋ                    |
+| ㄍ     | g         | k          | 告 gào ㄍㄠˋ                   |
+| ㄎ     | k         | kʻ         | 考 kǎo ㄎㄠˇ                   |
+| ㄏ     | h         | h          | 好 hǎo ㄏㄠˇ                   |
+| ㄐ     | j         | ch         | 叫 jiào ㄐㄧㄠˋ                |
+| ㄑ     | q         | chʻ        | 巧 qiǎo ㄑㄧㄠˇ                |
+| ㄒ     | x         | hs         | 小 xiǎo ㄒㄧㄠˇ                |
+| ㄓ     | zhi, zh-  | ch         | 知 zhī ㄓ; 主 zhǔ ㄓㄨˇ        |
+| ㄔ     | chi, ch-  | chʻ        | 吃 chī ㄔ; 出 chū ㄔㄨ         |
+| ㄕ     | shi, sh-  | sh         | 是 shì ㄕˋ; 束 shù ㄕㄨˋ       |
+| ㄖ     | ri, r-    | j          | 日 rì ㄖˋ; 入 rù ㄖㄨˋ         |
+| ㄗ     | zi, z-    | ts         | 字 zì ㄗˋ; 在 zài ㄗㄞˋ        |
+| ㄘ     | ci, c-    | tsʻ        | 詞 cí ㄘˊ; 才 cái ㄘㄞˊ        |
+| ㄙ     | si, s-    | s          | 四 sì ㄙˋ; 塞 sāi ㄙㄞ         |
+|--------+-----------+------------+--------------------------------|
+| ㄚ     | a         | a          | 大 dà ㄉㄚˋ                    |
+| ㄛ     | o         | o          | 多 duō ㄉㄨㄛ                  |
+| ㄜ     | e         | o/ê        | 得 dé ㄉㄜˊ                    |
+| ㄝ     | -ie/ê     | eh         | 爹 diē ㄉㄧㄝ                  |
+| ㄞ     | ai        | ai         | 晒 shài ㄕㄞˋ                  |
+| ㄟ     | ei        | ei         | 誰 shéi ㄕㄟˊ                  |
+| ㄠ     | ao        | ao         | 少 shǎo ㄕㄠˇ                  |
+| ㄡ     | ou        | ou         | 收 shōu ㄕㄡ                   |
+| ㄢ     | an        | an         | 山 shān ㄕㄢ                   |
+| ㄣ     | en        | ên         | 申 shēn ㄕㄣ                   |
+| ㄤ     | ang       | ang        | 上 shàng ㄕㄤˋ                 |
+| ㄥ     | eng       | êng        | 生 shēng ㄕㄥ                  |
+| ㄦ     | er        | êrh        | 而 ér ㄦˊ                      |
+| ㄧ     | yi, -i    | i          | 以 yǐ ㄧˇ; 逆 nì ㄋㄧˋ         |
+| ㄨ     | w, wu, -u | u/w        | 努 nǔ ㄋㄨˇ; 我 wǒ ㄨㄛˇ       |
+| ㄩ     | yu, -ü    | ü/yü       | 雨 yǔ ㄩˇ; 女 nǚ ㄋㄩˇ         |
+| ㄭ     | -i        | ih/ŭ       | 資 zī ㄗ; 知 zhī ㄓ; 死 sǐ ㄙˇ |
+
+** Online Lessons
+https://www.dong-chinese.com/learn/sounds/zhuyin/lesson_1
+
+* Vocabulary
+chule -> except
+qingwen -> excuse me
+
+* Notes
+- How to learn more?
+- Focus on characters? Writing? Speaking? Grammar?
+- Learn by reading, watching, listening?
+
+* Resources
+https://duome.eu/tips/en/zs
+
+https://www.xiaomanyc.com/
+
+How to say allergic to nuts and gluten free:
+[[https://www.youtube.com/watch?v=1vko1YCJraE]]
+
+[[https://www.youtube.com/channel/UCSXriUqkzZmAQklQ0N9XFVw]]
+
+Apprendre le chinois en une vidéo:
+https://www.youtube.com/watch?v=bsxrsBs1Y3U
+
+https://www.learn-chinese.com/hsk-vocabulary/

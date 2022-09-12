@@ -1,0 +1,133 @@
+#+title: Data Science
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Data Science
+
+* Probabilities
+https://probability4datascience.com/
+** Markov Chains
+https://github.com/czekster/markov
+
+* Data/CSV/JSON tools
+** jq
+** miller
+** q
+http://harelba.github.io/q/
+Run SQL directly on CSV or TSV files
+** xsv
+https://github.com/BurntSushi/xsv
+A fast CSV command line toolkit written in Rust
+** visidata
+https://www.visidata.org/
+- =vd {filename}= open file
+- =[= ascending sort
+- =]= descending sort
+- =F= to create a histogram for that column
+- === (equal sign) to create a new Python column
+- =J= move row down
+- =K= move row up
+- =H= move column left
+- =L= move column right
+- =#= treat column as integer
+- https://jsvine.github.io/visidata-cheat-sheet/en/
+** tv
+https://github.com/alexhallam/tv
+📺(tv) Tidy Viewer is a cross-platform CLI csv pretty printer that uses column styling to maximize viewer enjoyment.
+** jless
+https://pauljuliusmartinez.github.io/
+new command-line JSON viewer
+
+* Serving Data
+** ROAPI
+https://roapi.github.io/docs/index.html
+ROAPI automatically spins up read-only APIs for static datasets without requiring you to write a single line of code.
+** Datasette
+https://datasette.io/
+Datasette is a tool for exploring and publishing data. It helps people take data of any shape or size, analyze and explore it, and publish it as an interactive website and accompanying API.
+https://docs.datasette.io/en/stable/ecosystem.html
+https://architecturenotes.co/datasette-simon-willison/
+
+* Forecasting
+** Prophet
+https://facebook.github.io/prophet/
+Prophet is a forecasting procedure implemented in R and Python. It is fast and provides completely automated forecasts that can be tuned by hand by data scientists and analysts.
+
+* ETL / ELT
+** Meltano
+https://meltano.com/
+ELT for the DataOps era
+Meltano is open source, self-hosted, CLI-first, debuggable, and extensible.
+** Airflow
+https://airflow.apache.org/
+- =airflow webserver -p {port_number}=
+- =airflow scheduler=
+** dbt
+
+* Storing Data
+** CSV
+  line by line file with columns separated by comma
+** Parquet
+  "columnar" file, way lighter than CSV, with data types for each column
+*** Exploration
+#+begin_src python :results verbatim
+import pandas as pd
+return pd.read_csv("~/tmp/train_routes.csv")
+#+end_src
+
+#+RESULTS:
+:            route_id     origin destination price
+: 0   paris-marseille      Paris   Marseille   $65
+: 1   marseille-paris  Marseille       Paris   $65
+: 2  montreal-toronto   Montreal     Toronto   $45
+: 3  toronto-montreal    Toronto    Montreal   $45
+: 4   montreal-ottawa   Montreal      Ottawa   $35
+: 5   ottawa-montreal     Ottawa    Montreal   $35
+: 6    ottawa-toronto     Ottawa     Toronto   $30
+: 7    toronto-ottawa    Toronto      Ottawa   $30
+
+#+begin_src python :results silent
+import pandas as pd
+df = pd.read_csv("~/tmp/train_routes.csv")
+df.to_parquet("~/tmp/train_routes.parquet")
+#+end_src
+
+#+begin_src python :results verbatim
+import pandas as pd
+return pd.read_parquet("~/tmp/train_routes.parquet")
+#+end_src
+
+#+RESULTS:
+:            route_id     origin destination price
+: 0   paris-marseille      Paris   Marseille   $65
+: 1   marseille-paris  Marseille       Paris   $65
+: 2  montreal-toronto   Montreal     Toronto   $45
+: 3  toronto-montreal    Toronto    Montreal   $45
+: 4   montreal-ottawa   Montreal      Ottawa   $35
+: 5   ottawa-montreal     Ottawa    Montreal   $35
+: 6    ottawa-toronto     Ottawa     Toronto   $30
+: 7    toronto-ottawa    Toronto      Ottawa   $30
+
+* Visualizing Data
+** Gnuplot
+#+begin_src gnuplot :file gnuplot-example.png
+f(x) = sin(x)
+plot f(x)
+#+end_src
+
+#+RESULTS:
+[[file:gnuplot-example.png]]
+
+* Resources
+https://github.com/microsoft/Data-Science-For-Beginners
+
+** Harvard CS109a: Introduction to Data Science
+https://harvard-iacs.github.io/2021-CS109A/
+https://harvard-iacs.github.io/2021-CS109A/pages/materials.html
+
+** Designing Data-Intensive Applications
+by Martin Kleppmann
+
+** Exploratory Data Analysis
+by Roger D. Peng, and others
+
+** Practical Time Series Analysis
+by Tural Sadigov, William Thistleton

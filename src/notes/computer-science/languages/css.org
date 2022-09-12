@@ -1,0 +1,22 @@
+#+title: CSS
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / CSS
+
+* Transitions
+https://www.joshwcomeau.com/animation/css-transitions/
+
+* Detect ligth/dark mode
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+
+* Frameworks
+** Tailwind
+https://tailwindcss.com/
+*** Dark Mode
+https://tailwindcss.com/docs/dark-mode
+*** daisyUI
+"Free Tailwind Components
+https://daisyui.com/
+
+* Resources
+https://web.dev/learn/css/
+https://lexoral.com/blog/you-dont-need-js/

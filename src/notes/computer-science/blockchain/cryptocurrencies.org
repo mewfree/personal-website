@@ -1,0 +1,189 @@
+#+title: Cryptocurrencies
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../blockchain.org][Blockchain]] / Cryptocurrencies
+
+* Cryptocurrencies
+** [[file:cryptocurrencies/bitcoin.org][Bitcoin]]
+** [[file:cryptocurrencies/ethereum.org][Ethereum]]
+** [[file:cryptocurrencies/solana.org][Solana]]
+** Binance Smart Chain
+https://academy.binance.com/en/articles/how-to-get-started-with-binance-smart-chain-bsc
+https://www.coingecko.com/buzz/yield-farming-on-binance-smart-chain
+Binance Wallet
+*** Flash loans
+Available on PancakeSwap (since it's just an Uniswap clone)
+https://github.com/pancakeswap/pancake-swap-periphery/blob/master/contracts/examples/ExampleFlashSwap.sol
+*** Yield Farming
+https://blackhole.finance/farm
+*** Swirl Cash (Tornado Cash fork)
+https://www.bsc.news/post/swirl-cash-to-launch-private-transactions-on-the-binance-smart-chain
+*** Nerve.fi
+https://nerve.fi/
+Stableswap AMM
+** Cardano
+https://cardano.org/
+Based on Haskell
+** Polkadot
+https://polkadot.network/
+*** Polkastarter
+https://www.polkastarter.com/
+IDO platform
+*** Polkadex
+https://www.polkadex.trade/
+DEX on Polkadot
+*** Parachains
+https://coinmarketcap.com/alexandria/article/what-are-parachains-2
+** Terra / Luna
+https://www.terra.money/
+$UST is a native stablecoin token
+*** Anchor
+https://anchorprotocol.com/
+"Savings" on Terra
+*** Mirror
+https://terra.mirror.finance/
+*** Pylon
+https://www.pylon.money/
+*** TerraSwap
+https://terraswap.io/
+** Avalanche
+Token: AVAX
+EVM-based?
+
+Uniswap clone: https://pangolin.exchange/
+*** Dexalot
+https://app.dexalot-test.com/
+Orderbook-based DEX on Avalanche
+*** Nereus
+https://nereus.finance/
+DeFi (lending) protocol on Avalanche
+** Theta
+** VeChain
+** Fantom
+https://fantom.foundation/
+*** Wallet
+https://pwawallet.fantom.network/#/dashboard
+*** Yield Farming
+https://vfat.tools/fantom/
+**** Ester.Finance
+https://ester.finance/
+Yield Farming Optimizer
+https://esterfinance.medium.com/introducing-ester-finance-yield-farming-optimizer-on-fantom-2fa97e290c24
+*** NFTs
+**** Artion
+https://artion.io/
+"OpenSea" on Fantom
+** Thorchain
+https://thorchain.org/
+** Cosmos
+$ATOM
+
+"interconnected blockchains"
+** Polygon
+ex-MATIC
+
+*** Yield Farming
+https://vfat.tools/polygon/
+** Iron Fish
+$IRON
+
+Focused on privacy
+
+=ironfish start= start a node
+=ironfish miners:start= start mining
+=ironfish accounts:balance= check account balance
+
+More commands: https://ironfish.network/docs/onboarding/send-receive-iron-fish-transactions
+** NEAR
+EVM compatible?
+https://near.org/
+
+* [[file:cryptocurrencies/exchanges.org][Exchanges]]
+
+* Tools
+** Cross-chain
+https://twitter.com/AndreCronjeTech/status/1365861218267717639?s=19
+https://hydradx.io/
+*** Kava
+https://www.kava.io/ cross-chain DeFi
+Mostly Binance Smart Chain? But saw something about Cosmos
+https://medium.com/kava-labs/mint-usdx-using-bnb-ledger-guide-fb40dcd8c7bf
+*** Popsicle.finance
+https://popsicle.finance/
+Optimizes market making across differents chains/protocols for maximum yield
+*** Pentacle
+https://pentacle.ai/
+Cool visualization of all tools
+*** Ape Board
+https://apeboard.finance/
+Dashboard for assets across chains across wallets!
+** Stacked
+Manage portfolio in one app (connects to multiple exchanges).
+Subscribe to a bot for a fee ($99-$250) to trade for you.
+Use an asset "basket" that can be automatically rebalanced (like an ETF).
+** Token terminal
+https://www.tokenterminal.com/
+TradFi stats on DeFi protocols
+https://twitter.com/tokenterminal/status/1363057210637643779?s=191
+** ichibot-client-app
+a CLI interface to trade on FTX and Binance
+https://gitlab.com/Ichimikichiki/ichibot-client-app
+interesting, allows for FAST keyboard based orders
+kind of like a "terminal" for FTX
+** Messari
+Data research, cool graphs...
+https://messari.io/
+** Koinknight
+Arbitrage tool
+https://www.koinknight.com/
+Can probably build it myself
+** TRDR
+Data / charts for trading
+https://trdr.io/
+** hummingbot
+https://hummingbot.io/
+"Hummingbot is open-source software that lets you build and run customizable trading strategies. Automate your cryptocurrency trading on centralized exchanges and decentralized protocols."
+** Cryptosheets
+https://cryptosheets.com/
+Get crypto prices in Excel and Google Sheets
+** Crypto Options Pricing
+https://dusktrades.com/
+** Insilico
+High-end technical analysis tools for traders
+https://www.insilicoresearch.com/
+** Coinglass
+Comparison of funding rates
+https://www.coinglass.com/FundingRate
+** Dune Analytics
+Analytics on [[file:cryptocurrencies/ethereum.org][Ethereum]] and [[file:cryptocurrencies/solana.org][Solana]] blockchains
+https://dune.xyz/
+
+* Prop Trading Firms
+** Cumberland / DRW
+- Trading for their own account
+- Have a Montreal office
+** Alameda Research
+- Market-neutral algo
+- Market-making
+- Arbitrage
+- Medium timescale strategies: mean reversion => machine learning
+- OTC desk
+** Wintermute
+- Market maker
+- Based in London with a Singapore office
+
+* Venture Capitals / Hedge Funds
+** Three Arrows Capital
+https://www.threearrowscap.com/
+** Three Sigma
+https://threesigma.xyz/
+** Alfalfa Capital
+https://alfalfa.capital/
+
+* Misc
+** Tweet about yield farming
+https://twitter.com/Cryptoyieldinfo/status/1394717021116325890
+
+** Misaka
+https://www.xn--1-0mb.com/
+
+MEV stuff, especially on Solana

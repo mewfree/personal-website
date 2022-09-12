@@ -1,0 +1,25 @@
+#+title: Tmux
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Tmux
+
+Re-number a window:
+=C-a .=
+
+Swaps window #0 with window #1:
+=:swap-window -s 1 -t 0=
+
+Move all windows to the right and create new window at #0:
+- =set base-index 1=
+- =move-window -r=
+- =move-window -t 0=
+- =set base-index 0=
+
+When tmux crashes:
+run =killall tmux=
+
+Reload config:
+=:source-file ~/.tmux.conf=
+or from a shell: =tmux source-file ~/.tmux.conf=
+
+* Resources
+https://waylonwalker.com/tmux-fzf-session-jump/

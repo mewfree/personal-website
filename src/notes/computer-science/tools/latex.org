@@ -1,0 +1,25 @@
+#+title: LaTeX
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / LaTeX
+
+* Intro
+A high-quality typesetting system.
+Mostly used for technical and scientific documents.
+Basically the standard in academia.
+
+* Example
+#+begin_src latex :results output silent
+\documentclass{article}
+\title{Cartesian closed categories and the price of eggs}
+\author{Jane Doe}
+\date{September 1994}
+\begin{document}
+   \maketitle
+   Hello world!
+\end{document}
+#+end_src
+
+* Resources
+https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+
+https://www.overleaf.com/learn/latex/Creating_a_document_in_LaTeX

@@ -1,0 +1,491 @@
+#+title: Go
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Go
+
+=go run hello-world.go= to run the file directly
+=go build hello-world.go= to build it and =./hello-world= to run it
+
+* Basics
+#+begin_src go
+import "fmt"
+
+func main() {
+    fmt.Println("hello world")
+}
+#+end_src
+
+#+RESULTS:
+: hello world
+
+* Variables
+#+begin_src go
+import "fmt"
+
+func main() {
+	var name = "Damien"
+	fmt.Println(name)
+
+	var number int = 9
+	fmt.Println(number)
+
+	fruit := "apple"
+	fmt.Println(fruit)
+}
+#+end_src
+
+#+RESULTS:
+: Damien
+: 9
+: apple
+
+=:== is shorthand for =var name type = "apple"=
+
+Using =var= makes variables mutable by default:
+#+begin_src go
+import "fmt"
+
+func main() {
+	var name = "Damien"
+	name = "Julien"
+	fmt.Println(name)
+}
+#+end_src
+
+#+RESULTS:
+: Julien
+
+But =const= keyword make they immutable:
+#+begin_src go :results silent
+import "fmt"
+
+func main() {
+	const name = "Damien"
+	name = "Julien"
+	fmt.Println(name)
+}
+#+end_src
+
+Throws "cannot assign to name (declared const)"
+
+* For loops
+#+begin_src go
+import "fmt"
+
+func main() {
+	i := 1
+	for i <= 5 {
+		fmt.Println(i)
+		i = i + 1
+	}
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
+: 5
+
+* If/else
+You can have an if without an else, but no ternary if.
+#+begin_src go
+import "fmt"
+
+func main() {
+	if true {
+		fmt.Println("This is true!")
+	} else {
+		fmt.Println("This is false!")
+	}
+}
+#+end_src
+
+#+RESULTS:
+: This is true!
+
+* Switch
+#+begin_src go
+import "fmt"
+
+func main() {
+	i := 2
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	default:
+		fmt.Println("English name is unknown")
+	}
+}
+#+end_src
+
+#+RESULTS:
+: two
+
+* Arrays
+Sequence of elements in a specific length.
+The type of elements and length are both part of the array's type.
+By default an array is zero-valued.
+#+begin_src go
+import "fmt"
+
+func main() {
+	var a [6]int
+	fmt.Println(a)
+
+	a[2] = 9
+	fmt.Println(a)
+	fmt.Println("first element:", a[0])
+	fmt.Println("3rd element:", a[2])
+
+	b := [3]int{1, 2, 3}
+	fmt.Println("b:", b)
+	fmt.Println(len(b))
+}
+#+end_src
+
+#+RESULTS:
+: [0 0 0 0 0 0]
+: [0 0 9 0 0 0]
+: first element: 0
+: 3rd element: 9
+: b: [1 2 3]
+: 3
+
+* Slices
+More common in Go than arrays.
+Typed only by the element they contain, not the length.
+#+begin_src go
+import "fmt"
+
+func main() {
+	s := make([]string, 3)
+	fmt.Println(s)
+
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
+	fmt.Println(s)
+
+	s = append(s, "d")
+	s = append(s, "e", "f")
+	fmt.Println(s)
+
+	fmt.Println(s[2:4])
+	fmt.Println(s[:4])
+	fmt.Println(s[2:])
+}
+#+end_src
+
+#+RESULTS:
+: [  ]
+: [a b c]
+: [a b c d e f]
+: [c d]
+: [a b c d]
+: [c d e f]
+
+* Maps
+#+begin_src go
+import "fmt"
+
+func main() {
+	m := make(map[string]int)
+
+	m["price"] = 99
+	m["discount"] = 10
+	fmt.Println(m)
+
+	delete(m, "discount")
+	fmt.Println(m)
+
+	fmt.Println(m["price"])
+
+	n := map[string]int{"foo": 1, "bar": 2}
+	fmt.Println(n)
+}
+#+end_src
+
+#+RESULTS:
+: map[discount:10 price:99]
+: map[price:99]
+: 99
+: map[bar:2 foo:1]
+
+* Range
+Allows to iterate over arrays, slice, maps, strings...
+#+begin_src go
+import "fmt"
+
+func main() {
+	nums := []int{1, 2, 3}
+
+	for _, num := range nums {
+		fmt.Println(num)
+	}
+
+	for i, c := range "Damien" {
+		fmt.Println(i, c)
+	}
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 0 68
+: 1 97
+: 2 109
+: 3 105
+: 4 101
+: 5 110
+
+* Functions
+Requires explicit returns (won't return last statement).
+When all parameters are of the same type, it can be placed only at the end.
+#+begin_src go
+import "fmt"
+
+func plus(a int, b int) int {
+	return a + b
+}
+
+func plusPlus(a, b, c int) int {
+	return a + b + c
+}
+
+func main() {
+	fmt.Println(plus(1, 2))
+	fmt.Println(plusPlus(1, 2, 3))
+}
+#+end_src
+
+#+RESULTS:
+: 3
+: 6
+
+** Multiple Return Values
+Go functions can return multiple values
+#+begin_src go
+import "fmt"
+
+func sum(a, b int) int {
+	return a + b
+}
+
+func product(a, b int) int {
+	return a * b
+}
+
+func sumProduct(a, b int) (int, int) {
+	return sum(a, b), product(a, b)
+}
+
+func main() {
+	sum, product := sumProduct(2, 4)
+	fmt.Println("sum:", sum)
+	fmt.Println("product:", product)
+}
+#+end_src
+
+#+RESULTS:
+: sum: 6
+: product: 8
+
+** Variadic Functions
+Functions with any number of trailing arguments.
+#+begin_src go
+import "fmt"
+
+func sum(nums ...int) int {
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+
+func main() {
+	fmt.Println(sum(1, 2, 3))
+
+	nums := []int{1, 2, 3, 4}
+	fmt.Println(sum(nums...))
+}
+#+end_src
+
+#+RESULTS:
+: 6
+: 10
+
+* Structs
+Typed collection of fields
+Structs are mutable
+Access structs' field with the dot (=.=) notation
+#+begin_src go
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+func main() {
+	b := person{"Bob", 20}
+	fmt.Println(b)
+	fmt.Println(b.age)
+}
+#+end_src
+
+#+RESULTS:
+: {Bob 20}
+: 20
+
+* Methods
+#+begin_src go
+import (
+	"fmt"
+	"strconv"
+)
+
+type person struct {
+	name string
+	age  int
+}
+
+func (p *person) id() string {
+	return p.name + string('-') + strconv.Itoa(p.age)
+}
+
+func main() {
+	b := person{"Bob", 20}
+	fmt.Println(b)
+	fmt.Println(b.id())
+}
+#+end_src
+
+#+RESULTS:
+: {Bob 20}
+: Bob-20
+
+* Interfaces
+Named collections of struct types
+#+begin_src go
+import (
+	"fmt"
+	"strconv"
+)
+
+type Living interface {
+	id() string
+}
+
+type Person struct {
+	name          string
+	year_of_birth int
+}
+
+type Dog struct {
+	name          string
+	year_of_birth int
+}
+
+func (p Person) id() string {
+	return "person-" + p.name + string('-') + strconv.Itoa(p.year_of_birth)
+}
+
+func (d Dog) id() string {
+	return "dog-" + d.name + string('-') + strconv.Itoa(d.year_of_birth)
+}
+
+func printData(l Living) {
+	fmt.Println(l)
+	fmt.Println(l.id())
+}
+
+func main() {
+	printData(Person{name: "Bob", year_of_birth: 1993})
+	printData(Dog{name: "Fido", year_of_birth: 2003})
+}
+#+end_src
+
+#+RESULTS:
+: {Bob 1993}
+: person-Bob-1993
+: {Fido 2003}
+: dog-Fido-2003
+
+* Generics
+#+begin_src go
+import (
+	"fmt"
+)
+
+type Number interface {
+	~int | ~float32 | ~float64
+}
+
+func min[T Number](x, y T) T {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func main() {
+	fmt.Println(min(4, 9))
+	fmt.Println(min(4.5, 1.78))
+}
+#+end_src
+
+#+RESULTS:
+: 4
+: 1.78
+
+* Libraries
+** TinyGo
+https://github.com/tinygo-org/tinygo
+
+#+begin_quote
+TinyGo is a Go compiler intended for use in small places such as microcontrollers, WebAssembly (Wasm), and command-line tools.
+#+end_quote
+
+** Cobra
+https://cobra.dev/
+
+#+begin_quote
+A Framework for Modern CLI Apps in Go
+#+end_quote
+
+** Bubble Tea
+https://github.com/charmbracelet/bubbletea
+
+#+begin_quote
+A powerful little TUI framework
+#+end_quote
+
+** Gum
+https://github.com/charmbracelet/gum
+
+#+begin_quote
+A tool for glamorous shell scripts 🎀
+#+end_quote
+
+* Resources
+** Go by Example
+https://gobyexample.com/
+
+** Effective Go
+https://go.dev/doc/effective_go
+
+** bud
+https://github.com/livebud/bud
+The Full-Stack Web Framework for Go
+
+** Wails
+https://wails.io/
+Build beautiful cross-platform applications using Go

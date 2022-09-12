@@ -1,0 +1,75 @@
+#+title: Facebook Ads
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../marketing.org][Marketing]] / Facebook Ads
+
+* Facebook Marketing API
+** Campaign creation
+
+** Ad set creation
+*** Targeting expansion
+https://developers.facebook.com/docs/marketing-api/audiences/reference/targeting-expansion
+
+*** Targeting restrictions
+https://developers.facebook.com/docs/marketing-api/audiences/reference/targeting-restrictions
+
+** Ad creation
+*** Dynamic creative
+**** Asset feed
+https://developers.facebook.com/docs/marketing-api/ad-creative/asset-feed-spec/options
+
+**** Asset placement
+https://developers.facebook.com/docs/marketing-api/dynamic-creative/placement-asset-customization
+
+** Authentication
+*** Client-side
+Do not forget to set =response_type= to =token=
+**** For devices (TVs...)
+https://developers.facebook.com/docs/facebook-login/for-devices
+
+*** Refreshing tokens
+https://developers.facebook.com/docs/facebook-login/access-tokens/refreshing/
+
+*** Access token debugger
+https://developers.facebook.com/tools/debug/accesstoken/
+
+*** "OIDC Code Flow with PKCE for Manually Built Facebook Login Flows"
+https://developers.facebook.com/docs/facebook-login/guides/advanced/oidc-token
+
+** Misc
+*** Getting connected pages, apps...
+https://developers.facebook.com/docs/marketing-api/connectionobjects/v9.0
+
+*** "dry run"
+https://developers.facebook.com/docs/marketing-api/reference/ad-campaign/
+Search for =executions_options=: =validate_only=
+
+** Rate limiting
+https://developers.facebook.com/docs/graph-api/overview/rate-limiting
+
+** Advanced features
+*** Async requests
+https://developers.facebook.com/docs/marketing-api/asyncrequests/
+
+*** Batch requests
+https://developers.facebook.com/docs/graph-api/making-multiple-requests
+
+*** Async batch requests
+https://developers.facebook.com/docs/graph-api/asynchronous-batch-requests/
+
+*** Making requests more secure
+https://developers.facebook.com/docs/graph-api/securing-requests
+
+*** Aliasing fields
+https://developers.facebook.com/docs/graph-api/aliasing-fields
+
+*** Etags
+https://developers.facebook.com/docs/marketing-api/asyncrequests#etags
+Can help to see if data has changed
+
+** Undocumented features
+*** Limit
+=&limit=1000= in API queries to get more data without paging
+
+*** Nested queries
+Example with getting insights when querying campaigns:
+=entity_id/campaigns?fields=id,name,effective_status,insights.time_range({"since":"2021-01-01","until":"2021-02-11"}){impressions,spend}=

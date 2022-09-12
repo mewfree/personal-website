@@ -1,0 +1,214 @@
+#+title: Solana
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../blockchain.org][Blockchain]] / [[file:../cryptocurrencies.org][Cryptocurrencies]] / Solana
+
+Block times of 400ms.
+50,000 transactions per second.
+
+Written in [[file:../../rust.org][Rust]].
+
+SPL tokens = equivalent to ERC20 tokens.
+
+smart contrats = programs
+
+* Wallet
+** Using Ledger: https://solflare.com/dashboard
+** Sollet.io
+
+* Tools
+https://docs.solana.com/developing/clients/jsonrpc-api
+https://github.com/michaelhly/solana-py
+
+** CLI
+https://docs.solana.com/cli
+*** Create a wallet
+=solana-keygen new=
+*** Check balance
+=solana balance <PUBKEY>=
+*** Send a token
+=solana transfer --from <KEYPAIR> <RECIPIENT_ACCOUNT_ADDRESS> <AMOUNT> --fee-payer <KEYPAIR>=
+
+** Anchor
+https://github.com/project-serum/anchor
+The "Truffle" of Solana
+
+* Programs
+https://paulx.dev/blog/2021/01/14/programming-on-solana-an-introduction/
+https://hackmd.io/@ironaddicteddog/solana-starter-kit
+https://twitter.com/pencilflip/status/1451949960065335302
+https://jstarry.notion.site/Program-deploys-29780c48794c47308d5f138074dd9838
+
+* Projects
+** Serum
+https://github.com/project-serum/serum-dex
+Serum is a DEX developed on the Solana blockchain.
+Serum is fully non-custodial.
+*** Trading cycle
+SPL wallet => OpenOrders account => Request Queue => Event Queue => OpenOrders => Wallet
+*** How to interact?
+https://github.com/project-serum/awesome-serum
+serum-ts: https://github.com/project-serum/serum-ts/tree/master/packages/serum
+PySerum: https://github.com/serum-community/pyserum
+*** Bonfida
+A Serum GUI?
+Interesting API endpoint: https://docs.bonfida.com/#get-long-and-short-ratios
+*** Orca
+https://twitter.com/orca_so
+
+** Dashboards
+*** Step.finance
+https://step.finance/
+Basically Zapper for Solana.
+Super cool and easy to track Raydium yield farming.
+
+*** Sonar.watch
+https://sonar.watch/
+
+** Raydium
+AMM on Solana
+Yield farming in a bunch of LPs there
+https://raydium.io/farms
+
+Made for Uniswap but should be the same for Raydium:
+https://dailydefi.org/articles/lp-token-value-calculation/
+
+** Mango Markets
+5x leveraged spot trading
+https://trade.mango.markets/
+
+v1 was USDT based, v2 is USDC based
+
+DEX-like API for Mango Markets: https://github.com/tardis-dev/mango-bowl
+
+** $COPE
+Missed out the boat on this one...
+
+Big airdrop, got listed on FTX, going to the moon right now.
+2,000% yield on Raydium farms...
+
+FOMOing
+
+** SolRise
+https://solrise.finance/
+On-chain hedge fund?
+
+** Mercurial
+https://www.mercurial.finance/
+Dynamic Vaults with Stable Swaps
+
+AcceleRaytor launch on <2021-05-19>:
+https://raydium.medium.com/mercurial-finance-launching-on-acceleraytor-9e7ac60a21df
+
+** SolFarm
+https://solfarm.io/
+The Efficient Solana Yield Aggregator
+
+** Saber
+https://saber.so/
+AMM for stablecoins
+
+** Symmetry
+https://symmetry.fi/
+"Create & invest in custom indices"
+
+** Steaking
+https://www.steaking.io/
+Auto-compounding staking
+
+** Moet.fi
+https://moet.fi/
+A scalable, decentralised, capital-efficient derivatives
+exchange built on Solana.
+Coming soon.
+
+** Synthetify
+https://synthetify.io/
+Decentralized synthetic assets exchange
+
+** Parrot
+https://doc.partyparrot.finance/guide/
+The Parrot Protocol is a DeFi network built on Solana that will include the stablecoin PAI, a non-custodial lending market, and a margin trading vAMM. These are all use cases designed to solve one single problem: making value locked in DeFi systems accessible.
+
+** Hedgehog
+https://hedgehog.markets/
+Hedgehog is a lightning fast prediction market that generates passive yield for LPs while providing users a seamless experience.
+
+** 01
+https://01.xyz/
+Experience fully autonomous markets, instant liquidity, millisecond transaction speeds, and defi-wide low fees.
+
+*** Power Perpetuals
+https://01exchange.medium.com/01-exchange-introduces-power-perpetuals-squol-1c8aa1dbc1d8
+
+** LIQ Protocol
+https://liqsolana.com/
+A decentralized on-chain liquidation engine powering Serum markets & lending platforms on the Solana network
+
+** Marinade.finance
+https://marinade.finance/
+Liquid staking protocol built on Solana blockchain.
+
+** Zeta Markets
+https://zeta.markets/
+Zeta is the premier under-collateralized DeFi options platform built on Solana.
+
+** Solend
+https://solend.fi/
+Solend is the autonomous interest rate machine for Solana.
+Earn interest on deposits and borrow assets on the fastest, lowest fee, and most scalable lending protocol.
+
+** Francium
+https://francium.io/
+An Innovative Leveraged Yield Protocol with Diverse Community Strategies Built on Solana
+https://francium-defi.medium.com/francium-explained-what-is-leveraged-yield-farming-lyf-5a203a0d649
+
+** Port Finance
+https://port.finance/
+The First Non-Custodial Liquidity Protocol On Solana
+Flash loans?
+
+** Drift Protocol
+https://www.drift.trade/
+A lightning-fast and scalable perpetual futures DEX.
+
+** Jet Protocol
+https://www.jetprotocol.io/
+Jet is a decentralized borrowing and lending protocol built for speed, power, and scalability on Solana. We’re here to add jet fuel to the fire of the DeFi revolution.
+
+** Jupiter
+https://jup.ag/
+Aggregator for best swap execution (1inch of Solana)
+
+** Apricot
+https://app.apricot.one/
+Better lending, IDO soon
+
+** Chest.fi
+https://www.chest.fi/
+Solana’s Premiere Yield Boosting Engine Token?
+
+** Hubble
+https://hubbleprotocol.io/
+Supercharge Your
+Liquidity On Solana
+
+Mint USDH stablecoin at 0% interest
+against multiple types of collateral
+
+** Otter Cash
+https://otter.cash/
+A privacy layer for the Solana ecosystem.
+"Tornado" of Solana
+
+** Cypher
+https://cypher.trade/
+cypher enables global access to historically gated pre-public markets.
+
+** List of new projects
+https://solasystem.io/
+
+** NFTs
+*** SolanaMonkeyBusiness (SMB)
+https://solanamonkey.business/
+*** Solend NFT isolated pool
+https://blog.solend.fi/nft-isolated-pool-with-solana-monkey-business-5396ea91235b

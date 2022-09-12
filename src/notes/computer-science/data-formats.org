@@ -1,0 +1,19 @@
+#+title: Data Formats
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Data Formats
+
+* JSON
+** JSON Patch
+http://jsonpatch.com/
+"Diff" for JSON
+
+* Protobufs
+https://developers.google.com/protocol-buffers
+"Protocol buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data."
+** =connect-web=
+https://buf.build/blog/connect-web-protobuf-grpc-in-the-browser
+** =grpcurl=
+#+begin_quote
+Like cURL, but for gRPC: Command-line tool for interacting with gRPC servers
+#+end_quote
+https://github.com/fullstorydev/grpcurl

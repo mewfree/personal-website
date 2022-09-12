@@ -1,0 +1,15 @@
+#+title: FPGA
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / FPGA
+
+- https://www.fpgatutorial.com/
+- https://news.ycombinator.com/item?id=26248603
+- https://www.fpga4fun.com/
+- Silice
+  https://github.com/sylefeb/Silice
+  "Silice is an open source language that simplifies prototyping and writing algorithms on FPGA architectures."
+- https://www.nandland.com/articles/fpga-101-fpgas-for-beginners.html
+- https://learn.sparkfun.com/tutorials/programming-an-fpga/all
+- https://www.crowdsupply.com/rhs-research/nitefury
+- https://kastner.ucsd.edu/hlsbook/ - Parallel Programming for [[file:fpga.org][FPGA]]s
+- https://f4pga.org/

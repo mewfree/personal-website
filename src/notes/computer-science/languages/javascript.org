@@ -1,0 +1,435 @@
+#+title: JavaScript
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / JavaScript
+
+* Strings
+#+begin_src js :results output
+console.log('Hello, World!')
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+* Numbers
+#+begin_src js
+return 1 + 1
+#+end_src
+
+#+RESULTS:
+: 2
+
+* Arrays
+#+begin_src js :results verbatim
+return [1, 2, 3]
+#+end_src
+
+#+RESULTS:
+: [ 1, 2, 3 ]
+
+* Objects
+#+begin_src js
+return {key: 'value'}
+#+end_src
+
+#+RESULTS:
+: { key: 'value' }
+
+* TypeScript
+** Basics
+#+begin_src typescript
+function hello(name) {
+    return "hello " + name;
+}
+
+console.log(hello("world"));
+#+end_src
+
+#+RESULTS:
+: ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-P72lay.ts(1,16): error TS7006: Parameter 'name' implicitly has an 'any' type.
+: hello world
+
+#+begin_src typescript
+function hello(name: string) {
+    return "hello " + name;
+}
+
+console.log(hello("world"));
+#+end_src
+
+#+RESULTS:
+: hello world
+
+#+begin_src typescript
+function hello(name: string) {
+    return "hello " + name;
+}
+
+console.log(hello(2));
+#+end_src
+
+#+RESULTS:
+: ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-Rg1elh.ts(5,19): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+: hello 2
+
+#+begin_src typescript
+const obj = { name: "Damien", age: 28 };
+obj.location;
+#+end_src
+
+#+RESULTS:
+: ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-NiBopQ.ts(2,5): error TS2339: Property 'location' does not exist on type '{ name: string; age: number; }'.
+
+** Types
+- =string=
+- =number=
+- =boolean=
+- =number[]= / =Array<number>=
+- =any=
+
+*** Type declaration on variable
+#+begin_src typescript :results silent
+let myName: string = "Damien";
+#+end_src
+
+*** Type declaration on function parameter
+#+begin_src typescript
+function greet(name: string) {
+    console.log("Hello, " + name.toUpperCase());
+}
+
+greet("Damien");
+#+end_src
+
+#+RESULTS:
+: Hello, DAMIEN
+
+#+begin_src typescript :results silent
+function greet(name: string) {
+    console.log("Hello, " + name.toUpperCase());
+}
+
+greet(42);
+#+end_src
+
+^ runtime error
+
+*** Type declaration on function return
+#+begin_src typescript :results silent
+function getFavoriteNumber(): number {
+  return 9;
+}
+#+end_src
+
+*** Object Types
+#+begin_src typescript
+function printCoord(pt: { x: number; y: number }) {
+  console.log(`${pt.x}, ${pt.y}`);
+}
+
+printCoord({ x: 9, y: 2 });
+#+end_src
+
+#+RESULTS:
+: 9, 2
+
+**** Optional Parameters
+#+begin_src typescript
+function printName(obj: { firstName: string; lastName?: string }) {
+  console.log(`${obj.firstName}${obj.lastName}`);
+}
+
+printName({ firstName: "Damien" });
+printName({ firstName: "Damien", lastName: "Gonot" });
+#+end_src
+
+#+RESULTS:
+: Damienundefined
+: DamienGonot
+
+#+begin_src typescript
+function printName(obj: { firstName: string; lastName?: string }) {
+  if (obj.lastName !== undefined) {
+    console.log(`${obj.firstName} ${obj.lastName}!`);
+  } else {
+    console.log(`${obj.firstName}!`);
+  }
+}
+
+printName({ firstName: "Damien" });
+printName({ firstName: "Damien", lastName: "Gonot" });
+#+end_src
+
+#+RESULTS:
+: Damien!
+: Damien Gonot!
+
+*** Union Types
+When a value could be any of multiple types.
+#+begin_src typescript
+function printId(id: number | string) {
+  console.log("Your ID is: " + id);
+}
+
+printId(101);
+
+printId("202");
+
+printId({ myID: 22342 });
+#+end_src
+
+#+RESULTS:
+: ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-lKsnQz.ts(9,9): error TS2345: Argument of type '{ myID: number; }' is not assignable to parameter of type 'string | number'.
+:   Type '{ myID: number; }' is not assignable to type 'number'.
+: Your ID is: 101
+: Your ID is: 202
+: Your ID is: [object Object]
+
+*** Type Aliases
+#+begin_src typescript
+type Point = {
+  x: number;
+  y: number;
+};
+
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+#+end_src
+
+#+RESULTS:
+: The coordinate's x value is 100
+: The coordinate's y value is 100
+
+*** Interfaces
+#+begin_src typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+#+end_src
+
+#+RESULTS:
+: The coordinate's x value is 100
+: The coordinate's y value is 100
+
+*** Type Assertions
+When you know what to expect but TS doesn't know about it yet.
+#+begin_src typescript :results silent
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+#+end_src
+
+#+begin_src typescript :results silent
+const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
+#+end_src
+
+*** Literal Types
+#+begin_src typescript
+function printDirection(s: "North" | "East" | "South" | "West") {
+  console.log(s);
+}
+
+printDirection("North");
+printDirection("South-West");
+#+end_src
+
+#+RESULTS:
+: ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-F4JdCD.ts(6,16): error TS2345: Argument of type '"South-West"' is not assignable to parameter of type '"North" | "East" | "South" | "West"'.
+: North
+: South-West
+
+** Enums
+Not related to types but more of a new features added by TS.
+#+begin_src typescript :results silent
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+#+end_src
+
+* Full-stack frameworks
+** Blitzjs
+https://blitzjs.com/
+Looks very very interesting!
+
+** RedwoodJS
+https://redwoodjs.com/
+
+** Remix
+https://remix.run/
+
+* Front-end frameworks
+** React
+React codebase generator: https://divjoy.com/
+*** Hooks
+https://wattenberger.com/blog/react-hooks
+*** Keajs
+https://keajs.org/
+#+begin_quote
+heekily addi(c)tive state management for React
+#+end_quote
+
+*** Recoil
+https://recoiljs.org/
+#+begin_quote
+A state management library for React
+#+end_quote
+
+** Lightweight
+[[https://preactjs.com/]] & [[https://infernojs.org/]] : React-like
+
+[[https://mithril.js.org/]]
+
+[[https://svelte.dev/]]
++ backend: https://sapper.svelte.dev/
+
+https://elderguide.com/tech/elderjs/: Elder.js: An Opinionated, SEO focused, Svelte Framework
+
+https://github.com/alpinejs/alpine: minimal framework for composing JavaScript behaviour in your markup
+
+https://htmx.org/: htmx allows you to access AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
+
+** Solid.js
+Similar to React, but compiled, interesting
+https://github.com/ryansolid/solid
+
+** Thin
+https://thin.dev/
+Paid backend for SPA React apps
+
+* Static Site Generators
+** Astro
+https://astro.build/
+#+begin_quote
+Build faster websites.
+Pull content from anywhere and serve it fast with Astro's next-gen island architecture. Astro is the web framework that you'll enjoy using.
+#+end_quote
+
+* Bundlers
+** Webpack
+https://webpack.js.org/
+The "OG" bundler
+
+IMO, complex options and config
+
+** Rollup
+https://rollupjs.org/guide/en/
+Next-generation ES module bundler
+
+IMO still too complex
+
+** Parcel
+https://parceljs.org/
+Blazing fast, zero configuration web application bundler
+
+** Snowpack
+https://www.snowpack.dev/
+Snowpack is a lightning-fast frontend build tool, designed for the modern web
+
+* CMS
+** Ghost
+https://github.com/TryGhost/Ghost
+#+begin_quote
+👻 The #1 headless Node.js CMS for professional publishing
+#+end_quote
+
+** Payload
+https://payloadcms.com/
+#+begin_quote
+The most powerful TypeScript headless CMS there is.
+#+end_quote
+
+* ORM
+https://www.prisma.io/
+Next-generation ORM for Node.js and TypeScript
+
+* Native Applications
+** Tauri
+https://tauri.app/
+
+* Runtimes
+** Deno
+https://deno.land/
+#+begin_quote
+A modern runtime for JavaScript and TypeScript
+#+end_quote
+
+*** Frameworks
+**** Fresh
+https://fresh.deno.dev/
+#+begin_quote
+The next-gen web framework.
+#+end_quote
+
+** Bun
+https://bun.sh/
+#+begin_quote
+Bun is a fast all-in-one JavaScript runtime
+#+end_quote
+
+** Blueboat
+https://blueboat.io/
+#+begin_quote
+All-in-one serverless JavaScript runtime
+#+end_quote
+
+* AssemblyScript
+https://www.assemblyscript.org/
+#+begin_quote
+A TypeScript-like language for WebAssembly.
+#+end_quote
+
+* Misc Packages
+** mdx
+https://github.com/mdx-js/mdx
+
+JSX in Markdown
+
+** Vite
+https://vitejs.dev/
+
+Modern Webpack replacement
+
+** Rows n' Columns
+https://rowsncolumns.app/
+
+Spreadsheet system in React
+
+** Leaflet
+https://leafletjs.com/
+
+An open-source JavaScript library for mobile-friendly interactive maps
+
+** Brain.js
+https://brain.js.org/
+#+begin_quote
+Brain.js: GPU accelerated Neural networks in JavaScript for Browsers and Node.js
+#+end_quote
+
+** froebel
+https://github.com/MathisBullinger/froebel
+#+begin_quote
+A strictly typed utility library.
+#+end_quote
+
+* Resources
+[[https://javascript.info/][The Modern JavaScript Tutorial]]
+
+https://react-query.tanstack.com/
+
+https://stenciljs.com/ Design system
+
+https://turriate.com/articles/modern-javascript-everything-you-missed-over-10-years ES6 features
+
+https://exploringjs.com/impatient-js/toc.html

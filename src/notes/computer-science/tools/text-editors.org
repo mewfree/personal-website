@@ -1,0 +1,13 @@
+#+title: Text editors
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Text editors
+
+* [[file:text-editors/vim.org][Vim]]
+
+* [[file:text-editors/emacs.org][Emacs]]
+
+* Kakoune
+http://kakoune.org/
+
+* Helix
+https://helix-editor.com/

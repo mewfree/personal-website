@@ -1,0 +1,106 @@
+#+title: F#
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / F#
+
+* Basics
+Type inference
+#+begin_src fsharp
+"Hello, World!"
+#+end_src
+
+#+RESULTS:
+: val it: string = "Hello, World!"
+
+#+begin_src fsharp
+let myInt = 9
+#+end_src
+
+#+RESULTS:
+: val myInt: int = 9
+
+* Lists
+Commas are never user as delimiters, only semicolons
+#+begin_src fsharp
+let firstList = [1; 2; 3]
+#+end_src
+
+#+RESULTS:
+: val firstList: int list = [1; 2; 3]
+
+#+begin_src fsharp
+[1..5]
+#+end_src
+
+#+RESULTS:
+: val it: int list = [1; 2; 3; 4; 5]
+
+** List Comprehensions
+#+begin_src fsharp
+[for i in 1..10 do i * i]
+#+end_src
+
+#+RESULTS:
+: val it: int list = [1; 4; 9; 16; 25; 36; 49; 64; 81; 100]
+
+* Functions
+#+begin_src fsharp
+let square x = x * x
+square 4
+#+end_src
+
+#+RESULTS:
+: val square: x: int -> int
+: val it: int = 16
+
+#+begin_src fsharp
+let add x y = x + y
+add 2 3
+#+end_src
+
+#+RESULTS:
+: val add: x: int -> y: int -> int
+: val it: int = 5
+
+** Anonymous Functions
+#+begin_src fsharp
+List.map (fun x -> x * x) [1; 2; 3]
+#+end_src
+
+#+RESULTS:
+: val it: int list = [1; 4; 9]
+
+* Pattern Matching
+#+begin_src fsharp
+let x = "a"
+match x with
+ | "a" -> "x is a"
+ | "b" -> "x is b"
+ | _ -> "x is neither"
+#+end_src
+
+#+RESULTS:
+: val x: string = "a"
+: val it: string = "x is a"
+
+* Pipe Operator
+#+begin_src fsharp
+firstList |> List.map square
+#+end_src
+
+#+RESULTS:
+: val it: int list = [1; 4; 9]
+
+#+begin_src fsharp
+firstList |> List.map square |> List.sum
+#+end_src
+
+#+RESULTS:
+: val it: int = 14
+
+** Backwards Pipe
+#+begin_src fsharp
+List.sum <| [1; 2; 3; 4]
+#+end_src
+
+#+RESULTS:
+: val it: int = 10

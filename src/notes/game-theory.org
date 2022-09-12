@@ -1,0 +1,8 @@
+#+title: Game theory
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Game theory
+
+* Game theory
+
+* Resources
+** https://www.coursera.org/learn/game-theory-1

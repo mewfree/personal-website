@@ -1,0 +1,1645 @@
+#+title: Finance
+#+startup: latexpreview
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Finance
+
+* Misc
+** Basis Points
+https://en.wikipedia.org/wiki/Basis_point
+- 1bp = 0.01%
+- 10bps = 0.1%
+- 100bps = 1%
+
+* Laws & Regulation
+** Howey Test
+https://www.investopedia.com/terms/h/howey-test.asp
+"The Howey Test refers to the U.S. Supreme Court case for determining whether a transaction qualifies as an "investment contract," and therefore would be considered a security and subject to disclosure and registration requirements under the Securities Act of 1933 and the Securities Exchange Act of 1934."
+
+"Under the Howey Test, an investment contract exists if there is an "investment of money in a common enterprise with a reasonable expectation of profits to be derived from the efforts of others.""
+
+* Financial Markets
+https://www.coursera.org/learn/financial-markets-global/home/welcome
+Class by Robert Shiller from Yale University.
+
+** Intro
+Basic course on how finance works.
+
+Finance is not about making money.
+Making things about is often what finance is about.
+
+How we get things done as a society.
+
+Human nature is manipulative. Therefore it needs to be regulated.
+
+*** Good and Evil
+Finance is a technology, can be used for good or evil.
+
+Retire early, become a philanthropist.
+
+*** Joe McNay Story
+A Yale story.
+
+Class of 1954 gave $370,000 to Yale at its 25th anniversary (1979) but asked Joe McNay to invest it for 25 years.
+Joe McNay invested it in Walmart, Home Depot and some Internet stocks.
+
+In 2004, it was worth $90M, a 24.6%/year return.
+
+** VaR & Stress Tests
+*** VaR
+VAR = Variance
+VaR = Value at Risk
+
+1% one-year VaR of $10M => 1% chance that a portfolio will lose $10M in a year
+
+*** Stress Tests
+Method of assessing firms or portfolios.
+Asks what vulnerabilities there are for various kinds of financial crisis.
+Usually ordered by a government.
+
+Do they really work?
+
+** S&P 500
+Used as a benchmark.
+Very hard to forecast.
+
+** Beta
+$\beta$ is a measure of how an individual asset moves when the overall stock market increases or decreases.
+"If the beta is one, then the asset tends to go up and down one for one in terms of returns with the aggregate market."
+
+In the case of Apple, $\beta=1.5$.
+
+** Market Risk vs Idiosyncratic Risk
+*** Market Risk
+Risk of the overall stock market.
+
+*** Idiosyncratic Risk
+Apple-only risk, like death of Steve Jobs.
+
+** Distribution and Outliers
+*** Normal Distribution
+Also called "bell curve".
+Found in nature, like for human heights, human IQs...
+But not in Finance!
+
+*** Cauchy Distribution
+Named after a mathematician.
+
+Fat-tailed distribution.
+
+*** Central Limit Theorem
+Averages of a large number of independent identically distributed shocks (whose variance is finite) are approximately normally distributed.
+Can fail if the underlying shocks are fat tailed.
+Can fail if the underlying shocks lose their independence.
+
+** Covariance
+You have to be looking at low covariance.
+
+If you invest in companies that are too alike (high covariance), the whole portfolio is either going to blow up or succeed.
+
+Risk is determined by covariance.
+
+Can't get rid of the market risk for the whole world (if you invest in a very broad "world" portfolio ETF/mutual fund).
+
+$\beta_i = \dfrac{\text{Cov}(r_i, r_m)}{\text{Var}(r_m)}$
+
+- i = ith asset
+- m = market
+
+Gold is not exactly negative $\beta$, but if it was, holding some in your portfolio allows it to go up when everything else is going down.
+
+** Insurance
+*** Insurance Fundamentals
+Shared risk.
+
+Pay a premium to the insurance company.
+
+**** Risk Pooling
+If $n$ policies, each has independent probability $p$ of a claim,
+then the number of claims follows the binomial distribution.
+The standard deviation of the fraction of policies that result in a claim is
+$$\sqrt{p(1-p)/n}$$
+
+/Law of large numbers/: as $n$ gets large, standard deviation approaches zero.
+
+**** Principles and Issues
+- =Risk Pooling= is the source of all value in insurance.
+- =Moral Hazard=: people knowing they're insured will take more risk. Dealt with partially by deductions and co-insurance.
+- =Selection Bias=: insurance company might not see all the risk parameters. Health insurance tends to attrack sick people.
+  Dealt with by group policies, by testing and referrals, and by mandatory government insurance.
+
+*** Insurance Milestones
+Insurance actually took a long time to develop.
+Use of technology allowed it to be use for more use cases.
+
+Only starting from the 1600's did it take off well.
+Life insurance & fire insurance.
+
+1840: insurance salesmen?!
+Door-to-door. People didn't want insurance back then.
+
+1880's: large cash value.
+
+Issues with Christianity. Insurance seen as gambling/bets.
+
+*** Insurance is a Local Phenomenon
+Regulated for centuries.
+In the US, insurance is a local phenomenon.
+No national insurance companies, all state charters.
+
+What protects you if the insurance company goes under?
+States started insurance guarantee funds.
+Similar to FDIC for banks.
+
+Insurance for insurance.
+Usually quite limited.
+
+AIG was bailed out during the 2008 financial crisis.
+What prevent them to be careless, knowing they can be bailed out?
+
+50 different regulators, one for each state.
+
+*** Health Insurance
+First health insurance: 1694.
+First US health insurance company: 1850.
+
+Health Maintenance Organization Act of 1973:
+Required employers with 25 or more employees to offer federally certified HMO (Health Maintenance Organiztion) options.
+Before, doctors were not incentivized to cure people, as they would earn more money when people were sick.
+
+US Emergency Medical Treatment and Active Labor Act (EMTALA) of 1986:
+Requires hospitals and ambulance services to provide care to anyone needing emergency treatment.
+Before, you could probably be treated at the hospital because of their "generosity" but it wasn't mandatory.
+
+US Patient Protection and Affordable Care Act (Obamacare) of 2010:
+Tries to deal with the selection bias.
+Penalty for individuals not buying insurance.
+Penalty for companies not offering insurance for their employees.
+
+Not a great system because uninsured people show up to the Emergency Department and don't get any pre-emptive care.
+
+*** Disasters
+Most people in the world are not insured against earthquake risk.
+
+=Haiti Earthquake of 2010=: before the incident, there was a movement for Carribean countries to get insured.
+Haiti got $8M of loss insurance. But the damage was in the billions.
+
+=Hurricane Katrina in 2005=: city of New Orleans was severely damaged.
+Insurance wasn't perfect.
+A lot of policies were for wind damage but not flood damage.
+Companies have been raising their rates but to global warming fears. People had cancelled their insurance.
+
+=Terrorism risk=: before 9/11, terrorism wasn't excluded.
+After 2001, insurers started excluded terrorism risk.
+
+Terrorism Risk Insurance Act of 2002 (TRIA) required insurers to offer terrorism insurance for three years.
+Gov. agreed to pay 90% of insurance losses > $100B deductible.
+TRIA keeps getting renewed.
+
+** An Alternative to Insurance: Portfolio Management
+Managing risk not through purchasing an insurance, but through diversification.
+
+Risk is inherent to investing.
+If it weren't risky, it wouldn't give you an extra return.
+
+You want to manage your risk by diversifying.
+Not putting all your eggs in one basket.
+^ First appeared in 1874 in a book from Crump about how to invest.
+
+Tolerance to risk can be adjusted by leveraging your portfolio up and down.
+
+You care about the total performance of your portfolio, not individual assets.
+
+** Risk Management
+*** Hedge Funds
+Hedge funds: investments companies that are not approved for the retail market.
+Not well known, because they're not allowed to promote themselves.
+To invest in them, you have to be an accredited investor.
+=> So they're allowed to do sophisticated and dangerous things.
+
+Family office: if you're really rich, you can get a whole team of advisors to manage your family investments.
+That's who the hedge funds are really for.
+
+In the past, hedge funds have been doing really well, but not in recent years.
+
+Very high management fees.
+
+*** Regulation
+Since 2008/2009, a lot more measure of risks.
+Especially about the inter-connectedness of businesses/countries together.
+"Stress tests".
+
+*** Black Swan event
+Kind of what happened in 2008.
+People thought home prices would never fall.
+
+Not enough data on those big, rare events.
+
+*** Hedging against labour market risk
+Unemployment insurance.
+Can we do more?
+
+Livelihood/wage insurance. Futuristic idea.
+When somebody loses their job and have to find another lower paying job, they should be compensated for the difference.
+
+** Capital Asset Pricing Model (CAPM)
+CAPM asserts that all investors hold their optimal portfolio.
+
+*** Investment Companies as Providers of Diversification
+- Investments funds
+- Mutual funds
+- Closed end investment companies
+- Unit investment trusts
+
+*** Different Asset Classes
+**** Equity Premium
+US Geometric average stock market return from 1802 to 2012: 6.6%
+(adjusted for inflations)
+US Geometrics average short-term gov. return from 1802 to 2021: 2.7%
+
+Equity premium = 6.6%-2.7% = 3.9%
+
+** Expected return
+$r_i=r_f+\beta_i(r_m-r_f)$
+
+- i = ith asset
+- f = risk-free return (like a government bond)
+- m = market
+
+** Short Sales
+Equivalent to negative quantity of an asset.
+You borrow the security and you sell it.
+You can do that if you think the price is going to go down.
+
+In a CAPM equilibrium model, everybody has the same ideal portfolio, so in theory there should be no stocks to short.
+
+** Calculating the Optimal Portfolio
+Not everybody is investing using the CAPM.
+
+*** Portfolio of a Risky and Riskless Asset
+Risky Asset: $x$ dollars, return $r_1$
+
+Riskless Asset: $1-x$ dollars, return $r_f$
+
+Portfolio Expected Value: $r=xr_1+(1-x)r_f$
+
+Portfolio Variance: $x^2Var(r_1)$
+
+Portfolio Standard Deviation: $\sigma=|\dfrac{r-r_f}{r_1-r_f}|\sigma(r_1)$
+*** Portfolio of 2 Risky Assets
+Risky Asset 1: $x$ dollars, return $r_1$
+
+Risky Asset 2: $1-x$ dollars, return $r_2$
+
+Portfolio Expected Value: $r=x_1r_1+(1-x_1)r_2$
+
+Portfolio Variance: $x_1^2\text{Var}(r_1)+(1-x_1)^2\text{Var}(r_2)+2x_1(1-x_1)\text{Cov}(r_1, r_2)$
+
+** Efficient Portfolio Frontier
+#+attr_org: :width 650px
+[[./images/efficient-portfolio-frontier-stock-bonds.png]]
+
+You don't want to be at the bottom of this chart.
+
+You can sacrifice lower standard deviation for higher return.
+
+** Gordon Growth Model
+$PV=\dfrac{x}{r-g}=\dfrac{x}{1+r}+\dfrac{x(1+g)}{(1+r)^2}+\dfrac{x(1+g)^2}{(1+r)^3}+\dots$
+
+- PV = Present Value
+- g = growth rate
+- r = riskless interest rate
+
+Even for declining industries, if the price is lower than the Present Value (underpriced), then it's a good investment.
+
+** Financial Innovation
+*** Invention Takes Time
+It sometimes take a surprising amount of time to invent stuff that seems obvious once it exists and is widespread.
+
+*** Innovation
+People love probability of a high gain, like lottery tickets.
+Reframe it so it's appealing.
+
+*** Limited Liability
+Started in New York State in 1811.
+Divide up an enterprise into shares, and no shareholder is liable for more than they put in.
+All businesses flocked to New York. Eventually all states passed limited liability laws.
+
+If you're responsible for everything a company does, you won't supply liquidity to them.
+
+Investors overestimate the minuscule probability of loss beyond initial investment.
+Lottery effect: with limited liability, an investment in a corp. behaves like a "throwaway" item.
+
+*** Inflation Indexed Debt
+Useful when inflation is really high.
+First one in 1780. Did not appear again in the US until 1997.
+
+*** Unidad de Fomento
+In 1967, Chile was going through hyperinflation.
+People would immediately cash their paycheque and spend all of it in the store
+because otherwise by the end of the month it wouldn't be worth anything.
+
+The UF is a form of consumer price index.
+
+"The exchange rate between the UF and the Chilean peso is constantly adjusted for inflation so that the value of the Unidad de Fomento remains almost constant on a daily basis during low inflation."
+
+*** Real Estate Risk Management Devices
+Values of homes go up and down all the time.
+Home insurance => protects against fire etc...
+But no insurance to protects the change of value in the home.
+
+If you're shorting the real estate market in the city you live in, you're just protecting yourself against a big price collapse.
+
+Mortgages aren't protected against price decline.
+Buy a $500,000 home on a $450,000 mortgage, price of the home falls to $400,000, you're $50,000 under water.
+
+There are now Futures and Options contracts on the CME for real estate/single family homes.
+
+** Efficient Markets Hypothesis
+Term popularized by Eugene Fama.
+*** Forecasting
+**** Random Walk Theory
+Karl Pearson in /Nature/ in 1905.
+"A random walk is a process that changes in such a way that each change is independent of previous changes and totally unforecastable."
+**** Random Walk & AR-1 Models
+Random Walk: $x_t=x_{t-1}+\epsilon_t$
+First-order autoregressive (AR-1) Model: $x_t=100+\rho(x_{t-1}-100)+\epsilon_t$
+Mean reverting (to 100), $-1<\rho<1$.
+Random walk as approximate implication of unpredictability of returns.
+Similarity of both random walk and AR-1 to actual stock prices.
+
+*** Intuition of Efficiency
+Starting in the 19th centure, information technology started to develop.
+Man named Reuter who decided stocks markets needed up-to-date information.
+Started as carrier pigeons. Could send news from London to Paris. The route would take 4-6 hours.
+
+Then came the telegraph. Sped it up even more.
+Then came the beepers, and then the Internet.
+So many smart people are trying to the information fast, it must be hard to beat the market.
+
+Given publicly available information, the asset prices should reflect the true underlying value of the assets.
+
+Harry Roberts, 1967:
+- Weak form efficiency: prices incorporate information about past prices
+- Semi-strong form: incorporate all publicly available information
+- Strong form: all information, including inside information
+
+Buying stocks with low PE ratio has paid off historically for a long time. Probably explained by [[file:psychology.org][Psychology]], some stocks get ignored and get underpriced because nobody remembers them. Others get overpriced because they're hot.
+
+*** Price as Present Discounted Value (PDV)
+$P=\dfrac{E}{r-g}$      $P/E=\dfrac{1}{r-g}$        (Gordon model)
+
+- P = Price
+- E = Earnings
+- r = interest rate
+- g = growth rate
+
+*** Doubting Efficiency
+Efficient markets theory is a half-truth.
+
+Human emotions play a role.
+
+** Behaviourial Finance
+Connected to [[file:psychology.org][Psychology]].
+
+Schiller thinks that in Academia, departments are too separated. Prof. don't go to each other's seminars.
+
+People really like to be praised.
+Are you pleased about being praised for something you didn't do?
+
+As people mature, the desire for praise morphs into a desire for praiseworthiness.
+
+*** Prospect Theory
+by Kahnema and Tversky, originally published in Econometrica in 1979.
+
+Criticized the core theory of [[file:economics.org][Economics]]: expected utility theory.
+Expected Utility Theory: everyone has a utility function, which depends on the things that they consume and it represents their happiness.
+People in a world with no uncertainty will choose how much to buy at the market prices to maximize their utility function.
+And if there's uncertainty, then people use the probabilities of possible events to calculate the expected utility and the maximized expected utility.
+
+Kahnema and Tversky changes two things from expected utility theory:
+- utility function => value function
+- probabilities => subjective probabilities determined by a weighting function in terms of the actual probabilities
+
+People are overly focused on little losses.
+People will often try to gamble out of losses.
+
+*** Logical Fallacies
+**** Overconfidence
+Most people think they're above average.
+Companies will hire CEOs from other companies to lead their companies, thinking they could reproduce the other company's success, but really it was all due to luck.
+People in business are overly influenced by the random successed of themselves or others.
+
+**** Wishful thinking bias
+People overestimate the probability of the things that they identify with and want to see happen.
+Can happen for sports team or political party/candidate.
+
+**** Cognitive Dissonance
+Mental conflicts that occurs when one learns one's beliefs are wrong.
+People who pick the wrong investment will forget about the performance of that investment.
+
+**** Mental Compartments
+People don't look at their whole portfolio.
+People have a "safe" part of their portfolio that they will not risk and a "risky" part of their portfolio that they can have fun with.
+
+**** Attention Anomalies
+You can't pay attention to everything.
+And some people would look at the stock market every day.
+
+"No arbitrage assumption". No "free money".
+
+**** Anchoring
+A tendancy in ambiguous situations to allow one's decisions to be affected by some anchor.
+
+Subjects are unaware of their own anchoring behaviour.
+Companies know that stock prices are anchored to past values.
+Also why companies like to do stock splits.
+
+**** Representativeness Heuristic
+People judge things by similarity to familiar types.
+Experiment: people were shown a woman with a description (sensitive, artistic) and were asked to guess their occupation between sculptress and bank teller. So many people chose scultpress even though there are so many more bank tellers.
+Tendency to see patterns in what is a really random walk.
+
+**** Disjunction Effect
+Inability to make decisions in advance in anticipation of future information.
+People don't anticipate their emotions later.
+
+**** Magical Thinking
+First described by B. F. Skinner in 1948, not using humans but pigeons.
+He fed hungry pigeons a single pellet of food every 15 seconds.
+Pigeons started doing weird things. They started doing the same thing they did right before the first pellet of food was dropped.
+
+Stock market responses to events may have similar origins.
+
+**** Quasi-Magical Thinking
+Relates to Newcomb's Paradox.
+People vote. Why do they vote? The probability that the election would be won by 1 vote is very low.
+So people shouldn't vote. But people DO vote.
+
+Ellen Langer: people bet more on coin not yet tossed.
+People pay more for lottery tickets in which they choose the number.
+
+**** Culture and Social Contagion
+Collective memory: we all remember the same facts and statistics, so we reach similar decisions.
+
+There's a tendency for us to adopt beliefs of other people.
+There's a mathematical theory of disease epidemics that can be applied to speculative behaviour.
+
+Moral anchors for the market in the form of human stories.
+
+**** Antisocial Personality Disorder
+== sociopathy
+Identity: egocentric, self-esteem from personal gain.
+Self-direction: absence of prosocial internal standards.
+Lack of empthy, incapacity for intimacy.
+Manipulative, deceitful, callous, hostile.
+Irresponsible, impulsive, risk-taking.
+
+**** Borderline Personality Disorder
+Instability of interpersonal relationships and self image.
+Extremes of overidealization and then devaluation of others.
+Depressed moods lasting hours to days.
+Inappropriate intense anger.
+Frantic efforts to avoid real or imagined abandonment.
+
+*** Aspects of [[file:psychology.org][Psychology]] Play a Role in Many Economics Institutions
+Insurance and loss aversion.
+Corporate stocks and gambling.
+Bonds and Money Illusion.
+Banks and trust.
+Central banks and Bubbles.
+Investment banks and framing.
+Exchanges and sensation seeking.
+Options and salience.
+
+** Savings & Bonds
+*** 1982 Savings Account
+7.40% interest rate. There used to be ads for savings account all the time.
+Now not so much with rates <2%.
+
+*** Federal Funds and Interest Rates
+Term = time you have to leave your money in.
+Shortest-term (overnight) interest rate in the US is virtually 0%.
+EONIA (European Over Night Index Average) is at a negative rate. About -30bps.
+bps (basis points) = 1/100th of a percentage point
+
+Why would banks lend money at a negative rate? Because it's costly to store physical cash.
+Need to hire trucks and armed guards...
+
+*** Compound Interest
+With annual rate $r$:
+- Compounding once per year, balance is $(1+r)^t$ after $t$ years
+- Compounding twice per year, balance is $(1+\frac{r}{2})^{2t}$ after $t$ years
+- Compounding $n$ times per year, balance is $(1 + \frac{r}{n})^{nt}$ after $t$ years
+- Continuous compounding, balance is $e^{rt}$
+
+*** Discount Bonds
+Bonds typically pay coupons.
+A discount bond is a bond that carries no coupon.
+Why would you buy that? Because you can buy it for less than what it would be worth at maturity (conventionally, $100).
+Term $T$, Yield to Maturity (YTM) $r$
+
+Compounding once a year:
+$P=\frac{1}{(1+r)^T}$
+
+Compounding twice a year:
+$P=\frac{1}{(1+\frac{r}{2})^{2T}}$
+
+*** Present Discounted Value (PDV)
+PDV of a dollar in one year: $\frac{1}{1+r}$
+PDV of a dollar in $n$ years: $\frac{1}{(1+r)^n}$
+PDV of a stream of payments: $x_1,...,x_n$
+
+*** Conventional Bonds Carry Coupons
+Conventional Bond issued at par ($100), coupons every six months.
+Term is time to maturity.
+
+Compounding once a year:
+$P_t=c(\frac{1}{r}-\frac{1}{(1+r)^T}\frac{1}{r})+\frac{100}{(1+r)^T}$
+
+Compounding twice a year:
+$P_t=\frac{c}{2}(\frac{1}{r/2}-\frac{1}{(1+r/2)^{2T}}\frac{1}{r/2})+\frac{100}{(1+r/2)^{2T}}$
+
+*** Consol and Annuity Formulas
+Consol pays constant quantity $x$ forever.
+Growing consol pays $x(1+g)^{(t-1)}$ in $t$.
+Annuity pays $x$ from time 1 to T.
+
+$\text{Consol PDV} = \frac{x}{r}$
+
+$\text{Growing Consol PDV} = \frac{x}{r-g}$
+
+$\text{Annuity PDV} = x\frac{1-1/(1+r)^T}{r}$
+
+*** Forward Rates
+Forward rates are interest rates that can be taken in advance using the term structure.
+
+$(1+r_2)^2=(1+r_1)(1+f_2)$
+
+$(1+r_k)^k=(1+r_{k-1})^{k-1}(1+f_k)$
+
+*** Inflation
+Nominal rate quoted in dollars, real rate quoted market baskets.
+
+Nominal rate usually greater than real rate.
+
+$(1+r_{\text{money}}) = (1+r_{\text{real}})(1+i)$
+
+$r_{\text{money}} \approx r_{\text{real}}+i$
+
+*** Leverage
+If a company or individual borrows money to buy assets, we say that they are leveraging.
+Leveraging means putting more money into the asset than you have.
+If you have $100 to invest you could buy $100 of stocks, or you could buy $200 of stocks and borrow $100.
+
+Can be risky. If you bought $100 worth of stock and it falls in value by 50%, you're down to $50 (lost $50). But if you leveraged and borrowed $200 worth of stock and borrowed $100, if it falls by 50% you're wiped out.
+
+Start of the 2008/2009 financial crisis had to do with home buyers in the US borrowing to buy homes.
+China today is a highly leveraged economy, arousing concerns.
+
+** Stock Market Capitalization by Country
+Market Capitalization = price per share * number of shares.
+
+US did not invent corporate stock, though the US did invent general limited liability law.
+
+US market cap in 2014 was $26.33T. No other countries come close. Maybe all EU countries in you combine them together.
+
+US households had assets worth $98.3T in 2014.
+And $14.2T for liabilities.
+Hence a net worth of $84.1T.
+
+Real estate owned by households is worth $23.7T.
+
+** Corporations
+"Corporation" comes from the Latin word corpus, meaning body.
+As if it had a body, as if it's a person. In fact the word person in the law typically includes corporations. Individual = natural person.
+
+*** Board of Directors
+A corporation is governed by a board of directors, elected by the shareholders.
+Typically, 1 share = 1 vote.
+
+Board of directors then votes on who would be the President.
+The CEO/President is hired by the board. An employee who reports to the board of directors.
+
+In Germany, firms have two boards of directors. A Supervisory Board and a Management Board.
+
+*** For-Profit vs Non-Profit
+For-profit corporations are owned by the shareholders, equal claim after debts paid, subject to corporate profits tax.
+Non-profit corporations are not owned by anyone and not subject to corporate profits tax.
+For-profit corporations have a price per share, non-profits do not.
+
+*** Shares
+The # of shares doesn't matter, it depends on the total # of shares outstanding.
+Ex: 1,000 shares out of 2,000 shares in the company => 50% ownership.
+
+Companies sometimes go through stock splits, where they break 1 share into 2, or more.
+
+*** Dividends
+A dividend is a distribution of money from the company's earnings to its shareholders.
+
+If the company pays a dividend, the value of the share should go down by the amount of the dividend per share.
+This happens on the Ex-Dividend Date, which is the date on which you have to be a shareholder of the company to be receiving the dividend.
+
+*** Common vs Preferred Stock
+Common refers to "held in common".
+
+*Common stock*: dividend at the discretion of the firm, subject to legal restrictions.
+*Preferred stock*: specified dividend (which does not grow through time?) does not have to be paid, but firm cannot pay dividend on common stock unless all past preferred stock dividend are paid.
+
+US govt. bought preferred shares in corporations to bail them out in 2008.
+
+*** Corporate Charter
+Basic corporate charter emphasizes that *all common shareholders are treated equally*.
+They don't have to pay dividends to them, but if they do, it has to be equal for every share.
+"Equity" = equality of shareholders.
+The firm can also repurchase shares.
+Shareholders elect the board.
+
+*** Classes of Shares
+Companies can have different classes of shares.
+Examples:
+- Berkshire Hathaway: A Class have voting rights (>$400,000 per share), B do not (NYSE-listed)
+- Facebook: Mark Zuckerberg owns 28% of the shares but 57% of the voting shares (2012)
+
+*** How Do Campanies Raise Money?
+Need money now to build a new factory, launch a new ad campaign and get profits later.
+How do you get that money? Four main ways:
+- *Retained earnings*: wait until you've made enough money, save it, then you can build your factory, but it's slow
+- *Borrow money*: go to a bank and get a business loan
+- *Issue debt*: issue a corporate bond
+- *Issue shares*: issue new shares in exchange of an investment ($)
+  /Dilutes/ existing shareholders but creates new earning power
+  % of the shares in a company goes down, but total value goes up
+
+*** Share Repurchase
+Reverse of dilution, because the # of shares goes down.
+The % of the company you own goes up.
+Alternative way of paying a dividend.
+
+Advantage is the tax treatment of share repurchases.
+Treated as capital gains tax, not dividend/income tax.
+Taxes can be postponed until shares are sold.
+
+*** Price as PDV of Expected Dividends
+Efficient markets idea is that the price of a share is the present discounted value (PDV) of its expected future dividends.
+
+Value investing says invest in low P/E.
+
+*** Why Do Firms Pay Dividends?
+Psychological. Some people don't like to dip into the capital and live off dividends and interest.
+Signalling: proves to the world that you're profitable and won't go bankrupt.
+
+$DIV_t-DIV_{t-1}=\rho(\tau*EPS_t-DIV_{t-1})$
+
+- $\rho$ = adjustment rate, $0<\rho<1$
+- $\tau$ = target ratio, $0<\tau<1$
+
+$DIV_t=\rho\tau\sum\limits_{k=0}^{\infty}(1-\rho)^kEPS_{t-k}$
+
+Kind of "prove" that the efficient markets theory is a half-truth... Even really high net worth investors might behave irrationally (preferring dividends).
+
+** Recessions
+Recessions are psychological.
+
+Inverted yield curve: when short-term interest rates are above long-term interest rate.
+Shown statistically that it's a leading indicator of a recession.
+Might happen because people are pessimistic.
+In history, central banks often started recessions deliberately when inflation was getting out of control.
+
+"Best" leading indicator of a recession is a drop in the stock market.
+Bond market isn't as dramatically affected.
+You only know a recession is happening at that turning point when business plans are cancelled, people are getting laid off etc...
+
+** Mortgages
+*** History
+From the Latin "mortuus vadium" and French "mort gage".
+Word mortgage became common in the late 18th century.
+The verb "to mortgage" means to commit property as collateral for a loan.
+
+Lending dates all the way back to China in the 8th century.
+There were fines on relatives for failing to pay.
+
+Property law wasn't so developed. Unclear who owned what.
+
+**** US History
+In 1920s, 5-year term loans were common.
+In the 1930s, there was a decline in nominal home prices and rise in unemployment causing massive defaults.
+Mortgage lending industry therefore turned to longer-term annuities.
+
+**** Federal Housing Administration
+Established in 1934.
+Required 15-year loans. Nowadays, mortgages are typically 30-year.
+Insured the lender against loss.
+Raised insurance premium from 0.5% to 1.5%.
+
+*** Size of Mortgages in the USA
+$13.2T mortgage debt
+48M mortgaged homes
+10.9M of these were underwater after the financial crisis
+
+*** Compared to the Treasury Rate
+30-Year Mortgage Rate and 10-Year Treasury Rate are closely linked, though there is a small spread between the two.
+A mortgage is slightly riskier, hence the slightly higher rate. Plus additional costs of managing the loan.
+
+*** Kinds of Mortgages
+- Conventional, fixed rate mortgage
+- Adjustable rate mortgage (ARM)
+- Price level adjusted mortgage (PLAM): payment adjusted to inflation so constant in real terms
+- Dual rate mortgages (DRAMs): same as PLAM but interest rate floats
+- Shared appreciation mortgages (SAMs)
+- Home equity loans
+
+*** Private Mortgage Insurance (PMI)
+Companies, such as MGIC, insurance Fannie & Freddie against losses on their mortgages.
+Both Fannie & Freddie require that mortgagors buy mortgage insurance if down payment is less than 20%.
+Controversy: with recent real estate price increases, LTV has declined below 80% for many homeowners still paying for mortage insurance.
+The PMIs don't notify them.
+Looming failure of PMIs, PMI Group Inc. declared bankruptcy in 2011.
+
+*** Collateralized Mortgage Obligations (CMOs)
+A pool of mortgages sold to investors.
+CMOs divide the cash flow of a mortgage pass-through security into a number of tranches in terms of prepayment risk.
+Sequential-pay CMOs (first created in 1983): first tranche received first principal payments, after is is paid off the second tranch receives principal payments.
+Allows to get Triple A-rated investments out of mortgages.
+
+*** Collateralized Debt Obligations (CDOs)
+Similar to CMOs but don't need to hold only mortgages, can hold any kind of debt.
+Hold securities, typically mortgage securities as their assets.
+Typically subprime mortgages.
+CDos divide cash flow into a number of tranches in terms of /default risk/.
+Created the CDO debt crisis of 2007.
+Criticism of rating agencies for not downgrading them.
+
+*** Post-crisis Regulation
+In Europe, a mortgage originator must hold 5% of the mortgages they issue.
+Dodd-Frank copies this idea in the USA, but Qualifying Residential Mortgages (QRMs) are exempt.
+
+**** Requirements for QRMs (as of 2014)
+- Regular periodic payments
+- No negative amortization, interest only or balloon features (payment at the end)
+- A maximum term of 30 years
+- etc...
+
+** Commercial Real Estate Vehicles
+*** Limited Partnership
+Real estate partnership is an example of a direct participation program (DPP).
+For accredited investors only.
+DPPs are "flow-through vehicles", investors report earlings and losses on their personal taxes.
+Therefore, no corporate profits tax.
+
+General partner runs the business, no limited liability. Must own >1%.
+Limited partners are passive investors, with limited liability.
+
+*** REITs
+Real Estate Investment Trusts.
+Created by the US Congress in 1960 to allow small investors access to real estate investments.
+Flow-through vehicles, REITs don't pay much corporate taxes.
+
+**** Restrictions
+- 75% of assets must be in real estate or cash
+- 75% of income must be from real estate
+- 90% of their income must be from real estate, dividend, interest & capital gains
+- 95% of income must be paid out
+- No more than 30% of income from sale of properties held < 4 years
+
+**** The 3 REIT Booms
+- Late 1960s
+- 1986, eliminated advantages of partnerships so investors switched to REITs
+- 1992, public and specialized REITs
+
+** Excess Reserves
+Many banking crises in history where banks are subjected to a bank run.
+During a bank run, everybody goes to the bank and demand their money at the same time.
+Depositors lose faith in the bank, and the bank runs out of money. Banks can't handle this.
+
+Regulators in the US and other countries imposed reserve requirements.
+Banks have to keep a certain amount of cash in reserve to meet any sudden increase in demand from their depositors.
+
+Excess reserves are the reserves that banks hold beyond what they're required to hold by regulation.
+Banks typically don't like that as it means they're getting 0% interest.
+But starting from the Great Recession (2008), central banks cut interest as much as they could (to 0% or even negative).
+Regulation has also made it more difficult for the banks to make risky loans.
+Therefore, banks started increasing their excess reserves.
+
+** The Real Estate Bubble and Origins of the 2008 Financial Crisis
+Overoptimistic mortgage lending. People thought prices will go up forever.
+Speculative bubble that preceded and led to the financial crisis.
+
+As population is rising, there's a higher need for homes, especially since people like to establish themselves in cities, where there are jobs.
+But offsetting that is the technology, we can mass produce more and lower the costs of building homes.
+
+Bubbles are social. People talk to each other, reminding themselves of good news and forgetting about bad news.
+Bubbles could be called "epidemics".
+
+** Regulation
+Most regulation in the past has been to protect *individuals* from abuse (microprudential regulation).
+More recently, there has been macroprudential regulation to prevent *big crises* affecting the macroeconomy.
+
+*** Business Wants Regulation
+Without regulation, people are forced to do things in a competitive system that they think are bad for society.
+Analogous to sports, players hate referees when they go against them, but without them they know the game would turn ugly.
+
+*** Within-firm Regulation
+The Board of Directors acts like a regulator.
+Directors are usually from outside the company, representing a broader community.
+Usually a part-time job so companies don't put too much burden on them.
+
+**** Tunneling
+Tunneling = tricks people use in companies to steal money from the company
+***** How Tunneling is Achieved
+- Asset sales
+- Contracts (and pay too much for the service)
+- Excessive executive compensation
+- Loan guarantees (my corp will loan money to another corp)
+- Expropriation of corporate opportunities
+- Dilutive share issues (issue a lot of shares and tunnel the money out)
+- Insider trading
+
+***** Director's Duties to Prevent Tunneling
+- Duty of care: act as a reasonable, prudent or rational person would
+- Duty of loyalty: prevent insiders from benefiting at expense of shareholders
+- Common law countries give more judicial discretion to judge conformance with these duties, and so are more effective in preventing self-dealing transactions
+- Interlocking boards: make it harder to tunnel
+
+*** Trade Groups
+An example of a trade group is the stock exchange (Buttonwood Agreement, 1792).
+Was basically a collusion that they would not charge lower than 0.25% commission.
+
+The US outlawed fixed commissions in 1975.
+
+*** Local Government Regulation
+In the US, banking regulation belonged to states until the National Banking Act of 1863.
+In 1934, the US federal government set up the Securities and Exchange Commission (SEC).
+
+**** Blue Sky Laws
+Laws made during the progressive area (1900s-1920s).
+- Regulates the offering and sale of securities to protect the public from fraud
+- Require registration of securities
+- First one enacted in Kansas in 1911, served as a model for other states
+- Between 1911 and 1933, 47 states adopted blue-sky statutes
+
+*** National Government Regulation
+**** Local Regulation Failed
+SEC was initially viewed as a radical, almost socialist, institution.
+Peculiar that it started in the US, imitated by other countries.
+
+Goal was to submit standardized forms about what public firms are doing.
+Need to be easily available. Nowadays it's on the Internet, on SEC.gov's EDGAR.
+
+**** Public vs Private Securities
+- Public securities are approved for general public by the SEC
+- Initial Public Offering (IPO) is the process of going public
+- The reverse can happen too (public company going private)
+
+**** Hedge Funds
+- For wealthy investors only
+- 3c1s: <99 investors who must be "accredited investors" (>$1M investable assets or >$200k income)
+- 3c7s: <500 investors who must be "qualified purchasers" (>$5M net worth for individuals or >$25M for institutions)
+
+**** SEC Rules
+- Every broker must register with the SEC
+- Every stock exchange must register
+- Every security issue must register
+- Registration does not mean SEC approval
+
+**** Insiders vs Outsiders
+- Insiders are people with special access to information about a company
+- Inside information represents wealth
+- SEC tries to block insider trading
+- Regulation FD (Full Disclosure) in 2000 requires that when a company tells any material fact to an analyst, it must immediately tell the public
+- Germany did not have any laws against insider trading until 1994
+- Some argue insider trading is good (Hayne Leland)
+
+***** Examples of Insider Trading Caught by Market Surveillance
+****** IBM Secretary
+- In May of 1995, an IBM secretary was asked to Xerox documents related to secret plans to take over Lotus, to be announced June 5
+- She told her husband, a beeper salesman
+- On June 2nd he told two friends who immediately bought
+- By June 5, 25 people spent half a million dollars to buy on this tip: pizza chef, electrical engineer, bank executive, dairy wholesaler, schoolteacher and four stockbrokers. All caught by surveillance.
+
+****** Emulex Corporation
+- Mark S. Jacob, 23, had shorted stock of his former employer, hoping it would go bad
+- Sent fake news release to Internet wire, was picked up by Bloomberg, Dow Jones News Wire and CNBC. He immediately covered his short (bought back at a lower price).
+- FBI, using IP addresses, tracked down initial news to El Camino Community College library. Police questioned librarians and eventually tracked him down.
+
+**** Front Running and Decimalization
+- Front-running occurs when a brokers buys shares in front of a large order that will boost stock price
+- Stocks used to be quoted in 1/16th of dollars
+- Decimalization (quoting stocks in cents) began on Jan. 29, 2001 on NYSE and Amex and Nasdaq later in the year
+- Decimalization makes front-running easier
+
+**** Financial Accounting Standards Board (FASB)
+- FASB officially recognized as authoritative by SEC in 1973. Though SEC has statutory right to make accounting standards, prefers the private sector to do it.
+- FASB is not a government organization, but rather a non-profit create by the business community
+- FASB defines Generally Accepted Accounting Principles (GAAP), used for EDGAR.
+
+***** Earnings Definitions
+- GAAP defines "Net Income" (bottom line) and "Operating Income" (revenue minust cost of doing business)
+- Operating Earnings, Core Earnings, Pro Forma Earnings, EBITDA and Adjusted Earnings are not GAAP
+- FASB is at work on developing new definitions, but this takes years
+- Great confusion today about earnings definition
+
+**** Brokerage Insurance
+***** Goodbody & Co. Failure, 1970
+- Top-five brokerage firm Goodbody & Co. ran into financial difficulties, had trouble maintaining SEC capital requirements
+- At the time, no SIPC and brokers would hold the shares for you
+- Fears for the accounts of their 225k retail clients
+- At the request of the NYSE, Merrill Lynch took over company in 1970
+- NYSE pledged $30M to cover losses Merrill might incur
+- None of Goodbody's retail customers lost anything, because of the "heroism" of Merrill, NYSE
+
+***** Securities Investor Protection Corporation (SIPC)
+- To plan for such events in the future, SIPC was created by US Congress in 1970
+- Protects customers of brokerage firm or clearinhouse against failure up to $500k per account, $100k for cash
+- SIPC is much criticized. Very defensive, pays more to the lawyers than to claimants.
+- Disallows claims that were not filed "promptly"
+- "Doesn't cover fraud claims" (SIPC website)
+- SIPC is extremely slow to pay
+
+**** The 2008 Financial Crisis as a Result of Regulatory Failure
+- Many home buyers were put into unsuitable mortgages, later to default
+- Leverage ratio of the financial sector was allowed to reach historically high levels
+- Banks and governments used off-balance-sheet accounting to conceal liabilities
+- Home appraisers were in effect bribed
+- Rating shopping compromised security valuation process
+
+***** Dodd-Frank Act of 2010
+- Creates Financial Stability Oversight Council (FSOC)
+- Creates Bureau of Consumer Financial Protection (CFPB)
+
+***** European Supervisory Framework of 2010
+- European Systemic Risk Board (ESRB) in Frankfurt
+- European Banking Authority (EBA) in London
+- European Securities Markets Authority (ESMA) in Paris
+- European Insurance and Occupational Pension Authority (EIOPA) in Frankfurt
+
+*** International Regulation
+**** Bank for International Settlements
+"Central bank for central banks"
+- Created in 1930 by Hague Agreements
+- Has 57 member central banks, who are in turn national regulators
+- Based in Basel, Switzerland
+
+**** Basel Committee
+- Created by the G10 in 1974 to coordinate banking regulation
+- Basel I in 1988
+- Basel II in 2004
+- Basel III in 2009 (adopted by G20 at the Seoul summit in 2010)
+
+**** G7 Countries
+Canada, France, Germany, Italy, Japan, United States, UK
+
+**** G20 Countries
+- G7 + Russia (G8) + Argentina, Australia, Brazil, China, European Union, India, Indonesia, Mexico, Saudi Arabia, South Africa, Soutk Korea, Turkey
+- Founded in 2008
+- Met in Ankara in 2015
+
+***** Financial Stability Board
+- Created by the G20 in April 2009 from the former Financial Stability Forum (which was founded in 1999 by the G7)
+- Makes recommendations to the G20, which often tend to be adopted in many countries
+- Based in Basel, Switzerland
+
+**** Final Thoughts
+- Regulation has to continually change through time as technology changes
+- World economy dominates more and more and so regulation will shift more to international
+
+** Derivatives
+*** Forwards and Futures
+**** Introduction
+Spot market = market for immediate delivery.
+Forwards and futures market = contracts with future delivery.
+Different price with different delivery date.
+
+People usually don't really know about derivates markets.
+Therefore, there is a public distrust towards derivates markets.
+
+**** Forward Contract
+- A forward contract is a contract to deliver at a future date (exercise date or maturity date) at a specified exercise price
+- Example: rice farmer sells rice to a warehouser (grain elevator)
+- Example: foreign exchange (FX) forward, contract to sell GBP for JPY
+- Both sides are locked into the contract, no liquidity
+- Counterparty risk
+
+***** FX Forwards and Forward Interest Parity
+- FX Forward is like a pair of zero coupon bonds
+- Therefore, forward rate reflects interest rates in the two currencies
+- Forward Interest Parity:
+  \(\text{forward exchange rate } (Y/ \$ )=\text{spot exchange rate }(Y/ \$ )\times\dfrac{1+r_y}{1+r_{\$}}\)
+
+***** Forward Rate Agreements
+- Promised interest rate on future loan
+- L = actual interest rate on contract date
+- R = contract rate
+- D = days in contract period
+- A = contract amount
+- B = 360 or 365 days
+
+$\text{Settlement}=\dfrac{(L-R) \times D \times A}{(B \times 100)+L \times D}$
+
+**** Futures Contract
+- Futures contracts differ from forward contracts in that contractors deal with an exchange rather than each other, and thus do not need to assess each other's credit
+- Futures contracts are standardized retail products, rather than custom products
+- Futures contracts rely on margin calls to guarantee performance
+
+***** Rice Futures
+First futures market: Osaka
+- Begun at Dojima, Osaka, Japan in the 1670s. World's only futures market until the 1860's.
+- Dojima was center for rice trade, with 91 rice warehouses in 1673. Rice is the underlying primary market.
+- Dojima futures exchange has precise definitions of quality, delivery date and place, experts who evaluated rice quality, and clearinghouses for contracts.
+
+****** CBOT Rough Rice Futures (GBX)
+2,000 hundredweights (CWT) (~91 metric tons)
+Deliverable Grade: US No. 2 or better long grain rough rice (with lots of specifics about the quality)
+Pricing Unit: Cents per hundredweight
+Tick Size: ½ cent per hundredweight ($10.00 per contract)
+Contract Months/Symbols: January (F), March (H), May (K), July (N), September (U) & November (X)
+
+***** Wheat Futures
+When a harvest is coming, they dump it on the spot market and the price fall.
+Just before the harvest, there might be a shortage and it is reflected in the futures price.
+****** Mini-sized Wheat Futures Contract Spec
+Contract Size: 1,000 bushels (~27 metric tons)
+Deliverable Grade: #2 Soft Red Winter or #1 Soft Red Winter at a 3 cent premium
+Pricing Unit: Cents per bushel
+Tick Size: 1/8 cent per bushel ($1.25 per contract)
+Contract Months/Symbols: March (H), May (K), July (N), September (U) & December (Z)
+
+***** Buying or Selling Futures
+- When one "buys" a futures contract, one agrees with the exchange to a daily settlement procedure that is only loosely analogous to buying the commodity. One must post iniitial margin with the futures commission merchant.
+- Usually, one has no intention of taking delivery of the commodity.
+- Same as when one "sells" a futures contract, no intention of selling the commodity. Again, post margin.
+
+***** Daily Settlement
+- Every day, the exchange defines a price called the "settle" price, which is essentially the last trade on that day
+- Every day until expiration a buyer's margin account is credited (or debited if negative) with the amount: change in settle price * contract amount
+- If contract is cash settled, on the last day the margin account is credited with (cash settle price - last settle price) * contract amount
+- If contract is for physical delivery, on last day buyer must receive commodity
+
+***** Example: Farmer in Iowa
+- Farmer in March is planting a crop expected to yield 50,000 bushels of corn. By this business, farmer is "long" 50,000 bushels. Farmer "sells" ten Chicago September corn contracts for $2.335*50,000=$116,750. Posts margin.
+- Corn products manufacturer plans to buy corn at harvest time, "buys" the ten contracts, posts margin.
+- Come September, both buyer and seller close out position.
+- Changes in margin accounts means that price was effectively locked in at $2.335/bushel for both.
+
+***** Fair Value in Futures Contract
+$P_{future}=P_{spot}(1+r+s)$
+
+- r = interest rate
+- s = storage cost
+- r + s = cost of carry
+
+Future price is normally above cash price (contango) (otherwise "backwardation")
+
+****** Arbitrage Enforcing Fair Value
+- If commodity is in storage, there is a profit opportunity that will tend to drive to zero any difference from fair value
+- If commodity is not in storage, then it is possible that:
+  $P_{future}<P_{spot}(1+r+s)$
+
+***** Oil Futures
+- Crude light sweet oil (CME)
+  Contract size: 1,000 barrels
+  Physical delivery
+- Brent crude, North Sea (International Petroleum Exchange, London)
+  Contract size: 1,000 barrels
+
+Current oil futures prices are in contango (upward sloping).
+Around fair value because of interest rate and cost of storage.
+
+****** Nature of Oil Storage
+Most stored oil is "moving through the pipeline" (figuratively) of oil tankers, refiners, distributors and retailers.
+No point in pumping out oil and storing it.
+In consequence, there's not really a spot price for crude oil.
+When oil is quoted, it's usually the nearest futures market price.
+
+****** Pegging of Oil Prices by Texas Railroad Commission
+- Founded in 1891 to regulate railroad rates
+- In 1917 Pipeline Petroleum Law declared pipelines common carriers under the control of the Commission
+- Stabilized oil prices until the 1970s
+
+****** OPEC
+- Organization of Petroleum Exporting Countries established in 1960 by Iran, Iraq, Kuwait, Saudi Arabia and Venezuela
+- Qatar (1961), Indonesia and Lybia (1962), Abu Dhabi (1967), United Arab Emirates (1974), Algeria (1969), Nigeria (1971), Ecuador (1973) and Gabon (1975)
+- OPEC countries were originally trying to keep their production low to keep prices high
+- OPEC is weak today because of conflict in the Middle East, hence low oil prices
+
+****** First Oil Crisis, 1973-4
+- Arab countries' retaliation for US support for Israel in the Yom-Kippur war of 1973
+- Trigerred sharp recession around the world
+- 1973-4 is second sharpest stock market crash in the US history. S&P Composite lost 53% of its real value between Dec. 1972 and Dec. 1974 (only worse two-year experience was June 1930 to June 1932).
+
+****** Second Oil Crisis, 1979-80
+- In 1979: Iranian revolution, expulsion of the Shah of Iran, Ayatollah, capture of US embassy hostages in Teheran in Nov. of 1979
+- Iran-Iraq war eruptos in 1980, disrupts oil supplies
+- US CPI inflation reaches 18%/year in March 1980
+- The "great recession" of 1981-82 is the worst recession since Depression of the 1930s
+
+****** Collapse of OPEC Cartel, 1986
+- After suffering bombing by Iraq, Iran demands that Iraq be given the same oil export quote as everyone else
+- Other arguments about the disproportionate share of some OPEC states
+
+****** Government Oil Reserves
+- Strategic Petroleum Reserve (created in 1975) in caverns in Louisiana and Texas - 572 million barrels, only 60 days supply. Not used to stabilize prices.
+- In 2000, President Clinton established a 2 million barrel heating oil reserve in New York and New Haven to help stabilize US heating oil prices. US consumption of heating oil is about 100 million barrels a year.
+- Today, heating oil reserve is in Groton, CT and Revere, MA
+- Goverment has sold from reserves on a number of occasions since 2000 when price triggers were hit
+
+****** Persian Gulf War, 1990-91
+- On August 2, 1991, surprise invasion of Kuwait by Iraq
+- UN Security Council deadline for Iraq to withdraw from Kuwait by January 15, 1991
+- On January 16, 1991 air bombardment of Iraq and its Kuwaiti positions begins
+- On February 24, 1991 allied ground invasion begins
+- War is over on February 26, 1991
+- Brief interruption of oi supplies mark recession: NBER dates July 1990-March 1991
+
+****** Second Gulf War Oil Spike
+- In anticipation of war, oil rises to nearly $36/barrel in February 2003
+- US invaded Iraq on March 19, 2003
+- Symbolic end of war: after capture of Baghdad, crowd topples Hussein statue on April 8, 2003
+- Oil falls to $28/barrel by April 2003
+
+****** Volatile Oil Prices after 2008 World Financial Crisis
+- In 2008, at height of financial crisis, price per barrel hit $113/barrel
+- In 2016, oil price fell below $30/barrel
+- Fracking technology responded to the 2008 high oil prices with a lag
+
+***** Stock Price Index Futures
+- Cash settlment rather than physical delivery
+- Settlement is $250\times(\text{Index}_t-\text{Futures}_{t-1})$
+- Fair value:
+  $F = P + P (r - y)$
+  F = fair value futures prices
+  P = stock price index
+  r = financing cost (interest rate)
+  y = dividend yield
+
+***** Federal Funds Futures Market
+- Created by CBOT in 1988
+- Settlement is 100 minus annualized federal funds rate, averaged over contract month
+- Show timing of expected actions of Federal Open Market Committee
+- One-month-ahead forecast errors typically in the ten to twenty basis point range
+
+*** Options
+An option is a contract.
+A call option gives the right to buy.
+A put option gives the right to sell.
+
+**** History
+***** Why Have Options?
+****** Theoretical Reason
+- In a 1964 article, economic theorist Kenneth Arrow argued that a major source of economic inefficiency is the absence of markets for risks
+- In his 1976 article "Options and Efficiency", Stephen Ross made Arrow's theory a raison d'être of options markets and he argues that financial options have a central place in th the form of "completing the market".
+
+****** Behaviourial Reason
+- Salience and Attention
+- People buy insurance (after a flood, lots of people buy flood insurance, why not before?)
+- Peace of mind with put option (a put option is kind of like an insurance)
+- Shefrin and Statman "Silver lining theory"
+
+***** Options Exchanges
+- Options are as old as civilization. Options to buy a piece of land in the city.
+- Chicago Board Options Exchange, a spinoff from the Chicago Board of Trade first started trading standardized options in 1973
+- Futures exchange trades options on futures
+- American Stock Exchange in 1974, NYSE in 1982
+
+**** Terms of Options Contract
+- Exercise date
+- Exercise price
+- Definition of underlying and number of shares
+
+**** Moneyness
+https://en.wikipedia.org/wiki/Moneyness
+***** In-the-money (ITM)
+A call option is in the money if the stock's current market price is higher than the option's strike price.
+***** Out-of-the-money (OTM)
+An OTM call option will have a strike price that is higher than the market price of the underlying asset. Alternatively, an OTM put option has a strike price that is lower than the market price of the underlying asset.
+
+**** Options Value
+***** Call Options
+#+attr_org: :width 650px
+[[./images/call-option-value.png]]
+
+Example of a call option of exercise price $20 on the last day.
+If the stock is worth less than $20, the option is worthless.
+But if it's "in the money" on the last day (exercise day) the option is worth the difference between the stock price and the option price.
+If the stock price is $25, you would definitely exercise because you pay $20 to exercise it and you can sell the stock immediately for $25.
+***** Put Options
+#+attr_org: :width 650px
+[[./images/put-option-value.png]]
+
+For put options, you would only exercise if the stock price is below the exercise price.
+
+**** Put-Call Parity
+Put-Call parity arbitrage:
+- Spot price + Put (at strike price) = Call (at strike price) + Risk-free % of strike price
+- Put option price - call option price = present value of strike price + present value of dividends - price of stock
+- Price of stock = call price + pdv strike + pdv dividends - put price
+All those formulas are equivalent, just written differently.
+
+For European options, this formula must hold (up to small deviations due to transaction costs), otherwise there would be arbitrage opportunities.
+
+**** Options for Hedging
+To put a "floor" on one's holding of a stock, one can buy a put option on the same number of shares.
+
+**** Options Pricing
+https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_equation
+https://en.wikipedia.org/wiki/Feynman%E2%80%93Kac_formula
+
+**** Cliquet options
+https://en.wikipedia.org/wiki/Cliquet_option
+
+**** Resources
+***** Options, Futures, and Other Derivatives
+by John C. Hull
+***** Option Volatility & Pricing: Advanced Trading Strategies and Techniques
+by Sheldon Natenberg
+***** The Concepts and Practice of Mathematical Finance
+by Mark S. Joshi
+***** Financial Calculus: An Introduction to Derivative Pricing
+by Martin Baxter
+***** Stochastic Calculus for Finance I & II
+by Steven Shreve
+***** https://en.wikipedia.org/wiki/Delta_neutral
+***** https://en.wikipedia.org/wiki/Greeks_(finance)
+***** https://en.wikipedia.org/wiki/Binomial_options_pricing_model
+
+** Investment Banking
+They do no accept deposits. They are not members of the Federal Reserve System.
+Investment banks underwrite securities rather than make loans.
+
+*** Bulge Bracket Firms
+- First Boston (acquired by Crédit Suisse)
+- Goldman Sachs (now a bank holding company)
+- Merrill Lynch (now part of Bank of America)
+- Morgan Stanley (now a bank holding company)
+- Salomon Brothers (merged into Citi)
+- Lehman Brothers (went bankrupt in 2008)
+
+*** Underwriting of Securities
+- Issuance of shares and corporate debt
+- Underwriter provides advice for issuer (kind of like a consulting firm), distribution of securities, sharing of risks of issue and stabilization of aftermarket
+- Underwriter also "certifies" the issue by putting its reputation behind the issue
+
+**** Two Basic Kinds of Offerings
+- Bought deals (or "Firm commitment offering"): the underwriter aggres to buy all shares that are not sold
+- Best efforts: the underwriter says that if the issue is not sold, deal collapses
+
+**** Underwriting Process
+- Prefiling period
+- Advice issuers about their choices
+- Agreement among underwriters, designates manager, fees
+- Filing of registration statement with SEC, begins cooling-off period
+- Cooling-off period - distribute preliminary prospectus (red herring), nothing else
+- Call prospective clients for indication of interest
+- Due diligence meeting between underwriter and issuing corporation
+- Decide on offering price
+- Underwriting agreement that defines which underwriter sells what
+- Dealer agreement, dealers purchase from underwriters at a discount from public price
+- Effective date is defined
+- Support the price in the aftermarket (stabilization legally allowed by the SEC)
+
+**** Initial Public Offerings (IPOs)
+An initial public offering (IPO) is an offering of shares in a company for the first time publicly.
+Public shares are shares that are regulated for the general public.
+
+*** Rating Agencies
+An agency that publishes its information publicly.
+Rating is usually given using letter grades. AAA being the best rating.
+
+**** History
+- Moody's in 1909
+- Poor's in 1916
+- Merged with Standard Statistics in 1941 to become Standard & Poor's
+- Agencies would not accept money from the people they rated
+- That broke down in the 1970s
+- Part of the 2008 financial crisis is due to rating agencies giving AAA ratings to CDOs holding subprime mortgages
+
+*** History
+**** Glass-Steagall Act of 1933
+The modern concept of "Investment Bank" was created in the Glass-Steagall act (Banking Act of 1933). Glass Steagall separated commercial banks, investment banks and insurance companies.
+
+Democrats believed that commercial banks securities operations had contributed to the crash of 1929.
+
+Same act created the FDIC.
+
+**** Repeal of Glass-Steagall Act
+Other countries (Germany, Switzerland...) have always allowed universal banking.
+In the 1990s, regulators nibbled away at the Glass-Steagall Act by allowing commercial banks to engage in certain securities operations.
+President Clinton in November of 1999 signed the Graham-Leach Bill which rescinded the Glass-Steagall Act of 1933.
+
+**** Mergers among Commercial Banks, Investment Banks & Insurance Companies
+- Travelers' Group (insurance) and Citicorp (commercial bank) in 1988 to produce Citigroup
+- Chase Manhattan Bank (commercial bank) acquired JP Morgan (investment bank) in 2000 for $34.5B
+- UBS bought Paine Webber (brokerage) in 2000
+- Crédit Suisse bought Donaldson Lufkin Jenrette (investment bank) in 2000
+
+**** Volcker Rule Goes Into Effect in Oct 2011
+Paul Volcker (former Fed chariman) proposes in 2009 that we restore the Glass Steagall Act in the sense that commercial bank to no longer be allowed to own hedge funds or do proprietary trading.
+Incorporated into Dodd Frank Act Section 619.
+
+** Professional Money Managers and their Influence
+*** Assets of US Households (Table B-101)
+$101T
+About a ¼ of that is real estate, almost equal are pension funds
+
+*** Liabilities of US Households (Table B-101)
+$14T
+Most loans are mortgages
+
+*** Net Worth
+$101T-$14T=$87T
+(per capita: $270k)
+
+Typical household of 4 people is worth >$1M
+
+*** The Prudent Person
+**** Employment Retirees Income Security Act (ERISA, 1974)
+Fiduciaries must act with the care, skill, prudence and diligence under the circumstances then prevailing that a prudent man acting in a like capacity and familiar with such matters would use in the coonduct of an enterprise of a like character and with like aims
+**** Dodd-Frank Act (2010)
+Dodd-Frank never refers to the "prudent person" but does refer to "prudential standards" 34 times.
+The new idea is not to rely on fiduciaries to use their own judgment as to what is prudent, but to impose regulatory standards
+**** Financial Advisors
+- Anyone who advises others on the value of securities or advisability of investing or who publishes analysis
+- Excludes bankers, lawyers, reporters, professors
+- Excludes broker dealers whose advice is only incidental to their business
+**** National Securities Markets Improvement Act (NSMIA, 1996)
+- All advisors managing more than $30M must register with the SEC
+- Those managing less than $25M must register with the state securities regulator
+- Act does not mention "prudent person" but does bar convicted felons from serving as an adviser
+**** Financial Planners
+- Comprehensive planning for life, rather than just picking stocks
+- Not regulated, no license in most countries
+- In the US, financial planners must be registered as a financial advisor first
+  Financial Planning Association, fpa.org
+- Certified Financial Planner (CFP) designation, awarded by Certified Financial Planner Board of Standards, Inc.
+- Dodd-Frank asks only fort a "study of financial planners" and recommendations for possible regulation
+
+*** Mutual Funds and ETFs
+**** Mutual Funds History
+- First mutual funds appeared in Holland in the 1770s: Eendraght Maak Magt
+- In 1920s, many investment companies bilked small investors
+- Massachusetts Investment Trust (MIT) in 1920s had only one class of investors, published portfolio, redeemed on demand
+- Became model for mutual fund industry
+- Investment Company Institute
+
+**** ETFs vs Mutual Funds
+- First Exchange Traded Fund: Standard & Poors Depositary Receipts (SPDRs, Spiders), AMEX 1993
+- SPDRs hold portfolio of S&P index
+- Management fee: low, like 12 basis points
+- Automatic creation and redemption
+- QQQ, iShares...
+
+** Exchanges, Brokers and Dealers
+*** Brokers
+*B*rokers act on behalf of
+*O*thers as their
+*A*gent for which they earn a
+*C*ommission
+
+*** Dealers
+A *D*ealer always acts for
+*H*imself, in other words as a
+*P*rincipal in the transaction for which he makes a
+*M*arkup
+
+- Stands ready to buy and sell at posted prices, bid and ask, profit from bid-ask spread rather than commission
+- Analogy to antique dealers
+- Why are antiques dealers' bid-ask spreads so much wider than stock dealers? => antiques are unique items, hard to sell, have a showroom, need to make more money per transaction
+- An inter-dealer broker facilitates exchange between dealers
+
+*** Broker-Dealers
+- A firm doing business as a broker or dealer must register with the SEC as a BD
+- A person can never be both a broker and a dealer in the same transaction
+- Never make both a commission and a markup on the same trade
+
+*** Exchanges
+- New York Stock Exchange, established in 1792 by the Buttonwood agreement among 24 brokers
+- Exchanges provide standards and codes of ethics for broker members, standards for stocks
+- Exchanges must register and are regulated by the SEC
+- National Best Bid Offer (NBBO) via Intermarket Trading System (ITS)
+- Listing requirements for stocks, delisting too
+
+**** The Traditional Four Markets
+- First market: NYSE (New York Stock Exchange, 1792)
+- Second market: Nasdaq (National Association of Securities Dealers Automated Quotations, 1971)
+- Third market: Nasdaq Small Cap
+- Fourth market: large institutions trade amongst themselves without the use of a securities firm
+
+**** Limit Order Book
+List of buy (bid) and sell (ask) orders, with # of shares and price (to the cent).
+
+**** High Frequency Trading
+- Computer programs can trade algorithmically
+- Trades can be flashes for a millisecond, and only computers will respond
+- Speed of transmission matters
+- Fully automated markets gaining ground over less automated markets such as NYSE
+
+**** Kinds of Orders
+- Market Order
+  no price limit, dangerous for thinly-traded stocks
+- Limit Order
+  buy/sell at a specific price
+- Stop Loss order
+  similar to a limit order but to limit losses on a stock you own
+
+*** Payment for Order Flow
+When your broker doesn't send your order to the exchange directly, but to someone else who pays for it.
+Illegal in Canada, not in the US.
+
+** Public Finance
+*** Government Debt and Default
+- Public misunderstands default - rarely do governments repudiate entire debt
+- More common is that governments inflate the currency
+- Greece defaulted in 2015 but it was only partial default and Tsipras promised new austerity
+- Other hotspots for default today: Ukraine, Puerto Rico
+
+*** Government Involvement in Corporations
+- Governments all over the world regulate business. Sometimes governments will own shares in privates businesses.
+- Private businesses know that they may be nationalized in the future
+**** Example of Fukushima Disaster
+- Fukushima reactors were owned by Tokyo Electric Power Company (TEPCO)
+- TEPCO is 4th largest electric power company in the world (TKECF traded OTC in the US)
+- TEPCO was mostly nationalized in July 2012, government owns 50.11% and can own 88.69% if government converts preferred shares
+**** Bankruptcy Laws Make Govt a Shareholder in All Businesses
+- Chapter 7 - Liquidation
+- Chapter 11 - Reorganization
+- If a company messes up and is sued for damages, the government may pay the damages
+**** Personal Bankruptcy
+- Every individual is like a business with the government as a partial shareholder, because it allows you to take risks and then decalre personal bankruptcy if it goes badly
+- Lenders are like shareholders in your personal enterprise
+- "Government as risk manager of last resort" - David Moss
+
+*** Municipal Finance
+**** Basic Motivation of Municipal Debt
+- People move in and out of localities, sometimes there is a reasonable prospect of future population inflow
+- With steady population growth, cities should borrow to finance construction of roads, sewers etc... to be ready for them, and they should pay for it when they arrive by paying taxes to pay the debt
+**** Deficit Spending
+- State constitution prohibitions against deficit spending => Connecticut since 1991
+- Can still run deficit on capital account
+**** Revenue Bonds
+- If the city issues debt, why doesn't it issue equity?
+- It does with revenue bonds, but only when they are doing a project that yields them improvements (like a toll road/bridge)
+
+*** Government Social Insurance
+**** Origins of Social Insurance
+- German social thinkers in the 1870s: Lujo Brentano, Gustav Schmoller, Adolph Wagner
+- Otto von Bismarck's government: instituted sickness insurance in 1883, accident insurance in 1884, old-age insurance in 1889
+- Unemployment insurance in the UK by Lloyd Geroges in 1911
+
+**** Social (Governmental) Insurance
+- Progressive Taxes (US, 1913)
+- Free public education and services
+- Social Security: OASDI, Old Age, Survivors and Disability Insurance (US, 1935)
+- Health Insurance: Medicare and Medicaid (US, both 1965), US is the only major developed country without a comprehensive health insurance
+- Workers Compensation (US, before 1920)
+to compensate against job-related hazards
+
+*** Income Taxes
+**** Failure of First US Income Tax
+- After Civil War, Compliance declined, only 10% of eligible taxpayers actually paid
+- Was too easy to fraud and not pay, everything was done in cash, employers wouldn't keep records
+- Tax rescinded in 1872
+
+**** Withholding of Income Taxes
+- Important human engineering element of income tax system
+- Endowment effect
+- Underground economy flourishes where withholding is impossible
+
+**** Survivors Insurance
+- Created in 1939 by amendments to the Social Security Act
+- Government life insurance
+- For most people, bigger than their life insurance
+
+*** Conclusion
+- Public finance shares many aspects of private finance and insurance
+- Finance is always about incentivization in a risky world, people have purposes and fear and they choose alternative financing methods to achieve them
+- First principle of this course: you should have pruposes beyond making money, beyond abstract finance
+
+** Nonprofits, Cooperatives, Philanthropy
+*** Nonprofits
+- In 2013, there were 1.4M nonprofits in the US, 5.4% of US GDP
+- In 2013, 10% of US workforce (including volunteers) worked for nonprofits
+- Does not include the government (16.5% of the US workforce)
+- No dividends. No owners. Tax exempt.
+
+**** Percentage of Workforce in Nonprofits by Country in 2013
+1. Israel 12.7%
+2. Australia 11.5%
+3. Belgium 11.5%
+4. New Zealand 10.6%
+5. United States 10.2%
+6. Japan 10.0%
+7. France 8.9%
+8. Norway 8.2%
+9. Portgual 4.4%
+10. Brazil 3.7%
+
+**** Nonprofits Give Bonuses Just as For-Profits
+- 42% of all nonprofits have a formal executive bonus system in palce and the percentage is increasing
+- Nonprofits have to compete with for-profits
+
+**** Why Set Up a Nonprofit?
+- It may not be much different to you than setting up a for prodit, and it gives you the moral high ground
+- Dean Karlan at Yale Innovations for Poverty Action founde in 2002. $25M income in 2010, staff of 500 people.
+
+**** Human Impulse to Hoard
+- Normal people like to accumulate, a sort of instinct
+- In extreme form, it is a mental illness, "compulsive hoarding"
+
+*** Cooperatives
+A business that may distribute profits.
+1 member = 1 vote.
+
+*** Alternative Forms
+**** Benefit Corporation
+- First one created in Maryland, 2010
+- ~30 states have them now
+- Company charter must state a social or environmental purpose and is required to pursue that as well as profit
+- Halfway between for-prodit and non-profit
+
+**** The Future of Philanthropy
+- As years go by, new financial forms will be developed
+- Psychology and neuroscience will play a fundamental role
+- Will lead to ultimately more satisfying lives
+
+** Finding Your Purpose in a World of Financial Capitalism
+*** Critics of Modern Finance
+**** Adair Turner, /Between Debt and the Devil/, Oct 2015
+Corporate debt is a kind of "economic pollution" that needs to be taxed
+**** Rana Foroohar, /Makers & Takers/, May 2016
+- After Steve Jobs' death in 2011, Apple began borrowing billions of dollars
+- Tax evasion
+
+*** Democratization of Finance
+**** Finance for the People
+- /Finance and the Good Society/ by Robert J. Schiller
+- Trends towards involvement of broad public
+- Internet can be a great democratizer
+
+**** Crowdfunding
+Investment bankers don't always get innovative ideas.
+Allows you to get funding directly from the people / potential customers.
+
+*** Finance and War
+**** There will be Wars & Chaos
+- There is no world government, supposing there never will be
+- Organizations like the UN, G20 nations are tenuous
+- Regulations represent a common consense and will survivor changes in government
+
+**** Finance Survives Changes in Government, Religion
+- Example: WWI, German stocks, reparations
+- In Iran, after Ayatollah displaces the Shah in 1979, the new radical Islamic government made good on the pensions that government employees have been awarded under the Shah.
+- In South AFrica in 1994, after a fundamental turnover of the government from whites to a black majority at a time of great bitterness due to a history of repression and apartheid, financial securities, insurance and pensions were not confiscated
+
+**** Of Course, Wars Can Disrupt Finance
+- Socialist theory allowed Lenin (USSR), Lazaro Cardenas (Mexico), Mao Tse-Tung (China) and others to justify major confiscations of property and nullifications of financial arrangements
+- After WWII, US governments forced the Big Four zaibatsu of Mitsubishi, Mitsui, Sumitomo and Yausda to sell their assets and invest in nominal yen bonds
+
+*** Finance and Population Growth
+**** /An Essay on the Principle of Population/ 1st edition in 1798, 6th and last in 1826
+by Thomas Malthus (1766-1834)
+
+"That population, when unchecked, goes on doubling itself every 25 years or increases in a geometrical ratio."
+"In the next 25 years, it is impossible to suppose that the produce could be quadruples. It would be contrary to all our knowledge on the qualities of land."
+"No possible form of society could prevent the almost constant action of misery upon a great part of mankind, if in a state of inequality, and upon all, if all were equal."
+
+*** The Importance of Financial Theory
+**** Mathematical Finance
+- The world will never be the same again because of the development of mathematical finance
+- The theory allocation of scarce resources was not understood by most people in the early 20th century
+
+**** Behavioural Finance
+- Behavioural finance is the salvation of mathematical finance, for it explains the frictions that inhibit it
+- Hardcore mathematical finance people have a tendency to be irrelevant
+- Law schools are as necessary as the math, finance people
+
+*** Wealth and Poverty
+- Animosities due to disparities of wealth are fundamental to most revolutions of our time
+- Part of the problem has to do with failure to democratize finance
+- Popular theory: inequality is because of political power, evil people
+- Alternative theory: inequality is due to the unmanaged risks
+
+*** Your Career and Finance
+**** Desire for Perfect Careerr
+- Giving away 90% of your income now, when young, won't make you very helpful. Must launch out on a career where you make money first.
+- Gates Foundation, the largest transparently operated charitable foundation, endowment of $38B from Gate and Buffet
+
+**** The Next Few Decades
+- Most exciting prospect: the developing world catching up
+- Financial Markets will be everywhere, dominating people's lives
+- Financial booms and crashes will be even bigger than before
+- Worse things have happened in history!
+
+**** Dramatic Change in Finance, our Economy
+- Experience of last century suggests dramatic changes in the next
+- Information technology unleashes a cascade of other changes in the economy
+- Other technology transforms the world economy, creating opportunities and challenges
+
+**** Risk and Change over Careers
+- Century-long personal outlook
+- Reflections on upheavals in last century
+- Stock market risk is compounded by individual career risk
+- Illusion of invulnerability
+
+**** Human Capital, Positioning and Meaning
+- Maintain an orientation towards history in the making, rather than to one's own point in the life cycle
+- Maintain human capital, strategically oriented
+- Maintain humanity in an unforgiving business world

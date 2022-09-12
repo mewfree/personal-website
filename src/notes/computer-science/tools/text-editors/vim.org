@@ -1,0 +1,90 @@
+#+title: Vim
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../tools.org][Tools]] / [[file:../text-editors.org][Text editors]] / Vim
+
++My #1 text editor for now.+
+Using [[file:emacs.org][Emacs]] way more these days.
+
+* Text movements
+** Basics
+=hjkl= left/down/up/right
+
+** Horizontal
+=f [char]= move to char
+=t [char]= move to character ~before~ char
+
+=F [char]= move to char (backwards)
+=T [char]= move to character ~before~ char (backwards)
+
+=w= next word
+=b= previous word
+=e= end of word
+
+=0= beginning of line
+=$= end of line
+
+** Vertical
+=gg= first line
+=G= last line
+
+* Insert mode
+=i= enter insert mode where cursor is placed
+=a= enter insert mode after the next character
+
+=I= enter insert mode at the beginning of the line
+=A= enter insert mode at the end of the line
+
+=o= enter insert on a new line below current line
+=O= enter insert on a new line above current line
+
+=ESC= exit insert mode
+
+* Changes
+** Copy
+=y= yank (copy)
+=p= paste
+
+** Deletion
+=x= delete a single char
+
+=d [verb]= delete [verb]
+=d w= delete word
+
+** Undo/redo
+=u= undo a change
+=Ctrl + r= redo a change
+
+* Visual
+** Visual mode
+=v [verb]= select [verb]
+
+** Visual line mode
+=Shift + V= select entire line
+
+** Visual block mode
+=Ctrl + V= to start a column selection
+
+Use =I= or =A= to add text at the beginning or the end of the line
+
+* Commands
+=:w= save
+=:q= quit
+=:q!= quit without saving
+=:wq= quit and save
+
+* Plugins
+** Conjure
+https://github.com/Olical/conjure
+Interactive evaluation for Neovim (Clojure, Fennel, Janet, Racket, Hy, MIT Scheme, Guile)
+
+** Conquer of Completion
+https://github.com/neoclide/coc.nvim
+Never tried it, would probably not use it
+
+* Resources
+** Minimal Setup Explained
+https://www.guckes.net/vim/setup.html
+https://news.ycombinator.com/item?id=30461996
+
+** Compare colorschemes
+https://vimcolorschemes.com/

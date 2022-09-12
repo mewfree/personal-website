@@ -1,0 +1,27 @@
+#+title: Fedora
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../linux.org][Linux]] / Fedora
+
+* Package Manager
+Based on =rpm=
+
+GUI:
+- PackageKit
+- GNOME Software
+
+CLI:
+- =dnf= Dandified Yum
+
+Commands:
+- =dnf search {package}= search for package
+- =dnf install {package}= install package
+- =dnf remove {package}= remove package
+- =dnf upgrade= update all repos and upgrade all packages in the system
+
+Extra commands that are useful to know:
+- =dnf autoremove= automatically removes packages installed as dependencies that are no longer required
+- =dnf check-update= check for update but does not upgrade
+- =dnf downgrade {package}= downgrade package's version
+
+* Silverblue
+Immutable version of Fedora

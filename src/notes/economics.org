@@ -1,0 +1,29 @@
+#+title: Economics
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Economics
+
+* Economics
+** Monetary Policy
+*** M1
+M1 includes cash and checking deposits, while near money refers to savings deposits, money market securities, and other time deposits (in amounts less than $100k).
+*** M2
+M2 is a calculation of the money supply that includes all elements of M1 as well as "near money." These assets are less liquid than M1 and not as suitable as exchange mediums, but they can be quickly converted into cash or checking deposits.
+
+* Resources
+** Principles of Economics
+https://learning.edx.org/course/course-v1:StanfordOnline+ECONX0001+1T2021/home
+
+** How The Economic Machine Works by Ray Dalio
+https://www.youtube.com/watch?v=PHe0bXAIuk0
+
+** The origins of the financial crisis
+https://www.economist.com/schools-brief/2013/09/07/crash-course
+
+** Marginal Revolution University
+https://mru.org/
+*** Principles of Economics: Macroeconomics
+Causes of wealth, Solow growth model, financial intermediation, unemployment, inflation, business cycles, monetary policy, fiscal policy, and more.
+https://mru.org/principles-economics-macroeconomics-0
+
+** Raoul Pal's Masterclass on Recession & Inflation
+https://www.youtube.com/watch?v=NVnbFQjqh5o

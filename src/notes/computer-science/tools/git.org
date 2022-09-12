@@ -1,0 +1,67 @@
+#+title: Git
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Git
+
+* Commands
+Start a new repo: =git init=
+
+Add files to be committed: =git add=
+
+Check status: =git status=
+
+Commit: =git commit -m "commit message"=
+
+Push: =git push origin {branch}=
+
+Start a new branch: =git checkout -b {branch}= (new: =git switch=?)
+
+=git log -p= lists git commit history with the =diff=
+
+** Stash
+- Put away uncommitted changes: =git stash=
+- Re-apply stashed changes: =git stash pop=
+- Re-apply stashed changes AND keep the changes in the stash: =git stash apply=
+- List stashes: =git stash list=
+- Annonate stash with a message: =git stash save "message"= (new: =git stash push "message"=)
+- Specify a stash to re-apply: =git stash pop stash@{2}=
+- View stash diff: =git stash show= Full diff: =git stash show -p=
+- Creating a branch from a stash: =git stash branch {branch} stash@{1}=
+- Delete a specific stash: =git stash drop stash@{1}=
+- Delete all stashes: =git stash clear=
+
+** Fixup
+=git commit --fixup {commit-sha}=
+
+Allows to "amend" a commit older than the very last commit
+
+** Squash
+While a =git rebase -i=, commits are listed in chronological order (reverse of =git log=). If you'd like to =squash= a commit, it has to be in the middle or the bottom, can't be at the top.
+
+*** Autosquash
+=git rebase -i --autosquash=
+
+Automatically squash =fixup=-type commits
+
+** Submodules
+Add a submodule repo to an existing repo: =git submodule add {url}=
+
+Notice the new =.gitmodules= file and the submodule repo as a directory
+
+Even though it is a directory in the /main/ repo, git sees it as a particular commit from the submodule repo and doesn't track its content
+
+*** Resources
+https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+* =.gitignore=
+https://git-scm.com/docs/gitignore
+A =.gitignore= file lists the files to be ignored by [[file:git.org][Git]].
+Multiple =.gitignore= files can be present in the same repo (in subdirectories...).
+
+* Tools
+CLI tool for a more visual git: [[https://jonas.github.io/tig/]]
+
+* Resources
+** (locally) squashing multiple commits using rebase
+http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
+
+** [[https://phoenixnap.com/kb/how-to-rename-git-branch-local-remote]]

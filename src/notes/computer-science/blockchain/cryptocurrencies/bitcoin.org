@@ -1,0 +1,13 @@
+#+title: Bitcoin
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../blockchain.org][Blockchain]] / [[file:../cryptocurrencies.org][Cryptocurrencies]] / Bitcoin
+
+Mainly used as a store of value theses days.
+Though smart contracts coming soon?
+
+Bylls: pay Canadian bills in BTC
+
+* Dapps
+** Sovryn
+https://www.sovryn.app/
+DEX on RSK, a Bitcoin side-chain

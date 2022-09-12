@@ -1,0 +1,52 @@
+#+title: Blockchain
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Blockchain
+
+* [[file:blockchain/cryptocurrencies.org][Cryptocurrencies]]
+
+* Tokens
+** Stablecoins
+*** USDT
+https://www.kalzumeus.com/2019/10/28/tether-and-bitfinex/
+*** USDC
+*** TUSD
+https://www.trusttoken.com/
+
+* NFTs
+https://coinmarketcap.com/nfts/
+OpenSea
+DappRadar
+https://www.paradigm.xyz/2021/10/a-guide-to-designing-effective-nft-launches/
+
+* Concepts
+** Wallet derivations
+https://ethereum.stackexchange.com/questions/70017/can-someone-explain-the-meaning-of-derivation-path-in-wallet-in-plain-english-s
+** Liquidity Pools
+Each pool holds 2 tokens, example: DAI/ETH.
+Should provide liquidity of equal value in both tokens.
+When price diverge, it creates an arbitrage opportunity.
+Liquidity provider (LP) receives LP tokens in exchange.
+When a trade is made, a fee is proportionally distributed amongst all LP token holders.
+
+=> Automated Market Maker (AMM)
+
+Constant product market maker:
+(used by Uniswap)
+x * y = k
+
+Ratio of the tokens in the pool dictates the price.
+If someone buys ETH from a DAI/ETH pools, they reduce the supply of ETH, and add to the supply of DAI.
+Results in an increase in the price of ETH and a decrease in the price of DAI.
+How much the price moves depends on the size of the trade relative to the size of the pool.
+The bigger the pool (relative to a trade), the lesser the price impact aka slippage.
+=> Large pool can accommodate bigger trades without moving the price too much.
+** Perpetual Futures Funding
+https://research.paradigm.xyz/cartoon-guide-to-perps
+Mark price: price of the perp
+Index price: price of the underlying asset
+
+#+begin_quote
+When the index price and the mark price diverge, the system transfers a funding fee between those who are long the perp (have bought it) and those who are short the perp (have sold it). In our example perp, the funding fee paid by the longs to the shorts is $(mark price - index price) per contract per day. When this number is negative, the shorts pay the longs.
+#+end_quote
+
+FTX / Mango / Drift comparison http://www.platyperps.com/

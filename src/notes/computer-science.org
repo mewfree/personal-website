@@ -1,0 +1,176 @@
+#+title: Computer Science
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Computer Science
+
+* [[file:computer-science/theoretical.org][Theoretical Computer Science]]
+
+* [[file:computer-science/languages.org][Programming Languages]]
+
+* [[file:computer-science/databases.org][Databases]]
+
+* [[file:computer-science/blockchain.org][Blockchain]]
+
+* Systems Programming
+** C
+** Assembly
+** Resources
+*** Harvard CS61: Systems Programming and Machine Organization
+- https://cs61.seas.harvard.edu/site/2020/
+- https://cs61.seas.harvard.edu/site/2021/
+
+* Compilation
+** Ahead-of-time (AOT) compilation
+When you compile code in advance, like in C / C++
+** Just-in-time (JIT) compilation
+When code is compiled as it's being ran, but the machine code is being saved, so that the 2nd time a piece of code is being ran, it's very fast
+** What is LLVM?
+** Resources
+*** Harvard CS153: Compilers
+https://www.seas.harvard.edu/courses/cs153/2018fa/index.html
+
+* Software Design Patterns
+** Singleton
+Single instantiation of a class
+
+* Software Design Principles
+** Resources
+*** Harvard CS51: Abstraction and Design in Computation
+https://cs51.io/
+
+* Functional Programming
+** Tacit / Point-free Programming
+https://en.wikipedia.org/wiki/Tacit_programming
+A programming paradigm in which function definitions do no identify the arguments on which they operate.
+** Functional Algorithms, Verified
+https://functional-algorithms-verified.org/
+** Higher-order Functions
+A function that takes another function as an argument, and return a function
+** Resources
+- https://github.com/xgrommx/awesome-functional-programming
+- https://github.com/hemanth/functional-programming-jargon
+
+* Testing
+
+* [[file:computer-science/machine-learning.org][Machine Learning]]
+
+* [[file:computer-science/data-science.org][Data Science]]
+
+* [[file:computer-science/data-formats.org][Data Formats]]
+
+* [[file:computer-science/shells.org][Shells]]
+
+* [[file:computer-science/fpga.org][FPGA]]
+
+* [[file:computer-science/tools.org][Computer Science Tools]]
+
+* Operating Systems
+** UNIX
+[[file:computer-science/unix.org][UNIX Commands]]
+*** [[file:computer-science/linux.org][Linux]]
+*** macOS
+
+** Windows
+
+* [[file:computer-science/devops.org][DevOps]]
+
+* [[file:computer-science/regex.org][Regular Expressions (Regex)]]
+
+* Application Layer Protocols
+** HTTP
+** Gemini
+URI-scheme: =gemini://=
+*** =gemtext=
+**** Headings
+#+begin_example
+# Heading
+
+## Sub-heading
+
+### Sub-subheading
+#+end_example
+
+**** Lists
+#+begin_example
+ * Item 1
+ * Item 2
+ * Item 3
+#+end_example
+
+*** Clients
+- Lagrange
+- ...
+
+* Resources
+** Imposter's Handbook
+Read the Imposter's Handbook? => Started on <2021-02-17>
+"Season 2" available for after => https://bigmachine.io/products/imposter-season-2/
+*** Video format
+https://bigmachine.io/products/imposter-video/
+** SymbolHound
+http://symbolhound.com/
+"SymbolHound is a search engine that doesn't ignore special characters. This means you can easily search for symbols like &, %, and π. We hope SymbolHound will help programmers find information about their chosen languages and frameworks more easily."
+** List of Resources
+[[https://csgordon.github.io/books.html]]
+** List of Stanford CS classes
+https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQXxr0/htmlview
+** Structure and Interpretation of Computer Programs (SICP)
+https://mitpress.mit.edu/sites/default/files/sicp/index.html
+https://composingprograms.com/
+** Concepts, Techniques and Models of Computer Programming
+by Peter Van-Roy
+** basecs
+https://medium.com/basecs
+Exploring the basics of computer science, every Monday, for a year.
+** The Odin Project
+https://www.theodinproject.com/home
+** Crafting Interpreters
+http://craftinginterpreters.com/
+** Make a Lisp
+https://github.com/kanaka/mal
+** Seven Languages in Seven Weeks
+by Bruce A. Tate
+** Understanding Computation
+by Tom Stuart
+** Theory of Computation
+https://ocw.mit.edu/courses/mathematics/18-404j-theory-of-computation-fall-2020/
+** What Books Should Everyone Read?
+https://cstheory.stackexchange.com/questions/3253/what-books-should-everyone-read
+** Browser Engineering
+https://browser.engineering/
+** Software Design for Flexibility: How to Avoid Programming Yourself Into a Corner
+by Chris Hanson and Gerald Jay Sussman
+** Foundations of Computer Science
+http://infolab.stanford.edu/~ullman/focs.html
+** Preparing for technical interviews
+*** NeetCode YouTube Channel - Review / solution of interview questions
+https://www.youtube.com/c/NeetCode/videos
+*** LeetCode
+https://leetcode.com/
+LeetCode is the best platform to help you enhance your skills, expand your knowledge and prepare for technical interviews.
+*** Coding Interview University
+https://github.com/jwasham/coding-interview-university
+A complete computer science study plan to become a software engineer.
+*** Deep Learning Interviews: Hundreds of fully solved job interview questions from a wide range of key topics in AI
+https://arxiv.org/abs/2201.00650
+*** The 30-minute guide to rocking your next coding interview
+https://www.freecodecamp.org/news/coding-interviews-for-dummies-5e048933b82b/
+*** Lessons From A Tech Job Search
+https://blog.nindalf.com/posts/tech-interview/
+*** Job Hunting While Day-Jobbing
+https://code.maiamccormick.com/2021/06/27/job-hunting.html
+*** How to Pass a Software Engineering Coding Interview
+https://www.danhacks.com/software/software-engineering-coding-interview.html
+*** Cracking the Coding Interview
+by Gayle Laakmann McDowell
+** Code: The Hidden Language of Computer Hardware and Software
+by Charles Petzold
+
+2nd Edition came out <2022-08-07>
+** Clean Code
+by Robert Martin (Uncle Bob)
+** The Pragmatic Programmer
+by Andre Hunt, David Thomas
+** Code Complete
+by Steve McConnell
+** The Mythical Man-Month
+by Fred Brooks

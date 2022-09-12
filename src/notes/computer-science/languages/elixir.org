@@ -1,0 +1,1006 @@
+#+title: Elixir
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Elixir
+
+* Language Features
+** Numbers
+#+begin_src elixir
+1 + 1
+#+end_src
+
+#+RESULTS:
+: 2
+
+*** Ranges
+#+begin_src elixir
+1..10 |> Enum.map(&(&1))
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+**** Stepped range
+Starting from Elixir 1.12:
+#+begin_src elixir
+1..10//2 |> Enum.map(&(&1))
+#+end_src
+
+#+RESULTS:
+: [1, 3, 5, 7, 9]
+
+*** Parse int from string
+#+begin_src elixir
+"1" |> String.to_integer
+#+end_src
+
+#+RESULTS:
+: 1
+
+*** Parse int to string
+#+begin_src elixir
+1 |> Integer.to_string
+#+end_src
+
+#+RESULTS:
+: "1"
+
+** Strings
+*** Interpolation
+#+begin_src elixir
+name = "world"
+"Hello, #{name}!"
+#+end_src
+
+#+RESULTS:
+: "Hello, world!"
+
+*** Concatenation
+#+begin_src elixir
+"This is a " <> "concatenated string"
+#+end_src
+
+#+RESULTS:
+: "This is a concatenated string"
+
+*** Split
+#+begin_src elixir
+String.split("header1,header2,header3", ",")
+#+end_src
+
+#+RESULTS:
+: ["header1", "header2", "header3"]
+
+*** Ends With?
+#+begin_src elixir
+String.ends_with?("bonjour", "jour")
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+String.ends_with?("bonsoir", "jour")
+#+end_src
+
+#+RESULTS:
+: false
+
+*** Multiline string
+#+begin_src elixir
+multiline = """
+this is a
+multiline
+string
+"""
+#+end_src
+
+#+RESULTS:
+: "this is a\nmultiline\nstring\n"
+
+*** Replace
+#+begin_src elixir
+s = "2021-10-28T08:55:01"
+s |> String.replace("T", " ")
+#+end_src
+
+#+RESULTS:
+: "2021-10-28 08:55:01"
+
+** Lists / Enums
+*** Access element by index
+#+begin_src elixir
+["a", "b", "c"] |> Enum.at(1)
+#+end_src
+
+#+RESULTS:
+: "b"
+
+*** Length
+#+begin_src elixir
+[1, 2, 3] |> length
+#+end_src
+
+#+RESULTS:
+: 3
+
+*** Prepending
+#+begin_src elixir
+list = [1, 2, 3]
+[0 | list]
+#+end_src
+
+#+RESULTS:
+: [0, 1, 2, 3]
+
+*** Appending
+#+begin_src elixir
+list = [1, 2, 3]
+list ++ [4]
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4]
+
+*** Concatenation
+#+begin_src elixir
+[1, 2] ++ [3, 4]
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4]
+
+*** Head / Tail
+#+begin_src elixir
+hd(["a", "b", "c", "d", "e"])
+#+end_src
+
+#+RESULTS:
+: "a"
+
+#+begin_src elixir
+tl(["a", "b", "c", "d", "e"])
+#+end_src
+
+#+RESULTS:
+: ["b", "c", "d", "e"]
+
+#+begin_src elixir
+[head | tail] = ["a", "b", "c", "d", "e"]
+#+end_src
+
+#+RESULTS:
+: ["a", "b", "c", "d", "e"]
+
+#+begin_src elixir
+head
+#+end_src
+
+#+RESULTS:
+: "a"
+
+#+begin_src elixir
+tail
+#+end_src
+
+#+RESULTS:
+: ["b", "c", "d", "e"]
+
+*** First element
+#+begin_src elixir
+["a", "b", "c"] |> List.first
+#+end_src
+
+#+RESULTS:
+: "a"
+
+*** Last element
+#+begin_src elixir
+["a", "b", "c"] |> List.last
+#+end_src
+
+#+RESULTS:
+: "c"
+
+*** Element in List?
+#+begin_src elixir
+["a", "b", "c"] |> Enum.member?("c")
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+["a", "b", "c"] |> Enum.member?("d")
+#+end_src
+
+#+RESULTS:
+: false
+
+*** Delete element at index
+#+begin_src elixir
+["a", "b", "c"] |> List.delete_at(1)
+#+end_src
+
+#+RESULTS:
+: ["a", "c"]
+
+*** Empty?
+#+begin_src elixir
+[1, 2, 3] |> Enum.empty?
+#+end_src
+
+#+RESULTS:
+: false
+
+#+begin_src elixir
+[] |> Enum.empty?
+#+end_src
+
+#+RESULTS:
+: true
+
+*** Filter
+#+begin_src elixir
+Enum.filter([1, 2, 3, 4], fn(x) -> x > 2 end)
+#+end_src
+
+#+RESULTS:
+: [3, 4]
+
+*** Sort
+#+begin_src elixir
+Enum.sort([4, 2, 3, 1])
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4]
+
+#+begin_src elixir
+Enum.sort([4, 2, 3, 1], :desc)
+#+end_src
+
+#+RESULTS:
+: [4, 3, 2, 1]
+
+*** Sort by
+#+begin_src elixir
+Enum.sort_by([%{id: 1, value: "Georges"}, %{id: 3, value: "Damien"}, %{id: 2, value: "Jacques"}], &(&1.id), :asc)
+#+end_src
+
+#+RESULTS:
+: [
+:   %{id: 1, value: "Georges"},
+:   %{id: 2, value: "Jacques"},
+:   %{id: 3, value: "Damien"}
+: ]
+
+*** Uniq
+#+begin_src elixir
+Enum.uniq([1, 1, 2, 2, 2, 3])
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3]
+
+*** Map
+#+begin_src elixir
+Enum.map([1, 2, 3], fn(x) -> x*2 end)
+#+end_src
+
+#+RESULTS:
+: [2, 4, 6]
+
+*** Reduce
+#+begin_src elixir
+Enum.reduce([1, 2, 3], 0, fn(x, acc) -> x + acc end)
+#+end_src
+
+#+RESULTS:
+: 6
+
+*** With index
+/!\ Elixir v1.12 only
+#+begin_src elixir
+Enum.with_index(["a", "b", "c"], fn(x, index) -> {index, x} end)
+#+end_src
+
+#+RESULTS:
+: [{0, "a"}, {1, "b"}, {2, "c"}]
+
+*** Take
+Return first nth elements of list
+#+begin_src elixir
+[1, 2, 3, 4, 5] |> Enum.take(3)
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3]
+
+Works with negative numbers too to return last nth elements
+#+begin_src elixir
+[1, 2, 3, 4, 5] |> Enum.take(-2)
+#+end_src
+
+#+RESULTS:
+: [4, 5]
+
+*** Drop
+Return list except n first elements
+#+begin_src elixir
+[1, 2, 3] |> Enum.drop(1)
+#+end_src
+
+#+RESULTS:
+: [2, 3]
+
+#+begin_src elixir
+[1, 2, 3] |> Enum.drop(2)
+#+end_src
+
+#+RESULTS:
+: [3]
+
+*** Join
+#+begin_src elixir
+[1, 2, 3, 4, 5] |> Enum.join(";")
+#+end_src
+
+#+RESULTS:
+: "1;2;3;4;5"
+
+*** Find
+#+begin_src elixir
+[%{id: 1, name: "a"}, %{id: 2, name: "b"}, %{id: 3, name: "c"}] |> Enum.find(&(&1.id == 3))
+#+end_src
+
+#+RESULTS:
+: %{id: 3, name: "c"}
+
+** Maps
+Fetch value, returns ={:ok, value}= or =:error= if =key= is not in =map=:
+#+begin_src elixir
+map = %{:foo => "bar"}
+Map.fetch(map, :foo)
+#+end_src
+
+#+RESULTS:
+: {:ok, "bar"}
+
+#+begin_src elixir
+map = %{:foo => "bar"}
+Map.fetch(map, :fooz)
+#+end_src
+
+#+RESULTS:
+: :error
+
+To directly get the value, without error handling:
+#+begin_src elixir
+map = %{:foo => "bar"}
+Map.get(map, :foo)
+#+end_src
+
+#+RESULTS:
+: "bar"
+
+Syntactic sugar:
+#+begin_src elixir
+map = %{:foo => "bar"}
+map[:foo]
+#+end_src
+
+#+RESULTS:
+: "bar"
+
+To provide a default in case =key= is not present in =map=:
+#+begin_src elixir
+map = %{:foo => "bar"}
+Map.get(map, :bar, "default value")
+#+end_src
+
+#+RESULTS:
+: "default value"
+
+*** put_in
+#+begin_src elixir
+user = %{name: "John", age: 28}
+put_in(user.age, 29)
+#+end_src
+
+#+RESULTS:
+: %{age: 29, name: "John"}
+
+*** Keys
+#+begin_src elixir
+map = %{"key1" => "value1", "key2" => "value2"}
+map |> Map.keys
+#+end_src
+
+#+RESULTS:
+: ["key1", "key2"]
+
+*** Put (add new key/value)
+#+begin_src elixir
+map = %{"key1" => "value1", "key2" => "value2"}
+map |> Map.put("key3", "value3")
+#+end_src
+
+#+RESULTS:
+: %{"key1" => "value1", "key2" => "value2", "key3" => "value3"}
+
+*** Update existing key to new value
+#+begin_src elixir
+map = %{"key1" => "value1", "key2" => "value2"}
+%{map | "key2" => "new value 2"}
+#+end_src
+
+#+RESULTS:
+: %{"key1" => "value1", "key2" => "new value 2"}
+
+*** Delete / Drop
+Delete a single key:
+#+begin_src elixir
+map = %{"key1" => "value1", "key2" => "value2"}
+map |> Map.delete("key2")
+#+end_src
+
+#+RESULTS:
+: %{"key1" => "value1"}
+
+Drop a list of keys:
+#+begin_src elixir
+map = %{"key1" => "value1", "key2" => "value2", "key3" => "value3"}
+map |> Map.drop(["key1", "key2"])
+#+end_src
+
+#+RESULTS:
+: %{"key3" => "value3"}
+
+** Functions
+*** Named Functions
+**** Regular
+Must be defined with =def= inside a module
+#+begin_src elixir
+defmodule Greeter do
+  def hello(name) do
+    "Hello, #{name}!"
+  end
+end
+
+Greeter.hello("Damien")
+#+end_src
+
+#+RESULTS:
+: "Hello, Damien!"
+
+**** One-liner
+#+begin_src elixir
+defmodule ShortGreeter do
+  def hello(name), do: "Hello, #{name}!"
+end
+
+ShortGreeter.hello("Damien")
+#+end_src
+
+#+RESULTS:
+: "Hello, Damien!"
+
+**** Function Naming and Arity
+Functions are defined by name AND arity (number of parameters)
+#+begin_src elixir :results none
+defmodule Greeter2 do
+  def hello(), do: "Hello, anonymous!"
+  def hello(name), do: "Hello, #{name}!"
+  def hello(name1, name2), do: "Hello, #{name1} and #{name2}!"
+end
+#+end_src
+
+#+begin_src elixir
+Greeter2.hello()
+#+end_src
+
+#+RESULTS:
+: "Hello, anonymous!"
+
+#+begin_src elixir
+Greeter2.hello("Damien")
+#+end_src
+
+#+RESULTS:
+: "Hello, Damien!"
+
+#+begin_src elixir
+Greeter2.hello("Damien", "Jean-Jacques")
+#+end_src
+
+#+RESULTS:
+: "Hello, Damien and Jean-Jacques!"
+
+*** Private Functions
+https://elixirschool.com/en/lessons/basics/functions/#private-functions
+
+*** Guards
+https://elixirschool.com/en/lessons/basics/functions/#guards
+
+*** Default Arguments
+https://elixirschool.com/en/lessons/basics/functions/#default-arguments
+
+*** Anonymous Functions
+#+begin_src elixir
+sum = fn(a, b) -> a + b end
+sum.(2, 3)
+#+end_src
+
+#+RESULTS:
+: 5
+
+Using the & shorthand:
+#+begin_src elixir
+sum = &(&1 + &2)
+sum.(2, 3)
+#+end_src
+
+#+RESULTS:
+: 5
+
+https://blog.lelonek.me/3-tricks-of-anonymous-elixir-functions-a81d1b1e049c
+
+** If/else, cond
+No elseif!
+
+*** if
+#+begin_src elixir
+if true do
+  "this is true"
+else
+  "this is false"
+end
+#+end_src
+
+#+RESULTS:
+: "this is true"
+
+*** unless
+#+begin_src elixir
+unless false do
+  "this is true"
+else
+  "this is false"
+end
+#+end_src
+
+#+RESULTS:
+: "this is true"
+
+*** cond
+#+begin_src elixir
+cond do
+  1 == 1 -> true
+  1 == 2 -> false
+  true -> "else"
+end
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+cond do
+  1 == 0 -> true
+  1 == 2 -> false
+  true -> "else"
+end
+#+end_src
+
+#+RESULTS:
+: "else"
+
+** Pipe Operator
+#+begin_src elixir
+[1, 2, 3] |> Enum.map(&(&1*2))
+#+end_src
+
+#+RESULTS:
+: [2, 4, 6]
+
+#+begin_src elixir
+"Elixir rocks" |> String.upcase() |> String.split()
+#+end_src
+
+#+RESULTS:
+: ["ELIXIR", "ROCKS"]
+
+**** Tap & Then
+Starting from Elixir 1.12:
+=tap= passes =value= to =fun= and returns =value=
+Useful for functions that have side-effects but you still want to pass down the =value= down the pipe (or for logging for example)
+
+=then= passes =value= to =fun=, basically invokes =fun= with =value= as an argument, meaning you can place it as 2nd or 3rd argument...
+
+Here in that example, we're able to pipe down a string and log it using =tap=, then use =Regex.scan= with the string as the 2nd (not first) argument of the function
+#+begin_src elixir
+"hello world"
+|> tap(&IO.puts/1)
+|> then(&Regex.scan(~r/\w+/, &1))
+#+end_src
+
+#+RESULTS:
+: hello world
+: [["hello"], ["world"]]
+
+** Debugging
+*** IO.inspect
+=IO.inspect= can be piped!
+#+begin_src elixir
+[1, 2, 3]
+|> IO.inspect
+|> Enum.map(&(&1*2))
+|> IO.inspect
+|> Enum.sum
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3]
+: [2, 4, 6]
+: 12
+
+Outputs can labeled
+#+begin_src elixir
+[1, 2, 3]
+|> IO.inspect(label: "initial list")
+|> Enum.map(&(&1*2))
+|> IO.inspect(label: "after x2")
+|> Enum.sum
+#+end_src
+
+#+RESULTS:
+: initial list: [1, 2, 3]
+: after x2: [2, 4, 6]
+: 12
+
+*** Kernel.dbg
+Starting from Elixir 1.14
+#+begin_src bash :results verbatim
+elixir -e '[1, 2, 3] |> Enum.map(&(&1*2)) |> dbg() |> Enum.sum |> dbg()'
+#+end_src
+
+#+RESULTS:
+: [nofile:1: (file)]
+: value #=> [2, 4, 6]
+:
+: [nofile:1: (file)]
+: [1, 2, 3] #=> [1, 2, 3]
+: |> Enum.map(&(&1 * 2)) #=> [2, 4, 6]
+: |> dbg() #=> [2, 4, 6]
+: |> Enum.sum() #=> 12
+:
+
+** Pattern Matching
+https://elixirschool.com/en/lessons/basics/pattern-matching/
+
+#+begin_src elixir
+case {:ok, "Hello World"} do
+  {:ok, result} -> result
+  {:error, _} -> "Uh oh!"
+  _ -> "Catch all"
+end
+#+end_src
+
+#+RESULTS:
+: "Hello World"
+
+** Comprehensions
+#+begin_src elixir
+list = [1, 2, 3, 4, 5]
+for x <- list, do: x*x
+#+end_src
+
+#+RESULTS:
+: [1, 4, 9, 16, 25]
+
+** Packages
+Starting from Elixir 1.12:
+#+begin_src elixir
+IO.puts(Jason.encode!(%{hello: :world}))
+#+end_src
+
+#+RESULTS:
+: ** (UndefinedFunctionError) function Jason.encode!/1 is undefined (module Jason is not available)
+:     Jason.encode!(%{hello: :world})
+
+Can install required packages using =Mix.install()=
+#+begin_src elixir
+Mix.install([:jason])
+IO.puts(Jason.encode!(%{hello: :world}))
+#+end_src
+
+#+RESULTS:
+: {"hello":"world"}
+: :ok
+
+** JSON Parsing
+#+begin_src elixir
+Mix.install([:jason])
+"{\"key\": \"value\"}" |> Jason.decode!
+#+end_src
+
+#+RESULTS:
+: %{"key" => "value"}
+
+** Mix
+Dependencies manager!
+
+Create a new project: =mix new example=
+Interactive shell: =iex -S mix=
+Compile project: =mix compile=
+Fetch dependencies: =mix deps.get=
+
+** Ecto
+https://elixirschool.com/en/lessons/ecto/basics/
+
+*** Query
+**** Preload
+=user |> Repo.preload(:integrations)=
+
+**** Query Fragment
+https://hexdocs.pm/ecto/Ecto.Query.API.html#fragment/1
+
+*** Migrations
+Process migrations: =mix ecto.migrate=
+Rollback previous migration: =mix ecto.rollback=
+Rollback all migrations: =mix ecto.rollback --all=
+
+*** Resources
+https://bartoszgorka.com/dynamic-queries-in-ecto
+
+** Gettext
+https://hexdocs.pm/gettext/Gettext.html
+Manages translations for i18n
+
+** Attributes
+https://hexdocs.pm/elixir/master/Module.html
+*** =@impl=
+=@impl= notes that the function is a callback method
+https://elixir-lang.org/blog/2017/07/25/elixir-v1-5-0-released/
+https://elixircasts.io/%40impl-attribute
+
+** Testing
+https://elixirschool.com/en/lessons/basics/testing/
+*** ExUnit
+https://hexdocs.pm/ex_unit/1.12/ExUnit.html
+*** Doctests
+https://inquisitivedeveloper.com/lwm-elixir-66/
+https://elixir-lang.org/getting-started/mix-otp/docs-tests-and-with.html
+*** Mox
+https://elixirschool.com/en/lessons/testing/mox
+
+** Agents
+https://elixir-lang.org/getting-started/mix-otp/agent.html
+
+* Elixir Script
+Elixir can be used for scripting.
+Script files have a =.exs= file extension.
+Recommended for small tasks that don't require a Mix project.
+
+* Phoenix
+** Directory Structure
+https://hexdocs.pm/phoenix/directory_structure.html
+- =_build= - everything that's compiled. Exclude from version control.
+- =assets= - everything related to front-end (CSS, JS...)
+- =config= - holds project configuration, with =config.exs= being the main entry point and =dev.exs=, =prod.exs= being for environment specific config
+- =deps= - holds all the Mix dependencies. Exclude from version control.
+- =lib= - the juicy part! All the application source code. =lib/project_name= holds all the "backend" stuff like interaction with database (the "M" in MVC), while =lib/project_name_web= is for the "frontend" ("V" and "C" in MVC).
+- =priv= - stuff that's necessary for prod but not part of the source code, like database scripts
+- =test= - all the tests
+
+** Mix Commands
+Start the Phoenix app: =mix phx.server=
+Run the Phoenix app inside IEx: =iex -S mix phx.server=
+
+** Adding a new route
+https://hexdocs.pm/phoenix/request_lifecycle.html#content
+
+** Views
+https://hexdocs.pm/phoenix/views.html
+
+** Presence
+https://hexdocs.pm/phoenix/Phoenix.Presence.html
+
+** Deployment
+https://hexdocs.pm/phoenix/deployment.html
+
+** Libraries
+*** LiveView
+https://github.com/phoenixframework/phoenix_live_view
+Send HTML over the wire
+
+https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html
+
+**** Forms
+https://hexdocs.pm/phoenix_live_view/form-bindings.html
+
+**** Surface
+https://github.com/surface-ui/surface
+
+**** JS
+JS trick: https://mobile.twitter.com/josevalim/status/1486996785914650625
+
+**** React in LiveView
+https://stephenbussey.com/2022/04/13/react-in-liveview-how-and-why.html
+
+*** phx.gen.auth
+https://github.com/aaronrenner/phx_gen_auth
+Will be built in Phoenix starting from 1.6
+
+No emails are actually sent on sign up and password reset, have to built that ourselves
+
+*** Tailwind
+https://fly.io/phoenix-files/tailwind-standalone/
+
+** Resources
+File upload tutorial: https://www.yodiw.com/simple-upload-file-local-phoenix-elixir/
+*** esbuild
+https://www.mitchellhanberg.com/how-i-handle-static-assets-in-my-phoenix-apps/
+https://cloudless.studio/wrapping-your-head-around-assets-in-phoenix-1-6
+*** Petal
+https://petal.build/
+
+* Packages
+** Oban
+https://github.com/sorentwo/oban
+#+begin_quote
+Oban is a robust job processing library which uses PostgreSQL for storage and coordination.
+#+end_quote
+
+** Nx
+https://github.com/elixir-nx/nx/tree/main/nx
+#+begin_quote
+Nx is a multi-dimensional tensors library for Elixir with multi-staged compilation to the CPU/GPU.
+#+end_quote
+
+#+begin_src elixir
+Mix.install([{:nx, github: "elixir-nx/nx", branch: "main", sparse: "nx"}])
+t = Nx.tensor([[1, 2], [3, 4]])
+Nx.shape(t)
+#+end_src
+
+#+RESULTS:
+: {2, 2}
+
+#+begin_src elixir
+Nx.sum(Nx.tensor([1, 2, 3]))
+#+end_src
+
+#+RESULTS:
+: #Nx.Tensor<
+:   s64
+:   6
+: >
+
+#+begin_src elixir
+Nx.mean(Nx.tensor([1, 2, 3]))
+#+end_src
+
+#+RESULTS:
+: #Nx.Tensor<
+:   f32
+:   2.0
+: >
+
+#+begin_src elixir
+Nx.add(Nx.tensor([10, 10, 10]), Nx.tensor([100, 200, 300]))
+#+end_src
+
+#+RESULTS:
+: #Nx.Tensor<
+:   s64[3]
+:   [110, 210, 310]
+: >
+
+** Axon
+https://github.com/elixir-nx/axon
+#+begin_quote
+Nx-powered Neural Networks
+#+end_quote
+
+*** Resources
+https://seanmoriarity.com/2021/04/08/axon-deep-learning-in-elixir/
+
+** Livebook
+https://github.com/elixir-nx/livebook
+
+Similar to Jupyter notebooks but for Elixir
+
+** Explorer
+https://github.com/elixir-nx/explorer
+#+begin_quote
+Series (one-dimensional) and dataframes (two-dimensional) for fast data exploration in Elixir
+#+end_quote
+
+** GenServers
+https://papercups.io/blog/genserver
+
+** Bamboo (Email library)
+https://github.com/thoughtbot/bamboo
+#+begin_quote
+Testable, composable, and adapter based Elixir email library for devs that love piping.
+#+end_quote
+
+** Delta
+https://github.com/slab/delta-elixir
+#+begin_quote
+Simple yet expressive format to describe documents' contents and changes
+#+end_quote
+
+** Broadway
+https://github.com/dashbitco/broadway
+#+begin_quote
+Concurrent and multi-stage data ingestion and data processing with Elixir
+#+end_quote
+
+** Lumen
+https://getlumen.org/
+An alternative BEAM implementation, designed for WebAssembly
+=> Elixir on the front-end?
+
+** Burrito
+https://github.com/burrito-elixir/burrito
+#+begin_quote
+Wrap your application in a BEAM Burrito!
+#+end_quote
+
+BEAM wrapped in Zig
+
+** Witchcraft
+https://github.com/witchcrafters/witchcraft
+#+begin_quote
+Monads and other dark magic for Elixir
+#+end_quote
+
+https://blog.appsignal.com/2022/02/08/functional-programming-in-elixir-with-witchcraft.html
+
+** Temple
+https://github.com/mhanberg/temple
+#+begin_quote
+An HTML DSL for Elixir and Phoenix
+#+end_quote
+
+** Wallaby
+https://github.com/elixir-wallaby/wallaby
+#+begin_quote
+Concurrent browser tests for your Elixir web apps
+#+end_quote
+
+** Ash Framework
+https://www.ash-elixir.org/
+#+begin_quote
+Build APIs in minutes. Ash is a declarative, resource-oriented application framework for Elixir.
+#+end_quote
+
+** Cobblestone
+https://github.com/doomspork/cobblestone
+#+begin_quote
+A better path to data
+#+end_quote
+
+* Resources
+** Elixir School
+https://elixirschool.com/en/
+
+** Elixir Casts
+https://elixircasts.io/
+
+** Stripe library
+https://github.com/code-corps/stripity_stripe
+
+** Blog about Elixir
+https://culttt.com/
+
+** An Introduction to Metaprogramming in Elixir
+https://blog.appsignal.com/2021/09/07/an-introduction-to-metaprogramming-in-elixir.html
+
+** Fast Elixir
+https://github.com/devonestes/fast-elixir
+
+** Tips for Improving Your Elixir Configuration
+https://felt.com/blog/elixir-configuration

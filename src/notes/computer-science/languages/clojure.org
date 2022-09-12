@@ -1,0 +1,633 @@
+#+title: Clojure
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Clojure
+
+A Lisp on the JVM
+
+* Misc
+- =(print)= to print for humans
+- =(println)= to print with newline for humans
+- =(pr)= to print for data
+- =(prn)= to print with newline for data
+
+* Numbers
+#+begin_src clojure
+(+ 1 1)
+#+end_src
+
+#+RESULTS:
+: 2
+
+Sum:
+#+begin_src clojure
+(reduce + [1 2 3])
+#+end_src
+
+#+RESULTS:
+: 6
+
+* Strings
+#+begin_src clojure
+"Damien"
+#+end_src
+
+#+RESULTS:
+: Damien
+
+#+begin_src clojure
+(apply str (reverse "Damien"))
+#+end_src
+
+#+RESULTS:
+: neimaD
+
+** String Interpolation
+#+begin_src clojure
+(def name "Damien")
+(str "Hello " name)
+#+end_src
+
+#+RESULTS:
+| #'user/name    |
+| "Hello Damien" |
+
+** Join elements in lists
+#+begin_src clojure
+(clojure.string/join ", " ["element 1" "element 2" "element 3"])
+#+end_src
+
+#+RESULTS:
+: element 1, element 2, element 3
+
+** Includes?
+#+begin_src clojure
+(clojure.string/includes? "Damien" "en")
+#+end_src
+
+#+RESULTS:
+: true
+
+* Characters
+[[file:clojure.org][Clojure]] characters are Java characters
+#+begin_src clojure :results silent
+\a
+#+end_src
+
+** Special characters
+| special character | result |
+|-------------------+--------|
+| =\newline=        | ="\n"= |
+| =\space=          | =" "=  |
+| =\tab=            | ="\t"= |
+| =\formfeed=       | ="\f"= |
+| =\backspace=      | ="\b"= |
+| =\return=         | ="\r"= |
+
+* Keywords
+#+begin_quote
+Keywords are symbolic identifiers that evaluate to themselves.
+#+end_quote
+
+Example:
+#+begin_src clojure :results silent
+:foo
+#+end_src
+
+** Convert to keyword
+#+begin_src clojure
+(keyword 'foo)
+#+end_src
+
+#+RESULTS:
+: :foo
+
+#+begin_src clojure
+(keyword "foo")
+#+end_src
+
+#+RESULTS:
+: :foo
+
+** Check if keyword
+#+begin_src clojure
+(keyword? :foo)
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src clojure
+(keyword? "foo")
+#+end_src
+
+#+RESULTS:
+: false
+
+* Variables
+#+begin_src clojure
+(def x 42)
+x
+#+end_src
+
+#+RESULTS:
+| #'user/x |
+|       42 |
+
+** =defonce=
+=defonce= defines variable only if it has never been defined before:
+#+begin_src clojure
+(defonce y 9)
+y
+#+end_src
+
+#+RESULTS:
+: 9
+
+If you try to re-define it, it won't work:
+#+begin_src clojure
+(defonce y 10)
+y
+#+end_src
+
+#+RESULTS:
+: 9
+
+** Array destructuring
+#+begin_src clojure :results output
+(let [[a b c] '(1 2 3)] (println a b c))
+#+end_src
+
+#+RESULTS:
+: 1 2 3
+
+* nil
+Check if something is =nil=:
+#+begin_src clojure
+(nil? nil)
+#+end_src
+
+#+RESULTS:
+: true
+
+Check if something is NOT =nil=:
+#+begin_src clojure
+(some? nil)
+#+end_src
+
+#+RESULTS:
+: false
+
+#+begin_src clojure
+(some? 1)
+#+end_src
+
+* Scope
+=let= can be used to define a variable in a specific scope:
+#+begin_src clojure
+(let [z 5] z)
+#+end_src
+
+#+RESULTS:
+: 5
+
+=z= is not defined outside of the scope:
+#+begin_src clojure
+z
+#+end_src
+
+#+RESULTS:
+: class clojure.lang.Compiler$CompilerException
+
+* Functions
+"defn" = "def" + "fn" (define function)
+#+begin_src clojure
+(defn greet [name] (str "Hello, " name))
+(greet "Damien")
+#+end_src
+
+#+RESULTS:
+| #'user/greet    |
+| "Hello, Damien" |
+
+** Multi-Arity Functions
+#+begin_src clojure
+(defn greet
+  ([] (greet "World!"))
+  ([name] (str "Hello, " name)))
+
+(greet "Damien")
+(greet)
+#+end_src
+
+#+RESULTS:
+| #'user/greet    |
+| "Hello, Damien" |
+| "Hello, World!" |
+
+** Anonymous Function Syntax
+=#()= with =%= used as arguments (=%1=, =%2= for first and second arguments)
+#+begin_src clojure :results verbatim
+(map #(* 2 %) '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: (2 4 6)
+
+* Data Structures
+** Collections
+All [[file:clojure.org][Clojure]] collections are immutable and persistent.
+*** Lists
+#+begin_src clojure :results verbatim
+(list 1 2 3)
+#+end_src
+
+#+RESULTS:
+: (1 2 3)
+
+Syntactic sugar:
+#+begin_src clojure :results verbatim
+'(1 2 3)
+#+end_src
+
+#+RESULTS:
+: (1 2 3)
+
+#+begin_src clojure
+(first '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: 1
+
+#+begin_src clojure
+(last '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: 3
+
+**** Check if element in list
+#+begin_src clojure
+(some #(= 3 %) '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: true
+
+=(some)= alone only returns =nil=, not =false=
+#+begin_src clojure
+(some? (some #(= 4 %) '(1 2 3)))
+#+end_src
+
+#+RESULTS:
+: false
+
+*** Vectors
+#+begin_src clojure :results verbatim
+(vector 1 2 3)
+#+end_src
+
+#+RESULTS:
+: [1 2 3]
+
+*** Sets
+Collections of ~unique~ values.
+#+begin_src clojure
+(set [1 2 3 1 2 3])
+#+end_src
+
+#+RESULTS:
+: #{1 3 2}
+
+** Maps
+#+begin_src clojure
+(get {:a 1 :b 2} :a)
+#+end_src
+
+#+RESULTS:
+: 1
+
+"get" can be omitted
+#+begin_src clojure
+({:a 1 :b 2} :b)
+#+end_src
+
+#+RESULTS:
+: 2
+
+#+begin_src clojure
+(get-in {:error {:code 404 :message "Wrong location"}} [:error :code])
+#+end_src
+
+#+RESULTS:
+: 404
+
+* Conditionals
+** If/if-not statements
+#+begin_src clojure
+(if true "this is true" "this is false")
+#+end_src
+
+#+RESULTS:
+: this is true
+
+#+begin_src clojure
+(if false "this is true" "this is false")
+#+end_src
+
+#+RESULTS:
+: this is false
+
+** When/when-not
+Only handles "true", and wrapped in an implicit =(do)= statement
+#+begin_src clojure :results output
+(when true (println "this is true") (println "this is also true"))
+#+end_src
+
+#+RESULTS:
+: this is true
+: this is also true
+
+** Cond
+#+begin_src clojure
+(def x 10)
+(cond (= x 10) "true")
+#+end_src
+
+#+RESULTS:
+| #'user/x |
+| "true"   |
+
+Note: for this type of conds, if the first is true, it won't continue
+#+begin_src clojure
+(def x (rand-int 50))
+(cond
+  (> x 40) "more than 40"
+  (> x 30) "more than 30"
+  (> x 20) "more than 20"
+  (> x 10) "more than 10"
+  :else "neither")
+#+end_src
+
+#+RESULTS:
+| #'user/x       |
+| "more than 30" |
+
+Another example
+#+begin_src clojure
+(def x (rand-int 50))
+(cond
+  (> x 40) "more than 40"
+  (> x 30) "more than 30"
+  (> x 20) "more than 20"
+  (> x 10) "more than 10"
+  :else "neither")
+#+end_src
+
+#+RESULTS:
+| #'user/x  |
+| "neither" |
+
+** Case
+#+begin_src clojure
+(let [name "Damien"]
+  (case name
+    "Damien" "my real name"
+    "Émilie" "my wife's name"
+    "Nicolas" "my brother's name"))
+#+end_src
+
+#+RESULTS:
+: my real name
+
+#+begin_src clojure
+(let [name "Émilie"]
+  (case name
+    "Damien" "my real name"
+    "Émilie" "my wife's name"
+    "Nicolas" "my brother's name"))
+#+end_src
+
+#+RESULTS:
+: my wife's name
+
+Can provide a default:
+#+begin_src clojure
+(let [name "Hugo"]
+  (case name
+    "Damien" "my real name"
+    "Émilie" "my wife's name"
+    "Nicolas" "my brother's name"
+    "Unknown name"))
+#+end_src
+
+#+RESULTS:
+: Unknown name
+
+Can "match" multiple values using a list:
+#+begin_src clojure
+(let [name "Émilie"]
+  (case name
+    ("Damien" "Émilie" "Nicolas") "a family member"
+    "not a family member"))
+#+end_src
+
+#+RESULTS:
+: a family member
+
+* Metadata
+- https://clojure.org/reference/metadata
+- Metadata allows to attach arbitrary annotation to data.
+- Metadata isn't considered an integral of the value of the object. It doesn't impact ~equality~ of the data.
+- "Two objects that differ only in metadata are equal."
+
+#+begin_src clojure :results output
+(pprint (meta #'+))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{:added "1.2",
+ :ns #namespace[clojure.core],
+ :name +,
+ :file "clojure/core.clj",
+ :inline-arities #function[clojure.core/>1?],
+ :column 1,
+ :line 986,
+ :arglists ([] [x] [x y] [x y & more]),
+ :doc
+ "Returns the sum of nums. (+) returns 0. Does not auto-promote\n  longs, will throw on overflow. See also: +'",
+ :inline #function[clojure.core/nary-inline/fn--5606]}
+#+end_example
+
+#+begin_src clojure
+(def m ^:hi [1 2 3])
+(meta (with-meta m {:bye true}))
+#+end_src
+
+#+RESULTS:
+| #'user/m    |
+| {:bye true} |
+
+* Threading Macros
+** Thread-First
+#+begin_src clojure :session thread :results none
+(require '[clojure.string :as str])
+#+end_src
+
+#+begin_src clojure :session thread :results verbatim
+(str/split (str/upper-case "a b c") #" ")
+#+end_src
+
+#+RESULTS:
+: ["A" "B" "C"]
+
+Becomes
+#+begin_src clojure :session thread :results verbatim
+(-> "a b c" (str/upper-case) (str/split #" "))
+#+end_src
+
+#+RESULTS:
+: ["A" "B" "C"]
+
+** Thread-Last
+Insert as last argument
+#+begin_src clojure :results verbatim
+(->> (range 10) (filter odd?))
+#+end_src
+
+#+RESULTS:
+: (1 3 5 7 9)
+
+* ClojureScript
+** [[file:javascript.org][JavaScript]] interop
+https://lwhorton.github.io/2018/10/20/clojurescript-interop-with-javascript.html
+
+** Google Closure Library
+https://google.github.io/closure-library/api/
+
+** Packages
+*** Reagent
+- https://github.com/reagent-project/reagent
+- http://reagent-project.github.io/
+- A minimalistic ClojureScript interface to React.js
+- https://github.com/reagent-project/reagent/blob/master/doc/CreatingReagentComponents.md
+
+*** nbb
+https://github.com/babashka/nbb
+#+begin_quote
+Babahska for ClojureScript / Node.js
+#+end_quote
+
+**** scittle
+https://github.com/babashka/scittle
+#+begin_quote
+The Small Clojure Interpreter exposed for usage in browser script tags
+#+end_quote
+
+*** shadow-cljs
+https://github.com/thheller/shadow-cljs
+#+begin_quote
+ClojureScript compilation made easy
+#+end_quote
+
+*** secretary
+https://github.com/clj-commons/secretary
+#+begin_quote
+A client-side router for ClojureScript
+#+end_quote
+
+** Resources
+https://cljs.info/cheatsheet/
+*** ClojureScript for React Developer
+https://www.youtube.com/playlist?list=PLUGfdBfjve9VGzp7G1C9FYfH8Yk1Px-11
+
+* Packages
+** babashka
+https://github.com/babashka/babashka
+#+begin_quote
+Native, fast starting Clojure interpreter for scripting
+#+end_quote
+
+** clj-kondo
+https://github.com/clj-kondo/clj-kondo
+#+begin_quote
+A linter for Clojure code that sparks joy.
+#+end_quote
+
+** Coast
+https://coast.swlkr.com/
+#+begin_quote
+The Fullest Full Stack Clojure Web Framework
+#+end_quote
+
+** Hiccup
+https://github.com/weavejester/hiccup
+#+begin_quote
+Fast library for rendering HTML in Clojure
+#+end_quote
+
+** ClojureDart
+https://github.com/Tensegritics/ClojureDart
+
+A port of Clojure that compiles to Dart
+(mostly for Flutter framework)
+
+** DataScript
+https://github.com/tonsky/datascript
+#+begin_quote
+Immutable database and Datalog query engine for Clojure, ClojureScript and JS
+#+end_quote
+
+** Quickdoc
+https://github.com/borkdude/quickdoc
+#+begin_quote
+Quick and minimal API doc generation for Clojure
+#+end_quote
+
+** Pedestal
+http://pedestal.io/
+#+begin_quote
+Pedestal is a set of libraries that we use to build services and applications. It runs in the back end and can serve up whole HTML pages or handle API requests.
+#+end_quote
+
+** Portal
+https://github.com/djblue/portal
+#+begin_quote
+A clojure tool to navigate through your data.
+#+end_quote
+
+** Leiningen
+https://leiningen.org/
+#+begin_quote
+Automate Clojure projects without setting your hair on fire.
+#+end_quote
+
+** Neil
+https://github.com/babashka/neil
+#+begin_quote
+A CLI to add common aliases and features to deps.edn-based projects.
+#+end_quote
+
+* Resources
+** Syntax
+- https://clojure.org/guides/learn/syntax
+- https://clojure.org/guides/weird_characters
+
+** Clojure by Example
+https://kimh.github.io/clojure-by-example/
+
+** Lambda Island videos
+*** List Comprehension with clojure.core/for
+https://lambdaisland.com/episodes/list-comprehension-clojure-for
+*** Seq and Seqable
+https://lambdaisland.com/episodes/clojure-seq-seqable
+*** Using JavaScript libraries in ClojureScript
+https://lambdaisland.com/episodes/javascript-libraries-clojurescript
+*** Clojure Keyword Arguments
+https://lambdaisland.com/episodes/clojure-keyword-arguments
+*** ClojureScript Interop
+https://lambdaisland.com/episodes/clojurescript-interop
+
+** Clojure Docs
+https://clojuredocs.org/
