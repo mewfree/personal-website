@@ -1,0 +1,51 @@
+#+title: Terminal
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Terminal
+
+* Commands
+=cd= change directory
+=ls= list files and directories
+=ln -sv ~/dotfiles/.zshrc ~= symlinks a file in dotfiles directory to home (~)
+
+* Secrets in =.bash_rc= / =.zshrc=
+=security add-generic-password -a "$USER" -s 'Homebrew GitHub Token' -w 'qwerty123'=
+
+=export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -s 'Homebrew GitHub Token' -w)=
+
+* Termux (Android app)
+- Volume Down = =Ctrl=
+- Volume Up+Q = hides extra keys
+- Volume Up+E = =Escape=
+- Volume Up+T = =Tab=
+- Volume Up+B = =Alt+B= (one word backwards)
+- Volume Up+F = =Alt+F= (one word forward)
+- Volume Up+W/A/S/D = =Up/Down/Left/Right=
+- Volume Up+L = =| (pipe)=
+- Volume Up+H = =~ (tilde)=
+- Volume Up+U = =_ (underscore)=
+
+Have clipboard working with [[file:text-editors/emacs.org][Emacs]]:
+=pkg install termux-api= in Termux
+=xclip-mode= in [[file:text-editors/emacs.org][Emacs]]
+
+* Shells
+** Bash
+** Zsh
+*** .zshenv
+always sourced
+*** .zprofile
+if login
+*** .zshrc
+if interactive
+*** Suspending jobs
+- Suspend with =Ctrl-Z=
+- List jobs with =jobs=
+- =bg%n= to resume job =n= in the background
+- =fg%n= to resume job =n= in the foreground
+
+** Fish
+** Nushell
+https://github.com/nushell/nushell
+
+* Prompts
+https://starship.rs/

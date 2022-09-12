@@ -1,0 +1,30 @@
+#+title: Machine Learning
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Machine Learning
+
+* Deep Learning
+** Resources
+*** MIT 6.S191: Introduction to Deep Learning
+http://introtodeeplearning.com/
+*** NYU DS-GA 1008: Deep Learning
+https://atcold.github.io/pytorch-Deep-Learning/
+*** UC Berkeley Full Stack Deep Learning
+- https://fullstackdeeplearning.com/
+- https://inst.eecs.berkeley.edu/~cs194/
+*** UC Berkeley CS182: Designing, Visualizing and Understanding Deep Neural Networks
+https://www2.eecs.berkeley.edu/Courses/CS182/
+*** Deep Learning Book by MIT Press
+https://www.deeplearningbook.org/
+*** Cornell CS5787: Deep Learning
+*** Introduction to Deep Learning
+https://sebastianraschka.com/blog/2021/dl-course.html
+*** Physics-based Deep Learning Book
+https://physicsbaseddeeplearning.org/intro.html
+*** Deep Learning with Python
+by François Chollet
+
+* Resources
+** Cornell CS5785: Applied Machine Learning
+https://cornelltech.github.io/cs5785-fall-2018/index.html
+** Hands-On Machine Learning with Scikit-Learn and Tensorflow
+by Aurélien Géron

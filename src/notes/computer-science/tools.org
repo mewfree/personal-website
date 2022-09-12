@@ -1,0 +1,287 @@
+#+title: Computer Science Tools
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Tools
+
+* [[file:tools/text-editors.org][Text editors]]
+
+* [[file:tools/git.org][Git]]
+
+* [[file:tools/tmux.org][Tmux]]
+
+* [[file:tools/terminal.org][Terminal]]
+
+* Zellij
+https://zellij.dev/
+- Terminal multiplexer, similar to Tmux.
+- Very "discoverable" and easy to figure out how it works.
+- Now with "multiplayer sessions": https://zellij.dev/news/multiplayer-sessions/
+
+* [[file:tools/asdf.org][asdf]]
+
+* [[file:tools/latex.org][LaTeX]]
+
+* Replit
+https://replit.com/
+Online REPL in many languages.
+Might be useful from an iPad / a computer I don't own.
+
+* Stow
+Helps config dotfiles? Take care of symlinking for you.
+https://www.gnu.org/software/stow/manual/html_node/Resource-Files.html
+http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
+
+* IRC Clients
+** Weechat
+https://weechat.org/files/doc/stable/weechat_quickstart.en.html
+*** Add an IRC server
+=/server add {server_name} {server_url_no_port}=
+*** Connect with SSL
+=/set irc.server.{server_name}.ssl on=
+*** Connect to IRC server
+=/connect {server_name}=
+*** Join IRC channel
+=/join {channel]=
+*** Switch buffers
+=Alt ->= or =Alt <-=
+*** Resources
+https://christine.website/blog/irc-stuff-nixos-2021-05-29
+
+** Irssi
+
+* WebAssembly
+(or Wasm)
+** Wasmer
+https://docs.wasmer.io/
+Running WebAssembly on the server
+
+*** WAPM
+https://wapm.io/
+WebAssembly Package Manager
+
+** WASI
+https://wasi.dev/
+
+#+begin_quote
+The WebAssembly System Interface
+#+end_quote
+
+* Pandoc
+https://pandoc.org/
+"If you need to convert files from one markup format into another, pandoc is your swiss-army knife."
+
+** Basic usage
+=pandoc -o output_file input_file=
+
+Default is a "document fragment" (ex: HTML file with no <html>, <head>...)
+
+For a complete ("standalone") document:
+=pandoc -s -o output_file input_file=
+
+** Org-specific doc
+https://pandoc.org/org.html
+
+** Templates
+https://pandoc.org/MANUAL.html#templates
+
+* Virtual Machines
+** virt-manager
+https://virt-manager.org/
+
+** Firecracker MicroVMs
+https://firecracker-microvm.github.io/
+Fast microVMs for serverless computing (AWS Lambda...)
+
+* VPNs
+** Tailscale
+https://tailscale.com/
+- Install: https://tailscale.com/download
+- Enable IP forwarding: https://tailscale.com/kb/1104/enable-ip-forwarding/
+- =sudo tailscale up --advertise-exit-node= to run Tailscale as an exit node
+- =sudo tailscale up --exit-node={ip_address}= to run Tailscale with ={ip_address}= as exit node
+
+* Mobile Development
+** React Native
+
+** Flutter
+https://github.com/go-flutter-desktop/go-flutter
+
+* just
+https://github.com/casey/just
+=just= is a handy way to save and run project-specific commands, similar to =make=
+
+* HTTP Clients
+** CLI
+*** curl
+*** wget
+*** httpie
+#+begin_src bash :results verbatim
+https httpie.io/hello
+#+end_src
+
+#+RESULTS:
+: {"ahoy":["Hello, World! 👋 Thank you for trying out HTTPie 🥳","We hope this will become a friendship."],"links":{"homepage":"https://httpie.io","twitter":"https://twitter.com/httpie","discord":"https://httpie.io/discord","github":"https://github.com/httpie"}}
+*** httpbin
+Returns client's headers
+#+begin_src bash :results verbatim
+curl https://httpbin.org/headers
+#+end_src
+
+#+RESULTS:
+: {
+:   "headers": {
+:     "Accept": "*/*",
+:     "Host": "httpbin.org",
+:     "User-Agent": "curl/7.77.0",
+:     "X-Amzn-Trace-Id": "Root=1-618168b4-0982f80d2e2330516e6d3566"
+:   }
+: }
+** GUI
+*** Postman
+Went enterprise-?
+
+*** Insomnia
+
+*** =restclient=
+Favourite for now, great integration with [[file:tools/text-editors/emacs.org][Emacs]]
+
+*** Hoppscotch
+https://github.com/hoppscotch/hoppscotch
+
+*** Kreya
+https://kreya.app/
+
+Started for gRPC actually! But supports HTTP as well
+
+* Accounting
+** [[file:tools/beancount.org][Beancount]]
+
+* Image Manipulation
+** Imagemagick
+http://www.fmwconcepts.com/imagemagick/index.php
+
+* Diagrams
+https://kroki.io/
+
+** Mermaid
+https://mermaid-js.github.io/
+https://github.com/mermaid-js/mermaid-cli
+#+begin_src mermaid :file images/mermaid-test.png
+graph TD
+    A[Front-end] -->|HTTP Request| B(Server)
+#+end_src
+
+#+RESULTS:
+[[file:../images/mermaid-test.png]]
+
+https://mermaid.live/
+
+* Remote Desktop
+** VNC
+*** TigerVNC
+** Chrome Remote Desktop
+https://remotedesktop.google.com/
+** TeamViewer
+** RustDesk
+https://github.com/rustdesk/rustdesk
+
+* Makefiles
+#+begin_src makefile :tangle ~/tmp/makefile_tutorial/Makefile :results none
+hello:
+	echo "hello world"
+#+end_src
+
+#+begin_src bash :results output
+cd ~/tmp/makefile_tutorial && make
+#+end_src
+
+#+RESULTS:
+: echo "hello world"
+: hello world
+
+#+begin_src makefile :tangle ~/tmp/makefile_tutorial/Makefile :results none
+hello: dependency
+	echo "hello world"
+
+dependency:
+	echo "run dependency first"
+#+end_src
+
+#+begin_src bash :results output
+cd ~/tmp/makefile_tutorial && make
+#+end_src
+
+#+RESULTS:
+: echo "run dependency first"
+: run dependency first
+: echo "hello world"
+: hello world
+
+* Misc
+** Beautiful images from code
+https://ray.so/
+https://carbon.now.sh/
+
+** Pipedream
+https://pipedream.com/
+#+begin_quote
+Connect APIs, remarkably fast.
+Stop writing boilerplate code, struggling with authentication and managing infrastructure. Start connecting APIs with code-level control when you need it — and no code when you don't.
+#+end_quote
+
+** Windmill
+https://docs.windmill.dev/
+Open source alternative to Pipedream?
+
+** saasform
+https://github.com/saasform/saasform
+"Saasform is a state-of-the-art website for your SaaS, with authentication, payments and common growth & marketing tools."
+
+** S3 Email
+📫 A serverless email server on AWS using S3 and SES
+https://github.com/0x4447/0x4447_product_s3_email
+
+** Mailchimp => AWS email
+Similar to above?
+https://carlchenet.com/how-to-save-up-to-500e-year-switching-from-mailchimp-to-open-source-mailtrain-and-aws-ses/
+
+** Combine pdf
+- =pdfunite=, part of =poppler=
+- =pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf=
+- "Just make sure you remember to provide out.pdf, or else it will overwrite the last file in your command."
+
+** =pdf-diff=
+https://github.com/serhack/pdf-diff
+#+begin_quote
+A tool for visualizing differences between two pdf files.
+#+end_quote
+
+** MDX
+https://mdxjs.com/
+
+** Tangram
+https://github.com/tangramxyz/tangram
+Tangram is an all-in-one automated machine learning framework.
+
+** Static Website With Built-In SQL
+https://www.evidence.dev/
+Business Intelligence for Modern Data Teams
+Beautiful reports synced to your data with just SQL and Markdown
+
+** Competitive Programming
+*** Websites
+**** HackerRank
+**** LeetCode
+**** TopCoder
+**** CodeForces
+
+*** Competitions
+**** ICPC
+**** IOI
+
+** Ways to Exercise
+*** Exercism.io
+https://exercism.io/
+Interactive learning of multiple languages
+Really smart, can code in your own text editor
+
+*** Advent of Code

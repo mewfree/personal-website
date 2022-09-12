@@ -1,0 +1,62 @@
+#+title: Theoretical Computer Science
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Theoretical Computer Science
+
+* Algorithms
+Thread-safe code is code that will work even if many threads are executing it simultaneously.
+
+** Resources
+*** Introduction to Algorithms
+by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
+*** The Algorithm Design Manual
+by Steven Skiena
+
+* Data Structures
+** Arrays
+*** Stride
+https://en.wikipedia.org/wiki/Stride_of_an_array
+
+* Lambda Calculus
+https://en.wikipedia.org/wiki/Lambda_calculus
+Functions in Lambda Calculus only have an arity of 1.
+
+https://learnxinyminutes.com/docs/lambda-calculus/
+
+* Computational Complexity Theory
+P=NP...
+** Asymptotic Notations
+https://learnxinyminutes.com/docs/asymptotic-notation/
+*** Big O
+https://www.bigocheatsheet.com/
+
+* Type Theory
+** Primitives
+https://en.wikipedia.org/wiki/Primitive_data_type
+What are signed vs unsigned integers?
+
+** Generic Programming
+Generics / Parametric Polymorphism
+
+A function using parametric polymorphism would be written with types to be specified later, and then instantiated when needed with types provided as parameters.
+
+** Resources
+*** Types and Programming Languages
+by Benjamin C. Pierce
+*** A tutorial implementation of a dependently typed lambda calculus
+https://www.andres-loeh.de/LambdaPi/LambdaPi.pdf
+*** Typing Haskell in Haskell
+https://web.cecs.pdx.edu/~mpj/thih/thih.pdf
+*** Henk: a typed intermediate language
+https://www.microsoft.com/en-us/research/wp-content/uploads/1997/01/henk.pdf
+*** Complete and Easy Bidirectional Typechecking for Higher-Rank Polymorphism
+https://www.cl.cam.ac.uk/~nk480/bidir.pdf
+*** Practical Foundations for Programming Languages
+https://www.cs.cmu.edu/~rwh/pfpl/
+
+* Computability Theory
+** Turing Completeness
+A machine or language is said to be Turing-complete when it can run any computational problem.
+Most modern languages are Turing-complete as they all implement the basic features (sum, product, if/else...) needed to compute any program possible.
+
+* Set Theory
+https://learnxinyminutes.com/docs/set-theory/

@@ -1,0 +1,25 @@
+#+title: Cryptocurrency Exchanges
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../blockchain.org][Blockchain]] / [[file:../cryptocurrencies.org][Cryptocurrencies]] / Cryptocurrency Exchanges
+
+| name           | description                                   |
+|----------------+-----------------------------------------------|
+| FTX            | My preferred exchange                         |
+| Binance        | Largest exchange, tons of alts                |
+| Delta Exchange | Interesting, MOVE contracts on alts?          |
+| AscendEX       | ex-BitMax                                     |
+| Kraken         | Great for EUR                                 |
+| OKX            |                                               |
+| BitOffer       | Tons of weird options and leveraged ETF stuff |
+| SideShift      | No sign ups swaps across chains               |
+| Deribit        | Options & Futures exchange                    |
+| BitMex         |                                               |
+| Scalpex        |                                               |
+| Gate.io        |                                               |
+| Cointiger      |                                               |
+| Phemex         |                                               |
+| Bybit          |                                               |
+| HitBTC         |                                               |
+| Globedx        | ex-YCombinator, futures only                  |
+| Okcoin         |                                               |
+| Physical ATMs  | https://www.cryptoclubbtm.com/?lang=en        |

@@ -1,0 +1,271 @@
+#+title: Racket
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Racket
+
+Lisp! Very functional!
+
+* Booleans
+=#t= true or =#f= false
+#+begin_src racket
+#lang racket
+
+#t
+#+end_src
+
+#+RESULTS:
+: #t
+
+* Numbers
+#+begin_src racket
+#lang racket
+(+ 1 1)
+#+end_src
+
+#+RESULTS:
+: 2
+
+* Strings
+#+begin_src racket
+#lang racket
+"Damien"
+#+end_src
+
+#+RESULTS:
+: Damien
+
+#+begin_src racket
+#lang racket
+(list->string (reverse (string->list "Damien")))
+#+end_src
+
+#+RESULTS:
+: neimaD
+
+* Characters
+#+begin_src racket
+#lang racket
+
+#\A
+#+end_src
+
+#+RESULTS:
+: #\A
+
+* Variables
+#+begin_src racket
+#lang racket
+(define x 9)
+x
+#+end_src
+
+#+RESULTS:
+: 9
+
+* Pairs
+Can use =cons= to construct a pair:
+#+begin_src racket
+#lang racket
+
+(car (cons 1 2))
+(cdr (cons 1 2))
+(pair? (cons 1 2))
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: #t
+
+Or the quote with . notation:
+#+begin_src racket
+#lang racket
+
+(car '(1 . 2))
+(cdr '(1 . 2))
+(pair? '(1 . 2))
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: #t
+
+* Lists
+https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
+
+=(list i j k)= is similar to ='(i j k)=
+
+#+begin_src racket :results verbatim
+#lang racket
+(list 1 2 3)
+#+end_src
+
+#+RESULTS:
+: '(1 2 3)
+
+#+begin_src racket :results verbatim
+#lang racket
+'(1 2 3)
+#+end_src
+
+#+RESULTS:
+: '(1 2 3)
+
+** Length
+#+begin_src racket
+#lang racket
+(length '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: 3
+
+** Sort
+#+begin_src racket :results verbatim
+#lang racket
+(sort '(1 2 3) >)
+#+end_src
+
+#+RESULTS:
+: '(3 2 1)
+
+** Take
+#+begin_src racket :results verbatim
+#lang racket
+(take '(1 2 3) 2)
+#+end_src
+
+#+RESULTS:
+: '(1 2)
+
+** Map
+Can insert lambda in Emacs with =C-M-y= or =racket-insert-lambda=
+#+begin_src racket :results verbatim
+#lang racket
+(map (λ (n) (* 2 n)) '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: '(2 4 6)
+
+** Foldl
+#+begin_src racket
+#lang racket
+(foldl (λ (acc n) (+ acc n)) 0 '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: 6
+
+Actually a way simpler way of writing it:
+#+begin_src racket
+#lang racket
+(foldl + 0 '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: 6
+
+* Hash Tables
+#+begin_src racket
+#lang racket
+
+(hash "apple" "red" "banana" "yellow")
+#+end_src
+
+#+RESULTS:
+: '#hash(("apple" . "red") ("banana" . "yellow"))
+
+** Get value by key
+#+begin_src racket
+#lang racket
+
+(define fruit-colours (hash "apple" "red" "banana" "yellow"))
+(hash-ref fruit-colours "apple")
+#+end_src
+
+#+RESULTS:
+: red
+
+** Set value by key
+=hash-set= returns a new list
+#+begin_src racket
+#lang racket
+
+(define fruit-colours (hash "apple" "red" "banana" "yellow"))
+(hash-set fruit-colours "apple" "red-ish")
+#+end_src
+
+#+RESULTS:
+: '#hash(("apple" . "red-ish") ("banana" . "yellow"))
+
+* Functions
+https://docs.racket-lang.org/guide/syntax-overview.html
+#+begin_src racket
+#lang racket
+(define (double x) (* x 2))
+
+(double 5)
+#+end_src
+
+#+RESULTS:
+: 10
+
+** Anonymous Functions
+Either =lambda= or =λ= can be used
+#+begin_src racket
+#lang racket
+((lambda (n) (* 2 n)) 2)
+#+end_src
+
+#+RESULTS:
+: 4
+
+#+begin_src racket
+#lang racket
+((λ (n) (* 2 n)) 2)
+#+end_src
+
+#+RESULTS:
+: 4
+
+* Thread Macros
+#+begin_src racket
+#lang racket
+(require threading)
+(~> "Damien" string->list reverse list->string)
+#+end_src
+
+#+RESULTS:
+: neimaD
+
+* Pattern Matching
+#+begin_src racket
+#lang racket
+
+(match 9
+  [7 'seven]
+  [8 'eight]
+  [9 'nine])
+#+end_src
+
+#+RESULTS:
+: nine
+
+* Eval
+#+begin_src bash
+racket -e '(+ 1 1)'
+#+end_src
+
+#+RESULTS:
+: 2
+
+* Resources
+** The Racket Guide
+https://docs.racket-lang.org/guide/index.html
+** The Racket Reference
+https://docs.racket-lang.org/reference/index.html
+** Beautiful Racket
+https://beautifulracket.com/
+** Realm of Racket
+https://nostarch.com/realmofracket.htm

@@ -1,0 +1,341 @@
+#+title: Business
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Business
+
+* Legal
+** Incorporation
+*** Federal vs Provincial?
+*** Offshore
+*** Address
+- Canada Post PO Box
+- UPS Store address
+*** Resources
+https://junjizhi.com/all/experience/indie%20hacking/2021/05/01/indie-hacking-incorporation/
+
+* Accounting
+- https://quickbooks.intuit.com/ca/resources/pro-accounting/bookkeeping-course-online/
+- https://www.accountingcoach.com/
+- https://www.moderntreasury.com/journal/accounting-for-developers-part-i
+
+* Banking
+https://forums.redflagdeals.com/cheapest-business-chequing-account-2472972/
+** BMO
+*** eBusiness Plan
+https://www.bmo.com/main/business/accounts/ebusiness-plan/
+Free chequing account
+** HSBC
+*** Fusion
+https://www.hsbc.ca/small-business-banking-solutions/small-business-owners/
+**** Chequing
+https://www.hsbc.ca/small-business-banking-solutions/everyday-banking/#rbb-chequing
+No fee with $10k balance?
+
+* Credit Cards
+- https://www.mazumago.com/credit-card
+- https://floatcard.com/
+
+* Payment Processing
+** Stripe
+*** Payment Links
+https://stripe.com/en-ca/payments/payment-links
+** Rotessa
+https://rotessa.com/
+A better way to get paid.
+Withdraw money directly from your customer’s bank account when their payments are due. Schedule one-time or recurring payments to get paid on time.
+
+* Communication
+** How to communicate better?
+*** "Bottom Line Up Front"
+https://en.wikipedia.org/wiki/BLUF_(communication)
+*** Better writing
+https://twitter.com/SahilBloom/status/1459531954446024712
+
+https://languagetool.org/
+** Team Communication
+*** Zulip
+Chat for distributed teams (Slack alternative)
+https://zulip.com/
+Has an "official" terminal client
+
+* Other
+** Free stuff (dev)
+https://free-for.dev/#/
+** Issue tracking (Jira alternative)
+https://linear.app/
+Pretty, fast, keyboard-driven...
+** ToolJet
+https://tooljet.io/
+Build & deploy internal tools
+Open-source low-code framework to build & deploy internal tools with minimal engineering effort.
+** Finding a co-founder
+https://www.startupschool.org/cofounder-matching
+YC's free online platform for finding a high-quality co-founder.
+Match with co-founders based on your preferences for interests, skills, location, and more, and start building your company.
+** Best "SaaS starter kit"
+https://news.ycombinator.com/item?id=28774647
+
+* Spreadsheets
+** Google Spreadsheets
+https://www.benlcollins.com/
+
+* Marketing
+https://markosaric.com/startup-marketing/
+
+https://www.synthesia.io/
+Create your own AI video.
+
+** Emailing
+- Mailchimp
+- Convertkit
+- MailerLite
+
+** Tracking
+*** Jitsu
+https://jitsu.com/
+The Open Source Segment Alternative
+
+** Reddit
+https://twitter.com/mynameis_davis/status/1473299500290695175
+
+** Twitter
+https://tasshin.com/blog/a-guide-to-twitter/
+
+* Strategy
+** SaaS pricing
+https://nofreeplan.com/
+** Open startups
+https://openstartups.run/
+** For agencies
+https://www.youtube.com/watch?v=M3EXUxO_kbE
+
+1. Be hyper specialized
+   Example: Scaling Facebook Ads for e-commerce brands, post-product market fit
+2. Make yourself essential to your clients
+3. Personify your brand
+4. Be selective with your clients
+** "Infoproducts"
+1. Find a niche
+2. Create an infoproduct
+3. Presell it
+4. Use affiliates to drive traffic to it
+** Validate Ideas
+http://momtestbook.com/
+** Buy websites and add revenue
+https://twitter.com/JamesonCamp/status/1480638561921777676
+** Build newsletters and monetize them
+https://twitter.com/JamesonCamp/status/1422243525870166019
+
+* Financing
+** Pitching your early stage startup
+https://stripe.com/en-gb-be/atlas/guides/pitching
+** Entrepreneur First
+https://go.joinef.com/toronto-2021/
+** Mentorship Network
+https://pioneer.app/
+** Venture Capital
+*** Y Combinator
+Need to record a video introducing the co-founders to apply
+And fill in simple enough form
+https://www.ycombinator.com/howtoapply/
+**** Deal
+https://www.ycombinator.com/deal/
+$125K post-money for 7% equity
+**** Twitter thread "Y Combinator is not worth it"
+https://twitter.com/theryanking/status/1487500943511932941
+*** a16z START
+https://a16z.com/programs-a16z-start/
+*** Ernestine Fu: All You Need to Know About Venture Capital
+https://youtu.be/qieDyvn6q0Q
+**** Getting into VC and Staying in VC
+As a partner: no application, all about connections (example: founded a successful company, early portfolio company...)
+Analyst / associate: after business school
+Always Be Closing or you'll be booted from the next fund
+
+**** Dynamics of Negotiating A Financing Round
+***** Convincing founders
+Assume it's a really good company
+Never show any dislike or distaste
+You never know if this founder is gonna start the next billion-dollar company
+Their first idea might be terrible, they second idea might be wonderful
+
+Keep an open mind, be very friendly and positive to the founder in addition to pitching your partnership / your firm
+Start your reputation (demo day...) before you even meet a founder for the first time
+
+***** Convincing the rest of your partnership
+Max 2-3 deals per year (major (>20%) deals with a seat on the board)
+
+You might see hundreds a deal, have 8-10 that you might fund and at the end of year you typically fund 2 or 3 deals
+For each of the hundreds of deal that you see, it might be one of the 8-10 and you'll want to fund
+VC firm is a partnership, need to convince the other partners, deals are usually a consensus between all the partners
+
+***** Competitive deals
+Always assume it'll be competitive and that many other funds will want to invest
+You either want to be in really early (first term sheet) or very late (last term sheet)
+
+**** Sourcing Deals and Finding Investment Opportunities
+***** Sourcing Deals
+Data-driven approach:
+- Who's raising in App Stores rankings?
+- Who's raising in Alexa ratings for top sites?
+
+Attending demo days at incubators, accelerators..
+
+- Anything available on the Internet or at a demo day: you're not the only one looking at it
+- Make sure you have your network in place
+- The best VC firms know all the companies at YC demo day before they even present
+
+***** Best Investment Opportunities
+- Tech (is there a strong product?)
+- Team (what's the founders track record? evidence that they have a vision? an idea is cheap, it's about how you execute it)
+- Product/Market Fit (is this actually a need that's being met? 100% of 10M market < 1% of $1B market)
+
+**** Term Sheet Basics
+***** Pre and Post-Money Valuation
+- A company has $3M worth of assets
+- An investor comes in and put $1M in the company
+- Pre-Money Valuation is $3M
+- Post-Money Valuation is $4M
+
+***** Liquidation Preference
+Preferred Stocks vs Common Stocks
+- With Preferred Stocks, investors get their money back first
+- It only really matters when a company sells for below their valuation price
+- Snap has investors holding common stocks but this is very uncommon
+
+***** Board of Directors
+With a significant amount of capital usually comes a board seat
+
+Common board for early stage companies:
+- Founder
+- Lead Investor
+- Independant Board Member
+
+For later stage companies:
+- Co-Founder
+- Co-Founder
+- Lead Investor #1
+- Lead Investor #2
+- Independant Board Member
+
+Goal of the board is to guide the CEO and hold them accountable
+
+***** Protective Provisions
+For example, approval of board before any X amount of capital spent
+
+***** Right of First Refusal (ROFR)
+As an investor, if a company is selling secondary shares, you'll be able to purchase those shares before anybody else
+
+***** Pro Rata
+The right of keeping a % of the company shares in later financing rounds by adding capital and not being diluted
+
+***** Drag Along
+As a lead investor, drag along means that you make all major business decisions for all the smaller (typically angel) investors
+
+***** Employee Option Pool
+VCs prefer that the employee option pool is created before their investment (typically 15-20%, diluting the founders)
+Best entrepreneurs refer that the employee option pool is created after the round of investment, diluting everybody
+
+***** No Shop Agreement
+Usually 40 days (VCs want it longer (60-90 days) and entrepreneurs shorters (30 days))
+Means you're not shopping around the term sheet / valuation (otherwise process never ends)
+Term sheets aren't binding, though usually everybody goes through the deal as your reputation is on the line
+
+**** Portfolio Management
+3 types of companies in a typical portfolio:
+- unicorns, $1B outcome
+- dragonites, potential to have a high ROI
+- the walking dead, consistently operating but probably won't make a huge exit for you
+
+VCs would typically focus on the top 2-3 companies in their portfolio of ~10
+
+Walking dead strategies:
+- Being an activist: Sequoia merged Elon Musk's X.com and Peter Thiel's company creating PayPal
+- Ignoring it
+
+**** VC Firm Composition, Governance and Dynamics
+Every VC firm has those four roles:
+- Analysis and Market Research
+- Sourcing
+- Investments and Portfolio Management
+- Fund Raising
+
+The more senior you are, the more towards sourcing, investment and fund raising you are
+
+Generally speaking, towards the beginning of the life of the fund, that's where the investments that are true to the spirit of the fund are made
+In the middle, that's when the crazy investments are made
+And towards the end, investments are made very carefully as it might impact being able to raide for the next fund
+
+**** GP / LP Dynamics
+- GP = General Partners
+- LP = Limited Partners
+
+- LPs invest in VC funds
+- High net worth individuals, corporations, institutional investors, universities...
+
+- Every VC fund is a partnership, is there good synergy between the partners?
+- What's their investment thesis/strategy? Particular sector?
+- Are the GPs well suited to source and close investments?
+
+- Typically a 2-3% management fee
+- $100M fund, $2-3M for the GP to manage the fund
+- Other: 20% carried interest => 80/20 split of profits
+- $1B fund, LPs get $800M, GPs get $200M
+
+* Product Management
+https://online.stanford.edu/courses/xprodmgt110-product-management-transforming-opportunities-great-products
+** Agile
+*** Scrum
+https://en.wikipedia.org/wiki/Scrum_(software_development)#Workflow
+**** Sprint Planning
+https://www.atlassian.com/agile/scrum/sprint-planning
+Sprint planning is an event in scrum that kicks off the sprint. The purpose of sprint planning is to define what can be delivered in the sprint and how that work will be achieved.
+** A|B Testing
+*** Growthbook
+https://www.growthbook.io/
+
+* People Management
+** https://www.manager-tools.com/
+** Peopleware: Productive Projects and Teams
+by Timothy Lister and Tom DeMarco
+** https://lattice.com/library/6-people-management-tips-that-will-make-you-a-bette
+** https://twitter.com/Jobvo/status/1477610639040434183?s=20
+** https://news.ycombinator.com/item?id=30497703
+
+* Advice
+"How to Get Rich" by Naval: https://threadreaderapp.com/thread/1002103360646823936.html
+
+* Inspiration
+Engineer turned marketers for SaaS businesses: https://www.gkogan.co/
+Studio that builds SaaS apps for marketers: https://www.incremen.to/
+"Founder reads": https://founderreads.com/
+
+* Clients Relationships
+How to handle clients in a freelancing / agency relationship?
+- https://leanpub.com/freelancedeveloperbook
+- It's a relationship like any other, and you earn each other trust through your interactions over time. So you need to be extremely reliable and responsive if you want to be perceived as trust worthy.
+- If something bad happened, be transparent and the sooner you say it the better. It's extremely uncomfortable, and you'll try to delay it because you don't want to say shit happened, even if it wasn't your fault.
+- Never bring up a problem without a solution, or a potential solution, or a recommendation for a solution. No one wants problems, we all have plenty of those. Even if it's something out of your control, you should always spin a solution for it.
+- Always reply, never leave someone hanging.
+
+* Real Estate
+Becoming a broker:
+https://www.collegeimmobilier.com/
+
+* Resources
+https://bigmachine.io/products/going-solo/
+** SaaS promotion
+https://appsumo.com/
+** Startup School
+https://www.startupschool.org/
+** List of free tier dev tools
+https://github.com/255kb/stack-on-a-budget
+** Blog from a group of companies
+https://bychgroup.com/blog/
+** Hacker News: Successful one-person online businesses?
+https://news.ycombinator.com/item?id=21332072
+** Reddit launch list
+https://www.reddit.com/r/startups/comments/fuw483/alternatives_to_product_hunt_to_submit_your/
+** SaaS growth articles
+https://github.com/yongfook/saas-growth-articles
+** Making money with courses
+https://go.consulting.com/evergreen-training

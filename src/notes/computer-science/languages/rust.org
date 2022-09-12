@@ -1,0 +1,226 @@
+#+title: Rust
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Rust
+
+* Basics
+Compile: =rustc {filename}.rs=
+Run: =./{filename}=
+
+** Anatomy
+#+begin_src rust
+fn main() {
+
+}
+#+end_src
+
+=main= function is special: always the first code that runs in every executable Rust program.
+Function parameters go inside the parentheses: =()=
+And code for the function goes inside curly brackets: ={}=
+
+** Format
+=rustfmt= can be used to automatically format our Rust code.
+Indent 4 spaces, no tabs.
+
+** Comments
+#+begin_src rust
+fn main() {
+    // This is a comment
+}
+#+end_src
+
+#+RESULTS:
+
+** Hello, World!
+#+begin_src rust
+fn main() {
+    println!("Hello, World!");
+}
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+=println!()= is a Rust macro. =!= means it's a macro and not a function.
+=;= at the end of the line indicates that the expression is over.
+
+* Cargo
+New project: =cargo run {project_name}=
+Build: =cargo build=, build for release: =cargo build --release= (with optimizations)
+Compile & run: =cargo run=
+Check if project can compile: =cargo check= (faster than =cargo build=)
+
+** Resources
+Cargo book
+[[https://doc.rust-lang.org/stable/cargo/]]
+
+* Primitives
+** Scalar Types
+Signed integers, unsigned integers
+Floating point
+Character: ='a'=, ='b'=...
+Boolean: =true= or =false=
+=()= which is an empty tuple
+
+** Compound Types
+Arrays
+Tuples
+
+* Variables
+** Mutable Variables
+#+begin_src rust
+fn main() {
+    let x = 5 + 5;
+    x += 5;
+    println!("{}", x);
+}
+#+end_src
+
+#+RESULTS:
+: error: Could not compile `cargoSivb4X`.
+=cannot assign twice to immutable variable=
+
+#+begin_src rust
+fn main() {
+    let mut x = 5 + 5;
+    x += 5;
+    println!("{}", x);
+}
+#+end_src
+
+#+RESULTS:
+: 15
+
+** Destructuring Assignment
+Starting from Rust 1.59:
+#+begin_src rust
+fn main() {
+    let (a, b) = (1, 2);
+    println!("{a}");
+    println!("{b}");
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+
+* Strings
+#+begin_src rust
+fn main() {
+    let s = "Damien";
+    println!("{}", s);
+}
+#+end_src
+
+#+RESULTS:
+: Damien
+
+** String to chars
+#+begin_src rust
+fn main() {
+    let s = "Damien".chars();
+    println!("{:?}", s);
+}
+#+end_src
+
+#+RESULTS:
+: Chars(['D', 'a', 'm', 'i', 'e', 'n'])
+
+* Formatted Print
+#+begin_src rust
+fn main() {
+    let a = 1 + 1;
+    println!("{}", a);
+}
+#+end_src
+
+#+RESULTS:
+: 2
+
+Starting from Rust 1.58:
+#+begin_src rust
+fn main() {
+    let a = 1 + 1;
+    println!("{a}");
+}
+#+end_src
+
+#+RESULTS:
+: 2
+
+https://www.rustnote.com/blog/format_strings.html
+
+* Iterators
+Since Rust 1.23, no need to call =.iter()=
+#+begin_src rust
+fn main() {
+    for i in [1, 2, 3] {
+        println!("{}", i);
+    }
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+
+* Misc
+Naming conventions:
+[[https://doc.rust-lang.org/1.0.0/style/style/naming/README.html]]
+
+No garbage collection: have to manage memory yourself
+
+Pattern matching through =match= :)
+
+* Packages
+** Yew
+https://yew.rs/docs/intro/
+http://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/
+#+begin_quote
+Yew is a modern Rust framework for creating multi-threaded front-end web apps using WebAssembly.
+#+end_quote
+
+** Sauron
+https://github.com/ivanceras/sauron
+#+begin_quote
+Sauron is a versatile web framework and library for building client-side and/or server-side web applications with strong focus on simplicity. It is suited for developing web application which uses progressive rendering.
+#+end_quote
+
+** Iced
+https://github.com/hecrj/iced
+#+begin_quote
+A cross-platform GUI library for Rust, inspired by Elm
+#+end_quote
+
+** Poem
+https://github.com/poem-web/poem
+#+begin_quote
+A full-featured and easy-to-use web framework with the Rust programming language.
+#+end_quote
+
+* Resources
+** Main
+https://doc.rust-lang.org/book/
+https://doc.rust-lang.org/rust-by-example/
+https://learnxinyminutes.com/docs/rust/
+https://cheats.rs/ Rust Language Cheat Sheet
+https://github.com/rust-lang/rustlings/ Small exercises to get you used to reading and writing Rust code!
+
+** Other
+- Zola, a static site generator [[https://www.getzola.org/]]
+- Strings: https://www.brandons.me/blog/why-rust-strings-seem-hard
+- https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/
+- https://fasterthanli.me/articles/a-half-hour-to-learn-rust
+- Rust notebook: https://blog.abor.dev/p/evcxr
+- Web Fullstack Framework: https://github.com/MoonZoon/MoonZoon
+- Frontend framework: https://github.com/seed-rs/seed
+- https://blog.logrocket.com/what-you-cant-do-in-rust-and-what-to-do-instead/
+- Written in Rust alternatives of other softwares: https://github.com/TaKO8Ki/awesome-alternatives-in-rust
+- Serde is a framework for serializing and deserializing Rust data structures efficiently and generically: https://serde.rs/
+
+** Book
+*** Zero to Production in Rust
+https://www.zero2prod.com/
+*** Black Hat Rust
+https://kerkour.com/black-hat-rust

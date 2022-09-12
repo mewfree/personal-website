@@ -1,0 +1,91 @@
+#+title: Programming Languages
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Programming Languages
+
+* "Mainstream" Languages
+** [[file:languages/python.org][Python]]
+** [[file:languages/ruby.org][Ruby]]
+** [[file:languages/javascript.org][JavaScript]]
+** [[file:languages/julia.org][Julia]]
+** [[file:languages/elixir.org][Elixir]]
+** [[file:languages/ocaml.org][OCaml]]
+** [[file:languages/haskell.org][Haskell]]
+** [[file:languages/rust.org][Rust]]
+** [[file:languages/racket.org][Racket]]
+** [[file:languages/clojure.org][Clojure]]
+** [[file:languages/scala.org][Scala]]
+** [[file:languages/fsharp.org][F#]]
+** [[file:languages/nim.org][Nim]]
+** [[file:languages/crystal.org][Crystal]]
+** [[file:languages/lua.org][Lua]]
+** [[file:languages/go.org][Go]]
+** [[file:languages/kotlin.org][Kotlin]]
+** Erlang
+*** Native Implemented Functions (NIFs)
+A NIF is a function that is implemented in C instead of Erlang.
+https://www.erlang.org/doc/tutorial/nif.html
+** Zig
+https://ziglang.org/
+Zig is an imperative, general-purpose, statically typed, compiled system programming language
+#+begin_src zig :imports '(std) :results verbatim
+const stdout = std.io.getStdOut().writer();
+try stdout.print("{s}", .{"hello, world!"});
+#+end_src
+
+#+RESULTS:
+: hello, world!
+
+TigerBeetle - A Million Financial Transactions per Second in Zig
+https://www.youtube.com/watch?v=BH2jvJ74npM
+
+Mach Engine - Game engine & graphics toolkit for the future
+https://machengine.org/
+** C
+** Common Lisp
+*** Resources
+**** On Lisp
+Book by Paul Graham
+**** Let Over Lambda: 50 Years of Lisp
+Book by Doug Hoyte
+**** April
+https://github.com/phantomics/april
+APL on Common Lisp
+** Scheme
+*** Chicken
+*** Guile
+** Perl
+https://learnxinyminutes.com/docs/perl/
+#+begin_src perl :results output
+my $name = "Damien";
+print "hi ${name}\n";
+#+end_src
+
+#+RESULTS:
+: hi Damien
+** R
+https://github.com/matloff/fasteR
+** HTML
+=<datalist>=
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+*** Resources
+https://www.smashingmagazine.com/2022/03/html-attributes-you-never-use/
+** [[file:languages/css.org][CSS]]
+** [[file:languages/sql.org][SQL]]
+** D
+** [[file:languages/google-apps-script.org][Google Apps Script]]
+** Carbon
+https://github.com/carbon-language/carbon-lang
+#+begin_quote
+An experimental successor to C++
+#+end_quote
+
+* [[file:languages/niche-languages.org][Niche Languages]]
+
+* Esoteric Languages
+- https://www.hillelwayne.com/talks/esolangs/
+- https://en.wikipedia.org/wiki/Esoteric_programming_language
+- https://esoteric.codes/
+** Brainfuck
+** Befunge
+** Resources
+https://www.hillelwayne.com/talks/esolangs/

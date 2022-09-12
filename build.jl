@@ -5,6 +5,8 @@ print("Generating website...")
 
 # Clean up first
 isdir("build") && rm("build", recursive=true)
+isfile("src/notes.org") && rm("src/notes.org", recursive=true)
+isdir("src/notes") && rm("src/notes", recursive=true)
 
 header = read("src/header.html", String)
 footer = read("src/footer.html", String)
@@ -84,6 +86,9 @@ end
 
 # Notes
 mkpath("build/notes")
+cp(homedir() * "/meworg/university.org", "src/notes.org")
+run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+cp(homedir() * "/meworg/university", "src/notes")
 for (root, dirs, files) in walkdir("src/notes")
     for dir in dirs
         path = replace(joinpath(root, dir), "src/" => "build/")
@@ -94,6 +99,7 @@ for (root, dirs, files) in walkdir("src/notes")
         slug, type = split(filename, ".")
         slug = replace(slug, "src/notes/" => "")
         if type == "org"
+            run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
             local data = read(filename, String)
             local exports_both = map(
                 line ->
@@ -116,7 +122,6 @@ for (root, dirs, files) in walkdir("src/notes")
                     ),
                     String,
                 ),
-                "university.org\">University" => "notes\">Notes",
                 "./images/" => "/images/",
                 ".org\">" => "\">",
             )
@@ -125,7 +130,6 @@ for (root, dirs, files) in walkdir("src/notes")
                     pipeline(`echo $joined`, `pandoc --quiet --from=org -t plain`),
                     String,
                 ),
-                "University" => "Notes",
                 r"[^a-zA-Z0-9_\s]" => "",
             )
 
@@ -190,8 +194,6 @@ for route in routes
         local html = replace(
             read(`pandoc src/$source --shift-heading-level-by=1`, String),
             ".org\">" => "\">",
-            "University" => "Notes",
-            "university" => "notes",
         )
         local content = replace(template, "{TITLE}" => heading, "{CONTENT}" => html)
     elseif endswith(source, ".html")

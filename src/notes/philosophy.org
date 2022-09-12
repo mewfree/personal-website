@@ -1,0 +1,49 @@
+#+title: Philosophy
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Philosophy
+
+Nietzsche?
+
+Research nihilism...
+
+Art of War by Sun Tzu?
+
+* Informal Logic
+
+* Introduction to Ethics
+
+* Ancient Philosophy
+
+* Modern Philosophy
+
+* Epistemology
+
+* Metaphysics
+
+* Normative Ethics
+
+* Political Philosophy
+
+* Formal Logic
+
+* Philosophy of Language
+
+* Philosophy of Mind
+
+* Philosophy of Science
+
+* Philosophy of Mathematics
+
+* Resources
+** So You Want to Study Philosophy…
+https://www.susanrigetti.com/philosophy
+** Meditations
+by Marcus Aurelius
+** On the Shortness of Life: Life Is Long if You Know How to Use It
+by Seneca
+** A Guide to the Good Life: The Ancient Art of Stoic Joy
+by William B. Irvine
+** Justice: What's the Right Thing to Do?
+by Michael J. Sandel
+** Philosophy and the Mirror of Technology: Spinoza’s Religion – Interview with Clare Carlisle
+https://blog.apaonline.org/2022/03/11/philosophy-and-the-mirror-of-technology-spinozas-religion-interview-with-clare-carlisle/

@@ -1,0 +1,43 @@
+#+title: Google Apps Script
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Google Apps Script
+
+* Spreadsheets
+toast: small dialog in bottom-right corner
+https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#toast(String)
+
+* Misc
+** Properties for secrets / config
+https://developers.google.com/apps-script/guides/properties
+
+** File-open dialogs
+https://developers.google.com/apps-script/guides/dialogs#file-open_dialogs
+
+** Editor style 🎨
+https://developers.google.com/gsuite/add-ons/guides/editor-style
+
+** Add-on CSS 🖌️
+https://developers.google.com/gsuite/add-ons/guides/css
+
+** How to update?
+https://developers.google.com/gsuite/add-ons/how-tos/update-published-add-on
+
+** Cache
+https://developers.google.com/apps-script/reference/cache/cache
+
+** V8 Runtime
+https://developers.google.com/apps-script/guides/v8-runtime
+
+** Monetization example
+https://script.google.com/home/projects/1jqR2OrwbN-1PcHKUE2_Yl3DwEGMFondg4UGehlhlf4WxuNq5pQrxwTji/edit
+
+* Resources
+https://github.com/enuchi/React-Google-Apps-Script
+Boilerplate for using React in Google Apps Scripts
+
+https://github.com/google/clasp
+Command Line Apps Script Projects
+
+https://github.com/googleworkspace/apps-script-oauth2
+An OAuth2 library for Google Apps Scripts
+https://developers.google.com/apps-script/add-ons/how-tos/non-google-services

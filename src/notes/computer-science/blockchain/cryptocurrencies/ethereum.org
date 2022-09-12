@@ -1,0 +1,266 @@
+#+title: Ethereum
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../blockchain.org][Blockchain]] / [[file:../cryptocurrencies.org][Cryptocurrencies]] / Ethereum
+
+* What is L2?
+Rollup?
+
+* Smart Contracts
+https://ethereum.org/en/developers/tutorials/
+** Intro
+#+begin_quote
+Smart contracts are a type of Ethereum account. This means they have a balance and they can send transactions over the network. However they're not controlled by a user, instead they are deployed to the network and run as programmed. User accounts can then interact with a smart contract by submitting transactions that execute a function defined on the smart contract. Smart contracts can define rules, like a regular contract, and automatically enforce them via the code.
+#+end_quote
+
+/High gas costs? Should check how expensive.../
+
+#+begin_quote
+Smart contracts alone cannot get information about "real-world" events because they can't send HTTP requests. This is by design as relying on external information could jeopardise consensus, which is important for security and decentralization.
+#+end_quote
+
+** Languages
+https://ethereum.org/en/developers/docs/smart-contracts/languages/
+- Solidity: https://solidity.readthedocs.io/en/v0.7.4/
+- Vyper: https://vyper.readthedocs.io/en/stable/
+more advanced: Yul, intermediate to the EVM
+cheatsheet Solidity vs Vyper: https://reference.auditless.com/cheatsheet/
+
+** Anatomy
+https://ethereum.org/en/developers/docs/smart-contracts/anatomy/
+- *Storage:* permanently in the blockchain, expensive
+- *Memory:* only stored during the contract's execution, cheaper
+- *Env var:* block timestamp, =msg.sender=...
+- *Functions:* =internal= (only accessible internally) vs =external= (can be called from other contracts and through transactions)
+- =public= vs =private= for both functions and values?
+- view functions: "getter" function not modifying state
+- constructor functions: to initiate the state, only ran at contract creation
+- built-in functions: =address.send()=
+
+- ERCs: set of standards
+
+https://ethereum.org/en/developers/docs/security/
+
+** Resources
+*** Tutorials
+https://ethereum.org/en/developers/tutorials/
+https://learnxinyminutes.com/docs/solidity/
+*** Interactive Tutorials
+https://cryptozombies.io/
+https://ethernaut.openzeppelin.com/
+https://vyper.fun/
+*** Infrastructure
+https://infura.io/: Ethereum node; have account and keys
+https://dashboard.alchemyapi.io/: Ethereum node; have account
+*** Local Dev Env
+https://ethereum.org/en/developers/local-environment/
+https://openzeppelin.com/sdk/ interacting with smart contracts in the CLI
+https://hardhat.org/ compile, deploy, test, and debug your Ethereum software
+https://www.trufflesuite.com/ tools for smart contracts
+https://www.trufflesuite.com/ganache local copy of an Ethereum blockchain
+https://framework.embarklabs.io/ all-in-one for dapps
+https://eth-brownie.readthedocs.io/en/stable/deploy.html Python-based, better than the rest?
+https://github.com/gakonst/foundry new (Dec 2021), very fast
+**** Foundry
+https://onbjerg.github.io/foundry-book/index.html
+=forge init {project}= to start a new project
+*** Misc
+https://github.com/tintinweb/smart-contract-sanctuary lists all smart contracts on Etherscan?
+https://twitter.com/zapper_fi/status/1327035284677128192?s=09 explain why "Approve DAI", "Enable USDC"
+
+* Technical Notes
+** Ethereum accounts
+https://ethereum.org/en/developers/docs/accounts/#an-account-examined
+
+Ethereum accounts have four fields:
+- =nonce= – a counter that indicates the number of transactions sent from the account. This ensures transactions are only processed once. If a contract account, this number represents the number of contracts created by the account
+- =balance= – the number of Wei owned by this address. Wei is a denomination of ETH and there are 1e+18 Wei per ETH.
+- =codeHash= – All such code fragments are contained in the state database under their corresponding hashes for later retrieval. For contract accounts, this is the code that gets hashed and stored as the codeHash. For externally owned accounts, the codeHash field is the hash of the empty string.
+- =storageRoot= – A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 256-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values. This tree encodes the hash of the storage contents of this account, and is empty by default.
+
+Your private key is what you use to sign transactions, so it grants you custody over the funds associated with your account. You never really hold cryptocurrency, you hold private keys – the funds are always on Ethereum's ledger.
+
+** Ethereum clients
+https://ethereum.org/en/developers/docs/nodes-and-clients/#clients
+GETH: https://geth.ethereum.org/docs/ Go's Ethereum implementation
+OpenEthereum: https://github.com/openethereum/openethereum Rust
+Trinity: https://trinity.ethereum.org/ Python
+
+** Ethereum transactions
+https://ethereum.org/en/developers/docs/transactions/#whats-a-transaction
+
+A submitted transaction includes the following information:
+- =recipient= – the receiving address (if an externally-owned account, the transaction will transfer value. If a contract account, the transaction will execute the contract code)
+- =signature= – the identifier of the sender. This is generated when the sender's private key signs the transaction and confirms the sender has authorised this transaction
+- =value= – amount of ETH to transfer from sender to recipient (in WEI, a denomination of ETH)
+- =data= – optional field to include arbitrary data
+- =gasLimit= – the maximum amount of gas units that can be consumed by the transaction. Units of gas represent computational steps
+- =gasPrice= – the fee the sender pays per unit of gas
+
+** Ethereum node types
+https://ethereum.org/en/developers/docs/nodes-and-clients/#node-types
+
+In fact, clients can run 3 different types of node - light, full and archive. There are also options of different sync strategies which enables faster synchronization time. Synchronization refers to how quickly it can get the most up-to-date information on Ethereum's state.
+
+*** Full node
+- Stores full blockchain data.
+- Participates in block validation, verifies all blocks and states.
+- All states can be derived from a full node.
+- Serves the network and provides data on request.
+
+*** Light node
+- Stores the header chain and requests everything else.
+- Can verify the validity of the data against the state roots in the block headers.
+- Useful for low capacity devices, such as embedded devices or mobile phones, which can't afford to store gigabytes of blockchain data.
+
+*** Archive node
+- Stores everything kept in the full node and builds an archive of historical states. Needed if you want to query something like an account balance at block #4,000,000.
+- These data represent units of terabytes which makes archive nodes less attractive for average users but can be handy for services like block explorers, wallet vendors, and chain analytics.
+
+** Proto-Danksharding
+https://notes.ethereum.org/@vbuterin/proto_danksharding_faq
+
+* Protocols
+** Lending
+https://compound.finance
+https://app.aave.com
+** DEXs (Decentralized Exchanges)
+*** AMM
+**** Uniswap
+***** V1
+ERC20 <> ETH
+***** V2
+ERC20 <> ERC20
+***** V3
+Can add single assets as liquidity
+Will use a Layer-2
+****** Concentraded liquidity
+Will be possible to concentrade liquidity in a specific range
+****** Non-fungible liquidity
+LP tokens won't be ERC20 anymore but ERC721
+Trading fees no longer automatically reinvested
+****** Flexible fees
+0.05% => Stablecoins pairs
+0.3% => Standard pairs
+1% => Exotic pairs
+****** Oracle
+TWAP past 9 days on-chain
+****** Pricing LP positions
+https://lambert-guillaume.medium.com/pricing-uniswap-v3-lp-positions-towards-a-new-options-paradigm-dce3e3b50125
+***** Arbitrage
+https://github.com/ccyanxyz/uniswap-arbitrage-analysis
+https://github.com/libevm/subway
+**** Sushiswap
+**** Balancer
+**** Kyberswap
+**** 0x
+**** mistX
+https://mistx.io/
+Gasless swaps, no frontrunners
+**** Futureswap
+https://www.futureswap.com/
+**** for stablecoins
+***** Curve
+AMM for stablecoins
+***** Shells
+https://shells.exchange/
+Another AMM for stablecoins
+***** Swerve
+https://swerve.fi
+*** Orderbook-based
+**** dYdX
+***** L2
+Everything is done on L2
+No gas fees once coins are deposited on L2
+From time to time, L2 is synced to L1
+**** Fulcrum
+https://fulcrum.trade
+**** Deversifi
+https://deversifi.com
+*** Aggregators
+https://1inch.exchange
+https://matcha.xyz
+https://dex.ag
+https://dex.guru
+** "Hedge Funds"
+*** Yearn
+Automated on-chain hedge fund
+https://yearn.finance
+*** Stake DAO
+https://stakedao.org/
+*** Rari Capital
+https://v2.rari.capital
+*** Harvest Finance
+https://harvest.finance
+*** Keeper DAO
+https://app.keeperdao.com
+*** Formation.fi
+https://formation.fi/
+Yield farming optimizer
+** Derivates
+https://synthetix.io
+*** Options
+**** Hegic
+https://hegic.co
+**** Pods
+https://www.pods.finance/
+** Alchemix
+https://app.alchemix.fi/
+Deposit DAI, borrow up to 50% as alUSD
+Yield on DAI through YFI pays back the loan itself
+** sideshift
+https://sideshift.ai/btc/eth
+Not sure I understand the appeal?
+** Pop
+https://pop.town/
+High-yield staking for ETH and USDC
+** Fei
+New algo stablecoin
+
+<2021-04-07> update: looks like Fei failed miserably...
+https://rekt.news/fei-rekt/
+** APWine
+https://www.apwine.fi/
+The protocol allowing you to trade unrealised yield.
+** TimeSwap
+"Like Uniswap, but for lending & borrowing"
+https://app.timeswap.io/
+** Fodl
+https://fodl.finance/
+Leveraged lending
+** Euler
+https://www.euler.finance/#/
+Permissionless crypto lending markets are almost here.
+
+* Other Projects
+https://zapper.fi: portfolio management
+https://feed.chain.link: on-chain price reference data
+https://defirate.com & https://yieldfarming.info: yield rate comparison
+https://tornado.cash: anonymize ETH transactions
+
+* Flash Loans
+AAVE, +dYdX+, Uniswap...
+Kollateral: https://docs.kollateral.co aggregated pools from different sources
+Balancer V2: https://twitter.com/fcmartinelli/status/1461777136071716875
+
+** Resources
+https://defiprime.com/flahloans-comparison
+https://money-legos.studydefi.com/#/dydx
+https://github.com/fifikobayashi this guy have some repos using flash loans
+
+* Flash Mints
+https://docs.makerdao.com/smart-contract-modules/flash-mint-module
+
+* MEV
+Miner Extracted Value
+https://www.coindesk.com/ethereum-trading-bot-strategy-miner-extracted-value-research
+
+One can look at the waiting transactions on the Ethereum blockchains and upbid "profitable" transactions so it executes faster.
+
+** Flashbots
+https://docs.flashbots.net/
+
+** Resources
+https://noxx.substack.com/p/dex-arbitrage-mathematical-optimisations
+
+* Resources
+https://www.libevm.com/

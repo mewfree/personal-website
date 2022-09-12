@@ -1,0 +1,72 @@
+#+title: Lua
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Lua
+
+Lightweight, embeddable scripting language
+
+* Basics
+#+begin_src lua
+return "Hello, Lua!"
+#+end_src
+
+#+RESULTS:
+: Hello, Lua!
+
+#+begin_src lua :results output
+print("Hello, Lua!")
+#+end_src
+
+#+RESULTS:
+: Hello, Lua!
+
+* If-Else
+#+begin_src lua
+if true then
+  return 'this is true'
+else
+  return 'this is false'
+end
+#+end_src
+
+#+RESULTS:
+: this is true
+
+* Functions
+#+begin_src lua
+function double(x)
+  return x * 2
+end
+
+return double(2)
+#+end_src
+
+#+RESULTS:
+: 4
+
+* Tables
+#+begin_src lua
+t = {key1 = 'value1', key2 = 'value2'}
+return t.key1
+#+end_src
+
+#+RESULTS:
+: value1
+
+"List" (actually a table with consecutive integer keys)
+Return the length of the list:
+#+begin_src lua
+v = {'value1', 'value2', 'value3'}
+return #v
+#+end_src
+
+#+RESULTS:
+: 3
+
+Indices start at 1
+#+begin_src lua
+v = {'value1', 'value2', 'value3'}
+return v[2]
+#+end_src
+
+#+RESULTS:
+: value2

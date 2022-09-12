@@ -1,0 +1,54 @@
+#+title: Linux
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Linux
+
+* Distributions
+https://distrowatch.com/
+
+** Debian
+Stable, popular for servers
+
+** [[file:linux/arch.org][Arch Linux]]
+
+** [[file:linux/fedora.org][Fedora]]
+
+** openSUSE
+*** Tumbleweed
+Rolling release of openSUSE
+
+** Gentoo
+Have to compile from source
+*** Handbook
+https://wiki.gentoo.org/wiki/Handbook:AMD64
+
+** NixOS
+*** NixOps
+- https://github.com/NixOS/nixops
+- https://github.com/nh2/nixops-tutorial
+
+*** Nix Flakes
+https://nixos.wiki/wiki/Flakes
+
+Nix -> Dockerfile
+Nix Flakes -> Docker Compose
+
+** [[file:linux/guix.org][GNU Guix]]
+
+* Window Managers
+** herbstluftwm
+** spectrwm
+** exwm
+Emacs-based window manager
+- System Crafters: https://www.youtube.com/watch?v=f7xB2fFk1tQ
+- DistroTube: https://www.youtube.com/watch?v=MquoGuU8sHM
+** XMonad
+- Launch terminal: Shift-Mod-Enter
+- Cycle through window arrangement: Mod-Space
+- Go to workspace n (1-9): Mod-n
+** StumpWM
+
+* Desktop Environments
+** Gnome
+*** Shortcuts
+Alt + Space: show window menu (to activate Picture-in-Picture for example)
+** KDE

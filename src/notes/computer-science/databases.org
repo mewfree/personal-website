@@ -1,0 +1,103 @@
+#+title: Databases
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Databases
+
+* All
+** CLI tools
+https://www.dbcli.com/
+
+* SQLite
+** CLI tool
+https://www.sqlite.org/cli.html
+** JSON
+https://www.sqlite.org/json1.html
+** Session Extension
+https://www.sqlite.org/sessionintro.html
+** Generated columns
+https://antonz.org/generated-columns/
+** Litestream
+https://litestream.io/
+https://fly.io/blog/all-in-on-sqlite-litestream/
+** CSV
+*** Query CSVs in one line
+https://til.simonwillison.net/sqlite/one-line-csv-operations
+*** Import CSV into a SQLite table
+https://www.sqlitetutorial.net/sqlite-import-csv/
+
+* MySQL
+** Vitess
+https://vitess.io/
+#+begin_quote
+A database clustering system for horizontal scaling of MySQL
+#+end_quote
+*** Managed
+https://planetscale.com/
+
+* PostgreSQL
+https://www.narrator.ai/blog/using-postgresql-as-a-data-warehouse/
+
+Citext: https://www.postgresql.org/docs/9.1/citext.html
+Lowercase values. Useful for comparing emails for example.
+
+** Supabase
+https://supabase.com/
+*** Realtime
+Listen to your to PostgreSQL database in realtime via websockets. Built with Elixir.
+https://github.com/supabase/realtime
+*** Edge Functions
+https://supabase.com/edge-functions
+
+** PostgresML
+https://postgresml.org/
+End-to-end machine learning solution.
+Train and deploy industry-standard or completely custom machine learning models, directly powered by your business data, into your production stack, with an open source Postgres extension.
+
+** Neon
+https://neon.tech/
+#+begin_quote
+Serverless Postgres
+The multi-cloud fully managed Postgres with a generous free tier. We separated storage and compute to offer autoscaling, branching, and bottomless storage.
+#+end_quote
+
+** Resources
+https://hakibenita.com/
+
+* DuckDB
+https://duckdb.org/
+
+Can directly query CSV and Parquet files.
+
+Can be compiled with =wasm= and be used directly in the browser.
+https://duckdb.org/2021/10/29/duckdb-wasm.html
+
+Useful for data analysis.
+https://duckdb.org/2021/05/14/sql-on-pandas.html
+
+* Datalog
+Datalog is a declarative logic programming language that syntactically is a subset of Prolog. It is often used as a query language for deductive databases.
+
+https://www.instantdb.dev/essays/datalogjs
+
+* Redis
+https://redis.io/
+"The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker."
+
+** Dragonfly
+https://github.com/dragonflydb/dragonfly
+Faster Redis?
+
+* GraphQL
+https://graphql.org/
+#+begin_quote
+A query language for your API
+#+end_quote
+
+** gqt
+https://github.com/eerimoq/gqt
+#+begin_quote
+Build and execute GraphQL queries in the terminal.
+#+end_quote
+
+* Resources
+** Things You Should Know About Databases
+https://architecturenotes.co/things-you-should-know-about-databases/

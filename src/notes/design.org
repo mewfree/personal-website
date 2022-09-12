@@ -1,0 +1,63 @@
+#+title: Design
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Design
+
+* Tools
+** Static
+- Figma
+- Sketch
+- Canva
+- Celtra
+  https://celtra.com/
+  Mix of Figma and Smartly?
+  Dynamic assets for ads
+- Krita
+  https://krita.org/en
+  Krita is a professional FREE and open source painting program. It is made by artists that want to see affordable art tools for everyone.
+
+** Video
+- Bannerify
+- Adobe Premiere
+- Pitivi
+
+* Icons
+https://feathericons.com/
+
+https://heroicons.com/ Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.
+
+* UX
+https://uxmovement.com/forms/why-the-confirm-password-field-must-die/
+
+* Shadows
+https://www.joshwcomeau.com/css/designing-shadows/
+
+* Fonts
+- Gotham
+- Avant-Garde
+- Recoleta
+- Roboto Flex
+  https://material.io/blog/roboto-flex
+
+** Resources
+https://www.typewolf.com/
+
+https://mobile.twitter.com/darylginn/status/1559212268532862977
+
+* Avatars
+** Generated avatars
+https://boringavatars.com/
+Like the =beam= ones!
+
+* Illustrations
+** "Humans" illustrations for landing pages
+- https://storytale.io/
+- https://control.rocks/
+- http://picchustudio.webflow.io/
+- https://undraw.co/illustrations
+- https://craftwork.design/downloads/friday-illustrations/
+- https://iradesign.io/
+
+Compilaton of all those free illustrations: https://github.com/sw-yx/spark-joy#illustrations
+
+* Pricing Page
+https://tdinh.notion.site/Every-pricing-page-should-have-GIFs-e74d6d363d4c4d33b5ff754452f7ab96

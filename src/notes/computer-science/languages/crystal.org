@@ -1,0 +1,18 @@
+#+title: Crystal
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Crystal
+
+Ruby with baremetal performance?
+
+Rails/Phoenix equivalent: [[https://amberframework.org/]]
+
+Sinatra equivalent: [[https://kemalcr.com/]]
+
+1.0.0 released!
+
+#+begin_src crystal
+1 + 1
+#+end_src
+
+#+RESULTS:
+: 2

@@ -1,0 +1,519 @@
+#+title: org-mode
+
+[[file:../../../../../homepage.org][Homepage]] / [[file:../../../../../notes.org][Notes]] / [[file:../../../../computer-science.org][Computer Science]] / [[file:../../text-editors.org][Text editors]] / [[file:../emacs.org][Emacs]] / org-mode
+
+* Intro
+Files are =.org=.
+
+Start with a specific header containing metadata:
+=#+title: this is a title=
+=#+description: this is a description=
+
+Historically uppercase (=#+TITLE:=) but can be lowercase since 2018.
+Common metadata: title, description, author, date...
+
+* Markup
+[[https://orgmode.org/manual/Markup-for-Rich-Contents.html]]
+Contrary to Markdown, spec for markup is clear 🙏.
+
+*bold*, /italic/, _underlined_, =verbatim=, ~code~, +strike-through+
+
+* Headings
+At the root of the document (no indent), number of * represent the level
+of heading.
+
+ * Level 1
+
+ ** Level 2
+
+ *** Level 3
+
+etc...
+
+Move to next header (same level): =g j/k=
+
+Insert a new header (same level): =C-RET= (Control - Enter)
+Insert a new header after subtree: =M-RET= (Alt - Enter)
+
+Promote a header: =M-h= or =TAB= (INSERT mode)
+Demote a header: =M-l= or =S-TAB= (INSERT mode)
+
+Move header up: =M-k=, Move header down: =M-j=
+
+Move element only: =M-J/K=
+
+* Folding
+=TAB= to fold/unfold
+=S-TAB= fold/unfold entire document
+
+=z c= fold (close)
+=z o= unfold (open)
+=z M= fold entire document
+=z R= unfold entire document
+
+* Lists
+- Unordered list item 1
+- Unordered list item 2
+
+can also use + instead of -
+
+1. Ordered list
+2. Ordered list
+
+* Checkboxes
+Standard empty checkbox: =- [ ]=
+
+Doom Emacs: =RET= to toggle between unchecked (=[ ]=), in progress
+(=[-]=) and checked (=[X]=)
+
+Doom Emacs: =SPC m x= to toggle between unchecked and checked
+
+Standard Emacs: =C-c C-c= to toggle between unchecked and checked
+
+Create new checkbox below: =C-RET=
+
+In header containing checkboxes: =[/]= to start a tally of tasks done,
+or =[%]= for the same thing with percentages
+
+* Links
+[[https://orgmode.org/guide/Hyperlinks.html]]
+
+[[LINK]]
+
+[[LINK][DESCRIPTION]]
+
+Insert: =SPC m l l=
+
+Open: =C-c C-o=, Doom: =RET=
+Go back to previous position: =C-c &=, Evil: =C-o=
+
+Toggle to see links in "plaintext": =SPC m l t=
+
+* Tables
+Start typing and insert pipes | for separator
+
+Insert line: =SPC m b -=
+
+Move row up/down: =M-k/j=
+Move column right/left: =M-l/h=
+
+Convert selection to table: =C-c |= or =SPC m b c=
+
+** Spreadsheet
+https://orgmode.org/org.html#Tables
+https://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html
+
+*** Field Reference
+Traditional spreadsheet =A1= system can be used, but Emacs' equivalent of the =R1C1= system is preferred:
+=@ROW$COLUMN=
+
+**** Column Reference
+Column reference can be absolute: =$1=, =$2=, =$N=...
+Or relative to the column of the field which is being computed: =$+1=, =$-2=
+=$<= refers to the first column, =$>= to the last, =$>>>= third column from the right...
+
+**** Row Reference
+Only data lines are counted, horizontal separator lines (/hlines/) are ignored.
+Like with columns, you can use absolute: =@1=, =@2=, =@N=...
+Relative to computed field: =@+1=, =@-3=
+Relative to table structure: =@<= first line, =@>= last line
+Relative to /hlines/: =@I= first /hline/, =@II= second /hline/, =@-I= /hline/ above, =@+I= /hline/ below
+
+**** Other
+=$0= & =@0= refers the current column / row
+if omitted, current row/column is implied
+
+Examples:
+=@2$3=: 2nd row, 3rd column (same as 'C2')
+=$5=: column 5 in the current row (same as 'E&')
+=@2=: current column, row 2
+=@-1$-3=: field one row up, three columns to the left
+=@-I$2=: field just under hline above current row, column 2
+=@>$5=: field in the last row, in column 5
+
+*** Range Reference
+You may reference a range by connecting two field references with two dots: =..=
+The ends are included in the range
+
+Examples:
+=$1..$3=: first three fields in the current row
+=$P..$Q=: range, using column names (see Advanced features)
+=$<<<..$>>=: start in third column, continue to the last but one
+=@2$1..@4$3=: nine fields between these two fields (same as 'A2..C4')
+=@-1$-2..@-1=: 3 fields in the row above, starting from 2 columns on the left
+=@I..II=: between first and second hline, short for '@I..@II'
+
+*** Constants
+Constants can be defined for a specific table with a line above the table:
+#+constants: x=5
+| a | b (a*x) |
+| 2 |      10 |
+#+TBLFM: @2$2=$-1*$x
+and used be preceding the name by a =$=
+
+Constants need to be evaluated by running =C-c C-c= on the line beforehand
+
+*** Formulas
+Type a formula directly in a cell by preceding it with =:==
+In Doom Emacs, use =TAB= to apply the formula, =RET= to update the formula results
+A #+TBLFM line will be added below the table
+
+Edit formulas using either: =C-c '= or =SPC m b f= in Doom Emacs
+
+Column formulas are a thing! Simply reference the column like =$3=formula()=
+
+**** Using Calc
+| Grade 1 | Grade 2 | Avg Grade |
+|---------+---------+-----------|
+|      10 |       8 |         9 |
+|       5 |       9 |         7 |
+|       6 |       7 |       6.5 |
+#+TBLFM: $3=vmean($1..$2)
+
+**** Using Emacs Lisp
+Start a formula by prepending a single quote to it ='=
+Append =;N= so referenced elements are numbers
+| Score 1 | Score 2 | Total Score |
+|---------+---------+-------------|
+|      40 |      30 |          70 |
+|      25 |      29 |          54 |
+|      36 |      47 |          83 |
+#+TBLFM: $3='(+ $1 $2);N
+
+* ToDo
+Start a new header with =TODO=
+Insert a new TODO header after subtree =M-S-RET=
+
+Toggle between states with =RET=
+More toggling options: =SPC m t=
+
+See all todos: =SPC m T=
+
+Priorities: =S-up= =S-down= on a task to set priority, or:
+=SPC m p p [priority]= with priority going from A to C
+
+* Tags
+=SPC m q= to set tag on any headline (or enter :tag: manually)
+=SPC o a m= to search with tags in org-agenda
+
+* org-agenda
+Open: =SPC o A=
+Put file in front of agenda: =C-c [=
+Add SCHEDULED: =SPC m d s=
+Add DEADLINE: =SPC m d d=
+List of tasks: =SPC o a t=
+
+* Special symbols
+Supports LaTeX and HTML
+
+=\alpha=, =\beta=, =\omega=...
+
+=C-c C-x \ (org-toggle-pretty-entities)= to display entities as UTF-8 characters
+
+* Sort headings / tasks / list
+Use =org-sort-entries=
+Can sort by priority, alphabetical order, etc...
+
+* Babel
+https://orgmode.org/worg/org-contrib/babel/index.html
+
+"Babel is Org-mode's ability to execute source code within Org-mode documents."
+
+Example:
+#+begin_src python
+return 6 * 7
+#+end_src
+
+#+RESULTS:
+: 42
+
+Run code using =RET= or =C-c C-c=
+
+** Supported languages
+https://orgmode.org/worg/org-contrib/babel/languages/index.html
+
+** Edit code more easily
+=SPC m '= or =C-c '= to open a buffer to edit the code more easily
+
+** Using Sessions
+https://orgmode.org/manual/Environment-of-a-Code-Block.html
+#+begin_src python :session toast
+a = 5
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session toast
+a * 2
+#+end_src
+
+#+RESULTS:
+: 10
+
+** External Variables
+*** From Previous Result
+#+name: result
+#+begin_src calc
+6 * 2
+#+end_src
+
+#+RESULTS: result
+: 12
+
+#+begin_src calc :var x=result
+x * 2
+#+end_src
+
+#+RESULTS:
+: 24
+
+*** From Table
+#+name: example-table
+| 1 |
+| 2 |
+| 3 |
+| 4 |
+| 5 |
+
+#+name: table-length
+#+begin_src emacs-lisp :var table=example-table
+(length table)
+#+end_src
+
+#+RESULTS: table-length
+: 5
+
+#+begin_src ruby :var tl=table-length
+tl + 1
+#+end_src
+
+#+RESULTS:
+: 6
+
+** Exporting Results
+https://orgmode.org/manual/Exporting-Code-Blocks.html
+By default, results aren't exported (to =.html=, =.pdf=...).
+To have either code, results or both/none exported:
+Insert =:exports code/results/both/none= in the header arguments.
+Example with =both=:
+=#+property: header-args :exports both=
+
+** Display Results
+https://orgmode.org/manual/Results-of-Evaluation.html
+=:results value=: default for most languages, display the "return" of a function
+=:results verbatim=: does not try to format result in a list or table
+=:results output=: display the output of stdout
+
+** Wrap Results
+=:wrap {type} {language}= to wrap the results "block" to be of a custom type and language
+Example:
+#+begin_src ruby :results output :wrap src beancount
+puts "2022-09-01 price XGRO 22.55 CAD"
+#+end_src
+
+#+RESULTS:
+#+begin_src beancount
+2022-09-01 price XGRO 22.55 CAD
+#+end_src
+
+** Extracting Source Code
+https://orgmode.org/manual/Extracting-Source-Code.html
+Insert =:tangle yes= in the header arguments. You may need to =C-c C-c= that line to update the file settings.
+Press =C-c C-v t= to "tangle" the file (extract source code from =.org= file).
+
+** Reference Other Code Blocks
+https://orgmode.org/manual/Noweb-Reference-Syntax.html
+Source code blocks can include references to other source code blocks, using a noweb style syntax:
+=<<CODE-BLOCK-ID>>=
+
+Example:
+#+name: range
+#+begin_src ruby
+(1..5).to_a
+#+end_src
+
+#+RESULTS: range
+| 1 | 2 | 3 | 4 | 5 |
+
+#+begin_src ruby :noweb yes
+<<range>>.sum
+#+end_src
+
+#+RESULTS:
+: 15
+
+=<<range>>.sum= gets expanded to =(1..5).to_a.sum= so you can't mix languages
+
+** One-liners
+It's possible to have code on one-line only:
+src_ruby{2+3} {{{results(=5=)}}}
+
+But no syntax highlighting...
+
+* Paragraphs
+https://orgmode.org/manual/Paragraphs.html
+Paragraphs are separated by at least one empty line. If you need to enforce a line break within a paragraph, use ‘\\’ at the end of a line.
+** Verse
+Preserves line breaks, indentation, blank lines...
+Can be used to format poetry.
+#+begin_verse
+ Great clouds overhead
+ Tiny black birds rise and fall
+ Snow covers Emacs
+
+    ---AlexSchroeder
+#+end_verse
+
+** Quote
+#+begin_quote
+Everything should be made as simple as possible,
+but not any simpler ---Albert Einstein
+#+end_quote
+
+** Center
+#+begin_center
+Everything should be made as simple as possible, \\
+but not any simpler
+#+end_center
+
+* Calc
+https://github.com/dfeich/org-babel-examples/blob/master/calc/calc.org
+https://www.gnu.org/software/emacs/manual/html_mono/calc.html
+Suggestion for shortcuts to add to [[file:doom-emacs.org][Doom Emacs]]:
+https://hungyi.net/posts/emacs-calculate-while-you-write/
+
+Calc formulas, all you need to know | Inside Emacs #6 (part 12)
+https://www.youtube.com/watch?v=afsBtpEfoG4
+
+** in Org Babel
+#+begin_src calc
+1 + 1
+#+end_src
+
+#+RESULTS:
+: 2
+
+** in Emacs Lisp
+#+begin_src emacs-lisp
+(calc-eval "2 + 2")
+#+end_src
+
+#+RESULTS:
+: 4
+
+** Embedded Mode
+
+5 + 5
+
+Place en empty line above and below a calculation, run =C-x * e= and Calc will run the calculation and return the result
+
+** in Tables
+| Grade 1 | Grade 2 | Mean |
+|---------+---------+------|
+|      30 |      20 |   25 |
+|      40 |      20 |   30 |
+|      50 |       0 |   25 |
+#+TBLFM: $3=vmean($1..$2)
+
+* Habits
+https://orgmode.org/manual/Tracking-your-habits.html
+
+* Journal
+=SPC n j j= add new entry
+
+=C-c C-f=  go to the next journal file
+=C-c C-b= go to the previous journal file
+
+=C-c C-j= insert a new entry into the current journal file (creates the
+file if not present)
+
+=C-c C-s= search the journal for a string
+
+* Org Capture
+https://orgmode.org/manual/Capture-templates.html#Capture-templates
+http://www.howardism.org/Technical/Emacs/capturing-intro.html
+
+=SPC n n= or =SPC X= capture new todo/note...
+
+* org-roam
+[[https://www.orgroam.com/]]
+
+=SPC n r r= open/close Roam
+=SPC n r c= capture note
+
+[[https://www.ianjones.us/own-your-second-brain]]
+
+* LateX
+https://orgmode.org/manual/Embedded-LaTeX.html
+
+Can use =$...$=, =$$..$$=, =\(...\)=, =\[...\]= as inline math delimiters.
+
+For multiline:
+\begin{equation}
+x=\sqrt{a}
+\end{equation}
+
+Press =RET= to preview / undo preview (or =C-c C-x C-l= in the barbaric Emacs way).
+
+More config: https://www.reddit.com/r/emacs/comments/9h44lk/i_can_finally_preview_latex_in_orgmode_took_me/
+
+** Export to PDF
+=SPC m e= or =C-c C-e= to open export dispatch
+
+=l p= Export as LaTeX file and convert it to PDF file
+=l o= Export as LaTeX file and convert it to PDF, then open the PDF using the default viewer
+
+* Plantuml
+https://plantuml.com/emacs
+https://github.com/dfeich/org-babel-examples/blob/master/plantuml/plantuml-babel.org
+
+#+begin_src emacs-lisp :results none
+(setq org-plantuml-jar-path (expand-file-name "~/.config/plantuml/plantuml.jar"))
+#+end_src
+
+#+begin_src plantuml :file my-diagram.png
+title Authentication Sequence
+
+Alice->Bob: Authentication Request
+note right of Bob: Bob thinks about it
+Bob->Alice: Authentication Response
+#+end_src
+
+#+RESULTS:
+[[file:my-diagram.png]]
+
+** Ditaa
+#+begin_src emacs-lisp :results none
+(setq org-ditaa-jar-path (expand-file-name "~/.config/ditaa/ditaa.jar"))
+#+end_src
+
+#+begin_src ditaa :file ditaa-concept.png
+      +--------+   +-------+    +-------+
+      |        | --+ ditaa +--> |       |
+      |  Text  |   +-------+    |diagram|
+      |Document|   |!magic!|    |       |
+      |     {d}|   |       |    |       |
+      +---+----+   +-------+    +-------+
+          :                         ^
+          |       Lots of work      |
+          +-------------------------+
+#+end_src
+
+#+RESULTS:
+[[file:ditaa-concept.png]]
+
+* Resources
+Org-Mode Reference Card:
+https://orgmode.org/worg/orgcard.html
+
+Org Mode Basics In Doom Emacs:
+[[https://www.youtube.com/watch?v=34zODp_lhqg]]
+
+Encryption:
+[[https://orgmode.org/worg/org-tutorials/encrypting-files.html]]
+
+Consistent Technical Documents Using Emacs and Org Mode:
+https://www.youtube.com/watch?v=0g9BcZvQbXU
+
+Show a "table of contents":
+https://emacs.stackexchange.com/questions/9530/how-can-i-get-an-org-mode-outline-in-a-2nd-buffer-as-a-dynamic-table-of-contents

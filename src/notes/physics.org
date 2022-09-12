@@ -1,0 +1,40 @@
+#+title: Physics
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Physics
+
+* Introduction to Mechanics
+
+* Electrostatics
+
+* Waves and Vibrations
+
+* Modern Physics
+
+* Classical Mechanics
+
+* Electrodynamics
+
+* Quantum Mechanics
+
+* Thermodynamics and Statistical Mechanics
+
+* Computation Fluid Dynamics
+https://www.jahid-hasan.com/writings/a-complete-learning-path-for-cfd/
+
+* Resources
+** So You Want to Learn Physics…
+https://www.susanrigetti.com/physics
+** The First Three Minutes by Steven Weinberg(Level: Easy)
+"An account of the Big Bang by one of the most brilliant physicists of all time."
+** The Character of Physical Law by Richard Feynman (Level: Easy)
+"A brilliant, inspiring little book on the laws of nature."
+** The Particle Odyssey by Frank Close (Level: Easy)
+"A brilliant popular introduction to particle physics and its history, beautifully illustrated with amazing figures and photographs. (Unfortunately it’s a bit difficult to find online right now, but if you find a copy, you should buy it ASAP!)"
+** Black Holes and Time Warps by Kip Thorne (Level: Easy/Medium)
+"My absolute favorite popular introduction to general relativity."
+** The Theoretical Minimum by Leonard Susskind and George Hrabovsky (Level: Medium)
+"A solid introduction to classical mechanics. Is best understood around level 5 in the undergraduate curriculum."
+** The Feynman Lectures on Physics (Boxed Set) and Feynman Lectures on Physics (Kindle Edition) (Level: Medium)
+"Feynman's Lectures are essential readings for everyone interested in physics, and you'll find a copy on the bookshelf of every amateur and professional physicist. These lectures are what got me into physics: my astronomy professor told me to read them and see if I liked physics - they changed my life! They are somewhat difficult to understand if you are just getting started, but they will make more and more sense by the time you reach levels 5 and 6 in the undergraduate curriculum."
+** Deep Down Things: The Breathtaking Beauty of Particle Physics by Bruce Schumm (Level: Difficult)
+"The very best popular book about particle physics — it clearly explains the most difficult concepts without resorting to speculation. (I had the honor of working with Bruce on a search for supersymmetry at the ATLAS detector.) This book is a great read while you are starting level 7 in the undergraduate curriculum."

@@ -1,0 +1,109 @@
+#+title: Emacs
+
+[[file:../../../../homepage.org][Homepage]] / [[file:../../../../notes.org][Notes]] / [[file:../../../computer-science.org][Computer Science]] / [[file:../../tools.org][Tools]] / [[file:../text-editors.org][Text editors]] / Emacs
+
+A popular [[file:../text-editors.org][text editor]]
+
+* Binaries
+Recommended for macOS: https://github.com/d12frosted/homebrew-emacs-plus
+
+Once the daemon is started, =emacsclient= can be used to connect to it and not wait for [[file:emacs.org][Emacs]] startup
+
+* Text editing
+Emacs and Mac OS movements: [[https://jblevins.org/log/kbd]]
+
+** Insert
+*** Horizontal
+=C-f= go to next char
+
+=C-b= go to previous char
+
+=C-a= go to beginning of line
+
+=C-e= go to end of line
+
+=M-f= go one word forward
+
+=M-b= go one word backward
+
+*** Vertical
+=C-n= go to next line
+
+=C-p= go to previous line
+
+** Delete
+*** Horizontal
+=C-d= delete next char
+
+=C-h= delete previous char
+
+* Modes
+=M-x= rjsx-mode for jsx syntax
+
+* Search
+** I-Search
+=C-s= search forward
+
+* Emacs configuration
+** [[file:emacs/doom-emacs.org][Doom Emacs]]
+
+** Centaur Emacs
+https://github.com/seagle0128/.emacs.d
+
+** Emacs from scratch
+https://www.youtube.com/watch?v=74zOY-vgkyw
+
+** Themes
+https://github.com/LionyxML/auto-dark-emacs
+
+* [[file:emacs/org-mode.org][org-mode]]
+
+* restclient
+#+begin_src restclient :results value :wrap "src json"
+GET https://jsonplaceholder.typicode.com/posts/1
+#+end_src
+
+#+RESULTS:
+#+begin_src json
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+#+end_src
+
+* Email
+https://www.reddit.com/r/emacs/comments/ebite6/mu4e_vs_gnus_vs_notmuch_for_emacs_email/
+https://www.reddit.com/r/emacs/comments/4rl0a9/email_in_emacs_i_want_to_but_wow_its_overwhelming/
+http://cachestocaches.com/2017/3/complete-guide-email-emacs-using-mu-and-/
+** notmuch
+https://notmuchmail.org/notmuch-emacs/
+https://kkatsuyuki.github.io/notmuch-conf/
+** Wanderlust
+https://wanderlust.github.io/wl-docs/wl.html
+https://enzuru.medium.com/emacs-26-wanderlust-and-modern-gmail-authentication-36e1ae61471f
+** mu4e
+https://www.emacswiki.org/emacs/mu4e
+** Gnus
+http://www.gnus.org/
+** Mew
+like the name ;)
+https://www.emacswiki.org/emacs/Mew
+
+* Calendar
+How to sync with Google Calendar?
+
+* Resources
+Glossary:
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Glossary.html]]
+
+[[https://www.masteringemacs.org/article/effective-editing-movement#:~:text=The%20four%20fundamental%20movement%20keys,the%20end%20of%20the%20buffer][https://www.masteringemacs.org/article/effective-editing-movement#:~:text=The four fundamental movement keys,the end of the buffer]]
+
+Building an Emacs config from scratch: https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
+https://github.com/daviwil/emacs-from-scratch/tree/master
+
+Personal Emacs config from the author above:
+https://github.com/daviwil/dotfiles/blob/master/Emacs.org
+
+[[https://karthinks.com/software/batteries-included-with-emacs/]]

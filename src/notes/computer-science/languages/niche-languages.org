@@ -1,0 +1,193 @@
+#+title: Niche Languages
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Niche Languages
+
+* [[file:niche/futhark.org][Futhark]]
+
+* Gleam
+https://gleam.run/
+#+begin_quote
+Gleam is a friendly language for building type-safe, scalable systems!
+#+end_quote
+
+* Elm
+https://elm-lang.org/
+#+begin_quote
+A delightful language for reliable web applications.
+#+end_quote
+
+** elm-pages
+https://elm-pages.com/
+=elm-pages= is a framework for building an Elm single-page app with pre-rendered HTML pages
+** elm-spa
+https://www.elm-spa.dev/
+Single page apps made easy
+
+* Dart
+<2021-03-03> Flutter 2: https://developers.googleblog.com/2021/03/announcing-flutter-2.html
+https://dartpad.dev/
+
+* ReScript
+https://rescript-lang.org/
+#+begin_quote
+Fast, Simple, Fully Typed JavaScript from the Future
+#+end_quote
+
+** Resources
+https://www.greyblake.com/blog/from-typescript-to-rescript/
+
+https://rescript-lang.org/blog/release-10-0-0
+
+* Hamler
+https://github.com/hamler-lang/hamler
+#+begin_quote
+Haskell-like language on Erlang VM
+#+end_quote
+
+* Grain
+https://grain-lang.org/
+#+begin_quote
+Grain is a new language that puts academic language features to work.
+#+end_quote
+
+* Clio
+https://github.com/clio-lang/clio
+#+begin_quote
+Functional language that compiles to JavaScript
+#+end_quote
+
+* J
+https://www.jsoftware.com/#/
+#+begin_quote
+J is a high-level, general-purpose programming language that is particularly suited to the mathematical, statistical, and logical analysis of data. It is a powerful tool for developing algorithms and exploring problems that are not already well understood.
+#+end_quote
+
+* APL
+https://en.wikipedia.org/wiki/APL_(programming_language)
+https://tryapl.org/
+
+https://mathspp.com/blog/why-apl-is-a-language-worth-knowing
+
+* BQN
+https://mlochbaum.github.io/BQN/
+#+begin_quote
+APL v2
+#+end_quote
+
+* Janet
+- https://janet-lang.org/
+- https://janetdocs.com/
+#+begin_quote
+Janet is a functional and imperative programming language.
+#+end_quote
+
+** Libraries
+https://github.com/joy-framework/joy
+#+begin_quote
+A full stack web framework written in Janet
+#+end_quote
+
+* Dex
+https://github.com/google-research/dex-lang
+#+begin_quote
+Dex (named for "index") is a research language for typed, functional array processing.
+#+end_quote
+
+* Caramel
+https://caramel.run/
+#+begin_quote
+caramel is a functional language for building type-safe, scalable, and maintainable applications
+#+end_quote
+
+* Mint
+https://www.mint-lang.com/
+#+begin_quote
+Niche language for front-end Single Page Applications.
+#+end_quote
+
+Looks like Elm but better syntax, pipe operators, pattern matching...
+
+* Passerine
+https://www.passerine.io
+#+begin_quote
+A small extensible programming language designed for concise expression with little code.
+#+end_quote
+
+* Imba
+https://imba.io/
+#+begin_quote
+Imba is a Web programming language that's fast in two ways: Imba's time-saving syntax with built-in tags and styles results in less typing and switching files so you can build things fast. Imba's groundbreaking memoized DOM is an order of magnitude faster than virtual DOM libraries, so you can build fast things.
+#+end_quote
+
+* Fennel
+https://fennel-lang.org/
+#+begin_quote
+Fennel is a programming language that brings together the speed, simplicity, and reach of Lua with the flexibility of a lisp syntax and macro system.
+#+end_quote
+
+* Pyret
+https://www.pyret.org/
+#+begin_quote
+Pyret is a programming language designed to serve as an outstanding choice for programming education while exploring the confluence of scripting and functional programming. It's under active design and development, and free to use or modify.
+#+end_quote
+
+* Nelua
+https://nelua.io/
+#+begin_quote
+Minimal, simple, efficient, statically typed, compiled, metaprogrammable, safe, and extensible systems programming language with a Lua flavor.
+#+end_quote
+
+* Alpaca
+https://github.com/alpaca-lang/alpaca
+#+begin_quote
+Functional programming inspired by ML for the Erlang VM
+#+end_quote
+
+* ooc
+https://ooc-lang.org/
+#+begin_quote
+ooc is a small programming language with a clear and concise syntax that compiles to C99.
+#+end_quote
+
+* Smalltalk
+https://en.wikipedia.org/wiki/Smalltalk
+
+* Pharo
+https://pharo.org/
+#+begin_quote
+Pharo is a pure object-oriented programming language and a powerful environment, focused on simplicity and immediate feedback (think IDE and OS rolled into one).
+#+end_quote
+
+* Koka
+https://koka-lang.org
+#+begin_quote
+Koka is a strongly typed functional-style language with effect types and handlers.
+#+end_quote
+
+* Gerbil Scheme
+https://cons.io/
+#+begin_quote
+Gerbil is a meta-dialect of Scheme with post-modern features
+#+end_quote
+
+* Hare
+https://harelang.org/
+https://harelang.org/blog/2022-04-25-announcing-hare/
+
+* Shen
+https://shenlanguage.org/
+
+* Gren
+https://gren-lang.org/
+#+begin_quote
+A programming language for simple and correct applications
+#+end_quote
+
+* Derw
+https://github.com/eeue56/derw
+#+begin_quote
+An Elm-inspired language that transpiles to TypeScript
+#+end_quote
+
+* Resources
+** http://proglangdesign.net/

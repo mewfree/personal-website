@@ -1,0 +1,27 @@
+#+title: SQL
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / SQL
+
+* Query
+** SELECT
+** UPDATE
+** DELETE
+=DELETE FROM {table_name} WHERE {column_name} = {condition};=
+
+* PostgreSQL
+** psql commands
+=\c table_name= switch to =table_name=
+=\d table_name= to desscribe =table_name=
+** Upgrade DB on macOS
+=brew postgresql-upgrade-database=
+** Access CLI
+=psql postgres=
+
+* =prql=
+https://github.com/prql/prql
+#+begin_quote
+PRQL is a modern language for transforming data — a simple, powerful, pipelined SQL replacement
+#+end_quote
+
+* HAVING clause
+https://smallthingssql.com/having-a-less-understood-sql-clause

@@ -1,0 +1,152 @@
+#+title: Mathematics
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Mathematics
+
+* Notation
+https://twitter.com/ZMatuszewski/status/1446179776495034376
+** Sum
+$\sum_{n=0}^{4} = 3n$
+
+#+begin_example
+sum = 0
+for (n=0, n<=4, n++) {
+  sum += 3*n
+}
+#+end_example
+
+** Product
+$\prod_{n=1}^{4} = 2n$
+
+#+begin_example
+prod = 1
+for (n=1, n<=4, n++) {
+  prod *= 2*n
+}
+#+end_example
+
+** Iff
+"If and only if"
+
+* Calculus
+Calculus For The People -- Season 1
+https://www.geogebra.org/m/x39ys4d7
+
+** Tensor Calculus
+https://grinfeld.org/books/An-Introduction-To-Tensor-Calculus/
+
+* Algebra
+** Basics
+*** Exponent properties
+- $x^n x^m = x^{n+m}$
+- $\dfrac{x^n}{x^m} = x^{n-m}$
+- ${x^n}^m = x^{nm}$
+- $(xy)^n = x^n y^n$
+- $x^{-n} = \dfrac{1}{x^n}$
+
+** Linear Algebra
+[[https://pabloinsente.github.io/intro-linear-algebra]]
+
+** Intermediate Algebra
+https://saylordotorg.github.io/text_intermediate-algebra/index.html
+
+* Statistics
+** Probabilities
+*** Singleton
+A set with exactly one element.
+
+** Linear Regression
+https://www.simonwardjones.co.uk/posts/linear_regression/
+
+https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
+
+** Resources
+*** Statistics in a Nutshell, 2nd Edition
+by Sarah Boslaugh
+*** Statistics without Tears: An Introduction for Non-Mathematicians
+by Derek Rowntree
+*** Improving your statistical inferences
+by Daniel Lakens
+
+* Operations
+** Unary Operations
+https://en.wikipedia.org/wiki/Unary_operation
+
+* Probabilities
+https://en.wikipedia.org/wiki/Kelly_criterion
+
+https://seeing-theory.brown.edu/basic-probability/index.html
+
+* Number Sets
+https://thinkzone.wlonk.com/Numbers/NumberSets.htm
+
+* Combinatory Logic
+https://en.wikipedia.org/wiki/Combinatory_logic
+** Resources
+*** To Mock a Mockingbird
+by Raymond Smullyan
+
+* Equational Logic
+https://en.wikipedia.org/wiki/Equational_logic
+
+* Category Theory
+** Categories
+** Morphisms
+** Functor
+Mapping between categories.
+** Monad
+** Monoid
+** Resources
+- https://www.logicmatters.net/categories/
+- https://news.ycombinator.com/item?id=29734482
+
+* Euclidian Geometry
+** Scalar
+An element of a ~vector space~. Multiple scalars form a ~vector~.
+** Vector
+An element of a ~vector space~
+** Vector Space
+A set of vectors
+
+* Resources
+** Math equations to LaTeX OCR
+https://mathpix.com/
+** Math church
+http://nanar.com/
+** Math cheatsheet
+https://ourway.keybase.pub/mathematics_cheat_sheet.pdf
+** MIT Mathlets
+https://mathlets.org/mathlets/
+** Math as code
+https://github.com/Jam3/math-as-code
+** MIT Applied Math curriculum
+https://math.mit.edu/academics/undergrad/major/course18/applied.php
+** So You Want to Study Mathematics…
+https://www.susanrigetti.com/math
+** Why Math?
+by R.D. Driver
+** e: The Story of a Number by Eli Maor (Level: Easy)
+"A fun, accessible book that will get you excited about mathematics."
+** The Joy Of X: A Guided Tour of Math, from One to Infinity by Steven H. Strogatz (Level: Easy)
+"A lot of fun to read, but make sure you get the paperback or hardcover version for readability purposes."
+** Fermat’s Enigma by Simon Singh (Level: Easy)
+"A beautifully-written book about Fermat’s Last Theorem."
+** The Man Who Loved Only Numbers by Paul Hoffman (Level: Easy)
+"A compulsively-readable biography of Paul Erdős."
+** The Man Who Knew Infinity by Robert Kanigel (which was also made into a film) (Level: Easy)
+"A wonderful biography of Srinivasa Ramanujan."
+** Flatland by Edwin A. Abbott (Level: Easy)
+"A classic. I highly recommend the annotated version, which adds extra joy to the reading experience."
+** A Mathematician’s Apology by G.H. Hardy (Level: Medium)
+"One of the most beautiful things ever written about mathematics, by one of the greatest mathematicians of all time."
+** Fearless Symmetry by Avner Ash and Robert Gross (Level: Difficult)
+"One of my all-time favorites."
+** Proofs from THE BOOK by Martin Aigner and Günter M. Ziegler (Level: Difficult)
+"This book is an absolute joy to read in small bits and pieces. The more math you learn, the more you will fall in love with it."
+** Mathspp
+https://mathspp.com/blog
+** Better Explained
+https://betterexplained.com/
+** Approximation Theory
+https://xn--2-umb.com/22/approximation/index.html
+** Free Math Textbooks by Xah Lee
+http://xahlee.info/math/math_books.html

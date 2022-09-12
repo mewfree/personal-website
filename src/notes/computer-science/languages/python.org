@@ -1,0 +1,344 @@
+#+title: Python
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Python
+
+* Strings
+#+begin_src python
+return 'hello'
+#+end_src
+
+#+RESULTS:
+: hello
+
+* Numbers
+#+begin_src python
+return 1 + 1
+#+end_src
+
+#+RESULTS:
+: 2
+
+** Ranges
+#+begin_src python :results output
+for i in range(1, 5):
+    print(i)
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
+
+* Classes
+Docs: https://docs.python.org/3/tutorial/classes.html
+
+Most basic example:
+#+begin_src python
+class MyClass:
+    """A simple example class"""
+    i = 12345
+
+    def f(self):
+        return 'hello world'
+#+end_src
+
+About =__init()__=:
+#+begin_src python
+>>> class Complex:
+...     def __init__(self, realpart, imagpart):
+...         self.r = realpart
+...         self.i = imagpart
+...
+>>> x = Complex(3.0, -4.5)
+>>> x.r, x.i
+(3.0, -4.5)
+#+end_src
+
+* Conventions
+** Single leading underscore: _var
+Hint to the programmer that it is for internal use only.
+Not enforced in any way.
+** Double leading underscore: __var
+"Name mangling".
+#+begin_src python
+>>> class Test:
+...     def __mangled_name(self):
+...         pass
+...     def normal_name(self):
+...         pass
+...
+>>> t = Test()
+>>> [attr for attr in dir(t) if "name" in attr]
+['_Test__mangled_name', 'normal_name']
+#+end_src
+** Single trailing underscore: var_
+To avoid naming conflicts, for example =class_=.
+** Double leading and trailing underscore: __var__
+Reserved for spcial use like =__init__=.
+** Single underscore: _
+By convention, used as a temporary variable name.
+
+* Type hints
+=Typing=
+
+Docs: https://docs.python.org/3/library/typing.html
+
+Not enforced in any way, only there to help.
+
+** Basic example
+Takes a string, outputs a string:
+#+begin_src python
+def greeting(name: str) -> str:
+    return 'Hello ' + name
+#+end_src
+
+* Pattern Matching
+Introduced in Python 3.10
+#+begin_src python :results output
+def string_age(age):
+    match age:
+        case x if x < 6:
+            return "User is very young"
+        case x if 6 <= x < 18:
+            return "User is a minor"
+        case x if 18 <= x < 65:
+            return "User is an adult"
+        case x if 65 <= x:
+            return "User is probably retired"
+
+print(string_age(2))
+print(string_age(12))
+print(string_age(22))
+print(string_age(90))
+#+end_src
+
+#+RESULTS:
+: User is very young
+: User is a minor
+: User is an adult
+: User is probably retired
+
+* Libraries
+** NumPy
+https://numpy.org/
+#+begin_quote
+Scientific Computing
+#+end_quote
+
+NumPy's main object if the multidimensional array, called =ndarray=.
+Different from standard Python =array=, which only handles one-dimensional arrays.
+Dimensions are called axes.
+
+#+begin_src bash :results none
+pip3 install numpy
+#+end_src
+
+*** Basics
+#+begin_src python :session np :results output
+import numpy as np
+
+a = np.arange(15).reshape(3, 5)
+print(a)
+#+end_src
+
+#+RESULTS:
+: [[ 0  1  2  3  4]
+:  [ 5  6  7  8  9]
+:  [10 11 12 13 14]]
+
+#+begin_src python :session np :results output
+print(a.shape)
+#+end_src
+
+#+RESULTS:
+: (3, 5)
+
+#+begin_src python :session np :results output
+print(a.ndim)
+#+end_src
+
+#+RESULTS:
+: 2
+
+#+begin_src python :session np :results output
+print(a.size)
+#+end_src
+
+#+RESULTS:
+: 15
+
+*** Creating
+You can create an array from a regular Python list
+#+begin_src python :session np :results output
+b = np.array([1, 2, 3, 4])
+print(b)
+#+end_src
+
+#+RESULTS:
+: [1 2 3 4]
+
+Or zeros / ones
+#+begin_src python :session np :results output
+print(np.zeros((3, 4)))
+#+end_src
+
+#+RESULTS:
+: [[0. 0. 0. 0.]
+:  [0. 0. 0. 0.]
+:  [0. 0. 0. 0.]]
+
+#+begin_src python :session np :results output
+print(np.ones((2, 3, 4)))
+#+end_src
+
+#+RESULTS:
+: [[[1. 1. 1. 1.]
+:   [1. 1. 1. 1.]
+:   [1. 1. 1. 1.]]
+:
+:  [[1. 1. 1. 1.]
+:   [1. 1. 1. 1.]
+:   [1. 1. 1. 1.]]]
+
+*** Operations
+#+begin_src python :session np :results output
+a = np.array([100, 100, 100])
+b = np.array([10, 20, 30])
+print(a - b)
+#+end_src
+
+#+RESULTS:
+: [90 80 70]
+
+#+begin_src python :session np :results output
+print(b*2)
+#+end_src
+
+#+RESULTS:
+: [20 40 60]
+
+** Pandas
+https://pandas.pydata.org/
+#+begin_quote
+pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool
+#+end_quote
+
+#+begin_src bash :results none
+pip3 install pandas
+#+end_src
+
+*** Basics
+Basic object of =pandas= is the *DataFrame*.
+A *DataFrame* is made of rows and columns, like a spreadsheet.
+Each column in a *DataFrame* is a *Series*.
+
+#+begin_src python :session np :results output
+import pandas as pd
+
+df = pd.DataFrame(
+    {
+        "Name": [
+            "Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+            "Bonnell, Miss. Elizabeth",
+        ],
+        "Age": [22, 35, 58],
+        "Sex": ["male", "male", "female"],
+    }
+)
+
+print(df)
+#+end_src
+
+#+RESULTS:
+:                        Name  Age     Sex
+: 0   Braund, Mr. Owen Harris   22    male
+: 1  Allen, Mr. William Henry   35    male
+: 2  Bonnell, Miss. Elizabeth   58  female
+
+*** Series
+Selecting a single *Series*
+#+begin_src python :session np :results output
+print(df["Age"])
+#+end_src
+
+#+RESULTS:
+: 0    22
+: 1    35
+: 2    58
+: Name: Age, dtype: int64
+
+#+begin_src python :session np :results output
+print(df["Age"].max())
+#+end_src
+
+#+RESULTS:
+: 58
+
+#+begin_src python :session np :results output
+print(df["Age"].describe())
+#+end_src
+
+#+RESULTS:
+: count     3.000000
+: mean     38.333333
+: std      18.230012
+: min      22.000000
+: 25%      28.500000
+: 50%      35.000000
+: 75%      46.500000
+: max      58.000000
+: Name: Age, dtype: float64
+
+** IceCream
+https://github.com/gruns/icecream
+#+begin_quote
+Never use print() to debug again.
+#+end_quote
+
+** Arrow
+https://arrow.readthedocs.io/en/latest/
+#+begin_quote
+Better dates & times for Python
+#+end_quote
+
+** Rich
+https://github.com/willmcgugan/rich
+#+begin_quote
+Rich is a Python library for rich text and beautiful formatting in the terminal.
+#+end_quote
+
+** Kats
+https://facebookresearch.github.io/Kats/
+#+begin_quote
+One stop shop for time series analysis in Python
+#+end_quote
+
+** Darts
+https://github.com/unit8co/darts
+#+begin_quote
+A Python library for easy manipulation and forecasting of time series.
+#+end_quote
+
+** Numba
+https://numba.pydata.org/
+#+begin_quote
+Numba makes Python code fast
+
+Numba is an open source JIT compiler that translates a subset of Python and NumPy code into fast machine code.
+#+end_quote
+
+** Pyscript
+https://github.com/pyscript/pyscript
+#+begin_quote
+PyScript is a Pythonic alternative to Scratch, JSFiddle, and other "easy to use" programming frameworks, with the goal of making the web a friendly, hackable place where anyone can author interesting and interactive applications.
+#+end_quote
+
+* Resources
+** https://learnpythontherightway.com/
+
+** [[https://python-poetry.org/]]
+
+** Python Tricks: A Buffet of Awesome Python Features
+by Dan Bader

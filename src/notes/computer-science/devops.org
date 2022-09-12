@@ -1,0 +1,103 @@
+#+title: DevOps
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / DevOps
+
+* Hosting
+** Cloud
+*** Google Cloud Platform (GCP)
+**** CLI
+***** Set project
+=gcloud config set project {project-name}=
+***** Compute list instances
+=gcloud compute instances list=
+***** SSH to instance with SSH key
+=gcloud compute ssh {project-name} --zone=us-east1-b --ssh-key-file .ssh/id_rsa=
+ufw firewall: have to remember to allow ssh...
+**** Google Cloud Run
+https://cloud.google.com/run/
+**** Hosting Elixir on GCP's Free Tier
+https://damonvjanis.medium.com/optimizing-for-free-hosting-elixir-deployments-6bfc119a1f44
+*** Amazon Web Services (AWS)
+**** Local
+https://github.com/localstack/localstack
+A fully functional local AWS cloud stack. Develop and test your cloud & serverless apps offline!
+*** Cloudflare
+**** D1
+https://blog.cloudflare.com/introducing-d1/
+Announcing D1: our first SQL database
+
+** VPS
+*** OVH
+*** Digital Ocean
+
+** Serverless
+*** AWS Lambda
+*** Google Cloud Functions
+*** Cloudflare Workers
+https://workers.cloudflare.com/
+**** Wrangler
+https://github.com/cloudflare/wrangler
+https://github.com/cloudflare/wrangler2
+
+#+begin_quote
+The CLI for Cloudflare Workers
+#+end_quote
+
+** Static Websites
+*** Netlify
+**** Configuration
+***** Redirects
+https://docs.netlify.com/routing/redirects/
+
+Using =netlify.toml=:
+https://docs.netlify.com/configure-builds/file-based-configuration/#redirects
+*** AWS S3
+*** Github Pages
+*** Vercel
+*** Cloudflare Pages
+https://developers.cloudflare.com/pages/
+https://blog.cloudflare.com/cloudflare-pages-goes-full-stack/
+
+** PaaS
+*** Fly.io
+https://fly.io/
+Deploy App Servers Close to Your Users
+Run your full stack apps (and databases!) all over the world. No ops required.
+*** Dokku
+https://dokku.com/
+The smallest PaaS implementation you've ever seen
+*** Piku
+Tiny PaaS like Dokku (homemade Heroku)
+https://github.com/piku/piku
+*** CapRover
+https://caprover.com/
+Free and Open Source PaaS!
+*** render
+https://render.com/
+The fastest way to host all your web apps.
+
+* Docker
+** Docker Compose
+https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
+
+* Terraform
+https://www.terraform.io/
+Deliver Infrastructure as Code
+
+* Earthly
+https://earthly.dev/
+Earthly is a syntax for defining your build. It works with your existing build system. Get repeatable and understandable builds today.
+
+* Cloudflare Images
+https://developers.cloudflare.com/images/
+Cloudflare Images lets you set up an image pipeline in minutes. Build a scalable image pipeline to store, resize, optimize and deliver images in a fast and secure manner.
+
+* CI/CD
+** GitHub Actions
+*** act
+https://github.com/nektos/act
+Run your GitHub Actions locally
+
+* Steampipe
+https://steampipe.io/
+select * from cloud;

@@ -1,0 +1,23 @@
+#+title: Kotlin
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Kotlin
+
+* Hello World
+#+begin_src kotlin
+println("Hello, World!")
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+* Functions
+#+begin_src kotlin
+fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+
+sum(4, 5)
+#+end_src
+
+#+RESULTS:
+: kotlin.Int = 9

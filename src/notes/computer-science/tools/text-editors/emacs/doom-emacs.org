@@ -1,0 +1,193 @@
+#+title: Doom Emacs
+
+[[file:../../../../../homepage.org][Homepage]] / [[file:../../../../../notes.org][Notes]] / [[file:../../../../computer-science.org][Computer Science]] / [[file:../../text-editors.org][Text editors]] / [[file:../emacs.org][Emacs]] / Doom Emacs
+
+Official repo: [[https://github.com/hlissner/doom-emacs]]
+
+* Navigation
+- =C-n= or =C-j= next
+- =C-p= or =C-k= previous
+
+* Buffers
+** =Doom=-esque commands:
+- =SPC b d/k= kill current buffer
+- =SPC b n= next buffer
+- =SPC b b= or =SPC ,= list buffers in this workspace
+- =SPC b B= or =SPC <= list buffers across workspaces
+- =SPC b N= creates new buffer
+- =SPC b i= show ibuffer interface
+- =SPC b ...= command suggestions
+
+* Text editing
+** evil-snipe
+[[https://github.com/hlissner/evil-snipe]]
+
+- =s [2 chars]= jump to next occurrence of =[2 chars]=
+- =S [2 chars]= same as =s= but backwards-looking
+
+once occurrence is found, can jump to the next one with =s=, previous with =S=
+
+** avy
+[[https://github.com/abo-abo/avy]]
+
+Similar to vim-easymotion
+
+[[https://www.youtube.com/watch?v=zar4GsOBU0g&list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj&index=7]]
+
+- =g s SPC [char]= jump to [char]
+- =g s s [2 chars]= jump to [2 chars]
+- =g s / [n chars]= jump to [n chars]
+
+** evil-multiedit
+[[https://github.com/hlissner/evil-multiedit]]
+
+=M-d= select word under cursor
+
+=M-d M-d= select word under cursor and select next occurrence as well
+
+=M-d M-D= select word under cursor and select previous occurrence as well
+
+after a visual-mode selection was more, =R= to select all occurrences
+
+after matches are highlighted, move between them with =C-n= for next,
+=C-p= for previous
+
+=RET= to exclude or include a match in the selection
+
+* Swiper
+- =SPC s s= search buffer/current file
+- =SPC s p= or =SPC /= search entire project
+
+* Windows
+=C-w= and =SPC w= interchangeable
+
+** =vim=-esque commands:
+- =C-w v= vertical split
+- =C-w s= horizontal split
+- =C-w hjkl= for movements
+- =C-w w= for next window
+- =C-w == to have an equal split
+- =C-w q= to quit window
+
+** =Doom=-esque commands:
+- =SPC w m m= maximize window (what I used vim-zoom for)
+- =SPC w ...= command suggestions
+
+* Workspaces
+Official help:
+[[https://github.com/hlissner/doom-emacs/tree/master/modules/feature/workspaces]]
+
+** =vim=-esque commands:
+- =gt= go to next workspace
+- =gT= go to previous workspace
+
+** =Doom=-esque commands:
+- =SPC TAB 1= go to workspace #1
+- =SPC TAB n= new workspace
+- =SPC TAB r= rename workspace
+- =SPC TAB d= delete workspace
+- =SPC TAB ...= other
+
+* Terminals
+** Eshell
+- =SPC o E= open terminal in current window
+- =SPC o e= toggle in small bottom window
+
+** Vterm
+- =SPC o T= open terminal in current window
+- =:vterm= or =SPC o t= open terminal in new bottom window
+
+* Projects
+(Using projectile)
+
+- =SPC p p= to open projects
+- =SPC p t= list all todo for project
+- =SPC p x= project-specific scratch buffer
+
+* Dired
+- =-= to go to parent directory
+- =+= create new directory
+- =m= to mark files/dir
+- =R= to rename file (this includes moving to a new directory)
+- =d= to delete, then =x= to execute
+
+* Magit
+A =git= client for Emacs!
+
+- =SPC g g= magit status
+- =TAB= to see more info, =TAB= again to see =diff=
+- =?= to see keybindings
+- =b= (branch) to checkout
+- =s= to stage file, =u= to unstage
+- (also works on single lines!)
+- =c= to commit
+- =p= to push
+- =r= to rebase
+- =x= to discard
+
+=C-c C-c= or =ZZ= or =:wq= to exit commit edit mode
+
+** Forge
+Work with Git forges, such as Github and Gitlab, from the comfort of Magit and the rest of Emacs.
+
+*** Setup
+Create a =.authinfo.gpg= file (Emacs seamlessly encrypts and decrypts =.gpg= files!) in the home directory with this info (for GitHub):
+=machine api.github.com login {username}^forge password {token}=
+*** Usage
+- =@= to open Forge menu
+- =f y= to pull
+
+* Deft
+=SPC n d= open Deft UI
+
+* Snippets
+https://github.com/hlissner/doom-snippets
+
+* Flycheck
+On-the-fly syntax checking
+
+=SPC c x= show error list for current buffer
+
+* dap-mode
+A debugger using lsp-mode
+
+- =M-x dap-breakpoint-add= to add a breakpoint
+- =M-x dap-breakpoint-log-message= to add a log message
+- =M-x dap-debug= (or =SPC o d=) to start debugging
+
+- =M-x dap-hydra= shows handy keybindings
+- =M-x dap-ui-expressions-add-prompt= (or =SPC m d=) to add new expressions (specific values we want to watch)
+- =M-x dap-ui-repl= to start a REPL within that debugging state
+- =M-x dap-tooltip-at-point= to see the value of a variable
+
+* Eval
+=SPC c e= to evaluate buffer / region and display result in an overlay
+
+* File Templates
+https://github.com/hlissner/doom-emacs/issues/2134
+
+* Spell checkers (aspell)
+- =zg= to +spell/add-word
+- =zw= to +spell/remove-word
+
+* csv-mode
+- =SPC m a= to align fields (have the CSV be displayed table/spreadsheet-style)
+- =SPC m u= to reverse above (unalign)
+
+- =SPC m s= to sort fields
+- =SPC m k= to delete a column
+
+- =SPC m t= to transpose file
+
+* Resources
+Emacs Doom Episode 1 - Getting Started:
+[[https://www.youtube.com/watch?app=desktop&v=rCMh7srOqvw&list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj&index=2&t=0s]]
+
+Commentary around config:
+[[https://zzamboni.org/post/my-doom-emacs-configuration-with-commentary/]]
+
+Commentary around config #2:
+[[https://tecosaur.github.io/emacs-config/config.html]]
+
+Google Calendar and =org-mode=:
+[[https://cestlaz.github.io/posts/using-emacs-26-gcal]]

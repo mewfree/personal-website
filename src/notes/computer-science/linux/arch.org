@@ -1,0 +1,23 @@
+#+title: Arch Linux
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../linux.org][Linux]] / Arch Linux
+
+Bleeding edge, rolling release, fun
+
+* Installation Guide
+https://wiki.archlinux.org/title/Installation_guide
+
+* Pacman
+Arch's package manager
+- =pacman -Ss {package}= search for package
+- =pacman -S {package}= install package
+- =pacman -Rsc {package}= remove package and dependencies
+- =pacman -Syu= update all packages in the system
+- =pacman -Qdtq= list packages that don't depend on other packages
+
+** Paru
+A AUR helper
+
+=paru {package}= search for package, including in AUR
+
+All others commands are the same as =pacman='s, plus =a= in =paru -Syua= for AUR packages

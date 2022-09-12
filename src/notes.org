@@ -1,1 +1,79 @@
-../../../meworg/university.org
+#+title: Notes
+#+description: Main entry point for notes
+
+[[file:homepage.org][Homepage]] / Notes
+
+👋 Welcome to my public [[file:notes.org][Notes]].
+
+* Topics
+** [[file:notes/computer-science.org][Computer Science]]
+** [[file:notes/finance.org][Finance]]
+** [[file:notes/chinese.org][Chinese]]
+** [[file:notes/economics.org][Economics]]
+** [[file:notes/mathematics.org][Mathematics]]
+** [[file:notes/physics.org][Physics]]
+** [[file:notes/marketing.org][Marketing]]
+** [[file:notes/design.org][Design]]
+** [[file:notes/business.org][Business]]
+** [[file:notes/philosophy.org][Philosophy]]
+** [[file:notes/psychology.org][Psychology]]
+** [[file:notes/game-theory.org][Game Theory]]
+
+* Personal Interests
+** 2021
+- [[file:notes/psychology.org::Learning How to Learn][Learning How to Learn]]
+- [[file:notes/finance.org::Financial Markets][Financial Markets]]
+** 2022
+- Economics
+  https://ocw.mit.edu/courses/economics/
+- Mathematics
+  Khan Academy? MIT OCW?
+  Linear Algebra?
+  https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/
+- Game Theory
+
+* Resources
+** Class Central
+https://www.classcentral.com/
+Allows to search & rate MOOCs across multiple platforms
+
+** Coursera
+https://www.coursera.org/
+
+Interested in:
+- https://www.coursera.org/learn/programming-languages
+- https://www.coursera.org/learn/indigenous-canada
+
+** edX
+https://www.edx.org/
+
+** MIT
+*** MIT Open Learning Library
+https://openlearning.mit.edu/courses-programs/open-learning-library
+*** MIT OpenCourseWare
+https://ocw.mit.edu/
+
+** Khan Academy
+https://www.khanacademy.org/
+
+** Turing College
+https://www.turingcollege.com/
+The supportive data science & AI school tailored to level up your career!
+
+** Recurse Center
+https://www.recurse.com/
+The Recurse Center is a self-directed, community-driven educational retreat for programmers based in New York City and currently operating online.
+
+** How to study?
+https://brennancolberg.com/writing/how-to-learn-at-college
+
+** OpenStax
+#+begin_quote
+OpenStax is a nonprofit educational technology initiative. Since 2012, OpenStax has created peer-reviewed, openly-licensed textbooks, which are available in free digital formats and for a low cost in print.
+#+end_quote
+
+https://openstax.org/
+
+** Research
+*** Research Papers
+https://oa.mg/

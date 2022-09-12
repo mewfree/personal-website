@@ -1,0 +1,583 @@
+#+title: Ruby
+#+property: header-args :exports both
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Ruby
+
+* Strings
+Can use both single quotes ='= or double quotes ="=.
+
+** String interpolation
+/!\ Must use double quotes
+#+begin_src ruby
+name = 'world'
+str = "hello #{name}"
+#+end_src
+
+#+RESULTS:
+: hello world
+
+** Append to string
+#+begin_src ruby
+str = 'hello '
+str << 'world'
+#+end_src
+
+#+RESULTS:
+: hello world
+
+** Freezing strings
+#+begin_src ruby
+str = 'hello'.freeze
+str.frozen?
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src ruby
+str = 'hello'.freeze
+str << ' world'
+#+end_src
+
+#+RESULTS:
+=can't modify frozen String: "hello" (FrozenError)=
+
+*** Frozen string literals
+=# frozen_string_literal: true=
+This line placed at the beginning of a file will freeze all strings in the file.
+
+See also: https://docs.ruby-lang.org/en/3.0.0/doc/syntax/comments_rdoc.html#label-Magic+Comments
+
+** String to chars
+#+begin_src ruby :results verbatim
+"Damien".chars
+#+end_src
+
+#+RESULTS:
+: ["D", "a", "m", "i", "e", "n"]
+
+** Split
+#+begin_src ruby :results verbatim
+"String to be split".split
+#+end_src
+
+#+RESULTS:
+: ["String", "to", "be", "split"]
+
+#+begin_src ruby :results verbatim
+"String,to,be,split".split(',')
+#+end_src
+
+#+RESULTS:
+: ["String", "to", "be", "split"]
+
+* Arrays
+https://docs.ruby-lang.org/en/3.0.0/Array.html
+** Concatenation
+#+begin_src ruby :results verbatim
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+a.push(*b)
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4, 5, 6]
+
+** Appending
+#+begin_src ruby :results verbatim
+list = []
+
+(1..5).each {|i| list << i}
+
+list
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3, 4, 5]
+
+** Destructuring / Pattern Matching
+#+begin_src ruby
+[1, 2, 3] => [a, b, c]
+c
+#+end_src
+
+#+RESULTS:
+: 3
+
+* Hashes
+https://ruby-doc.org/core-3.0.0/Hash.html
+Older syntax, "hash rocket":
+#+begin_src ruby :results verbatim
+h = {:foo => 0, :bar => 1}
+#+end_src
+
+#+RESULTS:
+: {:foo=>0, :bar=>1}
+
+** Newer JSON-like syntax
+#+begin_src ruby :results verbatim
+h = {foo: 0, bar: 1}
+#+end_src
+
+#+RESULTS:
+: {:foo=>0, :bar=>1}
+
+** Getting value from key
+#+begin_src ruby
+h = {foo: 0, bar: 1}
+h[:foo]
+#+end_src
+
+#+RESULTS:
+: 0
+
+** "Deep" nested value
+#+begin_src ruby
+h = {foo: {deepfoo: {nested: 'deep_nested_value'}}, bar: 1}
+h.dig(:foo, :deepfoo, :nested)
+#+end_src
+
+#+RESULTS:
+: deep_nested_value
+
+** Merging two hashes
+#+begin_src ruby :results verbatim
+a = {first: 'value'}
+b = {second: 'another value'}
+a.merge(b)
+#+end_src
+
+#+RESULTS:
+: {:first=>"value", :second=>"another value"}
+
+** Omitting values
+Starting from Ruby 3.1
+#+begin_src ruby :results verbatim
+x = 8
+y = 9
+
+{x:, y:}
+#+end_src
+
+#+RESULTS:
+: {:x=>8, :y=>9}
+
+** Except
+#+begin_src ruby :results verbatim
+user = { name: 'Damien', age: 28, role: 'CEO' }
+user.except(:role)
+#+end_src
+
+#+RESULTS:
+: {:name=>"Damien", :age=>28}
+
+* Functions
+#+begin_src ruby :results output
+def say_hello(name)
+  puts "hello #{name}"
+end
+
+say_hello('Damien')
+#+end_src
+
+#+RESULTS:
+: hello Damien
+
+** Optional Arguments
+#+begin_src ruby :results output
+def greet_name(name = 'John Doe')
+  puts "hello #{name}"
+end
+
+greet_name
+greet_name('Damien')
+#+end_src
+
+#+RESULTS:
+: hello John Doe
+: hello Damien
+
+** Keyword Arguments
+#+begin_src ruby :results output
+def greet_name(greeting:, name:)
+  puts "#{greeting}, #{name}"
+end
+
+greet_name(name: 'Damien', greeting: 'hi')
+#+end_src
+
+#+RESULTS:
+: hi, Damien
+
+Starting from Ruby 3.1
+#+begin_src ruby :results output
+def greet_name(greeting:, name:)
+  puts "#{greeting}, #{name}"
+end
+
+greeting = 'hi'
+name = 'Damien'
+greet_name(name:, greeting:)
+#+end_src
+
+#+RESULTS:
+: hi, Damien
+
+** One-liner
+Starting from Ruby 3.0
+#+begin_src ruby
+def increment(x) = x + 1
+increment(42)
+#+end_src
+
+#+RESULTS:
+: 43
+
+* Iterators
+https://docs.ruby-lang.org/en/3.0.0/doc/syntax/control_expressions_rdoc.html
+** While
+#+begin_src ruby :results output
+x = 0
+
+while x < 5
+  puts x
+  x += 1
+end
+
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: 2
+: 3
+: 4
+
+** Until
+#+begin_src ruby :results output
+x = 0
+
+until x == 5
+  puts x
+  x += 1
+end
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: 2
+: 3
+: 4
+
+** For
+#+begin_src ruby :results output
+x = [1, 2, 3, 4, 5]
+
+for i in x do
+  puts i
+end
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
+: 5
+
+** Each
+#+begin_src ruby :results output
+names = ['Bob', 'Joe', 'Steve', 'Janice', 'Susan', 'Helen']
+
+names.each { |name| puts name }
+#+end_src
+
+#+RESULTS:
+: Bob
+: Joe
+: Steve
+: Janice
+: Susan
+: Helen
+
+* Enumerables
+https://docs.ruby-lang.org/en/3.0.0/Enumerable.html
+** Any?
+#+begin_src ruby :session any
+x = ['a', 'b', 'c']
+
+x.any?('a')
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src ruby :session any
+x.any?('d')
+#+end_src
+
+#+RESULTS:
+: false
+
+** Min
+#+begin_src ruby
+[1, 2, 3].min
+#+end_src
+
+#+RESULTS:
+: 0
+
+** Max
+#+begin_src ruby
+[1, 2, 3].max
+#+end_src
+
+#+RESULTS:
+: 3
+
+** minmax
+#+begin_src ruby :results verbatim
+[1, 2, 3].minmax
+#+end_src
+
+#+RESULTS:
+: [1, 3]
+
+** Sort
+#+begin_src ruby :results verbatim
+[3, 2, 1].sort
+#+end_src
+
+#+RESULTS:
+: [1, 2, 3]
+
+** Filter
+#+begin_src ruby :results verbatim
+[1, 2, 3, 4, 5].filter {|i| i >= 3}
+#+end_src
+
+#+RESULTS:
+: [3, 4, 5]
+
+** Each With Index
+#+begin_src ruby :results verbatim
+hash = Hash.new
+
+['a', 'b', 'c'].each_with_index {|item, index|
+  hash[index] = item
+}
+
+hash
+#+end_src
+
+#+RESULTS:
+: {0=>"a", 1=>"b", 2=>"c"}
+
+** Each With Object
+#+begin_src ruby :results verbatim
+(1..10).each_with_object([]) {|i, a| a << i*2}
+#+end_src
+
+#+RESULTS:
+: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+** Map
+#+begin_src ruby :results verbatim
+[1, 2, 3, 4, 5].map {|i| i * 2}
+#+end_src
+
+#+RESULTS:
+: [2, 4, 6, 8, 10]
+
+** Reduce
+#+begin_src ruby
+[1, 2, 3, 4, 5].reduce(:+)
+#+end_src
+
+#+RESULTS:
+: 15
+
+* Pattern Matching
+Starting from Ruby 3.1
+#+begin_src ruby
+[1, 2] => _, x
+x
+#+end_src
+
+#+RESULTS:
+: 2
+
+#+begin_src ruby
+{ name: 'Damien', age: 28 } => {name:}
+name
+#+end_src
+
+#+RESULTS:
+: Damien
+
+* Classes
+https://docs.ruby-lang.org/en/3.0.0/Class.html
+#+begin_src ruby :session
+class Greeter
+  def initialize(name)
+    @name = name.capitalize
+  end
+
+  def salute
+    return "Hello #{@name}!"
+  end
+end
+
+# Create a new object
+g = Greeter.new("world")
+
+g.salute
+#+end_src
+
+#+RESULTS:
+: Hello World!
+
+** What is =@foobar=?
+The variable which name begins which the character `@', is an instance variable of self. Instance variables are belong to the certain object. Non-initialized instance variables has value nil.
+
+** =attr_reader=
+To avoid having to call =@name= with the =@=, =attr_reader= can be used:
+#+begin_src ruby :session
+class Greeter
+  attr_reader :name
+
+  def initialize(name)
+    @name = name.capitalize
+  end
+
+  def salute
+    return "Hello #{name}!"
+  end
+end
+
+# Create a new object
+g = Greeter.new("world")
+
+g.salute
+#+end_src
+
+#+RESULTS:
+: Hello World!
+
+** Methods
+#+begin_src ruby :session
+Greeter.instance_methods(false)
+#+end_src
+
+#+RESULTS:
+| :salute | :name |
+
+* Modules
+https://docs.ruby-lang.org/en/3.0.0/Module.html
+#+begin_src ruby :session
+module Greeter
+  def self.salute
+    return "Hello World!"
+  end
+end
+
+# Output "Hello World!"
+Greeter.salute
+#+end_src
+
+#+RESULTS:
+: Hello World!
+
+** What is =::=?
+Allow to access items in modules or class-level items in classes.
+Example:
+
+#+begin_src ruby :session
+module SomeModule
+    module InnerModule
+        class MyClass
+            CONSTANT = 4
+        end
+    end
+end
+
+SomeModule::InnerModule::MyClass::CONSTANT
+#+end_src
+
+#+RESULTS:
+: 4
+
+You could access =CONSTANT= by: =SomeModule::InnerModule::MyClass::CONSTANT=
+
+* Time
+#+begin_src ruby
+Time.now
+#+end_src
+
+#+RESULTS:
+: 2021-05-31 21:31:48.883643 -0400
+
+** UNIX Timestamp
+#+begin_src ruby
+Time.now.to_i
+#+end_src
+
+#+RESULTS:
+: 1622511129
+
+* Fibers
+https://noteflakes.com/articles/2021-10-20-explaining-ruby-fibers
+
+https://brunosutic.com/blog/ruby-fiber-scheduler
+
+* Misc
+** Conditional Assignment Operator
+a ||= b means:
+If =a= is =undefined=, =nil= or =false=, assign =b= to =a=.
+Otherwise, keep =a= intact.
+
+* IRB
+Interactive Ruby Shell, the REPL of Ruby!
+
+* Gems
+** Rails
+https://rubyonrails.org/
+Web Framework
+
+*** Cache
+https://guides.rubyonrails.org/caching_with_rails.html
+To enable caching in dev: =rails dev:cache=
+
+**** Low-Level Caching
+https://guides.rubyonrails.org/caching_with_rails.html#low-level-caching
+Using =Rails.cache.fetch=, both reading and writing is taken care of.
+
+*** reload!
+=reload!= is a method to reload your application code in the current console session.
+
+*** Sandbox
+=rails console --sandbox=
+shortcut: =rails c -s=
+Any modifications will be rolled back on exit
+
+** Hanami
+https://hanamirb.org/
+Alternative to Rails
+
+** =state_machines=
+https://github.com/state-machines/state_machines
+#+begin_quote
+Adds support for creating state machines for attributes on any Ruby class
+#+end_quote
+
+https://blog.appsignal.com/2022/06/22/state-machines-in-ruby-an-introduction.html
+
+* Resources
+https://github.com/seanlerner/ruby-and-rails-learning-plan
+
+https://learnrubythehardway.org/book/ex13.html
+
+** Polished Ruby Programming: Build Better Software with More Intuitive, Maintainable, Scalable, and High-performance Ruby Code
+by Jeremy Evans

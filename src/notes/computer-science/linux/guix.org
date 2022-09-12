@@ -1,0 +1,31 @@
+#+title: GNU Guix
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../linux.org][Linux]] / [[file:guix.org][GNU Guix]]
+
+https://guix.gnu.org/
+
+* Introduction to GNU Guix
+https://www.youtube.com/watch?v=iBaqOK75cho
+
+* Package Manager
+- =guix search {package}= (alias of =guix package -s=) to search for {package}
+- =guix install {package}= (alias of =guix package -i=) to install {package}
+- =guix remove {package}= (alias of =guix package -r=) to remove {package}
+- =guix upgrade= (alias of =guix package -u=) upgrade all or specified packages
+- =guix pull= to update Guix
+- =guix gc= to invoke Guix's garbage collector
+
+* Channels
+https://guix.gnu.org/manual/en/html_node/Channels.html
+
+* Utilities
+- =guix publish=
+
+* Development
+https://guix.gnu.org/manual/en/html_node/Development.html
+
+- =guix development=
+- =guix pack=
+
+* Resources
+https://guix.gnu.org/manual/en/html_node/index.html

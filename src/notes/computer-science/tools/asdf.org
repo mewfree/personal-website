@@ -1,0 +1,32 @@
+#+title: asdf
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / asdf
+
+Version manager for every language.
+
+Add a new language:
+=asdf plugin add {language}=
+
+List existing languages:
+=asdf plugin list=
+
+List available language version:
+=asdf list all {language}=
+
+Install a language version:
+=asdf install {language} {version}=
+
+Latest stable version:
+=asdf install {language} latest=
+
+Set current version:
+- =asdf global {language} {version}= system-wide
+- =asdf local {language} {version}= for the current project
+- =asdf shell {language} {version}= for the current shell session
+
+Update plugin to newest version:
+- =asdf plugin update {language}= for specific plugin
+- =asdf plugin update --all= for all plugins
+
+* Resources
+https://til.hashrocket.com/posts/ques11vrjs-get-pip-installed-executables-into-the-asdf-path

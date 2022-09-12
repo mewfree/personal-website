@@ -1,0 +1,26 @@
+#+title: Shells
+
+[[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Shells
+
+* Bash
+* Zsh
+* Fish
+* Nushell
+https://www.nushell.sh/
+"scripting" language too with =.nu= files
+Configure nushell to use Vim keybindings
+** Commands
+- =ls | nth 4 | to json=
+- =open {file}=
+- =ps=
+- =sys=
+- =shells= list current shells
+- =enter {dir}= to create a new shell
+- =n= next shell / =p= previous shell
+- =fetch {url}= to fetch url
+** Help
+- =help=
+- =tutor=
+* Hush
+https://hush-shell.github.io/
+"a modern shell scripting language"
