@@ -5,7 +5,7 @@ print("Generating website...")
 
 # Clean up first
 isdir("build") && rm("build", recursive=true)
-isfile("src/notes.org") && rm("src/notes.org", recursive=true)
+isfile("src/notes.org") && rm("src/notes.org")
 isdir("src/notes") && rm("src/notes", recursive=true)
 
 header = read("src/header.html", String)
