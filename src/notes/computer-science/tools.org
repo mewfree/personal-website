@@ -184,7 +184,8 @@ https://remotedesktop.google.com/
 ** RustDesk
 https://github.com/rustdesk/rustdesk
 
-* Makefiles
+* Build Tools
+** Makefiles
 #+begin_src makefile :tangle ~/tmp/makefile_tutorial/Makefile :results none
 hello:
 	echo "hello world"
@@ -215,6 +216,11 @@ cd ~/tmp/makefile_tutorial && make
 : run dependency first
 : echo "hello world"
 : hello world
+
+** Bazel
+https://bazel.build/
+
+Recommended way to install is via =bazelisk=
 
 * Misc
 ** Beautiful images from code
