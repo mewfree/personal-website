@@ -5,6 +5,9 @@
 * Tools
 ** Static
 - Figma
+- penpot
+  https://penpot.app/
+  "open source Figma"
 - Sketch
 - Canva
 - Celtra
