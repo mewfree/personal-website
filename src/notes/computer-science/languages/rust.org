@@ -236,6 +236,162 @@ println!("{:?}", v);
 #+RESULTS:
 : [10, 11, 12]
 
+*** VecDeque
+A double-ended queue implemented with a growable ring buffer.
+#+begin_src rust
+use std::collections::VecDeque;
+
+let deq: VecDeque<u32> = VecDeque::new();
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: []
+
+Initializing with values:
+#+begin_src rust
+use std::collections::VecDeque;
+
+let deq = VecDeque::from([-1, 0, 1]);
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [-1, 0, 1]
+
+**** Push / Pop
+#+begin_src rust
+use std::collections::VecDeque;
+
+let mut deq: VecDeque<u32> = VecDeque::new();
+deq.push_front(1);
+deq.push_front(2);
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [2, 1]
+
+#+begin_src rust
+use std::collections::VecDeque;
+
+let mut deq: VecDeque<u32> = VecDeque::new();
+deq.push_back(1);
+deq.push_back(2);
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [1, 2]
+
+#+begin_src rust
+use std::collections::VecDeque;
+
+let mut deq = VecDeque::from([0]);
+deq.push_front(1);
+deq.push_front(2);
+deq.push_back(3);
+deq.push_back(4);
+deq.push_back(5);
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [2, 1, 0, 3, 4, 5]
+
+#+begin_src rust
+use std::collections::VecDeque;
+
+let mut deq = VecDeque::from([1, 2, 3]);
+deq.pop_front();
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [2, 3]
+
+#+begin_src rust
+use std::collections::VecDeque;
+
+let mut deq = VecDeque::from([1, 2, 3]);
+deq.pop_back();
+println!("{:?}", deq);
+#+end_src
+
+#+RESULTS:
+: [1, 2]
+
+*** LinkedList
+A doubly-linked list with owned nodes.
+
+** Map Collections
+*** HashMap
+Allows to store key/value pairs.
+#+begin_src rust
+use std::collections::HashMap;
+
+let mut map = HashMap::new();
+println!("{:?}", map);
+
+map.insert("Japan", "Tokyo");
+map.insert("France", "Paris");
+map.insert("Canada", "Ottawa");
+println!("{:?}", map);
+
+map.remove("France");
+println!("{:?}", map);
+#+end_src
+
+#+RESULTS:
+: {}
+: {"France": "Paris", "Japan": "Tokyo", "Canada": "Ottawa"}
+: {"Japan": "Tokyo", "Canada": "Ottawa"}
+
+*** BTreeMap
+Equivalent to =HashMaps= but "sorted".
+#+begin_src rust
+use std::collections::BTreeMap;
+
+let mut btree = BTreeMap::new();
+println!("{:?}", btree);
+
+btree.insert("Germany", "Berlin");
+btree.insert("United Kingdom", "London");
+btree.insert("Taiwan", "Taipei");
+println!("{:?}", btree);
+
+btree.remove("United Kingdom");
+println!("{:?}", btree);
+#+end_src
+
+#+RESULTS:
+: {}
+: {"Germany": "Berlin", "Taiwan": "Taipei", "United Kingdom": "London"}
+: {"Germany": "Berlin", "Taiwan": "Taipei"}
+
+** Set Collections
+*** HashSet
+Set form of =HashMap=, meaning no duplicate keys are allowed.
+#+begin_src rust
+use std::collections::HashSet;
+let mut set = HashSet::new();
+set.insert("key");
+set.insert("key");
+println!("{:?}", set);
+#+end_src
+
+#+RESULTS:
+: {"key"}
+
+Note how "key" is only present once, not twice.
+
+*** BTreeSet
+Set form of =BTreeMap=.
+#+begin_src rust :results silent
+use std::collections::BTreeSet;
+let set: BTreeSet<u32> = BTreeSet::new();
+#+end_src
+
 * Iterators
 Since Rust 1.23, no need to call =.iter()=
 #+begin_src rust
