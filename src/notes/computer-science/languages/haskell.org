@@ -57,7 +57,7 @@ Putting something at the beginning of a list using =:= (cons operator) is for ef
 : a long string
 
 * Lists
-In [[file:haskell.org][Haskell]], lists are homogenous. They can only contain elements of the same types (only integers, or only string).
+In [[file:haskell.org][Haskell]], lists are homogeneous. They can only contain elements of the same types (only integers, or only string).
 #+begin_src haskell :results verbatim
 import Data.List
 sort [3,2,1]
