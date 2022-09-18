@@ -423,6 +423,12 @@ https://github.com/MathisBullinger/froebel
 A strictly typed utility library.
 #+end_quote
 
+** TinyBase
+https://tinybase.org/
+#+begin_quote
+The reactive data store for local‑first apps.
+#+end_quote
+
 * Resources
 [[https://javascript.info/][The Modern JavaScript Tutorial]]
 
