@@ -215,7 +215,7 @@ All of those pages are initially [[file:/notes/computer-science/text-editors/ema
 I have a /script/ written in [[file:/notes/computer-science/languages/julia][Julia]] that uses [[file:/notes/computer-science#pandoc][Pandoc]] to export =.org= files to HTML.
 [[file:/notes/computer-science/text-editors/emacs][Emacs]] also has some exporting capabilities but I liked [[file:/notes/computer-science#pandoc][Pandoc]]'s customization better.
 
-The /script/ is open source here: https://github.com/mewfree/static-personal-website/blob/main/build.jl
+The /script/ is open source here: https://github.com/mewfree/personal-website/blob/main/build.jl
 
 Once the =.html= files are generated, the whole site is hosted on [[file:https://www.netlify.com/][Netlify]].
 

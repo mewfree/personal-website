@@ -1,4 +1,4 @@
-#+title: static-personal-website
+#+title: personal-website
 
 * Introduction
 A tiny script to generate my personal website
