@@ -304,6 +304,12 @@ https://htmx.org/: htmx allows you to access AJAX, CSS Transitions, WebSockets a
 Similar to React, but compiled, interesting
 https://github.com/ryansolid/solid
 
+** Qwik
+#+begin_quote
+The HTML-first framework. Instant apps of any size with ~ 1kb JS
+#+end_quote
+https://qwik.builder.io/
+
 ** Thin
 https://thin.dev/
 Paid backend for SPA React apps

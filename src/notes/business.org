@@ -339,3 +339,5 @@ https://www.reddit.com/r/startups/comments/fuw483/alternatives_to_product_hunt_t
 https://github.com/yongfook/saas-growth-articles
 ** Making money with courses
 https://go.consulting.com/evergreen-training
+** Case studies of successful companies
+https://www.starterstory.com/explore
