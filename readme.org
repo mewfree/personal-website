@@ -16,5 +16,5 @@ julia build.jl
 
 * Development server
 #+begin_src bash :results none
-netlify dev
+wrangler pages dev build
 #+end_src
