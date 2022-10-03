@@ -14,3 +14,4 @@
 - https://kastner.ucsd.edu/hlsbook/ - Parallel Programming for [[file:fpga.org][FPGA]]s
 - https://f4pga.org/
 - https://projectf.io/posts/fpga-graphics/
+- https://fpgaer.tech/

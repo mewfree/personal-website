@@ -1306,3 +1306,6 @@ https://baturin.org/docs/ocaml-faq/
 
 ** OCaml 5 tutorial
 https://github.com/kayceesrk/ocaml5-tutorial/
+
+** OCaml Exercises
+https://ocaml.org/problems

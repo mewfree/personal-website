@@ -81,6 +81,15 @@ Interactive evaluation for Neovim (Clojure, Fennel, Janet, Racket, Hy, MIT Schem
 https://github.com/neoclide/coc.nvim
 Never tried it, would probably not use it
 
+* NeoVim
+** NvChad
+https://nvchad.com/
+
+#+begin_quote
+Enhance your neovim workflow
+Blazing fast neovim config providing solid defaults and beautiful UI
+#+end_quote
+
 * Resources
 ** Minimal Setup Explained
 https://www.guckes.net/vim/setup.html

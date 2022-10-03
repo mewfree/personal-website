@@ -489,3 +489,10 @@ The Full-Stack Web Framework for Go
 ** Wails
 https://wails.io/
 Build beautiful cross-platform applications using Go
+
+** Copper
+https://github.com/gocopper/copper
+
+#+begin_quote
+Copper is a Go toolkit complete with everything you need to build web apps
+#+end_quote
