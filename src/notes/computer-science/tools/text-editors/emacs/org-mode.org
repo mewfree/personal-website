@@ -517,3 +517,6 @@ https://www.youtube.com/watch?v=0g9BcZvQbXU
 
 Show a "table of contents":
 https://emacs.stackexchange.com/questions/9530/how-can-i-get-an-org-mode-outline-in-a-2nd-buffer-as-a-dynamic-table-of-contents
+
+Extending org-mode to handle youtube links:
+https://bitspook.in/blog/extending-org-mode-to-handle-youtube-links/
