@@ -114,7 +114,7 @@ Obsidian is a powerful knowledge base on top of a local folder of plain text Mar
 |-------------------------------------------------------------------------------------------------------------+-------------------------|
 | Free for personal use                                                                                       | Closed source           |
 | Plain Markdown files 👍                                                                                     | Plain Markdown files 😩 |
-| Great plugins ([[file:../notes/computer-science/text-editors/vim][vim]] mode, [[file:../notes/computer-science/git][git]] auto commits...) |                         |
+| Great plugins ([[file:../notes/computer-science/tools/text-editors/vim][vim]] mode, [[file:../notes/computer-science/git][git]] auto commits...) |                         |
 
 *** [[https://logseq.com/][Logseq]]
 #+begin_quote
@@ -123,11 +123,11 @@ Connected thoughts to increase understanding
 Logseq is a privacy-first, open-source knowledge base that works on top of local plain-text Markdown and Org-mode files. Use it to write, organize and share your thoughts, keep your to-do list, and build your own digital garden.
 #+end_quote
 
-| Pros                                                                                                | Cons                              |
-|-----------------------------------------------------------------------------------------------------+-----------------------------------|
-| Plain text files                                                                                    | Mobile app is iOS only for now... |
-| Amazing support for [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] files! |                                   |
-| Open source                                                                                         |                                   |
+| Pros                                                                                                      | Cons                              |
+|-----------------------------------------------------------------------------------------------------------+-----------------------------------|
+| Plain text files                                                                                          | Mobile app is iOS only for now... |
+| Amazing support for [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] files! |                                   |
+| Open source                                                                                               |                                   |
 
 *** [[https://www.orgroam.com/][Org-roam]]
 #+begin_quote
@@ -136,10 +136,10 @@ Org-roam
 A plain-text personal knowledge management system.
 #+end_quote
 
-| Pros                | Cons                                                                       |
-|---------------------+----------------------------------------------------------------------------|
-| Plain =.org= files! | Forces you to use a weird ID system...                                     |
-| Open source         | Have to learn [[file:../notes/computer-science/text-editors/emacs][Emacs]] |
+| Pros                | Cons                                                                             |
+|---------------------+----------------------------------------------------------------------------------|
+| Plain =.org= files! | Forces you to use a weird ID system...                                           |
+| Open source         | Have to learn [[file:../notes/computer-science/tools/text-editors/emacs][Emacs]] |
 
 *** Conclusion
 | Tool                                                                                                        | Open source | Plain text files | Easily editable on mobile                                                                                   |
@@ -148,7 +148,7 @@ A plain-text personal knowledge management system.
 | [[file:#roam-research][Roam Research]]                                                                      | ❌          | ❌               | 🫤                                                                                                          |
 | [[file:#obsidian][Obsidian]]                                                                                | ❌          | ✅               | ✅                                                                                                          |
 | [[file:#logseq][Logseq]]                                                                                    | ✅          | ✅               | 🫤                                                                                                          |
-| [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] (plain or with [[file:#org-roam][Org-roam]]) | ✅          | ✅               | 😛 only if you're willing to run [[file:../notes/computer-science/text-editors/emacs][Emacs]] on your phone! |
+| [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] (plain or with [[file:#org-roam][Org-roam]]) | ✅          | ✅               | 😛 only if you're willing to run [[file:../notes/computer-science/tools/text-editors/emacs][Emacs]] on your phone! |
 
 * My personal history with PKM tools
 ** The beginnings
@@ -178,42 +178,42 @@ But I had some issues on keeping personal data hosted there and their availabili
 ** [[file:#obsidian][Obsidian]] & [[https://gitjournal.io/][GitJournal]]
 Liked that I was able to use plain text files (potentially encrypted) and that I could them sync using [[file:../notes/computer-science/git][Git]].
 
-Having a [[file:../notes/computer-science/text-editors/vim][vim]]-mode plugin available was also greatly appreciated.
+Having a [[file:../notes/computer-science/tools/text-editors/vim][vim]]-mode plugin available was also greatly appreciated.
 
 For mobile, I was using [[https://gitjournal.io/][GitJournal]] as [[file:#obsidian][Obsidian]] mobile apps were not available at the time, which works really great!
 
 But I still felt like something was missing...
 
-** [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] using [[file:../notes/computer-science/text-editors/emacs][Emacs]]
-Now we're getting to [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]]. My *ultimate* productivity tool.
-What managed to make me switch from [[file:../notes/computer-science/text-editors/vim][Vim]] to [[file:../notes/university/computer-science/text-editors/emacs][Emacs]].
+** [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] using [[file:../notes/computer-science/tools/text-editors/emacs][Emacs]]
+Now we're getting to [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]]. My *ultimate* productivity tool.
+What managed to make me switch from [[file:../notes/computer-science/tools/text-editors/vim][Vim]] to [[file:../notes/university/computer-science/tools/text-editors/emacs][Emacs]].
 
-This is how [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] is described on [[https://orgmode.org/][orgmode.org]]:
+This is how [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] is described on [[https://orgmode.org/][orgmode.org]]:
 #+begin_quote
 A GNU Emacs major mode for keeping notes, authoring documents, computational notebooks, literate programming, maintaining to-do lists, planning projects, and more — in a fast and effective plain text system.
 #+end_quote
 
-To put it more simply, [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] is an *extension* of a [[file:../notes/computer-science/text-editors][Text editor]] ([[file:../notes/computer-science/text-editors/emacs][Emacs]]) and it has *a lot* of features:
-- Its own [[file:../notes/computer-science/text-editors/emacs/org-mode#markup][markup]] language
-- Support for [[file:../notes/computer-science/text-editors/emacs/org-mode#todo][ToDos]]
-- [[file:../notes/computer-science/text-editors/emacs/org-mode#babel][Babel]] is simply fabulous: code notebooks for every programming language
-- Support for [[file:../notes/computer-science/text-editors/emacs/org-mode#tables][tables]] (even [[file:../notes/computer-science/text-editors/emacs/org-mode#spreadsheet][spreadsheets]]!)
-- Great support for [[file:../notes/computer-science/text-editors/emacs/org-mode#latex][LaTeX]]
+To put it more simply, [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] is an *extension* of a [[file:../notes/computer-science/tools/text-editors][Text editor]] ([[file:../notes/computer-science/tools/text-editors/emacs][Emacs]]) and it has *a lot* of features:
+- Its own [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#markup][markup]] language
+- Support for [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#todo][ToDos]]
+- [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#babel][Babel]] is simply fabulous: code notebooks for every programming language
+- Support for [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#tables][tables]] (even [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#spreadsheet][spreadsheets]]!)
+- Great support for [[file:../notes/computer-science/tools/text-editors/emacs/org-mode#latex][LaTeX]]
 
 And the best of all... It works perfectly fine on Android using Termux!
-On iOS / iPadOS, it's possible to SSH to a Raspberry Pi or VPS and use [[file:../notes/computer-science/text-editors/emacs][Emacs]] there.
+On iOS / iPadOS, it's possible to SSH to a Raspberry Pi or VPS and use [[file:../notes/computer-science/tools/text-editors/emacs][Emacs]] there.
 
 ** Honourable mention to [[file:#logseq][Logseq]]
-[[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] is my /endgame/ but I need to mention [[file:#logseq][Logseq]].
+[[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] is my /endgame/ but I need to mention [[file:#logseq][Logseq]].
 
-I believe it is one of the best tools out there and this is what I would probably use it if I hadn't learnt how to use [[file:../notes/computer-science/text-editors/emacs][Emacs]].
+I believe it is one of the best tools out there and this is what I would probably use it if I hadn't learnt how to use [[file:../notes/computer-science/tools/text-editors/emacs][Emacs]].
 
-I actually sometimes use it on top of my existing [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] files for the knowledge graph feature.
+I actually sometimes use it on top of my existing [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] files for the knowledge graph feature.
 
 * How are my [[file:../notes][notes]] published?
-All of those pages are initially [[file:../notes/computer-science/text-editors/emacs/org-mode][Org-mode]] files.
+All of those pages are initially [[file:../notes/computer-science/tools/text-editors/emacs/org-mode][Org-mode]] files.
 I have a /script/ written in [[file:../notes/computer-science/languages/julia][Julia]] that uses [[file:../notes/computer-science#pandoc][Pandoc]] to export =.org= files to HTML.
-[[file:../notes/computer-science/text-editors/emacs][Emacs]] also has some exporting capabilities but I liked [[file:../notes/computer-science#pandoc][Pandoc]]'s customization better.
+[[file:../notes/computer-science/tools/text-editors/emacs][Emacs]] also has some exporting capabilities but I liked [[file:../notes/computer-science#pandoc][Pandoc]]'s customization better.
 
 The /script/ is open source here: https://github.com/mewfree/personal-website/blob/main/build.jl
 
