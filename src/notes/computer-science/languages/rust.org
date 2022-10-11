@@ -3,8 +3,8 @@
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Rust
 
 * Basics
-Compile: =rustc {filename}.rs=
-Run: =./{filename}=
+- Compile: =rustc {filename}.rs=
+- Run: =./{filename}=
 
 ** Anatomy
 #+begin_src rust
@@ -44,10 +44,10 @@ fn main() {
 =;= at the end of the line indicates that the expression is over.
 
 * Cargo
-New project: =cargo run {project_name}=
-Build: =cargo build=, build for release: =cargo build --release= (with optimizations)
-Compile & run: =cargo run=
-Check if project can compile: =cargo check= (faster than =cargo build=)
+- New project: =cargo run {project_name}=
+- Build: =cargo build=, build for release: =cargo build --release= (with optimizations)
+- Compile & run: =cargo run=
+- Check if project can compile: =cargo check= (faster than =cargo build=)
 
 ** Resources
 Cargo book
@@ -55,15 +55,15 @@ Cargo book
 
 * Primitives
 ** Scalar Types
-Signed integers, unsigned integers
-Floating point
-Character: ='a'=, ='b'=...
-Boolean: =true= or =false=
-=()= which is an empty tuple
+- Signed integers, unsigned integers
+- Floating point
+- Character: ='a'=, ='b'=...
+- Boolean: =true= or =false=
+- =()= which is an empty tuple
 
 ** Compound Types
-Arrays
-Tuples
+- Arrays
+- Tuples
 
 * Variables
 ** Mutable Variables
@@ -104,6 +104,63 @@ fn main() {
 : 1
 : 2
 
+* Functions
+snake_case is the convention for naming functions
+
+#+begin_src rust
+fn main() {
+    println!("{}", "Hello");
+    another_function();
+}
+
+fn another_function() {
+    println!("{}", "World!");
+}
+#+end_src
+
+#+RESULTS:
+: Hello
+: World!
+
+** Function Arguments
+Arguments' types have to be specified:
+#+begin_src rust
+fn greet(name: &str) {
+    println!("Hello, {name}");
+}
+
+greet("Damien");
+#+end_src
+
+#+RESULTS:
+: Hello, Damien
+
+** Function Return
+Function's return type have to be specified too:
+#+begin_src rust
+fn sum(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+println!("{}", sum(4, 5));
+#+end_src
+
+#+RESULTS:
+: 9
+
+Function's automatically return the value of the last expression,
+but can be returned early using the =return= keyword:
+#+begin_src rust
+fn sum(x: i32, y: i32) -> i32 {
+    return x + y;
+}
+
+println!("{}", sum(4, 5));
+#+end_src
+
+#+RESULTS:
+: 9
+
 * Strings
 #+begin_src rust
 fn main() {
@@ -125,6 +182,30 @@ fn main() {
 
 #+RESULTS:
 : Chars(['D', 'a', 'm', 'i', 'e', 'n'])
+
+* Numbers
+#+begin_src rust
+let x = 9;
+println!("{x}");
+#+end_src
+
+#+RESULTS:
+: 9
+
+** Ranges
+#+begin_src rust
+let range = 1..5;
+
+for i in range {
+    println!("{i}");
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
 
 * Formatted Print
 #+begin_src rust
@@ -152,6 +233,56 @@ https://www.rustnote.com/blog/format_strings.html
 
 * Data Structures
 ** Sequence Collections
+*** Tuple
+Tuples can contain multiple types.
+Tuples have a fixed length.
+
+#+begin_src rust :results silent
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+#+end_src
+
+*** Array
+Every element of an array has to have the same type.
+Array in [[file:rust.org][Rust]] have a fixed length.
+
+#+begin_src rust :results silent
+let a = [1, 2, 3, 4, 5];
+#+end_src
+
+Arrays are useful when you want your data to be allocated
+on the stack rather than the heap.
+
+To write an array's type, you have to specify the type AND the number of elements in the array, separated by a colon, and enclosed in square brackets:
+#+begin_src rust :results silent
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+#+end_src
+
+It's possible to initialize an array that contains the same value for each element by specifying the initial value, followed by a semicolon, and then the length of the array, enclosed in square brackets:
+#+begin_src rust
+let a = [3; 5];
+
+println!("{:?}", a);
+#+end_src
+
+#+RESULTS:
+: [3, 3, 3, 3, 3]
+
+**** Accessing array elements
+By using the index:
+#+begin_src rust
+let a = [1, 2, 3, 4, 5];
+
+let first = a[0];
+let second = a[1];
+
+println!("{:?}", first);
+println!("{:?}", second);
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+
 *** Vec
 A type has to be specified when creating an empty =vec= as type can't be inferred:
 #+begin_src rust
@@ -392,6 +523,236 @@ use std::collections::BTreeSet;
 let set: BTreeSet<u32> = BTreeSet::new();
 #+end_src
 
+** Structs
+A struct contains fields.
+Access value by dot notation.
+
+#+begin_src rust
+#[derive(Debug)]
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+let mut user1 = User {
+    email: String::from("someone@example.com"),
+    username: String::from("someusername123"),
+    active: true,
+    sign_in_count: 1,
+};
+
+println!("{:?}", user1);
+println!("{:?}", user1.email);
+user1.email = String::from("anotheremail@example.com");
+println!("{:?}", user1.email);
+#+end_src
+
+#+RESULTS:
+: User { active: true, username: "someusername123", email: "someone@example.com", sign_in_count: 1 }
+: "someone@example.com"
+: "anotheremail@example.com"
+
+*** Field Init Shorthand
+#+begin_src rust
+#[derive(Debug)]
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+let email = String::from("someone@example.com");
+let username = String::from("someone@example.com");
+
+let mut user1 = User {
+    email, // instead of email: email,
+    username, // instead of: username: username,
+    active: true,
+    sign_in_count: 1,
+};
+
+println!("{:?}", user1);
+#+end_src
+
+#+RESULTS:
+: User { active: true, username: "someone@example.com", email: "someone@example.com", sign_in_count: 1 }
+
+*** Struct Update Syntax
+#+begin_src rust
+#[derive(Debug)]
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+let user1 = User {
+    email: String::from("someone@example.com"),
+    username: String::from("someusername123"),
+    active: true,
+    sign_in_count: 1,
+};
+
+let user2 = User {
+    email: String::from("anotheruser@example.com"),
+    ..user1
+};
+
+println!("{:?}", user2);
+#+end_src
+
+#+RESULTS:
+: User { active: true, username: "someusername123", email: "anotheruser@example.com", sign_in_count: 1 }
+
+*** Defining Methods
+#+begin_src rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+let rect1 = Rectangle {
+    width: 30,
+    height: 50,
+};
+
+println!("{:}", rect1.area());
+#+end_src
+
+#+RESULTS:
+: 1500
+
+* Control Flow
+** If/else statements
+#+begin_src rust
+fn sum(x: i32, y: i32) -> i32 {
+    return x + y;
+}
+
+if sum(4, 5) > 10 {
+    println!("This is impossible");
+} else if sum(4, 5) == 9 {
+    println!("This is correct");
+} else {
+    println!("This is impossible");
+}
+#+end_src
+
+#+RESULTS:
+: This is correct
+
+*** Inline conditional
+#+begin_src rust
+let x = if true { 1 } else { 0 };
+
+println!("{}", x);
+#+end_src
+
+#+RESULTS:
+: 1
+
+** Loop
+#+begin_src rust
+let mut counter = 0;
+
+loop {
+    if counter == 5 {
+        break;
+    }
+
+    counter += 1;
+    println!("(:");
+}
+#+end_src
+
+#+RESULTS:
+: (:
+: (:
+: (:
+: (:
+: (:
+
+Loops can return a value by providing it to the =break= keyword:
+#+begin_src rust
+let mut counter = 0;
+
+let nth = loop {
+    if counter == 5 {
+        break counter;
+    }
+
+    counter += 1;
+};
+
+println!("Loop has been executed {nth} times");
+#+end_src
+
+#+RESULTS:
+: Loop has been executed 5 times
+
+*** Labeled loops
+By default, =break= applies to the innermost loop.
+You can specify a loop label to break a specific loop.
+#+begin_src rust
+let mut count_one = 0;
+let mut count_two = 10;
+
+'loop_one: loop {
+    println!("count_one = {count_one}");
+
+    loop {
+        println!("count_two = {count_two}");
+        if count_two == 0 {
+            break;
+        }
+        if count_two == 5 {
+            break 'loop_one;
+        }
+        count_two -= 1;
+    }
+
+    count_one += 1;
+}
+#+end_src
+
+#+RESULTS:
+: count_one = 0
+: count_two = 10
+: count_two = 9
+: count_two = 8
+: count_two = 7
+: count_two = 6
+: count_two = 5
+
+** While
+#+begin_src rust
+let mut number = 0;
+
+while number != 6 {
+    println!("{number}");
+
+    number += 1;
+}
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: 2
+: 3
+: 4
+: 5
+
 * Iterators
 Since Rust 1.23, no need to call =.iter()=
 #+begin_src rust
@@ -406,6 +767,75 @@ fn main() {
 : 1
 : 2
 : 3
+
+** Iterator methods
+https://doc.rust-lang.org/std/iter/trait.Iterator.html
+*** Reverse
+#+begin_src rust
+for i in (0..4).rev() {
+    println!("{i}");
+}
+#+end_src
+
+#+RESULTS:
+: 3
+: 2
+: 1
+: 0
+
+*** Min/Max
+#+begin_src rust
+println!("{}", [1, 2, 3].iter().min().unwrap());
+#+end_src
+
+#+RESULTS:
+: 1
+
+#+begin_src rust
+println!("{}", [1, 2, 3].iter().max().unwrap());
+#+end_src
+
+#+RESULTS:
+: 3
+
+*** Last
+#+begin_src rust
+println!("{}", [1, 3, 5].last().unwrap());
+#+end_src
+
+#+RESULTS:
+: 5
+
+*** Map
+#+begin_src rust
+println!("{:?}", [1, 3, 5].map(|x| 2 * x));
+#+end_src
+
+#+RESULTS:
+: [2, 6, 10]
+
+*** Filter
+#+begin_src rust
+(1..20).filter(|x| x % 3 == 0).for_each(|i| println!("{}", i));
+#+end_src
+
+#+RESULTS:
+: 3
+: 6
+: 9
+: 12
+: 15
+: 18
+
+*** Fold / Reduce
+#+begin_src rust
+let a = [1, 2, 3];
+let sum = a.iter().fold(0, |acc, x| acc + x);
+println!("{}", sum);
+#+end_src
+
+#+RESULTS:
+: 6
 
 * Misc
 Naming conventions:
@@ -443,11 +873,11 @@ A full-featured and easy-to-use web framework with the Rust programming language
 
 * Resources
 ** Main
-https://doc.rust-lang.org/book/
-https://doc.rust-lang.org/rust-by-example/
-https://learnxinyminutes.com/docs/rust/
-https://cheats.rs/ Rust Language Cheat Sheet
-https://github.com/rust-lang/rustlings/ Small exercises to get you used to reading and writing Rust code!
+- https://doc.rust-lang.org/book/
+- https://doc.rust-lang.org/rust-by-example/
+- https://learnxinyminutes.com/docs/rust/
+- https://cheats.rs/ Rust Language Cheat Sheet
+- https://github.com/rust-lang/rustlings/ Small exercises to get you used to reading and writing Rust code!
 
 ** Other
 - Zola, a static site generator [[https://www.getzola.org/]]
