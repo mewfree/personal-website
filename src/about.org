@@ -14,7 +14,8 @@
 - 💻 M1 MacBook Pro
 - 📱 OnePlus 9 Pro
 - 📖 iPad Mini
-- ⌨️  HHKB Pro 2
+- 🐈 Hisense Hi Reader
+- ⌨️ HHKB Pro 2
 
 ** Software
 - ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (with evil-mode)
