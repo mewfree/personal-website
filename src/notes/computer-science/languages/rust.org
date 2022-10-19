@@ -871,6 +871,12 @@ https://github.com/poem-web/poem
 A full-featured and easy-to-use web framework with the Rust programming language.
 #+end_quote
 
+** create-rust-app
+https://github.com/Wulf/create-rust-app
+#+begin_quote
+Set up a modern rust+react web app by running one command.
+#+end_quote
+
 * Resources
 ** Main
 - https://doc.rust-lang.org/book/

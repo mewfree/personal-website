@@ -15,3 +15,4 @@
 - https://f4pga.org/
 - https://projectf.io/posts/fpga-graphics/
 - https://fpgaer.tech/
+- https://icestudio.io/

@@ -43,6 +43,13 @@ https://rotessa.com/
 A better way to get paid.
 Withdraw money directly from your customer’s bank account when their payments are due. Schedule one-time or recurring payments to get paid on time.
 
+* Billing
+** Killbill.io
+https://killbill.io/
+#+begin_quote
+Open-Source Subscription Billing & Payments Platform
+#+end_quote
+
 * Communication
 ** How to communicate better?
 *** "Bottom Line Up Front"

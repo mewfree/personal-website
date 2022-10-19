@@ -150,3 +150,7 @@ https://betterexplained.com/
 https://xn--2-umb.com/22/approximation/index.html
 ** Free Math Textbooks by Xah Lee
 http://xahlee.info/math/math_books.html
+** Paul's Online Math Notes
+https://tutorial.math.lamar.edu/
+** Linear Algebra by Jim Hefferon
+https://hefferon.net/linearalgebra/index.html

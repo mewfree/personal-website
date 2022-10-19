@@ -396,26 +396,45 @@ https://www.assemblyscript.org/
 A TypeScript-like language for WebAssembly.
 #+end_quote
 
+* Static Typing Systems
+** TypeScript
+** Flow
+** Hegel
+https://github.com/JSMonk/hegel
+#+begin_quote
+An advanced static type checker
+#+end_quote
+
 * Misc Packages
 ** mdx
 https://github.com/mdx-js/mdx
-
+#+begin_quote
 JSX in Markdown
+#+end_quote
 
 ** Vite
 https://vitejs.dev/
-
+#+begin_quote
 Modern Webpack replacement
+#+end_quote
+
+*** vite-plugin-ssr
+https://vite-plugin-ssr.com/
+#+begin_quote
+Like Next.js/Nuxt but as do-one-thing-do-it-well Vite plugin.
+#+end_quote
 
 ** Rows n' Columns
 https://rowsncolumns.app/
-
+#+begin_quote
 Spreadsheet system in React
+#+end_quote
 
 ** Leaflet
 https://leafletjs.com/
-
+#+begin_quote
 An open-source JavaScript library for mobile-friendly interactive maps
+#+end_quote
 
 ** Brain.js
 https://brain.js.org/
