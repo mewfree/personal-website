@@ -13,8 +13,7 @@
 - 🐧 ThinkPad X1 Nano
 - 💻 M1 MacBook Pro
 - 📱 OnePlus 9 Pro
-- 📖 iPad Mini
-- 🐈 Hisense Hi Reader
+- 📖 Hisense Hi Reader
 - ⌨️ HHKB Pro 2
 
 ** Software
