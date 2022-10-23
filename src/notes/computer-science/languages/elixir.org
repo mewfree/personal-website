@@ -730,10 +730,10 @@ Mix.install([:jason])
 ** Mix
 Dependencies manager!
 
-Create a new project: =mix new example=
-Interactive shell: =iex -S mix=
-Compile project: =mix compile=
-Fetch dependencies: =mix deps.get=
+- Create a new project: =mix new example=
+- Interactive shell: =iex -S mix=
+- Compile project: =mix compile=
+- Fetch dependencies: =mix deps.get=
 
 ** Ecto
 https://elixirschool.com/en/lessons/ecto/basics/
@@ -759,6 +759,7 @@ Manages translations for i18n
 
 ** Attributes
 https://hexdocs.pm/elixir/master/Module.html
+
 *** =@impl=
 =@impl= notes that the function is a callback method
 https://elixir-lang.org/blog/2017/07/25/elixir-v1-5-0-released/
@@ -766,16 +767,27 @@ https://elixircasts.io/%40impl-attribute
 
 ** Testing
 https://elixirschool.com/en/lessons/basics/testing/
+
 *** ExUnit
 https://hexdocs.pm/ex_unit/1.12/ExUnit.html
+
 *** Doctests
 https://inquisitivedeveloper.com/lwm-elixir-66/
 https://elixir-lang.org/getting-started/mix-otp/docs-tests-and-with.html
+
 *** Mox
 https://elixirschool.com/en/lessons/testing/mox
 
 ** Agents
 https://elixir-lang.org/getting-started/mix-otp/agent.html
+
+** Documentation (ExDoc)
+https://github.com/elixir-lang/ex_doc
+#+begin_quote
+ExDoc is a tool to generate documentation for your Elixir projects.
+#+end_quote
+*** Cheatsheets
+https://hexdocs.pm/ex_doc/cheatsheet.html
 
 * Elixir Script
 Elixir can be used for scripting.

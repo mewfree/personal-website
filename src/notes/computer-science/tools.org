@@ -65,6 +65,12 @@ https://wasi.dev/
 The WebAssembly System Interface
 #+end_quote
 
+** Lunatic
+https://lunatic.solutions/
+#+begin_quote
+Lunatic is an Erlang-inspired runtime for WebAssembly
+#+end_quote
+
 * Pandoc
 https://pandoc.org/
 "If you need to convert files from one markup format into another, pandoc is your swiss-army knife."

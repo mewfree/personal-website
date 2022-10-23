@@ -609,6 +609,12 @@ https://github.com/babashka/neil
 A CLI to add common aliases and features to deps.edn-based projects.
 #+end_quote
 
+** Krell
+https://github.com/vouch-opensource/krell
+#+begin_quote
+Simple ClojureScript React Native Tooling
+#+end_quote
+
 * Resources
 ** Syntax
 - https://clojure.org/guides/learn/syntax

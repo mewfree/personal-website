@@ -443,7 +443,7 @@ http://www.howardism.org/Technical/Emacs/capturing-intro.html
 
 [[https://www.ianjones.us/own-your-second-brain]]
 
-* LateX
+* LaTeX
 https://orgmode.org/manual/Embedded-LaTeX.html
 
 Can use =$...$=, =$$..$$=, =\(...\)=, =\[...\]= as inline math delimiters.
@@ -462,6 +462,11 @@ More config: https://www.reddit.com/r/emacs/comments/9h44lk/i_can_finally_previe
 
 =l p= Export as LaTeX file and convert it to PDF file
 =l o= Export as LaTeX file and convert it to PDF, then open the PDF using the default viewer
+
+** Preview Formatting
+https://www.gnu.org/software/emacs/manual/html_node/org/Previewing-LaTeX-fragments.html
+
+Adjust =org-format-latex-options=, in particular =scale=
 
 * Plantuml
 https://plantuml.com/emacs

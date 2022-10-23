@@ -896,6 +896,8 @@ Set up a modern rust+react web app by running one command.
 - https://blog.logrocket.com/what-you-cant-do-in-rust-and-what-to-do-instead/
 - Written in Rust alternatives of other softwares: https://github.com/TaKO8Ki/awesome-alternatives-in-rust
 - Serde is a framework for serializing and deserializing Rust data structures efficiently and generically: https://serde.rs/
+- A lunatic web framework for the Rust language: https://github.com/lunatic-solutions/submillisecond
+- A Rust API search engine: https://roogle.hkmatsumoto.com/
 
 ** Book
 *** Zero to Production in Rust

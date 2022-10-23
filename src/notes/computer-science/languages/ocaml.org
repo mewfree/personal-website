@@ -1309,3 +1309,9 @@ https://github.com/kayceesrk/ocaml5-tutorial/
 
 ** OCaml Exercises
 https://ocaml.org/problems
+
+** Sherlocode
+https://sherlocode.com/
+#+begin_quote
+Realtime grep for OCaml sources available on opam
+#+end_quote

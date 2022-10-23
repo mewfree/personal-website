@@ -124,7 +124,7 @@ $$\sqrt{p(1-p)/n}$$
 **** Principles and Issues
 - =Risk Pooling= is the source of all value in insurance.
 - =Moral Hazard=: people knowing they're insured will take more risk. Dealt with partially by deductions and co-insurance.
-- =Selection Bias=: insurance company might not see all the risk parameters. Health insurance tends to attrack sick people.
+- =Selection Bias=: insurance company might not see all the risk parameters. Health insurance tends to attract sick people.
   Dealt with by group policies, by testing and referrals, and by mandatory government insurance.
 
 *** Insurance Milestones
@@ -253,7 +253,7 @@ CAPM asserts that all investors hold their optimal portfolio.
 *** Different Asset Classes
 **** Equity Premium
 US Geometric average stock market return from 1802 to 2012: 6.6%
-(adjusted for inflations)
+(adjusted for inflation)
 US Geometrics average short-term gov. return from 1802 to 2021: 2.7%
 
 Equity premium = 6.6%-2.7% = 3.9%
@@ -368,7 +368,7 @@ Random walk as approximate implication of unpredictability of returns.
 Similarity of both random walk and AR-1 to actual stock prices.
 
 *** Intuition of Efficiency
-Starting in the 19th centure, information technology started to develop.
+Starting in the 19th century, information technology started to develop.
 Man named Reuter who decided stocks markets needed up-to-date information.
 Started as carrier pigeons. Could send news from London to Paris. The route would take 4-6 hours.
 
@@ -427,7 +427,7 @@ People will often try to gamble out of losses.
 **** Overconfidence
 Most people think they're above average.
 Companies will hire CEOs from other companies to lead their companies, thinking they could reproduce the other company's success, but really it was all due to luck.
-People in business are overly influenced by the random successed of themselves or others.
+People in business are overly influenced by the random successes of themselves or others.
 
 **** Wishful thinking bias
 People overestimate the probability of the things that they identify with and want to see happen.
@@ -448,7 +448,7 @@ And some people would look at the stock market every day.
 "No arbitrage assumption". No "free money".
 
 **** Anchoring
-A tendancy in ambiguous situations to allow one's decisions to be affected by some anchor.
+A tendency in ambiguous situations to allow one's decisions to be affected by some anchor.
 
 Subjects are unaware of their own anchoring behaviour.
 Companies know that stock prices are anchored to past values.
@@ -490,7 +490,7 @@ Moral anchors for the market in the form of human stories.
 == sociopathy
 Identity: egocentric, self-esteem from personal gain.
 Self-direction: absence of prosocial internal standards.
-Lack of empthy, incapacity for intimacy.
+Lack of empathy, incapacity for intimacy.
 Manipulative, deceitful, callous, hostile.
 Irresponsible, impulsive, risk-taking.
 
@@ -660,7 +660,7 @@ Examples:
 - Berkshire Hathaway: A Class have voting rights (>$400,000 per share), B do not (NYSE-listed)
 - Facebook: Mark Zuckerberg owns 28% of the shares but 57% of the voting shares (2012)
 
-*** How Do Campanies Raise Money?
+*** How Do Companies Raise Money?
 Need money now to build a new factory, launch a new ad campaign and get profits later.
 How do you get that money? Four main ways:
 - *Retained earnings*: wait until you've made enough money, save it, then you can build your factory, but it's slow
@@ -751,14 +751,14 @@ A mortgage is slightly riskier, hence the slightly higher rate. Plus additional 
 *** Private Mortgage Insurance (PMI)
 Companies, such as MGIC, insurance Fannie & Freddie against losses on their mortgages.
 Both Fannie & Freddie require that mortgagors buy mortgage insurance if down payment is less than 20%.
-Controversy: with recent real estate price increases, LTV has declined below 80% for many homeowners still paying for mortage insurance.
+Controversy: with recent real estate price increases, LTV has declined below 80% for many homeowners still paying for mortgage insurance.
 The PMIs don't notify them.
 Looming failure of PMIs, PMI Group Inc. declared bankruptcy in 2011.
 
 *** Collateralized Mortgage Obligations (CMOs)
 A pool of mortgages sold to investors.
 CMOs divide the cash flow of a mortgage pass-through security into a number of tranches in terms of prepayment risk.
-Sequential-pay CMOs (first created in 1983): first tranche received first principal payments, after is is paid off the second tranch receives principal payments.
+Sequential-pay CMOs (first created in 1983): first tranche received first principal payments, after is is paid off the second tranche receives principal payments.
 Allows to get Triple A-rated investments out of mortgages.
 
 *** Collateralized Debt Obligations (CDOs)
@@ -783,7 +783,7 @@ Dodd-Frank copies this idea in the USA, but Qualifying Residential Mortgages (QR
 *** Limited Partnership
 Real estate partnership is an example of a direct participation program (DPP).
 For accredited investors only.
-DPPs are "flow-through vehicles", investors report earlings and losses on their personal taxes.
+DPPs are "flow-through vehicles", investors report earnings and losses on their personal taxes.
 Therefore, no corporate profits tax.
 
 General partner runs the business, no limited liability. Must own >1%.
@@ -933,7 +933,7 @@ Need to be easily available. Nowadays it's on the Internet, on SEC.gov's EDGAR.
 - FASB defines Generally Accepted Accounting Principles (GAAP), used for EDGAR.
 
 ***** Earnings Definitions
-- GAAP defines "Net Income" (bottom line) and "Operating Income" (revenue minust cost of doing business)
+- GAAP defines "Net Income" (bottom line) and "Operating Income" (revenue minus cost of doing business)
 - Operating Earnings, Core Earnings, Pro Forma Earnings, EBITDA and Adjusted Earnings are not GAAP
 - FASB is at work on developing new definitions, but this takes years
 - Great confusion today about earnings definition
@@ -949,7 +949,7 @@ Need to be easily available. Nowadays it's on the Internet, on SEC.gov's EDGAR.
 
 ***** Securities Investor Protection Corporation (SIPC)
 - To plan for such events in the future, SIPC was created by US Congress in 1970
-- Protects customers of brokerage firm or clearinhouse against failure up to $500k per account, $100k for cash
+- Protects customers of brokerage firm or clearinghouse against failure up to $500k per account, $100k for cash
 - SIPC is much criticized. Very defensive, pays more to the lawyers than to claimants.
 - Disallows claims that were not filed "promptly"
 - "Doesn't cover fraud claims" (SIPC website)
@@ -989,7 +989,7 @@ Need to be easily available. Nowadays it's on the Internet, on SEC.gov's EDGAR.
 Canada, France, Germany, Italy, Japan, United States, UK
 
 **** G20 Countries
-- G7 + Russia (G8) + Argentina, Australia, Brazil, China, European Union, India, Indonesia, Mexico, Saudi Arabia, South Africa, Soutk Korea, Turkey
+- G7 + Russia (G8) + Argentina, Australia, Brazil, China, European Union, India, Indonesia, Mexico, Saudi Arabia, South Africa, South Korea, Turkey
 - Founded in 2008
 - Met in Ankara in 2015
 
@@ -1009,8 +1009,8 @@ Spot market = market for immediate delivery.
 Forwards and futures market = contracts with future delivery.
 Different price with different delivery date.
 
-People usually don't really know about derivates markets.
-Therefore, there is a public distrust towards derivates markets.
+People usually don't really know about derivatives markets.
+Therefore, there is a public distrust towards derivatives markets.
 
 **** Forward Contract
 - A forward contract is a contract to deliver at a future date (exercise date or maturity date) at a specified exercise price
@@ -1123,12 +1123,12 @@ When oil is quoted, it's usually the nearest futures market price.
 
 ****** First Oil Crisis, 1973-4
 - Arab countries' retaliation for US support for Israel in the Yom-Kippur war of 1973
-- Trigerred sharp recession around the world
+- Triggered sharp recession around the world
 - 1973-4 is second sharpest stock market crash in the US history. S&P Composite lost 53% of its real value between Dec. 1972 and Dec. 1974 (only worse two-year experience was June 1930 to June 1932).
 
 ****** Second Oil Crisis, 1979-80
 - In 1979: Iranian revolution, expulsion of the Shah of Iran, Ayatollah, capture of US embassy hostages in Teheran in Nov. of 1979
-- Iran-Iraq war eruptos in 1980, disrupts oil supplies
+- Iran-Iraq war erupts in 1980, disrupts oil supplies
 - US CPI inflation reaches 18%/year in March 1980
 - The "great recession" of 1981-82 is the worst recession since Depression of the 1930s
 
@@ -1140,7 +1140,7 @@ When oil is quoted, it's usually the nearest futures market price.
 - Strategic Petroleum Reserve (created in 1975) in caverns in Louisiana and Texas - 572 million barrels, only 60 days supply. Not used to stabilize prices.
 - In 2000, President Clinton established a 2 million barrel heating oil reserve in New York and New Haven to help stabilize US heating oil prices. US consumption of heating oil is about 100 million barrels a year.
 - Today, heating oil reserve is in Groton, CT and Revere, MA
-- Goverment has sold from reserves on a number of occasions since 2000 when price triggers were hit
+- Government has sold from reserves on a number of occasions since 2000 when price triggers were hit
 
 ****** Persian Gulf War, 1990-91
 - On August 2, 1991, surprise invasion of Kuwait by Iraq
@@ -1162,7 +1162,7 @@ When oil is quoted, it's usually the nearest futures market price.
 - Fracking technology responded to the 2008 high oil prices with a lag
 
 ***** Stock Price Index Futures
-- Cash settlment rather than physical delivery
+- Cash settlement rather than physical delivery
 - Settlement is $250\times(\text{Index}_t-\text{Futures}_{t-1})$
 - Fair value:
   $F = P + P (r - y)$
@@ -1279,7 +1279,7 @@ Investment banks underwrite securities rather than make loans.
 - Underwriter also "certifies" the issue by putting its reputation behind the issue
 
 **** Two Basic Kinds of Offerings
-- Bought deals (or "Firm commitment offering"): the underwriter aggres to buy all shares that are not sold
+- Bought deals (or "Firm commitment offering"): the underwriter agrees to buy all shares that are not sold
 - Best efforts: the underwriter says that if the issue is not sold, deal collapses
 
 **** Underwriting Process
@@ -1352,7 +1352,7 @@ Typical household of 4 people is worth >$1M
 
 *** The Prudent Person
 **** Employment Retirees Income Security Act (ERISA, 1974)
-Fiduciaries must act with the care, skill, prudence and diligence under the circumstances then prevailing that a prudent man acting in a like capacity and familiar with such matters would use in the coonduct of an enterprise of a like character and with like aims
+Fiduciaries must act with the care, skill, prudence and diligence under the circumstances then prevailing that a prudent man acting in a like capacity and familiar with such matters would use in the conduct of an enterprise of a like character and with like aims
 **** Dodd-Frank Act (2010)
 Dodd-Frank never refers to the "prudent person" but does refer to "prudential standards" 34 times.
 The new idea is not to rely on fiduciaries to use their own judgment as to what is prudent, but to impose regulatory standards
@@ -1463,7 +1463,7 @@ Illegal in Canada, not in the US.
 - Chapter 11 - Reorganization
 - If a company messes up and is sued for damages, the government may pay the damages
 **** Personal Bankruptcy
-- Every individual is like a business with the government as a partial shareholder, because it allows you to take risks and then decalre personal bankruptcy if it goes badly
+- Every individual is like a business with the government as a partial shareholder, because it allows you to take risks and then declare personal bankruptcy if it goes badly
 - Lenders are like shareholders in your personal enterprise
 - "Government as risk manager of last resort" - David Moss
 
@@ -1482,7 +1482,7 @@ Illegal in Canada, not in the US.
 **** Origins of Social Insurance
 - German social thinkers in the 1870s: Lujo Brentano, Gustav Schmoller, Adolph Wagner
 - Otto von Bismarck's government: instituted sickness insurance in 1883, accident insurance in 1884, old-age insurance in 1889
-- Unemployment insurance in the UK by Lloyd Geroges in 1911
+- Unemployment insurance in the UK by Lloyd Georges in 1911
 
 **** Social (Governmental) Insurance
 - Progressive Taxes (US, 1913)
@@ -1511,7 +1511,7 @@ to compensate against job-related hazards
 *** Conclusion
 - Public finance shares many aspects of private finance and insurance
 - Finance is always about incentivization in a risky world, people have purposes and fear and they choose alternative financing methods to achieve them
-- First principle of this course: you should have pruposes beyond making money, beyond abstract finance
+- First principle of this course: you should have purposes beyond making money, beyond abstract finance
 
 ** Nonprofits, Cooperatives, Philanthropy
 *** Nonprofits
@@ -1529,16 +1529,16 @@ to compensate against job-related hazards
 6. Japan 10.0%
 7. France 8.9%
 8. Norway 8.2%
-9. Portgual 4.4%
+9. Portugal 4.4%
 10. Brazil 3.7%
 
 **** Nonprofits Give Bonuses Just as For-Profits
-- 42% of all nonprofits have a formal executive bonus system in palce and the percentage is increasing
+- 42% of all nonprofits have a formal executive bonus system in place and the percentage is increasing
 - Nonprofits have to compete with for-profits
 
 **** Why Set Up a Nonprofit?
-- It may not be much different to you than setting up a for prodit, and it gives you the moral high ground
-- Dean Karlan at Yale Innovations for Poverty Action founde in 2002. $25M income in 2010, staff of 500 people.
+- It may not be much different to you than setting up a for profit, and it gives you the moral high ground
+- Dean Karlan at Yale Innovations for Poverty Action founded in 2002. $25M income in 2010, staff of 500 people.
 
 **** Human Impulse to Hoard
 - Normal people like to accumulate, a sort of instinct
@@ -1553,7 +1553,7 @@ A business that may distribute profits.
 - First one created in Maryland, 2010
 - ~30 states have them now
 - Company charter must state a social or environmental purpose and is required to pursue that as well as profit
-- Halfway between for-prodit and non-profit
+- Halfway between for-profit and non-profit
 
 **** The Future of Philanthropy
 - As years go by, new financial forms will be developed
@@ -1582,7 +1582,7 @@ Allows you to get funding directly from the people / potential customers.
 **** There will be Wars & Chaos
 - There is no world government, supposing there never will be
 - Organizations like the UN, G20 nations are tenuous
-- Regulations represent a common consense and will survivor changes in government
+- Regulations represent a common consensus and will survivor changes in government
 
 **** Finance Survives Changes in Government, Religion
 - Example: WWI, German stocks, reparations
@@ -1618,7 +1618,7 @@ by Thomas Malthus (1766-1834)
 - Alternative theory: inequality is due to the unmanaged risks
 
 *** Your Career and Finance
-**** Desire for Perfect Careerr
+**** Desire for Perfect Career
 - Giving away 90% of your income now, when young, won't make you very helpful. Must launch out on a career where you make money first.
 - Gates Foundation, the largest transparently operated charitable foundation, endowment of $38B from Gate and Buffet
 

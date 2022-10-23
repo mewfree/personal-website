@@ -287,6 +287,8 @@ And towards the end, investments are made very carefully as it might impact bein
 - $100M fund, $2-3M for the GP to manage the fund
 - Other: 20% carried interest => 80/20 split of profits
 - $1B fund, LPs get $800M, GPs get $200M
+** "Everything I Wish I Had Known About Raising a Seed Round"
+https://blog.startupstash.com/everything-i-wish-i-had-known-about-raising-a-seed-round-a615f8f7740b
 
 * Product Management
 https://online.stanford.edu/courses/xprodmgt110-product-management-transforming-opportunities-great-products
