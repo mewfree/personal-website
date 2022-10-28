@@ -94,6 +94,9 @@ https://www.emacswiki.org/emacs/Mew
 * Calendar
 How to sync with Google Calendar?
 
+* TOTP
+https://www.masteringemacs.org/article/securely-generating-totp-tokens-emacs
+
 * Resources
 Glossary:
 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Glossary.html]]

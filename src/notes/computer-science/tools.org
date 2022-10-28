@@ -230,8 +230,9 @@ Recommended way to install is via =bazelisk=
 
 * Misc
 ** Beautiful images from code
-https://ray.so/
-https://carbon.now.sh/
+- https://ray.so/
+- https://carbon.now.sh/
+- GIF from Terminal: https://github.com/charmbracelet/vhs
 
 ** Pipedream
 https://pipedream.com/
