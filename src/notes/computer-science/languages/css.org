@@ -18,5 +18,8 @@ https://tailwindcss.com/docs/dark-mode
 https://daisyui.com/
 
 * Resources
-https://web.dev/learn/css/
-https://lexoral.com/blog/you-dont-need-js/
+- https://web.dev/learn/css/
+- https://lexoral.com/blog/you-dont-need-js/
+
+** px vs rem vs em
+https://carlmultimedia.com/px-vs-rem-vs-em/

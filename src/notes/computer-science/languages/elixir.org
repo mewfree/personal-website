@@ -247,6 +247,15 @@ Enum.filter([1, 2, 3, 4], fn(x) -> x > 2 end)
 #+RESULTS:
 : [3, 4]
 
+*** Reject
+The "inverse" of Filter
+#+begin_src elixir
+Enum.reject([1, 2, 3, 4], fn(x) -> x > 2 end)
+#+end_src
+
+#+RESULTS:
+: [1, 2]
+
 *** Sort
 #+begin_src elixir
 Enum.sort([4, 2, 3, 1])

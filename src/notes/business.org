@@ -56,8 +56,10 @@ Open-Source Subscription Billing & Payments Platform
 https://en.wikipedia.org/wiki/BLUF_(communication)
 *** Better writing
 https://twitter.com/SahilBloom/status/1459531954446024712
-
+*** Language Tool
 https://languagetool.org/
+*** How to communicate effectively as a developer
+https://www.karlsutt.com/articles/communicating-effectively-as-a-developer/
 ** Team Communication
 *** Zulip
 Chat for distributed teams (Slack alternative)

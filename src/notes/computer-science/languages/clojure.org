@@ -537,6 +537,18 @@ https://github.com/clj-commons/secretary
 A client-side router for ClojureScript
 #+end_quote
 
+*** Cherry
+https://github.com/squint-cljs/cherry
+#+begin_quote
+Experimental ClojureScript to ES6 module compiler
+#+end_quote
+
+*** Squint
+https://github.com/squint-cljs/squint
+#+begin_quote
+ClojureScript syntax to JavaScript compiler
+#+end_quote
+
 ** Resources
 https://cljs.info/cheatsheet/
 *** ClojureScript for React Developer

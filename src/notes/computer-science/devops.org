@@ -76,6 +76,14 @@ Free and Open Source PaaS!
 https://render.com/
 The fastest way to host all your web apps.
 
+** Firebase-like
+*** nhost.io
+https://nhost.io/
+
+#+begin_quote
+The Open Source Firebase Alternative with GraphQL
+#+end_quote
+
 * Docker
 ** Docker Compose
 https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
