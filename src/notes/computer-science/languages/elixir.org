@@ -70,6 +70,14 @@ String.split("header1,header2,header3", ",")
 #+RESULTS:
 : ["header1", "header2", "header3"]
 
+**** Parts
+#+begin_src elixir
+String.split("header1,header2,header3", ",", parts: 2)
+#+end_src
+
+#+RESULTS:
+: ["header1", "header2,header3"]
+
 *** Ends With?
 #+begin_src elixir
 String.ends_with?("bonjour", "jour")
@@ -105,6 +113,72 @@ s |> String.replace("T", " ")
 
 #+RESULTS:
 : "2021-10-28 08:55:01"
+
+*** Contains?
+#+begin_src elixir
+String.contains?("key=value", "=")
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+String.contains?("key=value", "x")
+#+end_src
+
+#+RESULTS:
+: false
+
+#+begin_src elixir
+String.contains?("key=value", ["key", "value"])
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+String.contains?("key=value", ["key", "xyz"])
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src elixir
+String.contains?("key=value", ["abc", "xyz"])
+#+end_src
+
+#+RESULTS:
+: false
+
+** Tuples
+Tuples:
+- can hold any value
+- store elements contiguously in memory
+#+begin_src elixir :results silent
+{:ok, "hello"}
+#+end_src
+
+#+begin_src elixir
+tuple_size {:ok, "hello"}
+#+end_src
+
+#+RESULTS:
+: 2
+
+0-indexed
+#+begin_src elixir
+elem({:ok, "hello"}, 1)
+#+end_src
+
+#+RESULTS:
+: "hello"
+
+#+begin_src elixir
+put_elem({:ok, "hello"}, 1, "world")
+#+end_src
+
+#+RESULTS:
+: {:ok, "world"}
 
 ** Lists / Enums
 *** Access element by index

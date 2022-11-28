@@ -18,6 +18,7 @@
 ** [[file:notes/philosophy.org][Philosophy]]
 ** [[file:notes/psychology.org][Psychology]]
 ** [[file:notes/game-theory.org][Game Theory]]
+** [[file:notes/biology.org][Biology]]
 
 * Personal Interests
 ** 2021

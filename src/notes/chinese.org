@@ -73,8 +73,13 @@ https://www.reddit.com/r/ChineseLanguage/comments/dkbzji/apps_for_learning_zhuyi
 https://www.dong-chinese.com/learn/sounds/zhuyin/lesson_1
 
 * Vocabulary
-chule -> except
-qingwen -> excuse me
+** Food
+*** Dishes
+火雞肉飯 (ㄏㄨㄛˇ ㄐㄧ ㄖㄡˋ ㄈㄢˋ huǒ jīròu fàn) - turkey rice
+** Grammar
+除了 (ㄔㄨˊ ㄌㄧㄠˇ chú le) - except
+** Interjections
+請問 (ㄑㄧㄥˇ ㄨㄣˋ qǐng wèn) - excuse me (to ask a question)
 
 * Notes
 - How to learn more?

@@ -1268,6 +1268,12 @@ https://medium.com/@bobbypriambodo/interfacing-ocaml-and-postgresql-with-caqti-a
 
 https://ceramichacker.com/blog/28-2x-backend-webdev-w-dream-and-caqti
 
+** irmin
+https://irmin.org/
+#+begin_quote
+A distributed database built on the same principles as Git
+#+end_quote
+
 ** Opium
 https://github.com/rgrinberg/opium
 #+begin_quote
@@ -1279,6 +1285,12 @@ Sinatra like web toolkit for OCaml
 https://github.com/tmattio/spin
 #+begin_quote
 OCaml project generator.
+#+end_quote
+
+** Melange
+https://github.com/melange-re/melange
+#+begin_quote
+A mixture of tooling combined to produce JavaScript from OCaml & Reason
 #+end_quote
 
 * Resources
