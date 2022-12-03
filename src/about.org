@@ -10,8 +10,8 @@
 
 * Personal stack
 ** Hardware
-- 🐧 ThinkPad X1 Nano
 - 💻 M1 MacBook Pro
+- 🐧 ThinkPad X1 Nano
 - 📱 OnePlus 9 Pro
 - 📖 Hisense Hi Reader
 - ⌨️ HHKB Pro 2
@@ -19,16 +19,16 @@
 ** Software
 - ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (with evil-mode)
 - 🧠 [[file:notes/computer-science/tools/text-editors/emacs/org-mode][org-mode]] (this page is built using [[file:notes/computer-science/tools/text-editors/emacs/org-mode][org-mode]]!)
+- 🐱 [[https://sw.kovidgoyal.net/kitty/][kitty]]
 - 🧑‍🌾 [[file:notes/computer-science/tools/tmux][tmux]]
 - ⚙️ [[file:notes/computer-science/tools/terminal#zsh][zsh]]
 
 ** Languages
 - 💎 [[file:notes/computer-science/languages/ruby.org][Ruby]]
+- 🔬 [[file:notes/computer-science/languages/julia.org][Julia]]
 - 🧙 [[file:notes/computer-science/languages/elixir.org][Elixir]]
 - 🍃 [[file:notes/computer-science/languages/clojure.org][Clojure]]
 - 🐫 [[file:notes/computer-science/languages/ocaml.org][OCaml]]
-- 🔬 [[file:notes/computer-science/languages/julia.org][Julia]]
-- ‍👨‍🔬 [[file:notes/computer-science/languages/haskell.org][Haskell]]
 
 * Random
 #+begin_src julia-vterm :exports results
