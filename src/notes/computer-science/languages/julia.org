@@ -691,6 +691,17 @@ sort([1, 2, 3], rev = true)
 #+RESULTS:
 : [3, 2, 1]
 
+**** Partial sort
+#+begin_src julia-vterm
+partialsortperm([1, 2, 3, 4, 5, 6], 1:3, rev = true)
+#+end_src
+
+#+RESULTS:
+: 3-element view(::Vector{Int64}, 1:3) with eltype Int64:
+:  6
+:  5
+:  4
+
 *** Destructuring
 #+begin_src julia-vterm
 a, b, c = [1, 2, 3]

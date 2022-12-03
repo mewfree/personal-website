@@ -1,0 +1,11 @@
+#+title: Biology
+
+[[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Biology
+
+* Resources
+** Molecular Biology of the Cell
+https://www.ncbi.nlm.nih.gov/books/NBK21054/
+** Introduction to Genomics for Engineers
+https://learngenomics.dev/
+** The Biostar Handbook
+https://www.biostarhandbook.com/

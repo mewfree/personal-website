@@ -99,6 +99,7 @@ Create your own AI video.
 - Mailchimp
 - Convertkit
 - MailerLite
+- https://emailoctopus.com/
 
 ** Tracking
 *** Jitsu
