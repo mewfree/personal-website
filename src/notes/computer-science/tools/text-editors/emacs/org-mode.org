@@ -321,6 +321,9 @@ https://orgmode.org/manual/Extracting-Source-Code.html
 Insert =:tangle yes= in the header arguments. You may need to =C-c C-c= that line to update the file settings.
 Press =C-c C-v t= to "tangle" the file (extract source code from =.org= file).
 
+To tangle every code block in a file, place this in the document headers:
+=#+property: header-args :tangle {filename}=
+
 ** Reference Other Code Blocks
 https://orgmode.org/manual/Noweb-Reference-Syntax.html
 Source code blocks can include references to other source code blocks, using a noweb style syntax:

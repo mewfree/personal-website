@@ -12,220 +12,133 @@ httpsdocsjulialangorgenv1baseionetworkBaseprintstyled
 
 Importing
 
-using HTTP to import packa..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Julia</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Julia</p><h2 id="base">Base</h2><p><a href="https://docs.julialang.org/en/v1/base/base/">https://docs.julialang.org/en/v1/base/base/</a> Fast and computation oriented</p><h3 id="logging">Logging</h3><p>Log: <code class="verbatim">println()</code> Pretty log: <code class="verbatim">display()</code> Log with colours: <code class="verbatim">printstyled()</code> <a href="https://docs.julialang.org/en/v1/base/io-network/#Base.printstyled">https://docs.julialang.org/en/v1/base/io-network/#Base.printstyled</a></p><h3 id="importing">Importing</h3><p><code class="verbatim">using HTTP</code> to import packages though <code class="verbatim">import HTTP</code> works too</p><h3 id="keywords">Keywords</h3><h4 id="section">…</h4><p><code class="verbatim">...</code> "splat" operator represents a sequence of arguments</p><pre class="julia-vterm" data-session="add" data-exports="both"><code>add(xs...) = reduce(+, xs)
-
-add(1, 2, 3)
-</code></pre><pre class="example"><code>6
-</code></pre><pre class="julia-vterm" data-session="add" data-exports="both"><code>add([1, 2, 3]...)
-</code></pre><pre class="example"><code>6
-</code></pre><h4 id="section-1">;</h4><p><code class="verbatim">;</code> is used to separate statements that are on the same line</p><pre class="julia-vterm" data-exports="both"><code>a = 1; b = 2; a + b
-</code></pre><pre class="example"><code>3
-</code></pre><h3 id="org-babel">org-babel</h3><p><a href="https://github.com/shg/ob-julia-vterm.el">https://github.com/shg/ob-julia-vterm.el</a> to use :results output, <code class="verbatim">Suppressor.jl</code> needs to be installed in Julia environment</p><h2 id="repl">REPL</h2><ul><li><code class="verbatim">ans</code> returns previous result</li><li><code class="verbatim">;</code> activates shell mode</li><li><code class="verbatim">?</code> activates help mode, type <code class="verbatim">function</code> to pull up docstring of function, type <code class="verbatim">"function"</code> for search</li><li><code class="verbatim">]</code> activates Package mode</li><li>use an <code class="verbatim">_</code> to separate digits (example: <code class="verbatim">1_000</code>)</li></ul><h2 id="variables">Variables</h2><p>Convention: snake case (<code class="verbatim">long_variable_name</code>) is typically used</p><pre class="julia-vterm" data-exports="both"><code>x = 1
-</code></pre><pre class="example"><code>1
-</code></pre><h3 id="constant">Constant</h3><p>Constant variables can be defined with <code class="verbatim">const</code></p><pre class="julia-vterm" data-results="none" data-exports="both"><code>const x = 2
-</code></pre><h2 id="primitive-types">Primitive Types</h2><h3 id="booleans">Booleans</h3><p><code class="verbatim">true</code> / <code class="verbatim">false</code></p><pre class="julia-vterm" data-exports="both"><code>true
-</code></pre><pre class="example"><code>true
-</code></pre><pre class="julia-vterm" data-exports="both"><code>false
-</code></pre><pre class="example"><code>false
-</code></pre><h3 id="integers">Integers</h3><p><code class="verbatim">Int</code> or <code class="verbatim">UInt</code> for unsigned (positive integers only) Comes in <code class="verbatim">Int8</code>, <code class="verbatim">Int16</code>, <code class="verbatim">Int32</code>, <code class="verbatim">Int64</code> and <code class="verbatim">Int128</code> sizes Julia will default to the processor's size (32/64-Bit) by default if not specified</p><h3 id="floats-decimals">Floats (decimals)</h3><p><code class="verbatim">Float16</code>, <code class="verbatim">Float32</code>, <code class="verbatim">Float64</code></p><h3 id="complex-numbers">Complex Numbers</h3><pre class="julia-vterm" data-exports="both"><code>n = 1 + 2im
-n + 1
-</code></pre><pre class="example"><code>2 + 2im
-</code></pre><h3 id="rational-numbers">Rational Numbers</h3><pre class="julia-vterm" data-exports="both"><code>1 // 3 + 1 // 3
-</code></pre><pre class="example"><code>2//3
-</code></pre><h3 id="strings">Strings</h3><p>Double quotes for strings:</p><pre class="julia-vterm" data-exports="both"><code>&quot;Damien&quot;
-</code></pre><pre class="example"><code>Damien
-</code></pre><h3 id="characters">Characters</h3><p>Single quotes (apostrophes) for single char:</p><pre class="julia-vterm" data-exports="both"><code>&#39;d&#39;
-</code></pre><pre class="example"><code>d
-</code></pre><h2 id="numbers">Numbers</h2><pre class="julia-vterm" data-exports="both"><code>1 + 1
-</code></pre><pre class="example"><code>2
-</code></pre><h3 id="parsing">Parsing</h3><p>Parse integer from strings</p><pre class="julia-vterm" data-exports="both"><code>parse(Int64, &quot;1337&quot;)
-</code></pre><pre class="example"><code>1337
-</code></pre><p>Parse float from strings</p><pre class="julia-vterm" data-exports="both"><code>parse(Float64, &quot;13.37&quot;)
-</code></pre><pre class="example"><code>13.37
-</code></pre><h3 id="ranges">Ranges</h3><pre class="julia-vterm" data-exports="both"><code>collect(1:10)
-</code></pre><pre class="example"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-</code></pre><h3 id="min-max">Min / Max</h3><h4 id="min">Min</h4><p><code class="verbatim">min()</code> returns the minimum from any number of arguments</p><pre class="julia-vterm" data-exports="both"><code>min(2, 3)
-</code></pre><pre class="example"><code>2
-</code></pre><pre class="julia-vterm" data-exports="both"><code>min(2, 3, 4)
-</code></pre><pre class="example"><code>2
-</code></pre><p>Or using the <code class="verbatim">splat</code> operator, to expand an array to the arguments:</p><pre class="julia-vterm" data-exports="both"><code>min([2, 3, 4]...)
-</code></pre><pre class="example"><code>2
-</code></pre><p>More efficient way and avoiding the splat operator using <code class="verbatim">minimum()</code>:</p><pre class="julia-vterm" data-exports="both"><code>minimum([2, 3, 4])
-</code></pre><pre class="example"><code>2
-</code></pre><h4 id="max">Max</h4><p>Similar for <code class="verbatim">max()</code> and <code class="verbatim">maximum()</code>:</p><pre class="julia-vterm" data-exports="both"><code>max(2, 3, 4)
-</code></pre><pre class="example"><code>4
-</code></pre><pre class="julia-vterm" data-exports="both"><code>maximum([2, 3, 4])
-</code></pre><pre class="example"><code>4
-</code></pre><h4 id="extrema">Extrema</h4><p>A useful function is <code class="verbatim">extrema()</code> that returns a tuple with the min and max</p><pre class="julia-vterm" data-exports="both"><code>extrema([2, 3, 4])
-</code></pre><pre class="example"><code>(2, 4)
-</code></pre><pre class="julia-vterm" data-exports="both"><code>extrema(1:99)
-</code></pre><pre class="example"><code>(1, 99)
-</code></pre><h2 id="strings-1">Strings</h2><p><a href="https://docs.julialang.org/en/v1/base/strings/">https://docs.julialang.org/en/v1/base/strings/</a> Double quotes are always used for strings, single quotes are used for chars</p><h3 id="concatenation">Concatenation</h3><pre class="julia-vterm" data-exports="both"><code>name = &quot;Damien&quot;
-string(&quot;My name is &quot;, name)
-</code></pre><pre class="example"><code>My name is Damien
-</code></pre><pre class="julia-vterm" data-exports="both"><code>name = &quot;Damien&quot;
-&quot;My name is &quot; * name
-</code></pre><pre class="example"><code>My name is Damien
-</code></pre><h3 id="interpolation">Interpolation</h3><pre class="julia-vterm" data-exports="both"><code>name = &quot;Damien&quot;
-&quot;My name is $name&quot;
-</code></pre><pre class="example"><code>My name is Damien
-</code></pre><pre class="julia-vterm" data-exports="both"><code>&quot;1 + 1 = $(1 + 1)&quot;
-</code></pre><pre class="example"><code>1 + 1 = 2
+using HTTP to import packa..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Julia</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Julia</p><h2 id="base">Base</h2><p><a href="https://docs.julialang.org/en/v1/base/base/">https://docs.julialang.org/en/v1/base/base/</a> Fast and computation oriented</p><h3 id="logging">Logging</h3><p>Log: <code class="verbatim">println()</code> Pretty log: <code class="verbatim">display()</code> Log with colours: <code class="verbatim">printstyled()</code> <a href="https://docs.julialang.org/en/v1/base/io-network/#Base.printstyled">https://docs.julialang.org/en/v1/base/io-network/#Base.printstyled</a></p><h3 id="importing">Importing</h3><p><code class="verbatim">using HTTP</code> to import packages though <code class="verbatim">import HTTP</code> works too</p><h3 id="keywords">Keywords</h3><h4 id="section">…</h4><p><code class="verbatim">...</code> "splat" operator represents a sequence of arguments</p><div class="sourceCode" id="cb1" data-session="add" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(xs<span class="op">...</span>) <span class="op">=</span> <span class="fu">reduce</span>(<span class="op">+</span>, xs)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>)</span></code></pre></div><pre class="example"><code>6
+</code></pre><div class="sourceCode" id="cb3" data-session="add" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>]<span class="op">...</span>)</span></code></pre></div><pre class="example"><code>6
+</code></pre><h4 id="section-1">;</h4><p><code class="verbatim">;</code> is used to separate statements that are on the same line</p><div class="sourceCode" id="cb5" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">1</span>; b <span class="op">=</span> <span class="fl">2</span>; a <span class="op">+</span> b</span></code></pre></div><pre class="example"><code>3
+</code></pre><h3 id="org-babel">org-babel</h3><p><a href="https://github.com/shg/ob-julia-vterm.el">https://github.com/shg/ob-julia-vterm.el</a> to use :results output, <code class="verbatim">Suppressor.jl</code> needs to be installed in Julia environment</p><h2 id="repl">REPL</h2><ul><li><code class="verbatim">ans</code> returns previous result</li><li><code class="verbatim">;</code> activates shell mode</li><li><code class="verbatim">?</code> activates help mode, type <code class="verbatim">function</code> to pull up docstring of function, type <code class="verbatim">"function"</code> for search</li><li><code class="verbatim">]</code> activates Package mode</li><li>use an <code class="verbatim">_</code> to separate digits (example: <code class="verbatim">1_000</code>)</li></ul><h2 id="variables">Variables</h2><p>Convention: snake case (<code class="verbatim">long_variable_name</code>) is typically used</p><div class="sourceCode" id="cb7" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1</span></span></code></pre></div><pre class="example"><code>1
+</code></pre><h3 id="constant">Constant</h3><p>Constant variables can be defined with <code class="verbatim">const</code></p><div class="sourceCode" id="cb9" data-results="none" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="fl">2</span></span></code></pre></div><h2 id="primitive-types">Primitive Types</h2><h3 id="booleans">Booleans</h3><p><code class="verbatim">true</code> / <code class="verbatim">false</code></p><div class="sourceCode" id="cb10" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cn">true</span></span></code></pre></div><pre class="example"><code>true
+</code></pre><div class="sourceCode" id="cb12" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cn">false</span></span></code></pre></div><pre class="example"><code>false
+</code></pre><h3 id="integers">Integers</h3><p><code class="verbatim">Int</code> or <code class="verbatim">UInt</code> for unsigned (positive integers only) Comes in <code class="verbatim">Int8</code>, <code class="verbatim">Int16</code>, <code class="verbatim">Int32</code>, <code class="verbatim">Int64</code> and <code class="verbatim">Int128</code> sizes Julia will default to the processor's size (32/64-Bit) by default if not specified</p><h3 id="floats-decimals">Floats (decimals)</h3><p><code class="verbatim">Float16</code>, <code class="verbatim">Float32</code>, <code class="verbatim">Float64</code></p><h3 id="complex-numbers">Complex Numbers</h3><div class="sourceCode" id="cb14" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2im</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">+</span> <span class="fl">1</span></span></code></pre></div><pre class="example"><code>2 + 2im
+</code></pre><h3 id="rational-numbers">Rational Numbers</h3><div class="sourceCode" id="cb16" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1</span> <span class="op">//</span> <span class="fl">3</span> <span class="op">+</span> <span class="fl">1</span> <span class="op">//</span> <span class="fl">3</span></span></code></pre></div><pre class="example"><code>2//3
+</code></pre><h3 id="strings">Strings</h3><p>Double quotes for strings:</p><div class="sourceCode" id="cb18" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Damien&quot;</span></span></code></pre></div><pre class="example"><code>Damien
+</code></pre><h3 id="characters">Characters</h3><p>Single quotes (apostrophes) for single char:</p><div class="sourceCode" id="cb20" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ch">&#39;d&#39;</span></span></code></pre></div><pre class="example"><code>d
+</code></pre><h2 id="numbers">Numbers</h2><div class="sourceCode" id="cb22" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div><pre class="example"><code>2
+</code></pre><h3 id="parsing">Parsing</h3><p>Parse integer from strings</p><div class="sourceCode" id="cb24" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse</span>(<span class="dt">Int64</span>, <span class="st">&quot;1337&quot;</span>)</span></code></pre></div><pre class="example"><code>1337
+</code></pre><p>Parse float from strings</p><div class="sourceCode" id="cb26" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse</span>(<span class="dt">Float64</span>, <span class="st">&quot;13.37&quot;</span>)</span></code></pre></div><pre class="example"><code>13.37
+</code></pre><h3 id="ranges">Ranges</h3><div class="sourceCode" id="cb28" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">10</span>)</span></code></pre></div><pre class="example"><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre><h3 id="min-max">Min / Max</h3><h4 id="min">Min</h4><p><code class="verbatim">min()</code> returns the minimum from any number of arguments</p><div class="sourceCode" id="cb30" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(<span class="fl">2</span>, <span class="fl">3</span>)</span></code></pre></div><pre class="example"><code>2
+</code></pre><div class="sourceCode" id="cb32" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>)</span></code></pre></div><pre class="example"><code>2
+</code></pre><p>Or using the <code class="verbatim">splat</code> operator, to expand an array to the arguments:</p><div class="sourceCode" id="cb34" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>([<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>]<span class="op">...</span>)</span></code></pre></div><pre class="example"><code>2
+</code></pre><p>More efficient way and avoiding the splat operator using <code class="verbatim">minimum()</code>:</p><div class="sourceCode" id="cb36" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">minimum</span>([<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>])</span></code></pre></div><pre class="example"><code>2
+</code></pre><h4 id="max">Max</h4><p>Similar for <code class="verbatim">max()</code> and <code class="verbatim">maximum()</code>:</p><div class="sourceCode" id="cb38" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>)</span></code></pre></div><pre class="example"><code>4
+</code></pre><div class="sourceCode" id="cb40" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">maximum</span>([<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>])</span></code></pre></div><pre class="example"><code>4
+</code></pre><h4 id="extrema">Extrema</h4><p>A useful function is <code class="verbatim">extrema()</code> that returns a tuple with the min and max</p><div class="sourceCode" id="cb42" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extrema</span>([<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>])</span></code></pre></div><pre class="example"><code>(2, 4)
+</code></pre><div class="sourceCode" id="cb44" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extrema</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>)</span></code></pre></div><pre class="example"><code>(1, 99)
+</code></pre><h2 id="strings-1">Strings</h2><p><a href="https://docs.julialang.org/en/v1/base/strings/">https://docs.julialang.org/en/v1/base/strings/</a> Double quotes are always used for strings, single quotes are used for chars</p><h3 id="concatenation">Concatenation</h3><div class="sourceCode" id="cb46" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Damien&quot;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">string</span>(<span class="st">&quot;My name is &quot;</span>, name)</span></code></pre></div><pre class="example"><code>My name is Damien
+</code></pre><div class="sourceCode" id="cb48" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Damien&quot;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;My name is &quot;</span> <span class="op">*</span> name</span></code></pre></div><pre class="example"><code>My name is Damien
+</code></pre><h3 id="interpolation">Interpolation</h3><div class="sourceCode" id="cb50" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;Damien&quot;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;My name is </span><span class="sc">$</span>name<span class="st">&quot;</span></span></code></pre></div><pre class="example"><code>My name is Damien
+</code></pre><div class="sourceCode" id="cb52" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;1 + 1 = </span><span class="sc">$</span>(<span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>)<span class="st">&quot;</span></span></code></pre></div><pre class="example"><code>1 + 1 = 2
 </code></pre><h3 id="split">Split</h3><div class="sourceCode" id="cb54" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split</span>(<span class="st">&quot;x,y,z&quot;</span>, <span class="st">&quot;,&quot;</span>)</span></code></pre></div><pre class="example"><code>SubString{String}[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;]
-</code></pre><h3 id="join">Join</h3><pre class="julia-vterm" data-exports="both"><code>join([&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;\n&quot;)
-</code></pre><pre class="example"><code>x
+</code></pre><h3 id="join">Join</h3><div class="sourceCode" id="cb56" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">join</span>([<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>], <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div><pre class="example"><code>x
 y
 z
-</code></pre><h3 id="starts-with">Starts With</h3><pre class="julia-vterm" data-exports="both"><code>startswith(&quot;bonjour&quot;, &quot;bon&quot;)
-</code></pre><pre class="example"><code>true
-</code></pre><h3 id="ends-with">Ends With</h3><pre class="julia-vterm" data-exports="both"><code>endswith(&quot;bonjour&quot;, &quot;soir&quot;)
-</code></pre><pre class="example"><code>false
-</code></pre><h3 id="contains">Contains</h3><pre class="julia-vterm" data-exports="both"><code>contains(&quot;hello&quot;, &quot;x&quot;)
-</code></pre><pre class="example"><code>false
-</code></pre><h3 id="strip">Strip</h3><p>Remove leading and trailing characters from <code class="verbatim">str</code> (by default whitespace characters)</p><pre class="julia-vterm" data-exports="both"><code>strip(&quot;     hello&quot;)
-</code></pre><pre class="example"><code>hello
-</code></pre><p>Can remove a specific character</p><pre class="julia-vterm" data-exports="both"><code>strip(&quot;hello!&quot;, &#39;!&#39;)
-</code></pre><pre class="example"><code>hello
-</code></pre><p>Or a vector of characters</p><pre class="julia-vterm" data-exports="both"><code>strip(&quot;: hello!&quot;, [&#39;:&#39;, &#39; &#39;, &#39;!&#39;])
-</code></pre><pre class="example"><code>hello
-</code></pre><h3 id="chomp">Chomp</h3><p>Removes trailing newline</p><pre class="julia-vterm" data-exports="both"><code>chomp(&quot;hello\nworld\n&quot;)
-</code></pre><pre class="example"><code>hello
+</code></pre><h3 id="starts-with">Starts With</h3><div class="sourceCode" id="cb58" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">startswith</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;bon&quot;</span>)</span></code></pre></div><pre class="example"><code>true
+</code></pre><h3 id="ends-with">Ends With</h3><div class="sourceCode" id="cb60" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">endswith</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;soir&quot;</span>)</span></code></pre></div><pre class="example"><code>false
+</code></pre><h3 id="contains">Contains</h3><div class="sourceCode" id="cb62" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contains</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;x&quot;</span>)</span></code></pre></div><pre class="example"><code>false
+</code></pre><h3 id="strip">Strip</h3><p>Remove leading and trailing characters from <code class="verbatim">str</code> (by default whitespace characters)</p><div class="sourceCode" id="cb64" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strip</span>(<span class="st">&quot;     hello&quot;</span>)</span></code></pre></div><pre class="example"><code>hello
+</code></pre><p>Can remove a specific character</p><div class="sourceCode" id="cb66" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strip</span>(<span class="st">&quot;hello!&quot;</span>, <span class="ch">&#39;!&#39;</span>)</span></code></pre></div><pre class="example"><code>hello
+</code></pre><p>Or a vector of characters</p><div class="sourceCode" id="cb68" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strip</span>(<span class="st">&quot;: hello!&quot;</span>, [<span class="ch">&#39;:&#39;</span>, <span class="ch">&#39; &#39;</span>, <span class="ch">&#39;!&#39;</span>])</span></code></pre></div><pre class="example"><code>hello
+</code></pre><h3 id="chomp">Chomp</h3><p>Removes trailing newline</p><div class="sourceCode" id="cb70" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chomp</span>(<span class="st">&quot;hello</span><span class="sc">\n</span><span class="st">world</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div><pre class="example"><code>hello
 world
-</code></pre><h3 id="regex-match">Regex Match</h3><pre class="julia-vterm" data-exports="both"><code>match(r&quot;value = (.*)&quot;, &quot;value = 1337&quot;)
-</code></pre><pre class="example"><code>RegexMatch(&quot;value = 1337&quot;, 1=&quot;1337&quot;)
-</code></pre><pre class="julia-vterm" data-exports="both"><code>match(r&quot;value = (.*)&quot;, &quot;value = 1337&quot;).captures
-</code></pre><pre class="example"><code>Union{Nothing, SubString{String}}[&quot;1337&quot;]
-</code></pre><pre class="julia-vterm" data-exports="both"><code>match(r&quot;value = (.*)&quot;, &quot;value = 1337&quot;).captures |&gt; first
-</code></pre><pre class="example"><code>1337
-</code></pre><h3 id="find">Find</h3><h4 id="find-first">Find First</h4><pre class="julia-vterm" data-exports="both"><code>findfirst(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;)
-</code></pre><pre class="example"><code>8:12
-</code></pre><h4 id="find-last">Find Last</h4><pre class="julia-vterm" data-exports="both"><code>findlast(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;)
-</code></pre><pre class="example"><code>18:22
-</code></pre><h4 id="find-next">Find Next</h4><pre class="julia-vterm" data-exports="both"><code>findnext(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;, 1)
-</code></pre><pre class="example"><code>8:12
-</code></pre><pre class="julia-vterm" data-exports="both"><code>findnext(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;, 9)
-</code></pre><pre class="example"><code>18:22
-</code></pre><h4 id="find-prev">Find Prev</h4><pre class="julia-vterm" data-exports="both"><code>findprev(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;, 1)
-</code></pre><pre class="example"><code>nothing
-</code></pre><pre class="julia-vterm" data-exports="both"><code>findprev(&quot;Julia&quot;, &quot;I love Julia but Julia doesn&#39;t love me&quot;, 17)
-</code></pre><pre class="example"><code>8:12
-</code></pre><h3 id="replace">Replace</h3><pre class="julia-vterm" data-exports="both"><code>replace(&quot;hello NAME&quot;, &quot;NAME&quot; =&gt; &quot;Damien&quot;)
-</code></pre><pre class="example"><code>hello Damien
-</code></pre><h2 id="data-structures">Data Structures</h2><p><code class="verbatim">Vector</code> is a 1-dimensional array, <code class="verbatim">Matrix</code> a 2-dimensional array</p><h3 id="tuples">Tuples</h3><p>Immutable, ordered, fixed-length</p><pre class="julia-vterm" data-exports="both"><code>(1, 2)
-</code></pre><pre class="example"><code>(1, 2)
-</code></pre><pre class="julia-vterm" data-exports="both"><code>t = (9, 10)
-t[1]
-</code></pre><pre class="example"><code>9
-</code></pre><h4 id="named-tuples">Named Tuples</h4><pre class="julia-vterm" data-session="route" data-exports="both"><code>route = (origin = &quot;Montreal&quot;, destination = &quot;Toronto&quot;)
-route.origin
-</code></pre><pre class="example"><code>Montreal
-</code></pre><pre class="julia-vterm" data-session="route" data-exports="both"><code>route[:origin]
-</code></pre><pre class="example"><code>Montreal
-</code></pre><pre class="julia-vterm" data-session="route" data-exports="both"><code>(; origin, destination) = route
-origin
-</code></pre><pre class="example"><code>Montreal
-</code></pre><h3 id="arrays">Arrays</h3><pre class="julia-vterm" data-exports="both"><code>[1, 2, 3]
-</code></pre><pre class="example"><code>[1, 2, 3]
-</code></pre><h4 id="matrix">Matrix</h4><pre class="julia-vterm" data-exports="both"><code>[1 2 3; 4 5 6]
-</code></pre><pre class="example"><code>[1 2 3; 4 5 6]
-</code></pre><h5 id="horizontal-concatenation">Horizontal Concatenation</h5><pre class="julia-vterm" data-exports="both"><code>hcat([1, 2, 3], [4, 5, 6])
-</code></pre><pre class="example"><code>[1 4; 2 5; 3 6]
-</code></pre><pre class="julia-vterm" data-exports="both"><code>a1 = [1, 2, 3]
-a2 = [4, 5, 6]
-[a1 a2]
-</code></pre><pre class="example"><code>[1 4; 2 5; 3 6]
-</code></pre><h4 id="push-pop-append">Push / Pop / Append</h4><pre class="julia-vterm" data-exports="both"><code>array = []
-
-# pushing an element to an array
-push!(array, &quot;element&quot;)
-
-# remove last element from array
-pop!(array)
-
-# appending another array to an array
-append!(array, [1, 2, 3])
-</code></pre><pre class="example"><code>Any[1, 2, 3]
-</code></pre><h4 id="length-size">Length / Size</h4><pre class="julia-vterm" data-exports="both"><code>length([1, 2, 3])
-</code></pre><pre class="example"><code>3
-</code></pre><pre class="julia-vterm" data-exports="both"><code>size([1, 2, 3])
-</code></pre><pre class="example"><code>(3,)
-</code></pre><pre class="julia-vterm" data-exports="both"><code>size([1 2 3; 4 5 6])
-</code></pre><pre class="example"><code>(2, 3)
-</code></pre><h4 id="zeros-ones-randn">Zeros / Ones / Rand(n)</h4><p>Fill an array with <code class="verbatim">n</code> zeros:</p><pre class="julia-vterm" data-exports="both"><code>zeros(5)
-</code></pre><pre class="example"><code>[0.0, 0.0, 0.0, 0.0, 0.0]
-</code></pre><p>Fill an array with <code class="verbatim">n</code> zeros with Type specified:</p><pre class="julia-vterm" data-exports="both"><code>zeros(Int, 5)
-</code></pre><pre class="example"><code>[0, 0, 0, 0, 0]
-</code></pre><p>For 2D/3D… arrays:</p><pre class="julia-vterm" data-exports="both"><code>zeros(Int, 5, 2)
-</code></pre><pre class="example"><code>[0 0; 0 0; 0 0; 0 0; 0 0]
-</code></pre><p>Same thing with ones:</p><pre class="julia-vterm" data-exports="both"><code>ones(Int, 5)
-</code></pre><pre class="example"><code>[1, 1, 1, 1, 1]
-</code></pre><p>And random numbers:</p><pre class="julia-vterm" data-exports="both"><code>rand(5)
-</code></pre><pre class="example"><code>[0.20655599984205453, 0.764336425218688, 0.707929049283852, 0.5403245301033117, 0.5747141117006983]
-</code></pre><p>Using standard Normal:</p><pre class="julia-vterm" data-exports="both"><code>randn(5)
-</code></pre><pre class="example"><code>[1.2611015684267128, 0.5431280372799115, -1.0866220141038392, 0.5592503716247522, -0.19501274806221938]
-</code></pre><h4 id="accessing-values">Accessing Values</h4><h5 id="single-element">Single Element</h5><pre class="julia-vterm" data-exports="both"><code>xs = [5, 10, 15]
-xs[1]
-</code></pre><pre class="example"><code>5
-</code></pre><pre class="julia-vterm" data-exports="both"><code>m = [5 10 15; 20 25 30]
-m[2,2]
-</code></pre><pre class="example"><code>25
-</code></pre><h5 id="range-of-elements">Range of Elements</h5><p>Using <code class="verbatim">end</code></p><pre class="julia-vterm" data-exports="both"><code>xs = [5, 10, 15, 20, 25]
-xs[3:end]
-</code></pre><pre class="example"><code>[15, 20, 25]
-</code></pre><h6 id="by-column">By column</h6><pre class="julia-vterm" data-exports="both"><code>m = [5 10 15; 20 25 30]
-m[:,1]
-</code></pre><pre class="example"><code>[5, 20]
-</code></pre><h6 id="by-row">By row</h6><pre class="julia-vterm" data-exports="both"><code>m = [5 10 15; 20 25 30]
-m[1,:]
-</code></pre><pre class="example"><code>[5, 10, 15]
-</code></pre><h4 id="concatenation-1">Concatenation</h4><pre class="julia-vterm" data-exports="both"><code>vcat([1, 2], [3, 4])
-</code></pre><pre class="example"><code>[1, 2, 3, 4]
-</code></pre><pre class="julia-vterm" data-exports="both"><code>a1 = [1, 2]
-a2 = [3, 4]
-[a1; a2]
-</code></pre><pre class="example"><code>[1, 2, 3, 4]
-</code></pre><h4 id="filter">Filter</h4><pre class="julia-vterm" data-exports="both"><code>filter(x -&gt; x &lt; 5, 1:10)
-</code></pre><pre class="example"><code>[1, 2, 3, 4]
+</code></pre><h3 id="regex-match">Regex Match</h3><div class="sourceCode" id="cb72" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(<span class="st">r&quot;value = </span><span class="ch">(</span><span class="sc">.*</span><span class="ch">)</span><span class="st">&quot;</span>, <span class="st">&quot;value = 1337&quot;</span>)</span></code></pre></div><pre class="example"><code>RegexMatch(&quot;value = 1337&quot;, 1=&quot;1337&quot;)
+</code></pre><div class="sourceCode" id="cb74" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(<span class="st">r&quot;value = </span><span class="ch">(</span><span class="sc">.*</span><span class="ch">)</span><span class="st">&quot;</span>, <span class="st">&quot;value = 1337&quot;</span>).captures</span></code></pre></div><pre class="example"><code>Union{Nothing, SubString{String}}[&quot;1337&quot;]
+</code></pre><div class="sourceCode" id="cb76" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(<span class="st">r&quot;value = </span><span class="ch">(</span><span class="sc">.*</span><span class="ch">)</span><span class="st">&quot;</span>, <span class="st">&quot;value = 1337&quot;</span>).captures <span class="op">|&gt;</span> first</span></code></pre></div><pre class="example"><code>1337
+</code></pre><h3 id="find">Find</h3><h4 id="find-first">Find First</h4><div class="sourceCode" id="cb78" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findfirst</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>)</span></code></pre></div><pre class="example"><code>8:12
+</code></pre><h4 id="find-last">Find Last</h4><div class="sourceCode" id="cb80" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findlast</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>)</span></code></pre></div><pre class="example"><code>18:22
+</code></pre><h4 id="find-next">Find Next</h4><div class="sourceCode" id="cb82" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findnext</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>, <span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>8:12
+</code></pre><div class="sourceCode" id="cb84" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findnext</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>, <span class="fl">9</span>)</span></code></pre></div><pre class="example"><code>18:22
+</code></pre><h4 id="find-prev">Find Prev</h4><div class="sourceCode" id="cb86" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findprev</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>, <span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>nothing
+</code></pre><div class="sourceCode" id="cb88" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">findprev</span>(<span class="st">&quot;Julia&quot;</span>, <span class="st">&quot;I love Julia but Julia doesn&#39;t love me&quot;</span>, <span class="fl">17</span>)</span></code></pre></div><pre class="example"><code>8:12
+</code></pre><h3 id="replace">Replace</h3><div class="sourceCode" id="cb90" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">replace</span>(<span class="st">&quot;hello NAME&quot;</span>, <span class="st">&quot;NAME&quot;</span> <span class="op">=&gt;</span> <span class="st">&quot;Damien&quot;</span>)</span></code></pre></div><pre class="example"><code>hello Damien
+</code></pre><h2 id="data-structures">Data Structures</h2><p><code class="verbatim">Vector</code> is a 1-dimensional array, <code class="verbatim">Matrix</code> a 2-dimensional array</p><h3 id="tuples">Tuples</h3><p>Immutable, ordered, fixed-length</p><div class="sourceCode" id="cb92" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1</span>, <span class="fl">2</span>)</span></code></pre></div><pre class="example"><code>(1, 2)
+</code></pre><div class="sourceCode" id="cb94" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> (<span class="fl">9</span>, <span class="fl">10</span>)</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>t[<span class="fl">1</span>]</span></code></pre></div><pre class="example"><code>9
+</code></pre><h4 id="named-tuples">Named Tuples</h4><div class="sourceCode" id="cb96" data-session="route" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>route <span class="op">=</span> (origin <span class="op">=</span> <span class="st">&quot;Montreal&quot;</span>, destination <span class="op">=</span> <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>route.origin</span></code></pre></div><pre class="example"><code>Montreal
+</code></pre><div class="sourceCode" id="cb98" data-session="route" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>route[<span class="op">:</span>origin]</span></code></pre></div><pre class="example"><code>Montreal
+</code></pre><div class="sourceCode" id="cb100" data-session="route" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>(; origin, destination) <span class="op">=</span> route</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>origin</span></code></pre></div><pre class="example"><code>Montreal
+</code></pre><h3 id="arrays">Arrays</h3><div class="sourceCode" id="cb102" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>[<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>]</span></code></pre></div><pre class="example"><code>[1, 2, 3]
+</code></pre><h4 id="matrix">Matrix</h4><div class="sourceCode" id="cb104" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>[<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>; <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span>]</span></code></pre></div><pre class="example"><code>[1 2 3; 4 5 6]
+</code></pre><h5 id="horizontal-concatenation">Horizontal Concatenation</h5><div class="sourceCode" id="cb106" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hcat</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>], [<span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>])</span></code></pre></div><pre class="example"><code>[1 4; 2 5; 3 6]
+</code></pre><div class="sourceCode" id="cb108" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>a1 <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>]</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>a2 <span class="op">=</span> [<span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>]</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>[a1 a2]</span></code></pre></div><pre class="example"><code>[1 4; 2 5; 3 6]
+</code></pre><h4 id="push-pop-append">Push / Pop / Append</h4><div class="sourceCode" id="cb110" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> []</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pushing an element to an array</span></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="fu">push!</span>(array, <span class="st">&quot;element&quot;</span>)</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="co"># remove last element from array</span></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pop!</span>(array)</span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-9"><a href="#cb110-9" aria-hidden="true" tabindex="-1"></a><span class="co"># appending another array to an array</span></span>
+<span id="cb110-10"><a href="#cb110-10" aria-hidden="true" tabindex="-1"></a><span class="fu">append!</span>(array, [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>Any[1, 2, 3]
+</code></pre><h4 id="length-size">Length / Size</h4><div class="sourceCode" id="cb112" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>3
+</code></pre><div class="sourceCode" id="cb114" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>(3,)
+</code></pre><div class="sourceCode" id="cb116" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">size</span>([<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>; <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span>])</span></code></pre></div><pre class="example"><code>(2, 3)
+</code></pre><h4 id="zeros-ones-randn">Zeros / Ones / Rand(n)</h4><p>Fill an array with <code class="verbatim">n</code> zeros:</p><div class="sourceCode" id="cb118" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zeros</span>(<span class="fl">5</span>)</span></code></pre></div><pre class="example"><code>[0.0, 0.0, 0.0, 0.0, 0.0]
+</code></pre><p>Fill an array with <code class="verbatim">n</code> zeros with Type specified:</p><div class="sourceCode" id="cb120" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zeros</span>(<span class="dt">Int</span>, <span class="fl">5</span>)</span></code></pre></div><pre class="example"><code>[0, 0, 0, 0, 0]
+</code></pre><p>For 2D/3D… arrays:</p><div class="sourceCode" id="cb122" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zeros</span>(<span class="dt">Int</span>, <span class="fl">5</span>, <span class="fl">2</span>)</span></code></pre></div><pre class="example"><code>[0 0; 0 0; 0 0; 0 0; 0 0]
+</code></pre><p>Same thing with ones:</p><div class="sourceCode" id="cb124" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ones</span>(<span class="dt">Int</span>, <span class="fl">5</span>)</span></code></pre></div><pre class="example"><code>[1, 1, 1, 1, 1]
+</code></pre><p>And random numbers:</p><div class="sourceCode" id="cb126" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rand</span>(<span class="fl">5</span>)</span></code></pre></div><pre class="example"><code>[0.20655599984205453, 0.764336425218688, 0.707929049283852, 0.5403245301033117, 0.5747141117006983]
+</code></pre><p>Using standard Normal:</p><div class="sourceCode" id="cb128" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">randn</span>(<span class="fl">5</span>)</span></code></pre></div><pre class="example"><code>[1.2611015684267128, 0.5431280372799115, -1.0866220141038392, 0.5592503716247522, -0.19501274806221938]
+</code></pre><h4 id="accessing-values">Accessing Values</h4><h5 id="single-element">Single Element</h5><div class="sourceCode" id="cb130" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>]</span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>xs[<span class="fl">1</span>]</span></code></pre></div><pre class="example"><code>5
+</code></pre><div class="sourceCode" id="cb132" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> [<span class="fl">5</span> <span class="fl">10</span> <span class="fl">15</span>; <span class="fl">20</span> <span class="fl">25</span> <span class="fl">30</span>]</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>m[<span class="fl">2</span>,<span class="fl">2</span>]</span></code></pre></div><pre class="example"><code>25
+</code></pre><h5 id="range-of-elements">Range of Elements</h5><p>Using <code class="verbatim">end</code></p><div class="sourceCode" id="cb134" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [<span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">25</span>]</span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a>xs[<span class="fl">3</span><span class="op">:</span><span class="kw">end</span>]</span></code></pre></div><pre class="example"><code>[15, 20, 25]
+</code></pre><h6 id="by-column">By column</h6><div class="sourceCode" id="cb136" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> [<span class="fl">5</span> <span class="fl">10</span> <span class="fl">15</span>; <span class="fl">20</span> <span class="fl">25</span> <span class="fl">30</span>]</span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>m[<span class="op">:</span>,<span class="fl">1</span>]</span></code></pre></div><pre class="example"><code>[5, 20]
+</code></pre><h6 id="by-row">By row</h6><div class="sourceCode" id="cb138" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> [<span class="fl">5</span> <span class="fl">10</span> <span class="fl">15</span>; <span class="fl">20</span> <span class="fl">25</span> <span class="fl">30</span>]</span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a>m[<span class="fl">1</span>,<span class="op">:</span>]</span></code></pre></div><pre class="example"><code>[5, 10, 15]
+</code></pre><h4 id="concatenation-1">Concatenation</h4><div class="sourceCode" id="cb140" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vcat</span>([<span class="fl">1</span>, <span class="fl">2</span>], [<span class="fl">3</span>, <span class="fl">4</span>])</span></code></pre></div><pre class="example"><code>[1, 2, 3, 4]
+</code></pre><div class="sourceCode" id="cb142" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>a1 <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>]</span>
+<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>a2 <span class="op">=</span> [<span class="fl">3</span>, <span class="fl">4</span>]</span>
+<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>[a1; a2]</span></code></pre></div><pre class="example"><code>[1, 2, 3, 4]
+</code></pre><h4 id="filter">Filter</h4><div class="sourceCode" id="cb144" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(x <span class="op">-&gt;</span> x <span class="op">&lt;</span> <span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>)</span></code></pre></div><pre class="example"><code>[1, 2, 3, 4]
 </code></pre><h4 id="list-comprehensions">List Comprehensions</h4><div class="sourceCode" id="cb146" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>[x<span class="op">^</span><span class="fl">2</span> for x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>]</span></code></pre></div><pre class="example"><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre><h5 id="resources">Resources</h5><p><a href="https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html">https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html</a></p><h4 id="end">End</h4><pre class="julia-vterm" data-exports="both"><code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;][end]
-</code></pre><pre class="example"><code>c
-</code></pre><h4 id="sort">Sort</h4><pre class="julia-vterm" data-exports="both"><code>[3, 2, 1] |&gt; sort
-</code></pre><pre class="example"><code>[1, 2, 3]
-</code></pre><h5 id="sort-by">Sort by</h5><pre class="julia-vterm" data-exports="both"><code>sort([Dict(&quot;x&quot; =&gt; 3, &quot;y&quot; =&gt; &#39;a&#39;), Dict(&quot;x&quot; =&gt; 2, &quot;y&quot; =&gt; &#39;b&#39;), Dict(&quot;x&quot; =&gt; 1, &quot;y&quot; =&gt; &#39;c&#39;)], by = i -&gt; i[&quot;x&quot;])
-</code></pre><pre class="example"><code>Dict{String, Any}[Dict(&quot;x&quot; =&gt; 1, &quot;y&quot; =&gt; &#39;c&#39;), Dict(&quot;x&quot; =&gt; 2, &quot;y&quot; =&gt; &#39;b&#39;), Dict(&quot;x&quot; =&gt; 3, &quot;y&quot; =&gt; &#39;a&#39;)]
-</code></pre><h5 id="reverse-sort">Reverse sort</h5><pre class="julia-vterm" data-exports="both"><code>sort([1, 2, 3], rev = true)
-</code></pre><pre class="example"><code>[3, 2, 1]
-</code></pre><h5 id="partial-sort">Partial sort</h5><pre class="julia-vterm" data-exports="both"><code>partialsortperm([1, 2, 3, 4, 5, 6], 1:3, rev = true)
-</code></pre><pre class="example"><code>3-element view(::Vector{Int64}, 1:3) with eltype Int64:
+</code></pre><h5 id="resources">Resources</h5><p><a href="https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html">https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html</a></p><h4 id="end">End</h4><div class="sourceCode" id="cb148" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>[<span class="ch">&#39;a&#39;</span>, <span class="ch">&#39;b&#39;</span>, <span class="ch">&#39;c&#39;</span>][<span class="kw">end</span>]</span></code></pre></div><pre class="example"><code>c
+</code></pre><h4 id="sort">Sort</h4><div class="sourceCode" id="cb150" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>[<span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>] <span class="op">|&gt;</span> sort</span></code></pre></div><pre class="example"><code>[1, 2, 3]
+</code></pre><h5 id="sort-by">Sort by</h5><div class="sourceCode" id="cb152" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>([<span class="fu">Dict</span>(<span class="st">&quot;x&quot;</span> <span class="op">=&gt;</span> <span class="fl">3</span>, <span class="st">&quot;y&quot;</span> <span class="op">=&gt;</span> <span class="ch">&#39;a&#39;</span>), <span class="fu">Dict</span>(<span class="st">&quot;x&quot;</span> <span class="op">=&gt;</span> <span class="fl">2</span>, <span class="st">&quot;y&quot;</span> <span class="op">=&gt;</span> <span class="ch">&#39;b&#39;</span>), <span class="fu">Dict</span>(<span class="st">&quot;x&quot;</span> <span class="op">=&gt;</span> <span class="fl">1</span>, <span class="st">&quot;y&quot;</span> <span class="op">=&gt;</span> <span class="ch">&#39;c&#39;</span>)], by <span class="op">=</span> i <span class="op">-&gt;</span> i[<span class="st">&quot;x&quot;</span>])</span></code></pre></div><pre class="example"><code>Dict{String, Any}[Dict(&quot;x&quot; =&gt; 1, &quot;y&quot; =&gt; &#39;c&#39;), Dict(&quot;x&quot; =&gt; 2, &quot;y&quot; =&gt; &#39;b&#39;), Dict(&quot;x&quot; =&gt; 3, &quot;y&quot; =&gt; &#39;a&#39;)]
+</code></pre><h5 id="reverse-sort">Reverse sort</h5><div class="sourceCode" id="cb154" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>], rev <span class="op">=</span> <span class="cn">true</span>)</span></code></pre></div><pre class="example"><code>[3, 2, 1]
+</code></pre><h5 id="partial-sort">Partial sort</h5><div class="sourceCode" id="cb156" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partialsortperm</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>], <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, rev <span class="op">=</span> <span class="cn">true</span>)</span></code></pre></div><pre class="example"><code>3-element view(::Vector{Int64}, 1:3) with eltype Int64:
  6
  5
  4
-</code></pre><h4 id="destructuring">Destructuring</h4><pre class="julia-vterm" data-exports="both"><code>a, b, c = [1, 2, 3]
-b
-</code></pre><pre class="example"><code>2
-</code></pre><pre class="julia-vterm" data-exports="both"><code>a, b... = [1, 2, 3]
-b
-</code></pre><pre class="example"><code>[2, 3]
-</code></pre><h4 id="delete-element-from-array">Delete Element From Array</h4><pre class="julia-vterm" data-exports="both"><code>deleteat!([1, 2, 3], 1)
-</code></pre><pre class="example"><code>[2, 3]
-</code></pre><h4 id="matrix-to-vector">Matrix to Vector</h4><pre class="julia-vterm" data-exports="both"><code>matrix = [1 2 3; 4 5 6]
-matrix |&gt; vec
-</code></pre><pre class="example"><code>[1, 4, 2, 5, 3, 6]
-</code></pre><h4 id="vector-to-matrix">Vector to Matrix</h4><pre class="julia-vterm" data-exports="both"><code>vector = [1, 2, 3, 4]
-vector |&gt; permutedims
-</code></pre><pre class="example"><code>[1 2 3 4]
-</code></pre><h4 id="transpose-matrix">Transpose Matrix</h4><pre class="julia-vterm" data-exports="both"><code>matrix = [1 3; 2 4]
-matrix |&gt; transpose
-</code></pre><pre class="example"><code>[1 2; 3 4]
-</code></pre><p><code class="verbatim">'</code> seems to be a shorthand for transpose:</p><pre class="julia-vterm" data-exports="both"><code>matrix = [1 3; 2 4]
-matrix&#39;
-</code></pre><pre class="example"><code>[1 2; 3 4]
-</code></pre><h4 id="circshift">Circshift</h4><pre class="julia-vterm" data-exports="both"><code>circshift(1:9, 1)
-</code></pre><pre class="example"><code>[9, 1, 2, 3, 4, 5, 6, 7, 8]
-</code></pre><pre class="julia-vterm" data-exports="both"><code>circshift(1:9, -1)
-</code></pre><pre class="example"><code>[2, 3, 4, 5, 6, 7, 8, 9, 1]
-</code></pre><h3 id="sets">Sets</h3><p>No duplicate elements</p><pre class="julia-vterm" data-exports="both"><code>Set([1, 2, 3, 3])
-</code></pre><pre class="example"><code>Set([2, 3, 1])
+</code></pre><h4 id="destructuring">Destructuring</h4><div class="sourceCode" id="cb158" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>]</span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><pre class="example"><code>2
+</code></pre><div class="sourceCode" id="cb160" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>a, b<span class="op">...</span> <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>]</span>
+<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><pre class="example"><code>[2, 3]
+</code></pre><h4 id="delete-element-from-array">Delete Element From Array</h4><div class="sourceCode" id="cb162" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deleteat!</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>], <span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>[2, 3]
+</code></pre><h4 id="matrix-to-vector">Matrix to Vector</h4><div class="sourceCode" id="cb164" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>; <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span>]</span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">|&gt;</span> vec</span></code></pre></div><pre class="example"><code>[1, 4, 2, 5, 3, 6]
+</code></pre><h4 id="vector-to-matrix">Vector to Matrix</h4><div class="sourceCode" id="cb166" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>]</span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>vector <span class="op">|&gt;</span> permutedims</span></code></pre></div><pre class="example"><code>[1 2 3 4]
+</code></pre><h4 id="transpose-matrix">Transpose Matrix</h4><div class="sourceCode" id="cb168" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [<span class="fl">1</span> <span class="fl">3</span>; <span class="fl">2</span> <span class="fl">4</span>]</span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">|&gt;</span> transpose</span></code></pre></div><pre class="example"><code>[1 2; 3 4]
+</code></pre><p><code class="verbatim">'</code> seems to be a shorthand for transpose:</p><div class="sourceCode" id="cb170" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [<span class="fl">1</span> <span class="fl">3</span>; <span class="fl">2</span> <span class="fl">4</span>]</span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a>matrix<span class="op">&#39;</span></span></code></pre></div><pre class="example"><code>[1 2; 3 4]
+</code></pre><h4 id="circshift">Circshift</h4><div class="sourceCode" id="cb172" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circshift</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, <span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>[9, 1, 2, 3, 4, 5, 6, 7, 8]
+</code></pre><div class="sourceCode" id="cb174" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">circshift</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, <span class="op">-</span><span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>[2, 3, 4, 5, 6, 7, 8, 9, 1]
+</code></pre><h3 id="sets">Sets</h3><p>No duplicate elements</p><div class="sourceCode" id="cb176" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set</span>([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>Set([2, 3, 1])
 </code></pre><h3 id="dict">Dict</h3><div class="sourceCode" id="cb178" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">&quot;key&quot;</span> <span class="op">=&gt;</span> <span class="st">&quot;value&quot;</span>)</span>
 <span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb178-3"><a href="#cb178-3" aria-hidden="true" tabindex="-1"></a>dict[<span class="st">&quot;key&quot;</span>]</span></code></pre></div><pre class="example"><code>value
@@ -234,28 +147,21 @@ matrix&#39;
 <span id="cb180-3"><a href="#cb180-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
 <span id="cb180-4"><a href="#cb180-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb180-5"><a href="#cb180-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fl">2</span>, <span class="fl">3</span>)</span></code></pre></div><pre class="example"><code>5
-</code></pre><p>More terse syntax:</p><pre class="julia-vterm" data-exports="both"><code>f(x, y) = x + y
-
-f(2, 3)
-</code></pre><pre class="example"><code>5
-</code></pre><h3 id="anonymous-functions">Anonymous Functions</h3><pre class="julia-vterm" data-exports="both"><code>x -&gt; x*2
-</code></pre><pre class="example"><code>#1
-</code></pre><h3 id="named-arguments">Named Arguments</h3><pre class="julia-vterm" data-session="named" data-exports="both"><code>function f(x; coef = 2)
-    x * coef
-end
-
-f(4)
-</code></pre><pre class="example"><code>8
-</code></pre><pre class="julia-vterm" data-session="named" data-exports="both"><code>f(4, coef = 4)
-</code></pre><pre class="example"><code>16
-</code></pre><h3 id="pipe-operator">Pipe Operator</h3><pre class="julia-vterm" data-exports="both"><code>[1, 2, 3] |&gt; length
-</code></pre><pre class="example"><code>3
-</code></pre><h3 id="vectorized-functions-f.x">Vectorized Functions f.(x)</h3><p><a href="https://docs.julialang.org/en/v1/manual/functions/#man-vectorized">https://docs.julialang.org/en/v1/manual/functions/#man-vectorized</a> Applies function to all elements of vector, similar to <code class="verbatim">map()</code></p><pre class="julia-vterm" data-exports="both"><code>f(x) = x*2
-
-f.([1, 2, 3])
-</code></pre><pre class="example"><code>[2, 4, 6]
-</code></pre><p>Even works on the <code class="verbatim">|&gt;</code> pipe operator!</p><pre class="julia-vterm" data-exports="both"><code>[&quot;list&quot;, &quot;of&quot;, &quot;string&quot;] .|&gt; [uppercase, reverse, length]
-</code></pre><pre class="example"><code>Any[&quot;LIST&quot;, &quot;fo&quot;, 6]
+</code></pre><p>More terse syntax:</p><div class="sourceCode" id="cb182" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(x, y) <span class="op">=</span> x <span class="op">+</span> y</span>
+<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fl">2</span>, <span class="fl">3</span>)</span></code></pre></div><pre class="example"><code>5
+</code></pre><h3 id="anonymous-functions">Anonymous Functions</h3><div class="sourceCode" id="cb184" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">-&gt;</span> x<span class="op">*</span><span class="fl">2</span></span></code></pre></div><pre class="example"><code>#1
+</code></pre><h3 id="named-arguments">Named Arguments</h3><div class="sourceCode" id="cb186" data-session="named" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">f</span>(x; coef <span class="op">=</span> <span class="fl">2</span>)</span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">*</span> coef</span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb186-4"><a href="#cb186-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-5"><a href="#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fl">4</span>)</span></code></pre></div><pre class="example"><code>8
+</code></pre><div class="sourceCode" id="cb188" data-session="named" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fl">4</span>, coef <span class="op">=</span> <span class="fl">4</span>)</span></code></pre></div><pre class="example"><code>16
+</code></pre><h3 id="pipe-operator">Pipe Operator</h3><div class="sourceCode" id="cb190" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a>[<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>] <span class="op">|&gt;</span> length</span></code></pre></div><pre class="example"><code>3
+</code></pre><h3 id="vectorized-functions-f.x">Vectorized Functions f.(x)</h3><p><a href="https://docs.julialang.org/en/v1/manual/functions/#man-vectorized">https://docs.julialang.org/en/v1/manual/functions/#man-vectorized</a> Applies function to all elements of vector, similar to <code class="verbatim">map()</code></p><div class="sourceCode" id="cb192" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(x) <span class="op">=</span> x<span class="op">*</span><span class="fl">2</span></span>
+<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-3"><a href="#cb192-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>.([<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>[2, 4, 6]
+</code></pre><p>Even works on the <code class="verbatim">|&gt;</code> pipe operator!</p><div class="sourceCode" id="cb194" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">&quot;list&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;string&quot;</span>] <span class="op">.|&gt;</span> [uppercase, reverse, length]</span></code></pre></div><pre class="example"><code>Any[&quot;LIST&quot;, &quot;fo&quot;, 6]
 </code></pre><h3 id="other">Other</h3><h4 id="do-block-syntax-for-function-arguments"><a href="https://docs.julialang.org/en/v1/manual/functions/#Do-Block-Syntax-for-Function-Arguments">Do-Block Syntax for Function Arguments</a></h4><p>Passing functions as arguments to other functions is a powerful technique, but the syntax for it is not always convenient. Such calls are especially awkward to write when the function argument requires multiple lines. As an example, consider calling =[map](<a href="https://docs.julialang.org/en/v1/base/collections/#Base.map)=">https://docs.julialang.org/en/v1/base/collections/#Base.map)=</a> on a function with several cases:</p><div class="sourceCode" id="cb196" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(x<span class="op">-&gt;</span><span class="cf">if</span> x <span class="op">&lt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="fu">iseven</span>(x)</span>
 <span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a>           <span class="cf">return</span> <span class="fl">0</span></span>
 <span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">elseif</span> x <span class="op">==</span> <span class="fl">0</span></span>
@@ -273,93 +179,77 @@ f.([1, 2, 3])
 <span id="cb198-7"><a href="#cb198-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
 <span id="cb198-8"><a href="#cb198-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
 <span id="cb198-9"><a href="#cb198-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>[0, -1, 1, 1, 2]
-</code></pre><p><a href="https://docs.julialang.org/en/v1/manual/functions/#Function-composition-and-piping">https://docs.julialang.org/en/v1/manual/functions/#Function-composition-and-piping</a></p><h2 id="control-flow">Control Flow</h2><h3 id="if-statement">If statement</h3><pre class="julia-vterm" data-exports="both"><code>if 1 &gt; 2
-    &quot;1 is larger than 2&quot;
-else
-    &quot;2 is larger than 1&quot;
-end
-</code></pre><pre class="example"><code>2 is larger than 1
-</code></pre><h3 id="for-loop">For loop</h3><pre class="julia-vterm" data-results="output" data-exports="both"><code>for i in 1:5
-    println(i)
-end
-</code></pre><pre class="example"><code>1
+</code></pre><p><a href="https://docs.julialang.org/en/v1/manual/functions/#Function-composition-and-piping">https://docs.julialang.org/en/v1/manual/functions/#Function-composition-and-piping</a></p><h2 id="control-flow">Control Flow</h2><h3 id="if-statement">If statement</h3><div class="sourceCode" id="cb200" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="fl">1</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;1 is larger than 2&quot;</span></span>
+<span id="cb200-3"><a href="#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb200-4"><a href="#cb200-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;2 is larger than 1&quot;</span></span>
+<span id="cb200-5"><a href="#cb200-5" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>2 is larger than 1
+</code></pre><h3 id="for-loop">For loop</h3><div class="sourceCode" id="cb202" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(i)</span>
+<span id="cb202-3"><a href="#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>1
 2
 3
 4
 5
-</code></pre><p>Works on strings too:</p><pre class="julia-vterm" data-results="output" data-exports="both"><code>for char in &quot;Damien&quot;
-    println(char)
-end
-</code></pre><pre class="example"><code>D
+</code></pre><p>Works on strings too:</p><div class="sourceCode" id="cb204" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> char <span class="kw">in</span> <span class="st">&quot;Damien&quot;</span></span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(char)</span>
+<span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>D
 a
 m
 i
 e
 n
-</code></pre><p>and Dicts:</p><pre class="julia-vterm" data-results="output" data-exports="both"><code>for (key, value) in Dict(&quot;France&quot; =&gt; &quot;Paris&quot;, &quot;Germany&quot; =&gt; &quot;Berlin&quot;, &quot;Canada&quot; =&gt; &quot;Ottawa&quot;)
-    println(value)
-end
-</code></pre><pre class="example"><code>Berlin
+</code></pre><p>and Dicts:</p><div class="sourceCode" id="cb206" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (key, value) <span class="kw">in</span> <span class="fu">Dict</span>(<span class="st">&quot;France&quot;</span> <span class="op">=&gt;</span> <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Germany&quot;</span> <span class="op">=&gt;</span> <span class="st">&quot;Berlin&quot;</span>, <span class="st">&quot;Canada&quot;</span> <span class="op">=&gt;</span> <span class="st">&quot;Ottawa&quot;</span>)</span>
+<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(value)</span>
+<span id="cb206-3"><a href="#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>Berlin
 Ottawa
 Paris
-</code></pre><h3 id="eachindex">Eachindex</h3><pre class="julia-vterm" data-exports="both"><code>eachindex([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
-</code></pre><pre class="example"><code>Base.OneTo(3)
-</code></pre><h3 id="while-loop">While loop</h3><pre class="julia-vterm" data-results="output" data-exports="both"><code>i = 0
-while i &lt; 5
-    println(i)
-    i += 1
-end
-</code></pre><pre class="example"><code>0
+</code></pre><h3 id="eachindex">Eachindex</h3><div class="sourceCode" id="cb208" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eachindex</span>([<span class="ch">&#39;a&#39;</span>, <span class="ch">&#39;b&#39;</span>, <span class="ch">&#39;c&#39;</span>])</span></code></pre></div><pre class="example"><code>Base.OneTo(3)
+</code></pre><h3 id="while-loop">While loop</h3><div class="sourceCode" id="cb210" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb210-2"><a href="#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="fl">5</span></span>
+<span id="cb210-3"><a href="#cb210-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(i)</span>
+<span id="cb210-4"><a href="#cb210-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb210-5"><a href="#cb210-5" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>0
 1
 2
 3
 4
-</code></pre><h3 id="break-continue">Break / Continue</h3><p><code class="verbatim">break</code> stops the loop</p><pre class="julia-vterm" data-results="output" data-exports="both"><code>i = 0
-while i &lt; 10
-    println(i)
-    i += 1
-    if i == 5
-        break
-    end
-end
-</code></pre><pre class="example"><code>0
+</code></pre><h3 id="break-continue">Break / Continue</h3><p><code class="verbatim">break</code> stops the loop</p><div class="sourceCode" id="cb212" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb212-2"><a href="#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="fl">10</span></span>
+<span id="cb212-3"><a href="#cb212-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(i)</span>
+<span id="cb212-4"><a href="#cb212-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb212-5"><a href="#cb212-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="fl">5</span></span>
+<span id="cb212-6"><a href="#cb212-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb212-7"><a href="#cb212-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb212-8"><a href="#cb212-8" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>0
 1
 2
 3
 4
-</code></pre><p><code class="verbatim">continue</code> stops this iteration</p><pre class="julia-vterm" data-results="output" data-exports="both"><code>for i in 1:5
-    if i == 3
-        continue
-    end
-    println(i)
-end
-</code></pre><pre class="example"><code>1
+</code></pre><p><code class="verbatim">continue</code> stops this iteration</p><div class="sourceCode" id="cb214" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="fl">3</span></span>
+<span id="cb214-3"><a href="#cb214-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb214-4"><a href="#cb214-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb214-5"><a href="#cb214-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(i)</span>
+<span id="cb214-6"><a href="#cb214-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><pre class="example"><code>1
 2
 4
 5
-</code></pre><h2 id="symbols">Symbols</h2><p><code class="verbatim">∈</code>: in, can be typed in the REPL and Vim with <code class="verbatim">\in</code></p><p><code class="verbatim">⊆</code>: subset of, can be typed with <code class="verbatim">\subseteq</code></p><p><code class="verbatim">∘</code>: composition operator</p><pre class="julia-vterm" data-exports="both"><code>1:10 |&gt; sum |&gt; sqrt
-</code></pre><pre class="example"><code>7.416198487095663
-</code></pre><pre class="julia-vterm" data-exports="both"><code>(sqrt ∘ sum)(1:10)
-</code></pre><pre class="example"><code>7.416198487095663
-</code></pre><h2 id="cartesian-indices">Cartesian Indices</h2><p><a href="https://julialang.org/blog/2016/02/iteration/">https://julialang.org/blog/2016/02/iteration/</a></p><pre class="julia-vterm" data-exports="both"><code>CartesianIndex(1, 1)
-</code></pre><pre class="example"><code>CartesianIndex(1, 1)
-</code></pre><pre class="julia-vterm" data-exports="both"><code>CartesianIndex(1, 1):CartesianIndex(3, 3)
-</code></pre><pre class="example"><code>CartesianIndex{2}[CartesianIndex(1, 1) CartesianIndex(1, 2) CartesianIndex(1, 3); CartesianIndex(2, 1) CartesianIndex(2, 2) CartesianIndex(2, 3); CartesianIndex(3, 1) CartesianIndex(3, 2) CartesianIndex(3, 3)]
-</code></pre><h2 id="packages">Packages</h2><p><code class="verbatim">using Package</code> will make all functions defined "exportable" by Package available to use directly</p><pre class="julia-vterm" data-exports="both"><code>using Statistics
-
-mean([1,2,3])
-</code></pre><pre class="example"><code>2.0
-</code></pre><p><code class="verbatim">import Package</code> means you have to type <code class="verbatim">Package.function()</code> to access each function</p><pre class="julia-vterm" data-exports="both"><code>import Statistics
-
-Statistics.mean([1,2,3])
-</code></pre><pre class="example"><code>2.0
-</code></pre><h2 id="plots">Plots</h2><p><a href="http://docs.juliaplots.org/latest/">http://docs.juliaplots.org/latest/</a></p><pre class="julia-vterm" data-results="file graphics" data-file="plot.png" data-output-dir="julia-plots" data-exports="both"><code>using Plots
-x = 1:20; y = rand(20)
-plot(x, y)
-savefig(&quot;julia-plots/plot.png&quot;)
-</code></pre><p><img src="julia-plots/plot.png"></p><h3 id="unicode-plots">Unicode Plots</h3><pre class="julia-vterm" data-exports="both"><code>using UnicodePlots
-lineplot(sin, 1:.5:20, width = 50)
-</code></pre><pre class="example"><code>        ┌──────────────────────────────────────────────────┐
+</code></pre><h2 id="symbols">Symbols</h2><p><code class="verbatim">∈</code>: in, can be typed in the REPL and Vim with <code class="verbatim">\in</code></p><p><code class="verbatim">⊆</code>: subset of, can be typed with <code class="verbatim">\subseteq</code></p><p><code class="verbatim">∘</code>: composition operator</p><div class="sourceCode" id="cb216" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op">|&gt;</span> sum <span class="op">|&gt;</span> sqrt</span></code></pre></div><pre class="example"><code>7.416198487095663
+</code></pre><div class="sourceCode" id="cb218" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a>(sqrt <span class="op">∘</span> sum)(<span class="fl">1</span><span class="op">:</span><span class="fl">10</span>)</span></code></pre></div><pre class="example"><code>7.416198487095663
+</code></pre><h2 id="cartesian-indices">Cartesian Indices</h2><p><a href="https://julialang.org/blog/2016/02/iteration/">https://julialang.org/blog/2016/02/iteration/</a></p><div class="sourceCode" id="cb220" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CartesianIndex</span>(<span class="fl">1</span>, <span class="fl">1</span>)</span></code></pre></div><pre class="example"><code>CartesianIndex(1, 1)
+</code></pre><div class="sourceCode" id="cb222" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CartesianIndex</span>(<span class="fl">1</span>, <span class="fl">1</span>)<span class="op">:</span><span class="fu">CartesianIndex</span>(<span class="fl">3</span>, <span class="fl">3</span>)</span></code></pre></div><pre class="example"><code>CartesianIndex{2}[CartesianIndex(1, 1) CartesianIndex(1, 2) CartesianIndex(1, 3); CartesianIndex(2, 1) CartesianIndex(2, 2) CartesianIndex(2, 3); CartesianIndex(3, 1) CartesianIndex(3, 2) CartesianIndex(3, 3)]
+</code></pre><h2 id="packages">Packages</h2><p><code class="verbatim">using Package</code> will make all functions defined "exportable" by Package available to use directly</p><div class="sourceCode" id="cb224" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Statistics</span></span>
+<span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-3"><a href="#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>([<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>2.0
+</code></pre><p><code class="verbatim">import Package</code> means you have to type <code class="verbatim">Package.function()</code> to access each function</p><div class="sourceCode" id="cb226" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Statistics</span></span>
+<span id="cb226-2"><a href="#cb226-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-3"><a href="#cb226-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Statistics</span>.<span class="fu">mean</span>([<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>])</span></code></pre></div><pre class="example"><code>2.0
+</code></pre><h2 id="plots">Plots</h2><p><a href="http://docs.juliaplots.org/latest/">http://docs.juliaplots.org/latest/</a></p><div class="sourceCode" id="cb228" data-results="file graphics" data-file="plot.png" data-output-dir="julia-plots" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb228-2"><a href="#cb228-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>; y <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">20</span>)</span>
+<span id="cb228-3"><a href="#cb228-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb228-4"><a href="#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="st">&quot;julia-plots/plot.png&quot;</span>)</span></code></pre></div><p><img src="julia-plots/plot.png"></p><h3 id="unicode-plots">Unicode Plots</h3><div class="sourceCode" id="cb229" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">UnicodePlots</span></span>
+<span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lineplot</span>(sin, <span class="fl">1</span><span class="op">:</span><span class="fl">.5</span><span class="op">:</span><span class="fl">20</span>, width <span class="op">=</span> <span class="fl">50</span>)</span></code></pre></div><pre class="example"><code>        ┌──────────────────────────────────────────────────┐
       1 │⠀⠀⢀⠎⠢⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠊⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠉⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠│ sin(x)
         │⠀⠀⠈⠀⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜│
         │⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠀⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃│
@@ -378,40 +268,29 @@ f(x)    │⠤⠤⠤⠤⠤⠤⠤⠼⡤⠤⠤⠤⠤⠤⠤⢼⠤⠤⠤⠤⠤⠤⠤
         └──────────────────────────────────────────────────┘
         ⠀0⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀20⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀x⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</code></pre><h2 id="dates">Dates</h2><pre class="julia-vterm" data-results="silent" data-exports="both"><code>using Dates
-</code></pre><h3 id="parsing-1">Parsing</h3><pre class="julia-vterm" data-exports="both"><code>Date(&quot;2021-01-01&quot;)
-</code></pre><pre class="example"><code>2021-01-01
-</code></pre><h2 id="calling-c">Calling C</h2><pre class="julia-vterm" data-exports="both"><code>ccall(:clock, Int32, ())
-</code></pre><pre class="example"><code>5291220
-</code></pre><pre class="julia-vterm" data-exports="both"><code>ccall(:getenv, Cstring, (Cstring,), &quot;SHELL&quot;) |&gt; unsafe_string
-</code></pre><pre class="example"><code>/bin/zsh
-</code></pre><h2 id="try-catch">Try / Catch</h2><pre class="julia-vterm" data-results="output" data-exports="both"><code>try
-    undefined_method()
-catch e
-    println(e)
-finally
-    println(&quot;this gets printed regardless&quot;)
-end
-</code></pre><pre class="example"><code>UndefVarError(:undefined_method)
+</code></pre><h2 id="dates">Dates</h2><div class="sourceCode" id="cb231" data-results="silent" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Dates</span></span></code></pre></div><h3 id="parsing-1">Parsing</h3><div class="sourceCode" id="cb232" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Date</span>(<span class="st">&quot;2021-01-01&quot;</span>)</span></code></pre></div><pre class="example"><code>2021-01-01
+</code></pre><h2 id="calling-c">Calling C</h2><div class="sourceCode" id="cb234" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ccall</span>(<span class="op">:</span>clock, <span class="dt">Int32</span>, ())</span></code></pre></div><pre class="example"><code>5291220
+</code></pre><div class="sourceCode" id="cb236" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb236-1"><a href="#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ccall</span>(<span class="op">:</span>getenv, <span class="dt">Cstring</span>, (<span class="dt">Cstring</span>,), <span class="st">&quot;SHELL&quot;</span>) <span class="op">|&gt;</span> unsafe_string</span></code></pre></div><pre class="example"><code>/bin/zsh
+</code></pre><h2 id="try-catch">Try / Catch</h2><div class="sourceCode" id="cb238" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb238-1"><a href="#cb238-1" aria-hidden="true" tabindex="-1"></a>try</span>
+<span id="cb238-2"><a href="#cb238-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">undefined_method</span>()</span>
+<span id="cb238-3"><a href="#cb238-3" aria-hidden="true" tabindex="-1"></a>catch <span class="cn">e</span></span>
+<span id="cb238-4"><a href="#cb238-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="cn">e</span>)</span>
+<span id="cb238-5"><a href="#cb238-5" aria-hidden="true" tabindex="-1"></a>finally</span>
+<span id="cb238-6"><a href="#cb238-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">&quot;this gets printed regardless&quot;</span>)</span>
+<span id="cb238-7"><a href="#cb238-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><pre class="example"><code>UndefVarError(:undefined_method)
 this gets printed regardless
-</code></pre><h2 id="type-annotations">Type Annotations</h2><p>Adding <code class="verbatim">thing::Type</code> ensure <code class="verbatim">thing</code> is of type <code class="verbatim">Type</code></p><pre class="julia-vterm" data-exports="both"><code>&quot;Damien&quot;::String
-</code></pre><pre class="example"><code>Damien
-</code></pre><p>Typically done inside a function:</p><pre class="julia-vterm" data-session="concat_string" data-exports="both"><code>concat_string(x::String, y::String)::String = x * y
-</code></pre><pre class="example"><code>concat_string
-</code></pre><pre class="julia-vterm" data-session="concat_string" data-exports="both"><code>concat_string(&quot;Hello, &quot;, &quot;World&quot;)
-</code></pre><pre class="example"><code>Hello, World
-</code></pre><p>Fails:</p><pre class="julia-vterm" data-session="concat_string" data-results="silent" data-exports="both"><code>concat_string(&quot;Hello, &quot;, 9)
-</code></pre><h2 id="files">Files</h2><ul><li><code class="verbatim">read</code></li><li><code class="verbatim">readchomp</code></li><li><code class="verbatim">readdlm</code></li></ul><h2 id="macros">Macros</h2><h3 id="code_llvm"><code class="verbatim">@code_llvm</code></h3><p>Can be used to view the actual LLVM code generated by the Julia compiler</p><pre class="julia-vterm" data-results="output" data-exports="both"><code>@code_llvm 1 + 1
-</code></pre><pre class="example"><code>;  @ int.jl:87 within `+`
+</code></pre><h2 id="type-annotations">Type Annotations</h2><p>Adding <code class="verbatim">thing::Type</code> ensure <code class="verbatim">thing</code> is of type <code class="verbatim">Type</code></p><div class="sourceCode" id="cb240" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Damien&quot;</span><span class="op">::</span><span class="dt">String</span></span></code></pre></div><pre class="example"><code>Damien
+</code></pre><p>Typically done inside a function:</p><div class="sourceCode" id="cb242" data-session="concat_string" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb242-1"><a href="#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">concat_string</span>(x<span class="op">::</span><span class="dt">String</span>, y<span class="op">::</span><span class="dt">String</span>)<span class="op">::</span><span class="dt">String </span><span class="op">=</span> x <span class="op">*</span> y</span></code></pre></div><pre class="example"><code>concat_string
+</code></pre><div class="sourceCode" id="cb244" data-session="concat_string" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">concat_string</span>(<span class="st">&quot;Hello, &quot;</span>, <span class="st">&quot;World&quot;</span>)</span></code></pre></div><pre class="example"><code>Hello, World
+</code></pre><p>Fails:</p><div class="sourceCode" id="cb246" data-session="concat_string" data-results="silent" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb246-1"><a href="#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">concat_string</span>(<span class="st">&quot;Hello, &quot;</span>, <span class="fl">9</span>)</span></code></pre></div><h2 id="files">Files</h2><ul><li><code class="verbatim">read</code></li><li><code class="verbatim">readchomp</code></li><li><code class="verbatim">readdlm</code></li></ul><h2 id="macros">Macros</h2><h3 id="code_llvm"><code class="verbatim">@code_llvm</code></h3><p>Can be used to view the actual LLVM code generated by the Julia compiler</p><div class="sourceCode" id="cb247" data-results="output" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@code_llvm</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div><pre class="example"><code>;  @ int.jl:87 within `+`
 define i64 @&quot;julia_+_955&quot;(i64 signext %0, i64 signext %1) #0 {
 top:
   %2 = add i64 %1, %0
   ret i64 %2
 }
-</code></pre><h3 id="test"><code class="verbatim">@test</code></h3><pre class="julia-vterm" data-exports="both"><code>using Test
-
-@test 1 == 1
-</code></pre><pre class="example"><code>Test Passed
+</code></pre><h3 id="test"><code class="verbatim">@test</code></h3><div class="sourceCode" id="cb249" data-exports="both"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb249-1"><a href="#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Test</span></span>
+<span id="cb249-2"><a href="#cb249-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-3"><a href="#cb249-3" aria-hidden="true" tabindex="-1"></a><span class="pp">@test</span> <span class="fl">1</span> <span class="op">==</span> <span class="fl">1</span></span></code></pre></div><pre class="example"><code>Test Passed
   Expression: 1 == 1
    Evaluated: 1 == 1
 </code></pre><p>Tests can be wrapped in a <code class="verbatim">@testset</code></p><h2 id="packages-1">Packages</h2><ul><li>JSON.jl: <a href="https://github.com/JuliaIO/JSON.jl">https://github.com/JuliaIO/JSON.jl</a></li><li>HTTP.jl: <a href="https://github.com/JuliaWeb/HTTP.jl">https://github.com/JuliaWeb/HTTP.jl</a></li><li>CSV.jl: <a href="https://github.com/JuliaData/CSV.jl">https://github.com/JuliaData/CSV.jl</a></li><li>DataFrames.jl: <a href="https://github.com/JuliaData/DataFrames.jl">https://github.com/JuliaData/DataFrames.jl</a></li><li>Optics (HN Discussion): <a href="https://news.ycombinator.com/item?id=26538150">https://news.ycombinator.com/item?id=26538150</a></li><li>MLJ.jl (Machine Learning): <a href="https://github.com/alan-turing-institute/MLJ.jl">https://github.com/alan-turing-institute/MLJ.jl</a></li><li>FinancialToolbox.jl: <a href="https://github.com/rcalxrc08/FinancialToolbox.jl">https://github.com/rcalxrc08/FinancialToolbox.jl</a></li><li>Pluto.jl (notebook): <a href="https://github.com/fonsp/Pluto.jl">https://github.com/fonsp/Pluto.jl</a></li><li>CUDA.jl (GPU programming): <a href="https://github.com/JuliaGPU/CUDA.jl">https://github.com/JuliaGPU/CUDA.jl</a></li><li>Flux.jl (Machine Learning): <a href="https://github.com/FluxML/Flux.jl">https://github.com/FluxML/Flux.jl</a></li><li>Documenter.jl: <a href="https://github.com/JuliaDocs/Documenter.jl">https://github.com/JuliaDocs/Documenter.jl</a></li><li>Distributions.jl: <a href="https://github.com/JuliaStats/Distributions.jl">https://github.com/JuliaStats/Distributions.jl</a></li><li>Makie (Data Visualization): <a href="https://makie.juliaplots.org/stable/">https://makie.juliaplots.org/stable/</a></li><li>Genie (MVC web framework): <a href="https://genieframework.com/">https://genieframework.com/</a></li><li>Climate: <a href="https://github.com/JuliaClimate">https://github.com/JuliaClimate</a></li><li>JuliaDB: <a href="https://github.com/JuliaData/JuliaDB.jl">https://github.com/JuliaData/JuliaDB.jl</a></li><li>Revise.jl (Automatically update function definitions in a running Julia session): <a href="https://github.com/timholy/Revise.jl">https://github.com/timholy/Revise.jl</a></li><li>SimpleChains.jl: <a href="https://github.com/PumasAI/SimpleChains.jl">https://github.com/PumasAI/SimpleChains.jl</a></li><li>Weave.jl - Scientific Reports Using Julia: <a href="https://weavejl.mpastell.com/stable/#Weave.jl-Scientific-Reports-Using-Julia">https://weavejl.mpastell.com/stable/#Weave.jl-Scientific-Reports-Using-Julia</a></li><li>Oxygen.jl (micro web framework): <a href="https://github.com/ndortega/Oxygen.jl">https://github.com/ndortega/Oxygen.jl</a></li><li>Term.jl: <a href="https://github.com/FedeClaudi/Term.jl">https://github.com/FedeClaudi/Term.jl</a></li><li>Metal.jl (GPU programming on Apple M-series chip): <a href="https://github.com/JuliaGPU/Metal.jl">https://github.com/JuliaGPU/Metal.jl</a></li></ul><h2 id="resources-1">Resources</h2><h3 id="learn-julia-in-y-minutes">Learn Julia in Y minutes</h3><p><a href="https://learnxinyminutes.com/docs/julia/">https://learnxinyminutes.com/docs/julia/</a></p><h3 id="think-julia-how-to-think-like-a-computer-scientist">Think Julia: How to Think Like a Computer Scientist</h3><p><a href="https://benlauwens.github.io/ThinkJulia.jl/latest/book.html">https://benlauwens.github.io/ThinkJulia.jl/latest/book.html</a></p><h3 id="how-to-build-a-deep-neural-network-from-scratch-with-julia">How to Build a Deep Neural Network from Scratch with Julia</h3><p><a href="https://medium.datadriveninvestor.com/how-to-build-a-deep-neural-network-from-scratch-with-julia-862116a194c">https://medium.datadriveninvestor.com/how-to-build-a-deep-neural-network-from-scratch-with-julia-862116a194c</a></p><h3 id="julia-bootcamp-2022-julia-basics">Julia Bootcamp 2022: Julia Basics</h3><p><a href="https://www.youtube.com/watch?v=BnTYMOOPEzw">https://www.youtube.com/watch?v=BnTYMOOPEzw</a></p><h3 id="guide-for-writing-shell-scripts-in-julia">Guide for writing shell scripts in Julia</h3><p><a href="https://github.com/ninjaaron/administrative-scripting-with-julia">https://github.com/ninjaaron/administrative-scripting-with-julia</a></p></div></body></html>

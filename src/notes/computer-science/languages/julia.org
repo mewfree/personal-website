@@ -15,7 +15,7 @@ https://docs.julialang.org/en/v1/base/io-network/#Base.printstyled
 ** Keywords
 *** ...
 =...= "splat" operator represents a sequence of arguments
-#+begin_src julia-vterm :session add
+#+begin_src julia :session add
 add(xs...) = reduce(+, xs)
 
 add(1, 2, 3)
@@ -24,7 +24,7 @@ add(1, 2, 3)
 #+RESULTS:
 : 6
 
-#+begin_src julia-vterm :session add
+#+begin_src julia :session add
 add([1, 2, 3]...)
 #+end_src
 
@@ -32,7 +32,7 @@ add([1, 2, 3]...)
 : 6
 *** ;
 =;= is used to separate statements that are on the same line
-#+begin_src julia-vterm
+#+begin_src julia
 a = 1; b = 2; a + b
 #+end_src
 
@@ -51,7 +51,7 @@ to use :results output, =Suppressor.jl= needs to be installed in Julia environme
 
 * Variables
 Convention: snake case (=long_variable_name=) is typically used
-#+begin_src julia-vterm
+#+begin_src julia
 x = 1
 #+end_src
 
@@ -60,21 +60,21 @@ x = 1
 
 ** Constant
 Constant variables can be defined with =const=
-#+begin_src julia-vterm :results none
+#+begin_src julia :results none
 const x = 2
 #+end_src
 
 * Primitive Types
 ** Booleans
 =true= / =false=
-#+begin_src julia-vterm
+#+begin_src julia
 true
 #+end_src
 
 #+RESULTS:
 : true
 
-#+begin_src julia-vterm
+#+begin_src julia
 false
 #+end_src
 
@@ -90,7 +90,7 @@ Julia will default to the processor's size (32/64-Bit) by default if not specifi
 =Float16=, =Float32=, =Float64=
 
 ** Complex Numbers
-#+begin_src julia-vterm
+#+begin_src julia
 n = 1 + 2im
 n + 1
 #+end_src
@@ -99,7 +99,7 @@ n + 1
 : 2 + 2im
 
 ** Rational Numbers
-#+begin_src julia-vterm
+#+begin_src julia
 1 // 3 + 1 // 3
 #+end_src
 
@@ -108,7 +108,7 @@ n + 1
 
 ** Strings
 Double quotes for strings:
-#+begin_src julia-vterm
+#+begin_src julia
 "Damien"
 #+end_src
 
@@ -117,7 +117,7 @@ Double quotes for strings:
 
 ** Characters
 Single quotes (apostrophes) for single char:
-#+begin_src julia-vterm
+#+begin_src julia
 'd'
 #+end_src
 
@@ -125,7 +125,7 @@ Single quotes (apostrophes) for single char:
 : d
 
 * Numbers
-#+begin_src julia-vterm
+#+begin_src julia
 1 + 1
 #+end_src
 
@@ -134,7 +134,7 @@ Single quotes (apostrophes) for single char:
 
 ** Parsing
 Parse integer from strings
-#+begin_src julia-vterm
+#+begin_src julia
 parse(Int64, "1337")
 #+end_src
 
@@ -142,7 +142,7 @@ parse(Int64, "1337")
 : 1337
 
 Parse float from strings
-#+begin_src julia-vterm
+#+begin_src julia
 parse(Float64, "13.37")
 #+end_src
 
@@ -150,7 +150,7 @@ parse(Float64, "13.37")
 : 13.37
 
 ** Ranges
-#+begin_src julia-vterm
+#+begin_src julia
 collect(1:10)
 #+end_src
 
@@ -160,14 +160,14 @@ collect(1:10)
 ** Min / Max
 *** Min
 =min()= returns the minimum from any number of arguments
-#+begin_src julia-vterm
+#+begin_src julia
 min(2, 3)
 #+end_src
 
 #+RESULTS:
 : 2
 
-#+begin_src julia-vterm
+#+begin_src julia
 min(2, 3, 4)
 #+end_src
 
@@ -175,7 +175,7 @@ min(2, 3, 4)
 : 2
 
 Or using the =splat= operator, to expand an array to the arguments:
-#+begin_src julia-vterm
+#+begin_src julia
 min([2, 3, 4]...)
 #+end_src
 
@@ -183,7 +183,7 @@ min([2, 3, 4]...)
 : 2
 
 More efficient way and avoiding the splat operator using =minimum()=:
-#+begin_src julia-vterm
+#+begin_src julia
 minimum([2, 3, 4])
 #+end_src
 
@@ -192,14 +192,14 @@ minimum([2, 3, 4])
 
 *** Max
 Similar for =max()= and =maximum()=:
-#+begin_src julia-vterm
+#+begin_src julia
 max(2, 3, 4)
 #+end_src
 
 #+RESULTS:
 : 4
 
-#+begin_src julia-vterm
+#+begin_src julia
 maximum([2, 3, 4])
 #+end_src
 
@@ -208,14 +208,14 @@ maximum([2, 3, 4])
 
 *** Extrema
 A useful function is =extrema()= that returns a tuple with the min and max
-#+begin_src julia-vterm
+#+begin_src julia
 extrema([2, 3, 4])
 #+end_src
 
 #+RESULTS:
 : (2, 4)
 
-#+begin_src julia-vterm
+#+begin_src julia
 extrema(1:99)
 #+end_src
 
@@ -227,7 +227,7 @@ https://docs.julialang.org/en/v1/base/strings/
 Double quotes are always used for strings, single quotes are used for chars
 
 ** Concatenation
-#+begin_src julia-vterm
+#+begin_src julia
 name = "Damien"
 string("My name is ", name)
 #+end_src
@@ -235,7 +235,7 @@ string("My name is ", name)
 #+RESULTS:
 : My name is Damien
 
-#+begin_src julia-vterm
+#+begin_src julia
 name = "Damien"
 "My name is " * name
 #+end_src
@@ -244,7 +244,7 @@ name = "Damien"
 : My name is Damien
 
 ** Interpolation
-#+begin_src julia-vterm
+#+begin_src julia
 name = "Damien"
 "My name is $name"
 #+end_src
@@ -252,7 +252,7 @@ name = "Damien"
 #+RESULTS:
 : My name is Damien
 
-#+begin_src julia-vterm
+#+begin_src julia
 "1 + 1 = $(1 + 1)"
 #+end_src
 
@@ -268,7 +268,7 @@ split("x,y,z", ",")
 : SubString{String}["x", "y", "z"]
 
 ** Join
-#+begin_src julia-vterm
+#+begin_src julia
 join(["x", "y", "z"], "\n")
 #+end_src
 
@@ -278,7 +278,7 @@ join(["x", "y", "z"], "\n")
 : z
 
 ** Starts With
-#+begin_src julia-vterm
+#+begin_src julia
 startswith("bonjour", "bon")
 #+end_src
 
@@ -286,7 +286,7 @@ startswith("bonjour", "bon")
 : true
 
 ** Ends With
-#+begin_src julia-vterm
+#+begin_src julia
 endswith("bonjour", "soir")
 #+end_src
 
@@ -294,7 +294,7 @@ endswith("bonjour", "soir")
 : false
 
 ** Contains
-#+begin_src julia-vterm
+#+begin_src julia
 contains("hello", "x")
 #+end_src
 
@@ -303,7 +303,7 @@ contains("hello", "x")
 
 ** Strip
 Remove leading and trailing characters from =str= (by default whitespace characters)
-#+begin_src julia-vterm
+#+begin_src julia
 strip("     hello")
 #+end_src
 
@@ -311,7 +311,7 @@ strip("     hello")
 : hello
 
 Can remove a specific character
-#+begin_src julia-vterm
+#+begin_src julia
 strip("hello!", '!')
 #+end_src
 
@@ -319,7 +319,7 @@ strip("hello!", '!')
 : hello
 
 Or a vector of characters
-#+begin_src julia-vterm
+#+begin_src julia
 strip(": hello!", [':', ' ', '!'])
 #+end_src
 
@@ -328,7 +328,7 @@ strip(": hello!", [':', ' ', '!'])
 
 ** Chomp
 Removes trailing newline
-#+begin_src julia-vterm
+#+begin_src julia
 chomp("hello\nworld\n")
 #+end_src
 
@@ -337,21 +337,21 @@ chomp("hello\nworld\n")
 : world
 
 ** Regex Match
-#+begin_src julia-vterm
+#+begin_src julia
 match(r"value = (.*)", "value = 1337")
 #+end_src
 
 #+RESULTS:
 : RegexMatch("value = 1337", 1="1337")
 
-#+begin_src julia-vterm
+#+begin_src julia
 match(r"value = (.*)", "value = 1337").captures
 #+end_src
 
 #+RESULTS:
 : Union{Nothing, SubString{String}}["1337"]
 
-#+begin_src julia-vterm
+#+begin_src julia
 match(r"value = (.*)", "value = 1337").captures |> first
 #+end_src
 
@@ -360,7 +360,7 @@ match(r"value = (.*)", "value = 1337").captures |> first
 
 ** Find
 *** Find First
-#+begin_src julia-vterm
+#+begin_src julia
 findfirst("Julia", "I love Julia but Julia doesn't love me")
 #+end_src
 
@@ -368,7 +368,7 @@ findfirst("Julia", "I love Julia but Julia doesn't love me")
 : 8:12
 
 *** Find Last
-#+begin_src julia-vterm
+#+begin_src julia
 findlast("Julia", "I love Julia but Julia doesn't love me")
 #+end_src
 
@@ -376,14 +376,14 @@ findlast("Julia", "I love Julia but Julia doesn't love me")
 : 18:22
 
 *** Find Next
-#+begin_src julia-vterm
+#+begin_src julia
 findnext("Julia", "I love Julia but Julia doesn't love me", 1)
 #+end_src
 
 #+RESULTS:
 : 8:12
 
-#+begin_src julia-vterm
+#+begin_src julia
 findnext("Julia", "I love Julia but Julia doesn't love me", 9)
 #+end_src
 
@@ -391,14 +391,14 @@ findnext("Julia", "I love Julia but Julia doesn't love me", 9)
 : 18:22
 
 *** Find Prev
-#+begin_src julia-vterm
+#+begin_src julia
 findprev("Julia", "I love Julia but Julia doesn't love me", 1)
 #+end_src
 
 #+RESULTS:
 : nothing
 
-#+begin_src julia-vterm
+#+begin_src julia
 findprev("Julia", "I love Julia but Julia doesn't love me", 17)
 #+end_src
 
@@ -406,7 +406,7 @@ findprev("Julia", "I love Julia but Julia doesn't love me", 17)
 : 8:12
 
 ** Replace
-#+begin_src julia-vterm
+#+begin_src julia
 replace("hello NAME", "NAME" => "Damien")
 #+end_src
 
@@ -417,14 +417,14 @@ replace("hello NAME", "NAME" => "Damien")
 =Vector= is a 1-dimensional array, =Matrix= a 2-dimensional array
 ** Tuples
 Immutable, ordered, fixed-length
-#+begin_src julia-vterm
+#+begin_src julia
 (1, 2)
 #+end_src
 
 #+RESULTS:
 : (1, 2)
 
-#+begin_src julia-vterm
+#+begin_src julia
 t = (9, 10)
 t[1]
 #+end_src
@@ -433,7 +433,7 @@ t[1]
 : 9
 
 *** Named Tuples
-#+begin_src julia-vterm :session route
+#+begin_src julia :session route
 route = (origin = "Montreal", destination = "Toronto")
 route.origin
 #+end_src
@@ -441,14 +441,14 @@ route.origin
 #+RESULTS:
 : Montreal
 
-#+begin_src julia-vterm :session route
+#+begin_src julia :session route
 route[:origin]
 #+end_src
 
 #+RESULTS:
 : Montreal
 
-#+begin_src julia-vterm :session route
+#+begin_src julia :session route
 (; origin, destination) = route
 origin
 #+end_src
@@ -457,7 +457,7 @@ origin
 : Montreal
 
 ** Arrays
-#+begin_src julia-vterm
+#+begin_src julia
 [1, 2, 3]
 #+end_src
 
@@ -465,7 +465,7 @@ origin
 : [1, 2, 3]
 
 *** Matrix
-#+begin_src julia-vterm
+#+begin_src julia
 [1 2 3; 4 5 6]
 #+end_src
 
@@ -473,14 +473,14 @@ origin
 : [1 2 3; 4 5 6]
 
 **** Horizontal Concatenation
-#+begin_src julia-vterm
+#+begin_src julia
 hcat([1, 2, 3], [4, 5, 6])
 #+end_src
 
 #+RESULTS:
 : [1 4; 2 5; 3 6]
 
-#+begin_src julia-vterm
+#+begin_src julia
 a1 = [1, 2, 3]
 a2 = [4, 5, 6]
 [a1 a2]
@@ -490,7 +490,7 @@ a2 = [4, 5, 6]
 : [1 4; 2 5; 3 6]
 
 *** Push / Pop / Append
-#+begin_src julia-vterm
+#+begin_src julia
 array = []
 
 # pushing an element to an array
@@ -507,21 +507,21 @@ append!(array, [1, 2, 3])
 : Any[1, 2, 3]
 
 *** Length / Size
-#+begin_src julia-vterm
+#+begin_src julia
 length([1, 2, 3])
 #+end_src
 
 #+RESULTS:
 : 3
 
-#+begin_src julia-vterm
+#+begin_src julia
 size([1, 2, 3])
 #+end_src
 
 #+RESULTS:
 : (3,)
 
-#+begin_src julia-vterm
+#+begin_src julia
 size([1 2 3; 4 5 6])
 #+end_src
 
@@ -530,7 +530,7 @@ size([1 2 3; 4 5 6])
 
 *** Zeros / Ones / Rand(n)
 Fill an array with =n= zeros:
-#+begin_src julia-vterm
+#+begin_src julia
 zeros(5)
 #+end_src
 
@@ -538,7 +538,7 @@ zeros(5)
 : [0.0, 0.0, 0.0, 0.0, 0.0]
 
 Fill an array with =n= zeros with Type specified:
-#+begin_src julia-vterm
+#+begin_src julia
 zeros(Int, 5)
 #+end_src
 
@@ -546,7 +546,7 @@ zeros(Int, 5)
 : [0, 0, 0, 0, 0]
 
 For 2D/3D... arrays:
-#+begin_src julia-vterm
+#+begin_src julia
 zeros(Int, 5, 2)
 #+end_src
 
@@ -554,7 +554,7 @@ zeros(Int, 5, 2)
 : [0 0; 0 0; 0 0; 0 0; 0 0]
 
 Same thing with ones:
-#+begin_src julia-vterm
+#+begin_src julia
 ones(Int, 5)
 #+end_src
 
@@ -562,7 +562,7 @@ ones(Int, 5)
 : [1, 1, 1, 1, 1]
 
 And random numbers:
-#+begin_src julia-vterm
+#+begin_src julia
 rand(5)
 #+end_src
 
@@ -570,7 +570,7 @@ rand(5)
 : [0.20655599984205453, 0.764336425218688, 0.707929049283852, 0.5403245301033117, 0.5747141117006983]
 
 Using standard Normal:
-#+begin_src julia-vterm
+#+begin_src julia
 randn(5)
 #+end_src
 
@@ -579,7 +579,7 @@ randn(5)
 
 *** Accessing Values
 **** Single Element
-#+begin_src julia-vterm
+#+begin_src julia
 xs = [5, 10, 15]
 xs[1]
 #+end_src
@@ -587,7 +587,7 @@ xs[1]
 #+RESULTS:
 : 5
 
-#+begin_src julia-vterm
+#+begin_src julia
 m = [5 10 15; 20 25 30]
 m[2,2]
 #+end_src
@@ -597,7 +597,7 @@ m[2,2]
 
 **** Range of Elements
 Using =end=
-#+begin_src julia-vterm
+#+begin_src julia
 xs = [5, 10, 15, 20, 25]
 xs[3:end]
 #+end_src
@@ -606,7 +606,7 @@ xs[3:end]
 : [15, 20, 25]
 
 ***** By column
-#+begin_src julia-vterm
+#+begin_src julia
 m = [5 10 15; 20 25 30]
 m[:,1]
 #+end_src
@@ -615,7 +615,7 @@ m[:,1]
 : [5, 20]
 
 ***** By row
-#+begin_src julia-vterm
+#+begin_src julia
 m = [5 10 15; 20 25 30]
 m[1,:]
 #+end_src
@@ -624,14 +624,14 @@ m[1,:]
 : [5, 10, 15]
 
 *** Concatenation
-#+begin_src julia-vterm
+#+begin_src julia
 vcat([1, 2], [3, 4])
 #+end_src
 
 #+RESULTS:
 : [1, 2, 3, 4]
 
-#+begin_src julia-vterm
+#+begin_src julia
 a1 = [1, 2]
 a2 = [3, 4]
 [a1; a2]
@@ -641,7 +641,7 @@ a2 = [3, 4]
 : [1, 2, 3, 4]
 
 *** Filter
-#+begin_src julia-vterm
+#+begin_src julia
 filter(x -> x < 5, 1:10)
 #+end_src
 
@@ -660,7 +660,7 @@ filter(x -> x < 5, 1:10)
 https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html
 
 *** End
-#+begin_src julia-vterm
+#+begin_src julia
 ['a', 'b', 'c'][end]
 #+end_src
 
@@ -668,7 +668,7 @@ https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html
 : c
 
 *** Sort
-#+begin_src julia-vterm
+#+begin_src julia
 [3, 2, 1] |> sort
 #+end_src
 
@@ -676,7 +676,7 @@ https://blog.lojic.com/2020/12/26/comprehensions-in-julia.html
 : [1, 2, 3]
 
 **** Sort by
-#+begin_src julia-vterm
+#+begin_src julia
 sort([Dict("x" => 3, "y" => 'a'), Dict("x" => 2, "y" => 'b'), Dict("x" => 1, "y" => 'c')], by = i -> i["x"])
 #+end_src
 
@@ -684,7 +684,7 @@ sort([Dict("x" => 3, "y" => 'a'), Dict("x" => 2, "y" => 'b'), Dict("x" => 1, "y"
 : Dict{String, Any}[Dict("x" => 1, "y" => 'c'), Dict("x" => 2, "y" => 'b'), Dict("x" => 3, "y" => 'a')]
 
 **** Reverse sort
-#+begin_src julia-vterm
+#+begin_src julia
 sort([1, 2, 3], rev = true)
 #+end_src
 
@@ -692,7 +692,7 @@ sort([1, 2, 3], rev = true)
 : [3, 2, 1]
 
 **** Partial sort
-#+begin_src julia-vterm
+#+begin_src julia
 partialsortperm([1, 2, 3, 4, 5, 6], 1:3, rev = true)
 #+end_src
 
@@ -703,7 +703,7 @@ partialsortperm([1, 2, 3, 4, 5, 6], 1:3, rev = true)
 :  4
 
 *** Destructuring
-#+begin_src julia-vterm
+#+begin_src julia
 a, b, c = [1, 2, 3]
 b
 #+end_src
@@ -711,7 +711,7 @@ b
 #+RESULTS:
 : 2
 
-#+begin_src julia-vterm
+#+begin_src julia
 a, b... = [1, 2, 3]
 b
 #+end_src
@@ -720,7 +720,7 @@ b
 : [2, 3]
 
 *** Delete Element From Array
-#+begin_src julia-vterm
+#+begin_src julia
 deleteat!([1, 2, 3], 1)
 #+end_src
 
@@ -728,7 +728,7 @@ deleteat!([1, 2, 3], 1)
 : [2, 3]
 
 *** Matrix to Vector
-#+begin_src julia-vterm
+#+begin_src julia
 matrix = [1 2 3; 4 5 6]
 matrix |> vec
 #+end_src
@@ -737,7 +737,7 @@ matrix |> vec
 : [1, 4, 2, 5, 3, 6]
 
 *** Vector to Matrix
-#+begin_src julia-vterm
+#+begin_src julia
 vector = [1, 2, 3, 4]
 vector |> permutedims
 #+end_src
@@ -746,7 +746,7 @@ vector |> permutedims
 : [1 2 3 4]
 
 *** Transpose Matrix
-#+begin_src julia-vterm
+#+begin_src julia
 matrix = [1 3; 2 4]
 matrix |> transpose
 #+end_src
@@ -755,7 +755,7 @@ matrix |> transpose
 : [1 2; 3 4]
 
 ='= seems to be a shorthand for transpose:
-#+begin_src julia-vterm
+#+begin_src julia
 matrix = [1 3; 2 4]
 matrix'
 #+end_src
@@ -764,14 +764,14 @@ matrix'
 : [1 2; 3 4]
 
 *** Circshift
-#+begin_src julia-vterm
+#+begin_src julia
 circshift(1:9, 1)
 #+end_src
 
 #+RESULTS:
 : [9, 1, 2, 3, 4, 5, 6, 7, 8]
 
-#+begin_src julia-vterm
+#+begin_src julia
 circshift(1:9, -1)
 #+end_src
 
@@ -780,7 +780,7 @@ circshift(1:9, -1)
 
 ** Sets
 No duplicate elements
-#+begin_src julia-vterm
+#+begin_src julia
 Set([1, 2, 3, 3])
 #+end_src
 
@@ -813,7 +813,7 @@ f(2, 3)
 : 5
 
 More terse syntax:
-#+begin_src julia-vterm
+#+begin_src julia
 f(x, y) = x + y
 
 f(2, 3)
@@ -823,7 +823,7 @@ f(2, 3)
 : 5
 
 ** Anonymous Functions
-#+begin_src julia-vterm
+#+begin_src julia
 x -> x*2
 #+end_src
 
@@ -831,7 +831,7 @@ x -> x*2
 : #1
 
 ** Named Arguments
-#+begin_src julia-vterm :session named
+#+begin_src julia :session named
 function f(x; coef = 2)
     x * coef
 end
@@ -842,7 +842,7 @@ f(4)
 #+RESULTS:
 : 8
 
-#+begin_src julia-vterm :session named
+#+begin_src julia :session named
 f(4, coef = 4)
 #+end_src
 
@@ -850,7 +850,7 @@ f(4, coef = 4)
 : 16
 
 ** Pipe Operator
-#+begin_src julia-vterm
+#+begin_src julia
 [1, 2, 3] |> length
 #+end_src
 
@@ -861,7 +861,7 @@ f(4, coef = 4)
 [[https://docs.julialang.org/en/v1/manual/functions/#man-vectorized]]
 Applies function to all elements of vector, similar to =map()=
 
-#+begin_src julia-vterm
+#+begin_src julia
 f(x) = x*2
 
 f.([1, 2, 3])
@@ -871,7 +871,7 @@ f.([1, 2, 3])
 : [2, 4, 6]
 
 Even works on the =|>= pipe operator!
-#+begin_src julia-vterm
+#+begin_src julia
 ["list", "of", "string"] .|> [uppercase, reverse, length]
 #+end_src
 
@@ -923,7 +923,7 @@ end
 
 * Control Flow
 ** If statement
-#+begin_src julia-vterm
+#+begin_src julia
 if 1 > 2
     "1 is larger than 2"
 else
@@ -935,7 +935,7 @@ end
 : 2 is larger than 1
 
 ** For loop
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 for i in 1:5
     println(i)
 end
@@ -949,7 +949,7 @@ end
 : 5
 
 Works on strings too:
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 for char in "Damien"
     println(char)
 end
@@ -964,7 +964,7 @@ end
 : n
 
 and Dicts:
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 for (key, value) in Dict("France" => "Paris", "Germany" => "Berlin", "Canada" => "Ottawa")
     println(value)
 end
@@ -976,7 +976,7 @@ end
 : Paris
 
 ** Eachindex
-#+begin_src julia-vterm
+#+begin_src julia
 eachindex(['a', 'b', 'c'])
 #+end_src
 
@@ -984,7 +984,7 @@ eachindex(['a', 'b', 'c'])
 : Base.OneTo(3)
 
 ** While loop
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 i = 0
 while i < 5
     println(i)
@@ -1001,7 +1001,7 @@ end
 
 ** Break / Continue
 =break= stops the loop
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 i = 0
 while i < 10
     println(i)
@@ -1020,7 +1020,7 @@ end
 : 4
 
 =continue= stops this iteration
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 for i in 1:5
     if i == 3
         continue
@@ -1041,14 +1041,14 @@ end
 =⊆=: subset of, can be typed with =\subseteq=
 
 =∘=: composition operator
-#+begin_src julia-vterm
+#+begin_src julia
 1:10 |> sum |> sqrt
 #+end_src
 
 #+RESULTS:
 : 7.416198487095663
 
-#+begin_src julia-vterm
+#+begin_src julia
 (sqrt ∘ sum)(1:10)
 #+end_src
 
@@ -1057,14 +1057,14 @@ end
 
 * Cartesian Indices
 https://julialang.org/blog/2016/02/iteration/
-#+begin_src julia-vterm
+#+begin_src julia
 CartesianIndex(1, 1)
 #+end_src
 
 #+RESULTS:
 : CartesianIndex(1, 1)
 
-#+begin_src julia-vterm
+#+begin_src julia
 CartesianIndex(1, 1):CartesianIndex(3, 3)
 #+end_src
 
@@ -1073,7 +1073,7 @@ CartesianIndex(1, 1):CartesianIndex(3, 3)
 
 * Packages
 =using Package= will make all functions defined "exportable" by Package available to use directly
-#+begin_src julia-vterm
+#+begin_src julia
 using Statistics
 
 mean([1,2,3])
@@ -1083,7 +1083,7 @@ mean([1,2,3])
 : 2.0
 
 =import Package= means you have to type =Package.function()= to access each function
-#+begin_src julia-vterm
+#+begin_src julia
 import Statistics
 
 Statistics.mean([1,2,3])
@@ -1094,7 +1094,7 @@ Statistics.mean([1,2,3])
 
 * Plots
 http://docs.juliaplots.org/latest/
-#+begin_src julia-vterm :results file graphics :file plot.png :output-dir julia-plots
+#+begin_src julia :results file graphics :file plot.png :output-dir julia-plots
 using Plots
 x = 1:20; y = rand(20)
 plot(x, y)
@@ -1105,7 +1105,7 @@ savefig("julia-plots/plot.png")
 [[file:julia-plots/plot.png]]
 
 ** Unicode Plots
-#+begin_src julia-vterm
+#+begin_src julia
 using UnicodePlots
 lineplot(sin, 1:.5:20, width = 50)
 #+end_src
@@ -1134,12 +1134,12 @@ lineplot(sin, 1:.5:20, width = 50)
 #+end_example
 
 * Dates
-#+begin_src julia-vterm :results silent
+#+begin_src julia :results silent
 using Dates
 #+end_src
 
 ** Parsing
-#+begin_src julia-vterm
+#+begin_src julia
 Date("2021-01-01")
 #+end_src
 
@@ -1147,14 +1147,14 @@ Date("2021-01-01")
 : 2021-01-01
 
 * Calling C
-#+begin_src julia-vterm
+#+begin_src julia
 ccall(:clock, Int32, ())
 #+end_src
 
 #+RESULTS:
 : 5291220
 
-#+begin_src julia-vterm
+#+begin_src julia
 ccall(:getenv, Cstring, (Cstring,), "SHELL") |> unsafe_string
 #+end_src
 
@@ -1162,7 +1162,7 @@ ccall(:getenv, Cstring, (Cstring,), "SHELL") |> unsafe_string
 : /bin/zsh
 
 * Try / Catch
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 try
     undefined_method()
 catch e
@@ -1178,7 +1178,7 @@ end
 
 * Type Annotations
 Adding =thing::Type= ensure =thing= is of type =Type=
-#+begin_src julia-vterm
+#+begin_src julia
 "Damien"::String
 #+end_src
 
@@ -1186,14 +1186,14 @@ Adding =thing::Type= ensure =thing= is of type =Type=
 : Damien
 
 Typically done inside a function:
-#+begin_src julia-vterm :session concat_string
+#+begin_src julia :session concat_string
 concat_string(x::String, y::String)::String = x * y
 #+end_src
 
 #+RESULTS:
 : concat_string
 
-#+begin_src julia-vterm :session concat_string
+#+begin_src julia :session concat_string
 concat_string("Hello, ", "World")
 #+end_src
 
@@ -1201,7 +1201,7 @@ concat_string("Hello, ", "World")
 : Hello, World
 
 Fails:
-#+begin_src julia-vterm :session concat_string :results silent
+#+begin_src julia :session concat_string :results silent
 concat_string("Hello, ", 9)
 #+end_src
 
@@ -1213,7 +1213,7 @@ concat_string("Hello, ", 9)
 * Macros
 ** =@code_llvm=
 Can be used to view the actual LLVM code generated by the Julia compiler
-#+begin_src julia-vterm :results output
+#+begin_src julia :results output
 @code_llvm 1 + 1
 #+end_src
 
@@ -1226,7 +1226,7 @@ Can be used to view the actual LLVM code generated by the Julia compiler
 : }
 
 ** =@test=
-#+begin_src julia-vterm
+#+begin_src julia
 using Test
 
 @test 1 == 1

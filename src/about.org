@@ -31,7 +31,7 @@
 - 🐫 [[file:notes/computer-science/languages/ocaml.org][OCaml]]
 
 * Random
-#+begin_src julia-vterm :exports results
+#+begin_src julia :exports results
 using UnicodePlots
 lineplot(sin, 0:0.5:10, width = 50, canvas = DotCanvas)
 #+end_src
