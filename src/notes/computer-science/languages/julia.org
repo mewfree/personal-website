@@ -797,6 +797,18 @@ dict["key"]
 #+RESULTS:
 : value
 
+#+begin_src julia
+dict = Dict("key" => "value")
+
+dict["another_key"] = "another_value"
+dict
+#+end_src
+
+#+RESULTS:
+: Dict{String, String} with 2 entries:
+:   "key"         => "value"
+:   "another_key" => "another_value"
+
 * Functions
 https://docs.julialang.org/en/v1/manual/functions/
 

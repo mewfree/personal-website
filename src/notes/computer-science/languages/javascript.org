@@ -384,6 +384,13 @@ https://bun.sh/
 Bun is a fast all-in-one JavaScript runtime
 #+end_quote
 
+*** Frameworks
+**** Elysia
+https://elysiajs.com/
+#+begin_quote
+Fast, and friendly Bun web framework.
+#+end_quote
+
 ** Blueboat
 https://blueboat.io/
 #+begin_quote
