@@ -189,5 +189,11 @@ https://github.com/eeue56/derw
 An Elm-inspired language that transpiles to TypeScript
 #+end_quote
 
+* Carp
+https://github.com/carp-lang/Carp
+#+begin_quote
+A statically typed lisp, without a GC, for real-time applications.
+#+end_quote
+
 * Resources
 ** http://proglangdesign.net/

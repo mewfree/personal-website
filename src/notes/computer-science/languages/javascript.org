@@ -292,7 +292,7 @@ A state management library for React
 [[https://mithril.js.org/]]
 
 [[https://svelte.dev/]]
-+ backend: https://sapper.svelte.dev/
++ backend: https://kit.svelte.dev/
 
 https://elderguide.com/tech/elderjs/: Elder.js: An Opinionated, SEO focused, Svelte Framework
 
@@ -412,6 +412,13 @@ https://github.com/JSMonk/hegel
 An advanced static type checker
 #+end_quote
 
+* Game Engines
+** Melon
+https://github.com/melonjs/melonJS
+#+begin_quote
+a fresh & lightweight javascript game engine
+#+end_quote
+
 * Misc Packages
 ** mdx
 https://github.com/mdx-js/mdx
@@ -459,6 +466,13 @@ A strictly typed utility library.
 https://tinybase.org/
 #+begin_quote
 The reactive data store for local‑first apps.
+#+end_quote
+
+** tRPC
+https://trpc.io/
+#+begin_quote
+Move Fast and Break Nothing.
+End-to-end typesafe APIs made easy.
 #+end_quote
 
 * Resources

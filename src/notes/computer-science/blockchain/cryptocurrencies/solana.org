@@ -5,19 +5,19 @@
 Block times of 400ms.
 50,000 transactions per second.
 
-Written in [[file:../../rust.org][Rust]].
+Written in [[file:../../languages/rust.org][Rust]].
 
 SPL tokens = equivalent to ERC20 tokens.
 
-smart contrats = programs
+smart contracts = programs
 
 * Wallet
 ** Using Ledger: https://solflare.com/dashboard
 ** Sollet.io
 
 * Tools
-https://docs.solana.com/developing/clients/jsonrpc-api
-https://github.com/michaelhly/solana-py
+- https://docs.solana.com/developing/clients/jsonrpc-api
+- https://github.com/michaelhly/solana-py
 
 ** CLI
 https://docs.solana.com/cli
@@ -33,10 +33,10 @@ https://github.com/project-serum/anchor
 The "Truffle" of Solana
 
 * Programs
-https://paulx.dev/blog/2021/01/14/programming-on-solana-an-introduction/
-https://hackmd.io/@ironaddicteddog/solana-starter-kit
-https://twitter.com/pencilflip/status/1451949960065335302
-https://jstarry.notion.site/Program-deploys-29780c48794c47308d5f138074dd9838
+- https://paulx.dev/blog/2021/01/14/programming-on-solana-an-introduction/
+- https://hackmd.io/@ironaddicteddog/solana-starter-kit
+- https://twitter.com/pencilflip/status/1451949960065335302
+- https://jstarry.notion.site/Program-deploys-29780c48794c47308d5f138074dd9838
 
 * Projects
 ** Serum
@@ -79,14 +79,6 @@ https://trade.mango.markets/
 v1 was USDT based, v2 is USDC based
 
 DEX-like API for Mango Markets: https://github.com/tardis-dev/mango-bowl
-
-** $COPE
-Missed out the boat on this one...
-
-Big airdrop, got listed on FTX, going to the moon right now.
-2,000% yield on Raydium farms...
-
-FOMOing
 
 ** SolRise
 https://solrise.finance/

@@ -178,3 +178,5 @@ by Andre Hunt, David Thomas
 by Steve McConnell
 ** The Mythical Man-Month
 by Fred Brooks
+** Coders at Work
+by Peter Seibel
