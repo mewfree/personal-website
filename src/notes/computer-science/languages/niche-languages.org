@@ -195,5 +195,11 @@ https://github.com/carp-lang/Carp
 A statically typed lisp, without a GC, for real-time applications.
 #+end_quote
 
+* Cyber
+https://cyberscript.dev/
+#+begin_quote
+Cyber is a new language for fast, efficient, and concurrent scripting.
+#+end_quote
+
 * Resources
 ** http://proglangdesign.net/

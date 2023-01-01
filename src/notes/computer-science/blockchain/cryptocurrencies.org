@@ -125,10 +125,10 @@ https://www.tokenterminal.com/
 TradFi stats on DeFi protocols
 https://twitter.com/tokenterminal/status/1363057210637643779?s=191
 ** ichibot-client-app
-a CLI interface to trade on FTX and Binance
+a CLI interface to trade on Binance
 https://gitlab.com/Ichimikichiki/ichibot-client-app
 interesting, allows for FAST keyboard based orders
-kind of like a "terminal" for FTX
+kind of like a "terminal" for Binance
 ** Messari
 Data research, cool graphs...
 https://messari.io/

@@ -1048,11 +1048,52 @@ end
 : 5
 
 * Symbols
-=∈=: in, can be typed in the REPL and Vim with =\in=
+** =∈= (=\in=) / =d= (=\notin=)
+#+begin_src julia
+1 ∈ [1, 2, 3]
+#+end_src
 
-=⊆=: subset of, can be typed with =\subseteq=
+#+RESULTS:
+: true
 
-=∘=: composition operator
+#+begin_src julia
+1 ∉ [1, 2, 3]
+#+end_src
+
+#+RESULTS:
+: false
+
+** =⊆= (=\subseteq=) / =⊈= (=\nsubseteq=) / =⊊= (=\subsetneq=)
+#+begin_src julia
+[1, 2] ⊆ [1, 2, 3]
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src julia
+[1, 2] ⊈ [1, 2, 3]
+#+end_src
+
+#+RESULTS:
+: false
+
+#+begin_src julia
+[1, 2] ⊆ [1, 2]
+#+end_src
+
+#+RESULTS:
+: true
+
+"True" subset, can't be equal
+#+begin_src julia
+[1, 2] ⊊ [1, 2]
+#+end_src
+
+#+RESULTS:
+: false
+
+** Pipe =|>= vs Composition operator =∘= (=\circ=)
 #+begin_src julia
 1:10 |> sum |> sqrt
 #+end_src

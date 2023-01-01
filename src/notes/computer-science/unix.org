@@ -675,6 +675,19 @@ Deny incoming but allow outgoing:
 https://github.com/dbro/csvquote
 Enables common unix utlities like cut, awk, wc, head to work correctly with csv data containing delimiters and newlines
 
+** rsync
+=rsync {origin} {destination}=
+
+Works over =ssh= too: =rsync user@host:/home/user /home/user/backup=
+
+Common arguments:
+- =-r= for recursive
+- =-v= for verbose (display file names)
+- =-P= to keep files partly transferred
+- =-a= archive mode, bundles a bunch of common arguments together for archives/backups
+- =-h= more human readable numbers
+- =--progress= to show progress during transfer
+
 * Help
 Traditionally, can use =man {command}= to get info about =command= but can be quite lengthy and lack examples.
 =tldr {command}= solves this problem by being a short cheatsheet with many examples.

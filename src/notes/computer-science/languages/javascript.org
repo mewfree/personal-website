@@ -419,6 +419,14 @@ https://github.com/melonjs/melonJS
 a fresh & lightweight javascript game engine
 #+end_quote
 
+* Styling
+** Tamagui
+https://tamagui.dev/
+#+begin_quote
+Write less, runs faster.
+Styles, optimizing compiler & UI kit that unify React Native + Web
+#+end_quote
+
 * Misc Packages
 ** mdx
 https://github.com/mdx-js/mdx

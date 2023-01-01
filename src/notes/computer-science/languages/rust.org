@@ -43,6 +43,9 @@ fn main() {
 =println!()= is a Rust macro. =!= means it's a macro and not a function.
 =;= at the end of the line indicates that the expression is over.
 
+** Operators
+https://doc.rust-lang.org/book/appendix-02-operators.html
+
 * Cargo
 - New project: =cargo run {project_name}=
 - Build: =cargo build=, build for release: =cargo build --release= (with optimizations)
@@ -206,6 +209,22 @@ for i in range {
 : 2
 : 3
 : 4
+
+Right-inclusive range:
+#+begin_src rust
+let range = 1..=5;
+
+for i in range {
+    println!("{i}");
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
+: 5
 
 * Formatted Print
 #+begin_src rust
@@ -884,6 +903,7 @@ Set up a modern rust+react web app by running one command.
 - https://learnxinyminutes.com/docs/rust/
 - https://cheats.rs/ Rust Language Cheat Sheet
 - https://github.com/rust-lang/rustlings/ Small exercises to get you used to reading and writing Rust code!
+- https://google.github.io/comprehensive-rust/ Rust for Android
 
 ** Other
 - Zola, a static site generator [[https://www.getzola.org/]]

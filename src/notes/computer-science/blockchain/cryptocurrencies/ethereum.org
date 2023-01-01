@@ -161,6 +161,11 @@ https://www.futureswap.com/
 **** for stablecoins
 ***** Curve
 AMM for stablecoins
+****** Conic
+https://conic.finance/
+#+begin_quote
+Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.
+#+end_quote
 ***** Shells
 https://shells.exchange/
 Another AMM for stablecoins

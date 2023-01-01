@@ -4,7 +4,6 @@
 
 | name           | description                                   |
 |----------------+-----------------------------------------------|
-| FTX            | My preferred exchange                         |
 | Binance        | Largest exchange, tons of alts                |
 | Delta Exchange | Interesting, MOVE contracts on alts?          |
 | AscendEX       | ex-BitMax                                     |
