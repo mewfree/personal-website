@@ -2,7 +2,24 @@
 
 [[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Game theory
 
-* Game theory
+* Key concepts
+** Players
+The individuals or groups who are making decisions.
+** Strategies
+The different actions that a player can choose from.
+** Payoffs
+The outcomes of a game, often represented as a matrix showing the payoffs for each combination of strategies chosen by the players.
+** Equilibrium
+A set of strategies such that no player can benefit by changing their strategy, given the strategies of the other players.
+** Dominant strategy
+A strategy that is always the best choice for a player, regardless of the strategies chosen by the other players.
+** Nash equilibrium
+A type of equilibrium in which each player's strategy is a best response to the strategies of the other players.
+** Mixed strategy
+A strategy in which a player randomly chooses among a set of possible actions.
 
 * Resources
-** https://www.coursera.org/learn/game-theory-1
+** Game Theory - Coursera course
+https://www.coursera.org/learn/game-theory-1
+** Game Theory: Basic Concepts and Terminology
+https://www2.econ.iastate.edu/tesfatsi/GameDef.pdf

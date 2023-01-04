@@ -10,6 +10,14 @@ console.log('Hello, World!')
 #+RESULTS:
 : Hello, World!
 
+String concatenation:
+#+begin_src js
+return 'hello' + 'world'
+#+end_src
+
+#+RESULTS:
+: helloworld
+
 * Numbers
 #+begin_src js
 return 1 + 1
@@ -481,6 +489,12 @@ https://trpc.io/
 #+begin_quote
 Move Fast and Break Nothing.
 End-to-end typesafe APIs made easy.
+#+end_quote
+
+** Auth.js
+https://authjs.dev/
+#+begin_quote
+Authentication for the Web.
 #+end_quote
 
 * Resources
