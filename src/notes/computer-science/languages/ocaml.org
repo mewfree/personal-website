@@ -1268,6 +1268,12 @@ https://medium.com/@bobbypriambodo/interfacing-ocaml-and-postgresql-with-caqti-a
 
 https://ceramichacker.com/blog/28-2x-backend-webdev-w-dream-and-caqti
 
+** Petrol
+https://github.com/Gopiandcode/petrol
+#+begin_quote
+Petrol is a Free software library that provides a high-level OCaml API for interacting with SQL databases. The aim of this interface is to provide a type-safe API to allow developers to define their SQL tables and queries directly in OCaml, thereby avoiding the impedence mismatch and fragility that comes with having to directly write SQL code, as is typical in a normal Caqti-based project.
+#+end_quote
+
 ** irmin
 https://irmin.org/
 #+begin_quote

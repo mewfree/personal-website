@@ -435,6 +435,13 @@ Write less, runs faster.
 Styles, optimizing compiler & UI kit that unify React Native + Web
 #+end_quote
 
+* E-commerce
+** Medusa
+https://medusajs.com/
+#+begin_quote
+The Open Source Shopify Alternative
+#+end_quote
+
 * Misc Packages
 ** mdx
 https://github.com/mdx-js/mdx

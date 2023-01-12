@@ -48,6 +48,12 @@ https://github.com/kwhitley/itty-router
 #+begin_quote
 Tiny, zero-dependency router with route param and query parsing - built for Cloudflare Workers, but works everywhere!
 #+end_quote
+**** Hono
+https://honojs.dev/
+
+#+begin_quote
+Hono - [炎] means flame🔥 in Japanese - is a small, simple, and ultrafast web framework for Cloudflare Workers, Deno, Bun, Lagon, and others. Fast, but not only fast.
+#+end_quote
 
 ** Static Websites
 *** Netlify

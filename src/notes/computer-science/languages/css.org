@@ -8,6 +8,12 @@ https://www.joshwcomeau.com/animation/css-transitions/
 * Detect ligth/dark mode
 https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 
+* Trigonometry
+https://blog.stephaniestimac.com/posts/2023/1/css-trigonometric-functions/
+
+* 3D
+https://garden.bradwoods.io/notes/css/3d
+
 * Frameworks
 ** Tailwind
 https://tailwindcss.com/

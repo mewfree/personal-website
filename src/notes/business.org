@@ -84,6 +84,8 @@ YC's free online platform for finding a high-quality co-founder.
 Match with co-founders based on your preferences for interests, skills, location, and more, and start building your company.
 ** Best "SaaS starter kit"
 https://news.ycombinator.com/item?id=28774647
+** Ask HN: Main things to consider when building an app for business/enterprise?
+https://news.ycombinator.com/item?id=34287685
 
 * Spreadsheets
 ** Google Spreadsheets
