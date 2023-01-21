@@ -574,6 +574,12 @@ Adds support for creating state machines for attributes on any Ruby class
 
 https://blog.appsignal.com/2022/06/22/state-machines-in-ruby-an-introduction.html
 
+** Polars
+https://github.com/ankane/polars-ruby
+#+begin_quote
+🔥 Blazingly fast DataFrames for Ruby, powered by Polars
+#+end_quote
+
 * Resources
 https://github.com/seanlerner/ruby-and-rails-learning-plan
 

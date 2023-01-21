@@ -116,6 +116,12 @@ plot f(x)
 #+RESULTS:
 [[file:gnuplot-example.png]]
 
+** YouPlot
+https://github.com/red-data-tools/YouPlot
+#+begin_quote
+A command line tool that draw plots on the terminal.
+#+end_quote
+
 * Resources
 https://github.com/microsoft/Data-Science-For-Beginners
 

@@ -1072,6 +1072,12 @@ https://www.ash-elixir.org/
 Build APIs in minutes. Ash is a declarative, resource-oriented application framework for Elixir.
 #+end_quote
 
+*** Ash Authentication
+https://alembic.com.au/blog/announcing-ash-authentication
+#+begin_quote
+Ash Authentication is a drop-in authentication solution for users of the Ash framework who want to provide password-based or social sign-in via OAuth 2.0.
+#+end_quote
+
 ** Cobblestone
 https://github.com/doomspork/cobblestone
 #+begin_quote
