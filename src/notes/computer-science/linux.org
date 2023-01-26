@@ -31,6 +31,8 @@ https://nixos.wiki/wiki/Flakes
 
 Nix -> Dockerfile
 Nix Flakes -> Docker Compose
+*** Resources
+https://zero-to-nix.com/
 
 ** [[file:linux/guix.org][GNU Guix]]
 

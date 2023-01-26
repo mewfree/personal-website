@@ -65,3 +65,5 @@ CLI tool for a more visual git: [[https://jonas.github.io/tig/]]
 http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
 
 ** [[https://phoenixnap.com/kb/how-to-rename-git-branch-local-remote]]
+
+** https://myme.no/posts/2023-01-22-git-commands-you-do-not-need.html

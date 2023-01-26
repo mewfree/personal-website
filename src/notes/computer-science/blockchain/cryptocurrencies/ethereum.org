@@ -208,6 +208,14 @@ https://synthetix.io
 https://hegic.co
 **** Pods
 https://www.pods.finance/
+*** Perpetual Futures
+**** Cap
+https://cap.io/
+#+begin_quote
+DECENTRALIZED PERPS
+Trade global markets with low fees, deep liquidity, and up to 100× leverage.
+#+end_quote
+On Arbitrum L2
 ** Alchemix
 https://app.alchemix.fi/
 Deposit DAI, borrow up to 50% as alUSD
