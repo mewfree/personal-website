@@ -23,6 +23,10 @@ https://tailwindcss.com/docs/dark-mode
 "Free Tailwind Components
 https://daisyui.com/
 
+* Random
+** FAQ in CSS (Tailwind)
+https://play.tailwindcss.com/bvwqlf7mwO
+
 * Resources
 - https://web.dev/learn/css/
 - https://lexoral.com/blog/you-dont-need-js/

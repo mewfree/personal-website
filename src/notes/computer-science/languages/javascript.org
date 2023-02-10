@@ -504,6 +504,12 @@ https://authjs.dev/
 Authentication for the Web.
 #+end_quote
 
+** RxDB
+https://rxdb.info/
+#+begin_quote
+The perfect Database for JavaScript applications
+#+end_quote
+
 * Resources
 [[https://javascript.info/][The Modern JavaScript Tutorial]]
 

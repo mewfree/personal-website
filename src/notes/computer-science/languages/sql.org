@@ -2,11 +2,17 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / SQL
 
-* Query
+* Commands
 ** SELECT
 ** UPDATE
 ** DELETE
 =DELETE FROM {table_name} WHERE {column_name} = {condition};=
+
+** INSERT INTO
+
+** CREATE TABLE
+** ALTER TABLE
+** DROP TABLE
 
 * PostgreSQL
 ** psql commands
@@ -16,6 +22,8 @@
 =brew postgresql-upgrade-database=
 ** Access CLI
 =psql postgres=
+
+* SQLite
 
 * =prql=
 https://github.com/prql/prql

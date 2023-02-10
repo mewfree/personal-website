@@ -180,3 +180,7 @@ by Steve McConnell
 by Fred Brooks
 ** Coders at Work
 by Peter Seibel
+** Teach Yourself Computer Science
+https://teachyourselfcs.com/
+** Open Source Society University
+https://github.com/ossu/computer-science

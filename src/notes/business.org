@@ -5,10 +5,16 @@
 * Legal
 ** Incorporation
 *** Federal vs Provincial?
-*** Offshore
 *** Address
 - Canada Post PO Box
 - UPS Store address
+*** Name
+**** In Québec
+Partie générique (en français) - Partie spécifique - Particule
+
+Examples:
+- Quincaillerie Saint-Jean inc.
+- Épicerie Intermarché inc.
 *** Resources
 https://junjizhi.com/all/experience/indie%20hacking/2021/05/01/indie-hacking-incorporation/
 
@@ -31,6 +37,13 @@ https://www.hsbc.ca/small-business-banking-solutions/everyday-banking/#rbb-chequ
 No fee with $10k balance?
 ** Pillar
 https://www.gopillar.ca/
+
+* Invoicing
+** Simple HTML Invoice Template
+https://github.com/sparksuite/simple-html-invoice-template
+#+begin_quote
+A modern, clean, and very simple responsive HTML invoice template.
+#+end_quote
 
 * Credit Cards
 - https://www.mazumago.com/credit-card
