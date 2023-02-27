@@ -76,7 +76,8 @@ https://duckdb.org/2021/05/14/sql-on-pandas.html
 * Datalog
 Datalog is a declarative logic programming language that syntactically is a subset of Prolog. It is often used as a query language for deductive databases.
 
-https://www.instantdb.dev/essays/datalogjs
+- https://www.instantdb.dev/essays/datalogjs
+- https://blogit.michelin.io/an-introduction-to-datalog/
 
 * Redis
 https://redis.io/

@@ -896,6 +896,18 @@ https://github.com/Wulf/create-rust-app
 Set up a modern rust+react web app by running one command.
 #+end_quote
 
+** Leptos
+https://github.com/leptos-rs/leptos
+#+begin_quote
+Leptos is a full-stack, isomorphic Rust web framework leveraging fine-grained reactivity to build declarative user interfaces.
+#+end_quote
+
+** Sycamore
+https://sycamore-rs.netlify.app/
+#+begin_quote
+A reactive library for creating web apps in Rust and WebAssembly
+#+end_quote
+
 * Resources
 ** Main
 - https://doc.rust-lang.org/book/
