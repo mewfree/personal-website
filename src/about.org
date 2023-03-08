@@ -14,7 +14,7 @@
 - 🐧 ThinkPad X1 Nano
 - 📱 OnePlus 9 Pro
 - 📖 Hisense Hi Reader
-- ⌨️ HHKB Pro 2
+- ⌨️ UHK 60 v2
 
 ** Software
 - ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (with evil-mode)
