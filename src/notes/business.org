@@ -65,6 +65,12 @@ https://killbill.io/
 Open-Source Subscription Billing & Payments Platform
 #+end_quote
 
+* Domain Names
+** Namecheap
+https://www.namecheap.com/
+** Porkbun
+https://porkbun.com/
+
 * Communication
 ** How to communicate better?
 *** "Bottom Line Up Front"

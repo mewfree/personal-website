@@ -98,6 +98,7 @@ Mapping between categories.
 ** Resources
 - https://www.logicmatters.net/categories/
 - https://news.ycombinator.com/item?id=29734482
+- https://github.com/bgavran/Category_Theory_Machine_Learning
 
 * Euclidian Geometry
 ** Scalar

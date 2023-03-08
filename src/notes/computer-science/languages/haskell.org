@@ -11,6 +11,22 @@ name
 #+RESULTS:
 : Damien
 
+* Types
+=::= = "has type"
+#+begin_src haskell :results none
+x :: Int
+#+end_src
+
+** Basic Types
+| Name    | Definition                              |
+|---------+-----------------------------------------|
+| Int     | Machine-sized integers                  |
+| Integer | Arbitrary-precision integers            |
+| Double  | Double-precision floating point         |
+| Bool    | Booleans                                |
+| Char    | Unicode characters                      |
+| String  | Lists of characters with special syntax |
+
 * Numbers
 #+begin_src haskell
 1 + 1

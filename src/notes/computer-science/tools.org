@@ -287,6 +287,12 @@ CLI tool and python library that converts the output of popular command-line too
 This allows piping of output to tools like jq and simplifying automation scripts.
 #+end_quote
 
+** MailCrab
+https://tweedegolf.nl/en/blog/86/introducing-mailcrab
+#+begin_quote
+MailCrab is an email test server for development, written entirely in Rust.
+#+end_quote
+
 ** Competitive Programming
 *** Websites
 **** HackerRank
