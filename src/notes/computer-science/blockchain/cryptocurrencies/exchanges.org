@@ -21,4 +21,12 @@
 | HitBTC         |                                               |
 | Globedx        | ex-YCombinator, futures only                  |
 | Okcoin         |                                               |
+| BTSE           |                                               |
 | Physical ATMs  | https://www.cryptoclubbtm.com/?lang=en        |
+
+* ~ccxt~
+https://github.com/ccxt/ccxt
+
+#+begin_quote
+A JavaScript / Python / PHP cryptocurrency trading API with support for more than 100 bitcoin/altcoin exchanges
+#+end_quote

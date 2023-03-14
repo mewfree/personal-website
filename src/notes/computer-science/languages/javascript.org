@@ -294,6 +294,13 @@ https://recoiljs.org/
 A state management library for React
 #+end_quote
 
+*** React-based Frameworks
+**** Gatsby
+**** Next.js
+***** i18n
+https://daily.dev/blog/internationalization-i18n-in-nextjs
+**** Remix
+
 ** Lightweight
 [[https://preactjs.com/]] & [[https://infernojs.org/]] : React-like
 

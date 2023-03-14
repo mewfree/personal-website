@@ -931,6 +931,8 @@ A reactive library for creating web apps in Rust and WebAssembly
 - A lunatic web framework for the Rust language: https://github.com/lunatic-solutions/submillisecond
 - A Rust API search engine: https://roogle.hkmatsumoto.com/
 - https://rauljordan.com/rust-concepts-i-wish-i-learned-earlier/
+- ~axohtml~ (type-checked JSX for [[file:rust.org][Rust]])
+  https://github.com/axodotdev/axohtml
 
 ** Book
 *** Zero to Production in Rust

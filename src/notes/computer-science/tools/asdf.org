@@ -30,3 +30,6 @@ Update plugin to newest version:
 
 * Resources
 https://til.hashrocket.com/posts/ques11vrjs-get-pip-installed-executables-into-the-asdf-path
+
+* rtx ([[file:../languages/rust.org][Rust]] clone)
+https://github.com/jdxcode/rtx/

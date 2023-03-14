@@ -1257,6 +1257,8 @@ by Mark S. Joshi
 by Martin Baxter
 ***** Stochastic Calculus for Finance I & II
 by Steven Shreve
+***** Option Trading: Pricing and Volatility Strategies and Techniques
+by Euan Sinclair
 ***** https://en.wikipedia.org/wiki/Delta_neutral
 ***** https://en.wikipedia.org/wiki/Greeks_(finance)
 ***** https://en.wikipedia.org/wiki/Binomial_options_pricing_model

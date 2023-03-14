@@ -27,6 +27,8 @@ When code is compiled as it's being ran, but the machine code is being saved, so
 ** Resources
 *** Harvard CS153: Compilers
 https://www.seas.harvard.edu/courses/cs153/2018fa/index.html
+*** Cornell CS6120: Advanced Compilers: The Self-Guided Online Course
+https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/
 
 * Software Design Patterns
 ** Singleton
@@ -184,3 +186,7 @@ by Peter Seibel
 https://teachyourselfcs.com/
 ** Open Source Society University
 https://github.com/ossu/computer-science
+** 8483's web development notes
+https://github.com/8483/notes
+** Refactoring Guru
+https://refactoring.guru/
