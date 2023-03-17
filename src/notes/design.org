@@ -42,9 +42,9 @@ https://www.joshwcomeau.com/css/designing-shadows/
   https://material.io/blog/roboto-flex
 
 ** Resources
-https://www.typewolf.com/
-
-https://mobile.twitter.com/darylginn/status/1559212268532862977
+- https://www.typewolf.com/
+- https://mobile.twitter.com/darylginn/status/1559212268532862977
+- https://modernfontstacks.com/
 
 * Avatars
 ** Generated avatars
