@@ -172,6 +172,14 @@ user.except(:role)
 #+RESULTS:
 : {:name=>"Damien", :age=>28}
 
+** Transform Values
+#+begin_src ruby :results verbatim
+{a: true, b: false}.transform_values(&:!)
+#+end_src
+
+#+RESULTS:
+: {:a=>false, :b=>true}
+
 * Functions
 #+begin_src ruby :results output
 def say_hello(name)
