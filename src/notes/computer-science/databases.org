@@ -99,6 +99,12 @@ https://github.com/eerimoq/gqt
 Build and execute GraphQL queries in the terminal.
 #+end_quote
 
+* FerretDB
+https://www.ferretdb.io/
+#+begin_quote
+A truly Open Source MongoDB alternative, built on PostgreSQL, and released under the Apache 2.0 license.
+#+end_quote
+
 * Resources
 ** Things You Should Know About Databases
 https://architecturenotes.co/things-you-should-know-about-databases/

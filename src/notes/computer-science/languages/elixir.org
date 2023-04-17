@@ -1111,3 +1111,6 @@ https://github.com/devonestes/fast-elixir
 
 ** Tips for Improving Your Elixir Configuration
 https://felt.com/blog/elixir-configuration
+
+** Calling [[file:rust.org][Rust]] from [[file:elixir.org][Elixir]]
+https://fly.io/phoenix-files/elixir-and-rust-is-a-good-mix/

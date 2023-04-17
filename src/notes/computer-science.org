@@ -110,7 +110,14 @@ Read the Imposter's Handbook? => Started on <2021-02-17>
 https://bigmachine.io/products/imposter-video/
 ** SymbolHound
 http://symbolhound.com/
-"SymbolHound is a search engine that doesn't ignore special characters. This means you can easily search for symbols like &, %, and π. We hope SymbolHound will help programmers find information about their chosen languages and frameworks more easily."
+#+begin_quote
+SymbolHound is a search engine that doesn't ignore special characters. This means you can easily search for symbols like &, %, and π. We hope SymbolHound will help programmers find information about their chosen languages and frameworks more easily.
+#+end_quote
+** Phind
+https://www.phind.com/
+#+begin_quote
+The AI search engine for developers.
+#+end_quote
 ** List of Resources
 [[https://csgordon.github.io/books.html]]
 ** List of Stanford CS classes

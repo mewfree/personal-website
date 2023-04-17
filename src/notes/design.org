@@ -10,6 +10,7 @@
   "open source Figma"
 - Sketch
 - Canva
+- Microsoft Designer
 - Celtra
   https://celtra.com/
   Mix of Figma and Smartly?

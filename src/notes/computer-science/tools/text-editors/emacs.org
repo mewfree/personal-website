@@ -73,6 +73,28 @@ GET https://jsonplaceholder.typicode.com/posts/1
 }
 #+end_src
 
+* Emacs Lisp
+#+begin_src elisp
+(princ "Hello, World!")
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+#+begin_src elisp
+(+ 2 2)
+#+end_src
+
+#+RESULTS:
+: 4
+
+#+begin_src elisp
+(setq name "Damien")
+#+end_src
+
+#+RESULTS:
+: Damien
+
 * Email
 https://www.reddit.com/r/emacs/comments/ebite6/mu4e_vs_gnus_vs_notmuch_for_emacs_email/
 https://www.reddit.com/r/emacs/comments/4rl0a9/email_in_emacs_i_want_to_but_wow_its_overwhelming/

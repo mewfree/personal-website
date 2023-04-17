@@ -75,11 +75,13 @@ APL v2
 #+end_quote
 
 * Janet
-- https://janet-lang.org/
-- https://janetdocs.com/
 #+begin_quote
 Janet is a functional and imperative programming language.
 #+end_quote
+
+- https://janet-lang.org/
+- https://janetdocs.com/
+- https://janet.guide/
 
 ** Libraries
 https://github.com/joy-framework/joy
