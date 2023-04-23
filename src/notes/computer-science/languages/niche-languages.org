@@ -4,6 +4,8 @@
 
 * [[file:niche/futhark.org][Futhark]]
 
+* [[file:niche/emacs-lisp.org][Emacs Lisp]]
+
 * Gleam
 https://gleam.run/
 #+begin_quote

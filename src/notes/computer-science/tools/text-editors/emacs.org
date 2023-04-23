@@ -73,27 +73,7 @@ GET https://jsonplaceholder.typicode.com/posts/1
 }
 #+end_src
 
-* Emacs Lisp
-#+begin_src elisp
-(princ "Hello, World!")
-#+end_src
-
-#+RESULTS:
-: Hello, World!
-
-#+begin_src elisp
-(+ 2 2)
-#+end_src
-
-#+RESULTS:
-: 4
-
-#+begin_src elisp
-(setq name "Damien")
-#+end_src
-
-#+RESULTS:
-: Damien
+* [[file:../../languages/niche/emacs-lisp.org][Emacs Lisp]]
 
 * Email
 https://www.reddit.com/r/emacs/comments/ebite6/mu4e_vs_gnus_vs_notmuch_for_emacs_email/

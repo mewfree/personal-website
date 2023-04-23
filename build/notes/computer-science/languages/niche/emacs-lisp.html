@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><title>Emacs Lisp - Damien Gonot</title><link rel="stylesheet" href="/main.css"><link rel="stylesheet" href="/katex.min.css"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Homepage  Notes  Computer Science  Programming Languages  Niche
+Languages  Emacs Lisp
+
+Basics
+
+    princ Hello World
+
+    Hello World
+
+     2 2
+
+    4
+
+    setq name Damien
+
+    Damien
+
+HTTP Request
+
+Using urlretrievesynchronously
+
+    defun httpget url
+      Make a HTTP GET request to URL and re..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Emacs Lisp</h1><p><a href="../../../../homepage">Homepage</a> / <a href="../../../../notes">Notes</a> / <a href="../../../computer-science">Computer Science</a> / <a href="../../languages">Programming Languages</a> / <a href="../niche-languages">Niche Languages</a> / Emacs Lisp</p><h2 id="basics">Basics</h2><pre class="elisp" data-exports="both"><code>(princ &quot;Hello, World!&quot;)
+</code></pre><pre class="example"><code>Hello, World!
+</code></pre><pre class="elisp" data-exports="both"><code>(+ 2 2)
+</code></pre><pre class="example"><code>4
+</code></pre><pre class="elisp" data-exports="both"><code>(setq name &quot;Damien&quot;)
+</code></pre><pre class="example"><code>Damien
+</code></pre><h2 id="http-request">HTTP Request</h2><h3 id="using-url-retrieve-synchronously">Using <code class="verbatim">url-retrieve-synchronously</code></h3><pre class="elisp" data-exports="both"><code>(defun http-get (url)
+  &quot;Make a HTTP GET request to URL and return the response body as a string.&quot;
+  (with-current-buffer (url-retrieve-synchronously url)
+    (goto-char (point-min))
+    (re-search-forward &quot;^$&quot; nil &#39;move)
+    (while (looking-at-p &quot;\n&quot;)
+      (forward-char 1))
+    (buffer-substring-no-properties (point) (point-max))))
+
+(http-get &quot;https://httpbin.org/get&quot;)
+</code></pre><pre class="example"><code>{
+  &quot;args&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Accept-Encoding&quot;: &quot;gzip&quot;,
+    &quot;Extension&quot;: &quot;Security/Digest Security/SSL&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;Mime-Version&quot;: &quot;1.0&quot;,
+    &quot;User-Agent&quot;: &quot;URL/Emacs Emacs/28.2 (OpenStep; aarch64-apple-darwin21.6.0)&quot;,
+    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-64452ce7-2e5e19c67e996e6809c55d74&quot;
+  },
+  &quot;origin&quot;: &quot;70.81.232.143&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/get&quot;
+}
+</code></pre></div></body></html>
