@@ -127,4 +127,26 @@ x
   [9 &#39;nine])
 </code></pre><pre class="example"><code>nine
 </code></pre><h2 id="eval">Eval</h2><div class="sourceCode" id="cb49" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
+</code></pre><h2 id="typed-racket">Typed Racket</h2><h3 id="annotations">Annotations</h3><pre class="racket" data-exports="both"><code>#lang typed/racket
+
+(: x Number)
+(define x 9)
+x
+</code></pre><pre class="example"><code>9
+</code></pre><pre class="racket" data-exports="both"><code>#lang typed/racket
+
+(define x : Number 9)
+x
+</code></pre><pre class="example"><code>9
+</code></pre><h3 id="basic-types">Basic Types</h3><table><thead><tr class="header"><th>Name</th><th>Example</th></tr></thead><tbody><tr class="odd"><td>String</td><td>"Hello, world"</td></tr><tr class="even"><td>Char</td><td>#|̣</td></tr><tr class="odd"><td>True</td><td>#t</td></tr><tr class="even"><td>False</td><td>#f</td></tr><tr class="odd"><td>Symbol</td><td>'foo</td></tr><tr class="even"><td>Integer</td><td>1</td></tr><tr class="odd"><td>Flonum</td><td>2.1</td></tr></tbody></table><h3 id="example">Example</h3><pre class="racket" data-exports="both"><code>#lang typed/racket
+
+(struct pt ([x : Real] [y : Real]))
+
+(: distance (-&gt; pt pt Real))
+(define (distance p1 p2)
+  (sqrt (+ (sqr (- (pt-x p2) (pt-x p1)))
+           (sqr (- (pt-y p2) (pt-y p1))))))
+
+(distance (pt 0 0) (pt 2 2))
+</code></pre><pre class="example"><code>2.8284271247461903
 </code></pre><h2 id="resources">Resources</h2><h3 id="the-racket-guide">The Racket Guide</h3><p><a href="https://docs.racket-lang.org/guide/index.html">https://docs.racket-lang.org/guide/index.html</a></p><h3 id="the-racket-reference">The Racket Reference</h3><p><a href="https://docs.racket-lang.org/reference/index.html">https://docs.racket-lang.org/reference/index.html</a></p><h3 id="beautiful-racket">Beautiful Racket</h3><p><a href="https://beautifulracket.com/">https://beautifulracket.com/</a></p><h3 id="realm-of-racket">Realm of Racket</h3><p><a href="https://nostarch.com/realmofracket.htm">https://nostarch.com/realmofracket.htm</a></p></div></body></html>

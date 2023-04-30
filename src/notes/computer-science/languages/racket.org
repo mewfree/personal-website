@@ -260,6 +260,57 @@ racket -e '(+ 1 1)'
 #+RESULTS:
 : 2
 
+* Typed Racket
+** Annotations
+#+begin_src racket
+#lang typed/racket
+
+(: x Number)
+(define x 9)
+x
+#+end_src
+
+#+RESULTS:
+: 9
+
+#+begin_src racket
+#lang typed/racket
+
+(define x : Number 9)
+x
+#+end_src
+
+#+RESULTS:
+: 9
+
+** Basic Types
+| Name    | Example        |
+|---------+----------------|
+| String  | "Hello, world" |
+| Char    | #\d            |
+| True    | #t             |
+| False   | #f             |
+| Symbol  | 'foo           |
+| Integer | 1              |
+| Flonum  | 2.1            |
+
+** Example
+#+begin_src racket
+#lang typed/racket
+
+(struct pt ([x : Real] [y : Real]))
+
+(: distance (-> pt pt Real))
+(define (distance p1 p2)
+  (sqrt (+ (sqr (- (pt-x p2) (pt-x p1)))
+           (sqr (- (pt-y p2) (pt-y p1))))))
+
+(distance (pt 0 0) (pt 2 2))
+#+end_src
+
+#+RESULTS:
+: 2.8284271247461903
+
 * Resources
 ** The Racket Guide
 https://docs.racket-lang.org/guide/index.html

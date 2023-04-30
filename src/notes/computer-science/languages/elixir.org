@@ -605,6 +605,18 @@ https://elixirschool.com/en/lessons/basics/functions/#private-functions
 *** Guards
 https://elixirschool.com/en/lessons/basics/functions/#guards
 
+#+begin_src elixir
+defmodule Guards do
+  def combine(x, y) when is_number(x) and is_number(y), do: x + y
+  def combine(x, y), do: x <> y
+end
+
+{Guards.combine(4, 5), Guards.combine("abc", "xyz")}
+#+end_src
+
+#+RESULTS:
+: {9, "abcxyz"}
+
 *** Default Arguments
 https://elixirschool.com/en/lessons/basics/functions/#default-arguments
 
@@ -771,6 +783,27 @@ end
 
 #+RESULTS:
 : "Hello World"
+
+*** Using Guards
+#+begin_src elixir
+case 9 do
+  n when n > 5 -> "over than 5"
+  _ -> "anything else"
+end
+#+end_src
+
+#+RESULTS:
+: "over than 5"
+
+#+begin_src elixir
+case 4 do
+  n when n > 5 -> "over than 5"
+  _ -> "anything else"
+end
+#+end_src
+
+#+RESULTS:
+: "anything else"
 
 ** Comprehensions
 #+begin_src elixir
