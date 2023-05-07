@@ -110,7 +110,7 @@ Example of logging Facebook Insights data from yesterday:
 ```javascript
 function FBInsights(entity_id) {
   var access_token = 'REPLACE_BY_YOUR_ACCESS_TOKEN';
-  var url = 'https://graph.facebook.com/v5.0/'
+  var url = 'https://graph.facebook.com/v16.0/'
     + entity_id
     + '/insights'
     + '?date_preset=yesterday'
@@ -144,7 +144,7 @@ Let's tweak our existing script in order to be able to use a custom date:
 ```javascript
 function FBInsights(entity_id, date) {
   var access_token = 'REPLACE_BY_YOUR_ACCESS_TOKEN';
-  var url = 'https://graph.facebook.com/v5.0/'
+  var url = 'https://graph.facebook.com/v16.0/'
     + entity_id
     + '/insights'
     + '?time_range=' + encodeURIComponent(JSON.stringify({'since': date, 'until': date}))
@@ -170,7 +170,7 @@ By using the same date in `since` and `until` we're getting the results for that
 ```javascript
 function FBInsights(entity_id, date, field) {
   var access_token = 'REPLACE_BY_YOUR_ACCESS_TOKEN';
-  var url = 'https://graph.facebook.com/v5.0/'
+  var url = 'https://graph.facebook.com/v16.0/'
     + entity_id
     + '/insights'
     + '?time_range=' + encodeURIComponent(JSON.stringify({'since': date, 'until': date}))
