@@ -12,7 +12,7 @@
 ** Hardware
 - 💻 M1 MacBook Pro
 - 🐧 ThinkPad X1 Nano
-- 📱 OnePlus 9 Pro
+- 📱 Google Pixel 6a
 - 📖 Hisense Hi Reader
 - ⌨️ UHK 60 v2
 
@@ -25,10 +25,10 @@
 
 ** Languages
 - 💎 [[file:notes/computer-science/languages/ruby.org][Ruby]]
+- 🕸️ [[file:notes/computer-science/languages/javascript.org][JavaScript]]
 - 🔬 [[file:notes/computer-science/languages/julia.org][Julia]]
 - 🧙 [[file:notes/computer-science/languages/elixir.org][Elixir]]
-- 🍃 [[file:notes/computer-science/languages/clojure.org][Clojure]]
-- 🐫 [[file:notes/computer-science/languages/ocaml.org][OCaml]]
+- 🐍 [[file:notes/computer-science/languages/python.org][Python]]
 
 * Random
 #+begin_src julia :exports results
