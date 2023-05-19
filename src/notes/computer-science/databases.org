@@ -105,6 +105,9 @@ https://www.ferretdb.io/
 A truly Open Source MongoDB alternative, built on PostgreSQL, and released under the Apache 2.0 license.
 #+end_quote
 
+* Vector Databases
+https://www.pinecone.io/learn/vector-database/
+
 * Resources
 ** Things You Should Know About Databases
 https://architecturenotes.co/things-you-should-know-about-databases/

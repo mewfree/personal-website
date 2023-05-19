@@ -905,6 +905,59 @@ ExDoc is a tool to generate documentation for your Elixir projects.
 *** Cheatsheets
 https://hexdocs.pm/ex_doc/cheatsheet.html
 
+** Binaries
+Strings are binary!
+#+begin_src elixir
+string = "hello"
+is_binary(string)
+#+end_src
+
+#+RESULTS:
+: true
+
+*** Code Points
+Reveal a character code point:
+#+begin_src elixir
+?a
+#+end_src
+
+#+RESULTS:
+: 97
+
+In hexadecimal:
+#+begin_src elixir
+0x0061
+#+end_src
+
+#+RESULTS:
+: 97
+
+#+begin_src elixir
+String.codepoints("👨‍💻")
+#+end_src
+
+#+RESULTS:
+: ["👨", "‍", "💻"]
+
+#+begin_src elixir
+String.graphemes("👨‍💻")
+#+end_src
+
+#+RESULTS:
+: ["👨‍💻"]
+
+*** Bitstrings
+#+begin_src elixir
+IO.inspect("abc", binaries: :as_binaries)
+#+end_src
+
+#+RESULTS:
+: <<97, 98, 99>>
+: "abc"
+
+*** Binaries
+A binary is a bitstring where the number of bits is divisible by 8.
+
 * Elixir Script
 Elixir can be used for scripting.
 Script files have a =.exs= file extension.

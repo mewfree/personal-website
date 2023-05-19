@@ -182,9 +182,13 @@ https://fulcrum.trade
 **** Deversifi
 https://deversifi.com
 *** Aggregators
+**** 1inch
 https://1inch.exchange
+
+CLI Interface: https://github.com/liquiditygoblin/1inch-cli
+**** Matcha
 https://matcha.xyz
-https://dex.ag
+**** Dex.guru
 https://dex.guru
 ** "Hedge Funds"
 *** Yearn
