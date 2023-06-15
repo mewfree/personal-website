@@ -20,7 +20,7 @@ https://tailwindcss.com/
 *** Dark Mode
 https://tailwindcss.com/docs/dark-mode
 *** daisyUI
-"Free Tailwind Components
+Free Tailwind Components
 https://daisyui.com/
 
 * Random

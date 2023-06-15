@@ -302,18 +302,17 @@ https://daily.dev/blog/internationalization-i18n-in-nextjs
 **** Remix
 
 ** Lightweight
-[[https://preactjs.com/]] & [[https://infernojs.org/]] : React-like
+*** React-like
+- https://preactjs.com/
+- https://infernojs.org/
+- https://million.dev/
 
-[[https://mithril.js.org/]]
-
-[[https://svelte.dev/]]
-+ backend: https://kit.svelte.dev/
-
-https://elderguide.com/tech/elderjs/: Elder.js: An Opinionated, SEO focused, Svelte Framework
-
-https://github.com/alpinejs/alpine: minimal framework for composing JavaScript behaviour in your markup
-
-https://htmx.org/: htmx allows you to access AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
+*** Other
+- https://mithril.js.org/
+- https://svelte.dev/ (+ backend: https://kit.svelte.dev/)
+- https://elderguide.com/tech/elderjs/ Elder.js: An Opinionated, SEO focused, Svelte Framework
+- https://github.com/alpinejs/alpine minimal framework for composing JavaScript behaviour in your markup
+- https://htmx.org/ htmx allows you to access AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
 
 ** Solid.js
 Similar to React, but compiled, interesting
