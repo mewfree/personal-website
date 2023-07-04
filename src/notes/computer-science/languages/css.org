@@ -22,6 +22,9 @@ https://tailwindcss.com/docs/dark-mode
 *** daisyUI
 Free Tailwind Components
 https://daisyui.com/
+** CSS-in-JS
+*** Panda CSS
+https://panda-css.com/
 
 * Random
 ** FAQ in CSS (Tailwind)

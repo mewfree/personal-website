@@ -1305,7 +1305,7 @@ Tests can be wrapped in a =@testset=
 - Flux.jl (Machine Learning): https://github.com/FluxML/Flux.jl
 - Documenter.jl: https://github.com/JuliaDocs/Documenter.jl
 - Distributions.jl: https://github.com/JuliaStats/Distributions.jl
-- Makie (Data Visualization): https://makie.juliaplots.org/stable/
+- Makie (Data Visualization): https://makie.org/
 - Genie (MVC web framework): https://genieframework.com/
 - Climate: https://github.com/JuliaClimate
 - JuliaDB: https://github.com/JuliaData/JuliaDB.jl

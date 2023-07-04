@@ -916,6 +916,7 @@ A reactive library for creating web apps in Rust and WebAssembly
 - https://cheats.rs/ Rust Language Cheat Sheet
 - https://github.com/rust-lang/rustlings/ Small exercises to get you used to reading and writing Rust code!
 - https://google.github.io/comprehensive-rust/ Rust for Android
+- https://www.lurklurk.org/effective-rust/
 
 ** Other
 - Zola, a static site generator [[https://www.getzola.org/]]

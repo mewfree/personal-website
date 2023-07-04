@@ -17,3 +17,4 @@
 - https://fpgaer.tech/
 - https://icestudio.io/
 - https://smist08.wordpress.com/2023/02/04/introduction-to-fpgas/
+- https://clash-lang.org/

@@ -163,6 +163,15 @@ y = 9
 #+RESULTS:
 : {:x=>8, :y=>9}
 
+** Slice
+#+begin_src ruby :results verbatim
+user = { name: 'Damien', age: 28, role: 'CEO' }
+user.slice(:name, :age)
+#+end_src
+
+#+RESULTS:
+: {:name=>"Damien", :age=>28}
+
 ** Except
 #+begin_src ruby :results verbatim
 user = { name: 'Damien', age: 28, role: 'CEO' }

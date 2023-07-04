@@ -1176,6 +1176,18 @@ https://github.com/elixir-nx/bumblebee
 Bumblebee provides pre-trained and transformer Neural Network models on top of Axon. It includes integration with 🤗 Models, allowing anyone to download and perform Machine Learning tasks with few lines of code.
 #+end_quote
 
+** Dune
+https://github.com/functional-rewire/dune
+#+begin_quote
+A sandbox for Elixir to safely evaluate untrusted code from user input.
+#+end_quote
+
+** Enumancer
+https://github.com/sabiwara/enumancer
+#+begin_quote
+Elixir macros to effortlessly define highly optimized Enum pipelines.
+#+end_quote
+
 * Resources
 ** Elixir School
 https://elixirschool.com/en/

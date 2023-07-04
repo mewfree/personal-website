@@ -696,6 +696,13 @@ Crop bottom 100px from ~source.mp4~:
 **** Actual
 =ffmpeg -i source.mp4 -filter:v "crop=in_w:in_h-100:0:0" -c:a copy destination.mp4=
 
+** try
+https://github.com/binpash/try
+
+#+begin_quote
+try lets you run a command and inspect its effects before changing your live system.
+#+end_quote
+
 * Help
 Traditionally, can use =man {command}= to get info about =command= but can be quite lengthy and lack examples.
 =tldr {command}= solves this problem by being a short cheatsheet with many examples.
