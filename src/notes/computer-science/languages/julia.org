@@ -1093,7 +1093,7 @@ end
 #+RESULTS:
 : false
 
-** Pipe =|>= vs Composition operator =∘= (=\circ=)
+** Pipe =|>= vs Composition operator =∘=
 #+begin_src julia
 1:10 |> sum |> sqrt
 #+end_src
@@ -1293,28 +1293,50 @@ using Test
 Tests can be wrapped in a =@testset=
 
 * Packages
-- JSON.jl: [[https://github.com/JuliaIO/JSON.jl]]
-- HTTP.jl: [[https://github.com/JuliaWeb/HTTP.jl]]
-- CSV.jl: [[https://github.com/JuliaData/CSV.jl]]
-- DataFrames.jl: [[https://github.com/JuliaData/DataFrames.jl]]
-- Optics (HN Discussion): https://news.ycombinator.com/item?id=26538150
-- MLJ.jl (Machine Learning): [[https://github.com/alan-turing-institute/MLJ.jl]]
-- FinancialToolbox.jl: https://github.com/rcalxrc08/FinancialToolbox.jl
-- Pluto.jl (notebook): https://github.com/fonsp/Pluto.jl
-- CUDA.jl (GPU programming): https://github.com/JuliaGPU/CUDA.jl
-- Flux.jl (Machine Learning): https://github.com/FluxML/Flux.jl
-- Documenter.jl: https://github.com/JuliaDocs/Documenter.jl
-- Distributions.jl: https://github.com/JuliaStats/Distributions.jl
-- Makie (Data Visualization): https://makie.org/
-- Genie (MVC web framework): https://genieframework.com/
-- Climate: https://github.com/JuliaClimate
-- JuliaDB: https://github.com/JuliaData/JuliaDB.jl
-- Revise.jl (Automatically update function definitions in a running Julia session): https://github.com/timholy/Revise.jl
-- SimpleChains.jl: https://github.com/PumasAI/SimpleChains.jl
-- Weave.jl - Scientific Reports Using Julia: https://weavejl.mpastell.com/stable/#Weave.jl-Scientific-Reports-Using-Julia
-- Oxygen.jl (micro web framework): https://github.com/ndortega/Oxygen.jl
-- Term.jl: https://github.com/FedeClaudi/Term.jl
-- Metal.jl (GPU programming on Apple M-series chip): https://github.com/JuliaGPU/Metal.jl
+** JSON.jl
+[[https://github.com/JuliaIO/JSON.jl]]
+** HTTP.jl
+[[https://github.com/JuliaWeb/HTTP.jl]]
+** CSV.jl
+[[https://github.com/JuliaData/CSV.jl]]
+** DataFrames.jl
+[[https://github.com/JuliaData/DataFrames.jl]]
+** Optics (HN Discussion)
+https://news.ycombinator.com/item?id=26538150
+** MLJ.jl (Machine Learning)
+[[https://github.com/alan-turing-institute/MLJ.jl]]
+** FinancialToolbox.jl
+https://github.com/rcalxrc08/FinancialToolbox.jl
+** Pluto.jl (notebook)
+https://github.com/fonsp/Pluto.jl
+** CUDA.jl (GPU programming)
+https://github.com/JuliaGPU/CUDA.jl
+** Flux.jl (Machine Learning)
+https://github.com/FluxML/Flux.jl
+** Documenter.jl
+https://github.com/JuliaDocs/Documenter.jl
+** Distributions.jl
+https://github.com/JuliaStats/Distributions.jl
+** Makie (Data Visualization)
+https://makie.org/
+** Genie (MVC web framework)
+https://genieframework.com/
+** Climate
+https://github.com/JuliaClimate
+** JuliaDB
+https://github.com/JuliaData/JuliaDB.jl
+** Revise.jl (Automatically update function definitions in a running Julia session)
+https://github.com/timholy/Revise.jl
+** SimpleChains.jl
+https://github.com/PumasAI/SimpleChains.jl
+** Weave.jl - Scientific Reports Using Julia
+https://weavejl.mpastell.com/stable/#Weave.jl-Scientific-Reports-Using-Julia
+** Oxygen.jl (micro web framework)
+https://github.com/ndortega/Oxygen.jl
+** Term.jl
+https://github.com/FedeClaudi/Term.jl
+** Metal.jl (GPU programming on Apple M-series chip)
+https://github.com/JuliaGPU/Metal.jl
 
 * Resources
 ** Learn Julia in Y minutes
