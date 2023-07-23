@@ -30,7 +30,8 @@
 - https://heroicons.com/ Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.
 
 * UX
-https://uxmovement.com/forms/why-the-confirm-password-field-must-die/
+- https://uxmovement.com/forms/why-the-confirm-password-field-must-die/
+- https://lawsofux.com/
 
 * Shadows
 https://www.joshwcomeau.com/css/designing-shadows/

@@ -228,6 +228,20 @@ https://bazel.build/
 
 Recommended way to install is via =bazelisk=
 
+* Diagrams
+** PlantUML
+https://plantuml.com/
+
+Create diagrams from text
+** Ditaa
+https://ditaa.sourceforge.net/
+
+Create diagrams from ASCII art
+** Penrose
+https://penrose.cs.cmu.edu/
+
+Create diagrams with separate definitions of domain, substance and style
+
 * Misc
 ** Beautiful images from code
 - https://ray.so/

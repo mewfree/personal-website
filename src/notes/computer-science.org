@@ -197,3 +197,5 @@ https://github.com/ossu/computer-science
 https://github.com/8483/notes
 ** Refactoring Guru
 https://refactoring.guru/
+** Putting the "You" in CPU
+https://cpu.land/
