@@ -23,6 +23,8 @@ https://fly.io/blog/all-in-on-sqlite-litestream/
 https://til.simonwillison.net/sqlite/one-line-csv-operations
 *** Import CSV into a SQLite table
 https://www.sqlitetutorial.net/sqlite-import-csv/
+*** Export SQLite table to CSV
+https://www.sqlitetutorial.net/sqlite-export-csv/
 
 * MySQL
 ** Vitess
