@@ -141,6 +141,11 @@ curl https://httpbin.org/headers
 :     "X-Amzn-Trace-Id": "Root=1-618168b4-0982f80d2e2330516e6d3566"
 :   }
 : }
+*** hurl
+#+begin_src bash :results verbatim
+echo "GET https://example.org" > sample.hurl
+hurl sample.hurl
+#+end_src
 ** GUI
 *** Postman
 Went enterprise-?
