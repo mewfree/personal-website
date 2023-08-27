@@ -63,6 +63,9 @@ Plunk is the only email marketing tool built for people that just need the essen
 * Copywriting
 https://twitter.com/alexgarcia_atx/status/1405155705477156866
 
+* SEO
+https://developers.google.com/search/apis/indexing-api/v3/quickstart
+
 * Resources
 https://university.mobileaction.co/
 

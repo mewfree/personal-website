@@ -124,6 +124,7 @@ h = {foo: 0, bar: 1}
 : {:foo=>0, :bar=>1}
 
 ** Getting value from key
+*** Using array-like notation
 #+begin_src ruby
 h = {foo: 0, bar: 1}
 h[:foo]
@@ -131,6 +132,24 @@ h[:foo]
 
 #+RESULTS:
 : 0
+
+** Using fetch
+#+begin_src ruby
+h = {foo: 0, bar: 1}
+h.fetch(:foo)
+#+end_src
+
+#+RESULTS:
+: 0
+
+Can provide a default:
+#+begin_src ruby
+h = {foo: 0, bar: 1}
+h.fetch(:baz, "Oops")
+#+end_src
+
+#+RESULTS:
+: Oops
 
 ** "Deep" nested value
 #+begin_src ruby
@@ -141,6 +160,16 @@ h.dig(:foo, :deepfoo, :nested)
 #+RESULTS:
 : deep_nested_value
 
+** Delete Key
+#+begin_src ruby :results verbatim
+h = {foo: 0, bar: 1}
+h.delete(:foo) # this returns the deleted key's value, so 0 in this case
+h
+#+end_src
+
+#+RESULTS:
+: {:bar=>1}
+
 ** Merging two hashes
 #+begin_src ruby :results verbatim
 a = {first: 'value'}
@@ -150,6 +179,33 @@ a.merge(b)
 
 #+RESULTS:
 : {:first=>"value", :second=>"another value"}
+
+*** Using Double Splat Operator
+#+begin_src ruby :results verbatim
+a = {first: 'value'}
+b = {**a, second: 'another value'}
+#+end_src
+
+#+RESULTS:
+: {:first=>"value", :second=>"another value"}
+
+** Getting Keys Only
+#+begin_src ruby :results verbatim
+h = {foo: 0, bar: 1}
+h.keys
+#+end_src
+
+#+RESULTS:
+: [:foo, :bar]
+
+** Getting Values Only
+#+begin_src ruby :results verbatim
+h = {foo: 0, bar: 1}
+h.values
+#+end_src
+
+#+RESULTS:
+: [0, 1]
 
 ** Omitting values
 Starting from Ruby 3.1
@@ -188,6 +244,50 @@ user.except(:role)
 
 #+RESULTS:
 : {:a=>false, :b=>true}
+
+** Iterate Over Hash
+#+begin_src ruby :results output
+h = {foo: 0, bar: 1}
+h.each do |key, value|
+  puts "#{key}: #{value}"
+end
+#+end_src
+
+#+RESULTS:
+: foo: 0
+: bar: 1
+
+** Any?
+#+begin_src ruby
+h = {foo: 0, bar: 1}
+h.any? { |key, value| value > 0 }
+#+end_src
+
+#+RESULTS:
+: true
+
+** Compact
+Removes any null values
+#+begin_src ruby :results verbatim
+h = {foo: 0, bar: nil}
+h.compact
+#+end_src
+
+#+RESULTS:
+: {:foo=>0}
+
+** Empty?
+#+begin_src ruby :results output
+h = {foo: 0, bar: nil}
+puts h.empty?
+
+h = {}
+puts h.empty?
+#+end_src
+
+#+RESULTS:
+: false
+: true
 
 * Functions
 #+begin_src ruby :results output

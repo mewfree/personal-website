@@ -95,37 +95,38 @@ User is probably retired
 </code></pre><div class="sourceCode" id="cb30" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.ones((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)))</span></code></pre></div><pre class="example"><code>[[[1. 1. 1. 1.]
   [1. 1. 1. 1.]
   [1. 1. 1. 1.]]
-</code></pre><p>:</p><pre class="example"><code> [[1. 1. 1. 1.]
+
+ [[1. 1. 1. 1.]
   [1. 1. 1. 1.]
   [1. 1. 1. 1.]]]
-</code></pre><h4 id="operations">Operations</h4><div class="sourceCode" id="cb33" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>])</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">-</span> b)</span></code></pre></div><pre class="example"><code>[90 80 70]
-</code></pre><div class="sourceCode" id="cb35" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b<span class="op">*</span><span class="dv">2</span>)</span></code></pre></div><pre class="example"><code>[20 40 60]
-</code></pre><h3 id="pandas">Pandas</h3><p><a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p><blockquote><p>pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool</p></blockquote><div class="sourceCode" id="cb37" data-results="none" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pandas</span></code></pre></div><h4 id="basics-1">Basics</h4><p>Basic object of <code class="verbatim">pandas</code> is the <strong>DataFrame</strong>. A <strong>DataFrame</strong> is made of rows and columns, like a spreadsheet. Each column in a <strong>DataFrame</strong> is a <strong>Series</strong>.</p><div class="sourceCode" id="cb38" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Name&quot;</span>: [</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Braund, Mr. Owen Harris&quot;</span>,</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Allen, Mr. William Henry&quot;</span>,</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Bonnell, Miss. Elizabeth&quot;</span>,</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>        ],</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Age&quot;</span>: [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">58</span>],</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sex&quot;</span>: [<span class="st">&quot;male&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>],</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code></pre></div><pre class="example"><code>                       Name  Age     Sex
+</code></pre><h4 id="operations">Operations</h4><div class="sourceCode" id="cb32" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>])</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">-</span> b)</span></code></pre></div><pre class="example"><code>[90 80 70]
+</code></pre><div class="sourceCode" id="cb34" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b<span class="op">*</span><span class="dv">2</span>)</span></code></pre></div><pre class="example"><code>[20 40 60]
+</code></pre><h3 id="pandas">Pandas</h3><p><a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p><blockquote><p>pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool</p></blockquote><div class="sourceCode" id="cb36" data-results="none" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pandas</span></code></pre></div><h4 id="basics-1">Basics</h4><p>Basic object of <code class="verbatim">pandas</code> is the <strong>DataFrame</strong>. A <strong>DataFrame</strong> is made of rows and columns, like a spreadsheet. Each column in a <strong>DataFrame</strong> is a <strong>Series</strong>.</p><div class="sourceCode" id="cb37" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Name&quot;</span>: [</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Braund, Mr. Owen Harris&quot;</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Allen, Mr. William Henry&quot;</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Bonnell, Miss. Elizabeth&quot;</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Age&quot;</span>: [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">58</span>],</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sex&quot;</span>: [<span class="st">&quot;male&quot;</span>, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>],</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code></pre></div><pre class="example"><code>                       Name  Age     Sex
 0   Braund, Mr. Owen Harris   22    male
 1  Allen, Mr. William Henry   35    male
 2  Bonnell, Miss. Elizabeth   58  female
-</code></pre><h4 id="series">Series</h4><p>Selecting a single <strong>Series</strong></p><div class="sourceCode" id="cb40" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>])</span></code></pre></div><pre class="example"><code>0    22
+</code></pre><h4 id="series">Series</h4><p>Selecting a single <strong>Series</strong></p><div class="sourceCode" id="cb39" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>])</span></code></pre></div><pre class="example"><code>0    22
 1    35
 2    58
 Name: Age, dtype: int64
-</code></pre><div class="sourceCode" id="cb42" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>].<span class="bu">max</span>())</span></code></pre></div><pre class="example"><code>58
-</code></pre><div class="sourceCode" id="cb44" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>].describe())</span></code></pre></div><pre class="example"><code>count     3.000000
+</code></pre><div class="sourceCode" id="cb41" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>].<span class="bu">max</span>())</span></code></pre></div><pre class="example"><code>58
+</code></pre><div class="sourceCode" id="cb43" data-session="np" data-results="output" data-exports="both"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">&quot;Age&quot;</span>].describe())</span></code></pre></div><pre class="example"><code>count     3.000000
 mean     38.333333
 std      18.230012
 min      22.000000
