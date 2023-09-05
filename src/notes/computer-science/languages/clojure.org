@@ -49,8 +49,7 @@ Sum:
 #+end_src
 
 #+RESULTS:
-| #'user/name    |
-| "Hello Damien" |
+: Hello Damien
 
 *** Join elements in lists
 #+begin_src clojure
@@ -131,8 +130,7 @@ x
 #+end_src
 
 #+RESULTS:
-| #'user/x |
-|       42 |
+: 42
 
 *** =defonce=
 =defonce= defines variable only if it has never been defined before:
@@ -207,23 +205,21 @@ z
 #+end_src
 
 #+RESULTS:
-| #'user/greet    |
-| "Hello, Damien" |
+: Hello, Damien
 
 *** Multi-Arity Functions
-#+begin_src clojure
+#+begin_src clojure :results output
 (defn greet
   ([] (greet "World!"))
   ([name] (str "Hello, " name)))
 
-(greet "Damien")
-(greet)
+(println (greet "Damien"))
+(println (greet))
 #+end_src
 
 #+RESULTS:
-| #'user/greet    |
-| "Hello, Damien" |
-| "Hello, World!" |
+: Hello, Damien
+: Hello, World!
 
 *** Anonymous Function Syntax
 =#()= with =%= used as arguments (=%1=, =%2= for first and second arguments)
@@ -356,8 +352,7 @@ Only handles "true", and wrapped in an implicit =(do)= statement
 #+end_src
 
 #+RESULTS:
-| #'user/x |
-| "true"   |
+: true
 
 Note: for this type of conds, if the first is true, it won't continue
 #+begin_src clojure
@@ -371,8 +366,7 @@ Note: for this type of conds, if the first is true, it won't continue
 #+end_src
 
 #+RESULTS:
-| #'user/x       |
-| "more than 30" |
+: more than 30
 
 Another example
 #+begin_src clojure
@@ -386,8 +380,7 @@ Another example
 #+end_src
 
 #+RESULTS:
-| #'user/x  |
-| "neither" |
+: neither
 
 *** Case
 #+begin_src clojure
@@ -467,8 +460,7 @@ Can "match" multiple values using a list:
 #+end_src
 
 #+RESULTS:
-| #'user/m    |
-| {:bye true} |
+: {:bye true}
 
 ** Threading Macros
 *** Thread-First
