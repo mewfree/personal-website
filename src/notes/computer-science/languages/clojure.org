@@ -387,31 +387,31 @@ Another example
 (let [name "Damien"]
   (case name
     "Damien" "my real name"
-    "Émilie" "my wife's name"
-    "Nicolas" "my brother's name"))
+    "Jane" "my neighbour's name"
+    "John" "my colleague's name"))
 #+end_src
 
 #+RESULTS:
 : my real name
 
 #+begin_src clojure
-(let [name "Émilie"]
+(let [name "Jane"]
   (case name
     "Damien" "my real name"
-    "Émilie" "my wife's name"
-    "Nicolas" "my brother's name"))
+    "Jane" "my neighbour's name"
+    "John" "my colleague's name"))
 #+end_src
 
 #+RESULTS:
-: my wife's name
+: my neighbour's name
 
 Can provide a default:
 #+begin_src clojure
 (let [name "Hugo"]
   (case name
     "Damien" "my real name"
-    "Émilie" "my wife's name"
-    "Nicolas" "my brother's name"
+    "Jane" "my neighbour's name"
+    "John" "my colleague's name"
     "Unknown name"))
 #+end_src
 
@@ -420,14 +420,14 @@ Can provide a default:
 
 Can "match" multiple values using a list:
 #+begin_src clojure
-(let [name "Émilie"]
+(let [name "Jane"]
   (case name
-    ("Damien" "Émilie" "Nicolas") "a family member"
-    "not a family member"))
+    ("Damien" "Jane" "John") "an acquaintance"
+    "not an acquaitance"))
 #+end_src
 
 #+RESULTS:
-: a family member
+: an acquaintance
 
 ** Metadata
 - https://clojure.org/reference/metadata
