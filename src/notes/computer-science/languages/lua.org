@@ -4,7 +4,8 @@
 
 Lightweight, embeddable scripting language
 
-* Basics
+* Language Features
+** Basics
 #+begin_src lua
 return "Hello, Lua!"
 #+end_src
@@ -19,7 +20,7 @@ print("Hello, Lua!")
 #+RESULTS:
 : Hello, Lua!
 
-* If-Else
+** If-Else
 #+begin_src lua
 if true then
   return 'this is true'
@@ -31,7 +32,7 @@ end
 #+RESULTS:
 : this is true
 
-* Functions
+** Functions
 #+begin_src lua
 function double(x)
   return x * 2
@@ -43,7 +44,7 @@ return double(2)
 #+RESULTS:
 : 4
 
-* Tables
+** Tables
 #+begin_src lua
 t = {key1 = 'value1', key2 = 'value2'}
 return t.key1

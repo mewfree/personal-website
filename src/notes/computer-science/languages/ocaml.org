@@ -37,14 +37,15 @@ Basic setup in =~/.ocamlinit= to load packages every time =utop= is started:
 #thread;;
 #+end_src
 
-* Comments
+* Language Features
+** Comments
 #+begin_src ocaml
 (* this is a comment *)
 #+end_src
 
 #+RESULTS:
 
-* Types
+** Types
 The basic types in OCaml are:
 | OCaml type | Range                                                                             |
 |------------+-----------------------------------------------------------------------------------|
@@ -55,7 +56,7 @@ The basic types in OCaml are:
 | char       | An 8-bit character                                                                |
 | string     | A string (sequence of 8 bit chars)                                                |
 
-** Custom Types
+*** Custom Types
 #+begin_src ocaml
 type colour = Red | Green | Blue
 #+end_src
@@ -81,7 +82,7 @@ let l = [Red; Green; Yellow]
 : Error: This variant expression is expected to have type colour
 :        There is no constructor Yellow within type colour
 
-** Pattern Matching on Types
+*** Pattern Matching on Types
 #+begin_src ocaml
 type fruit = Banana | Strawberry | Apple;;
 
@@ -96,10 +97,10 @@ get_colour Apple;;
 #+RESULTS:
 : green
 
-** Unboxed Types
+*** Unboxed Types
 https://www.janestreet.com/tech-talks/unboxed-types-for-ocaml/
 
-* Calculations
+** Calculations
 #+begin_src ocaml
 1 + 1
 #+end_src
@@ -138,7 +139,7 @@ Notice the difference between =1 / 3= and =1. /. 3.=:
 #+RESULTS:
 : 0.33333333333333331
 
-* Defining Variables
+** Defining Variables
 Variable names must start with a lowercase letter or an underscore.
 #+begin_src ocaml
 let x = 3 + 4;;
@@ -154,7 +155,7 @@ let y = x + x;;
 #+RESULTS:
 : 14
 
-** De-structuring let bindings
+*** De-structuring let bindings
 Can be used to define multiple variables at the same time:
 #+begin_src ocaml :results verbatim
 let x, y = 8, 9;;
@@ -164,7 +165,7 @@ let x, y = 8, 9;;
 : val x : int = 8
 : val y : int = 9
 
-* Chars
+** Chars
 Chars use single-quotes:
 #+begin_src ocaml :results verbatim
 'd';;
@@ -173,7 +174,7 @@ Chars use single-quotes:
 #+RESULTS:
 : - : char = d
 
-* Strings
+** Strings
 https://ocaml.org/api/String.html
 
 Strings use double-quotes:
@@ -184,7 +185,7 @@ let name = "Damien";;
 #+RESULTS:
 : val name : string = "Damien"
 
-** List of Chars
+*** List of Chars
 Strings are essentially lists of characters
 #+begin_src ocaml :results verbatim
 name.[0];;
@@ -200,7 +201,7 @@ name.[1];;
 #+RESULTS:
 : - : char = 'a'
 
-** Length
+*** Length
 #+begin_src ocaml :results verbatim
 String.length name;;
 #+end_src
@@ -208,7 +209,7 @@ String.length name;;
 #+RESULTS:
 : - : int = 6
 
-** Concatenation
+*** Concatenation
 =^= is used to concatenate strings.
 #+begin_src ocaml
 "Hello, " ^ name;;
@@ -217,7 +218,7 @@ String.length name;;
 #+RESULTS:
 : "Hello, Damien"
 
-** Starts With
+*** Starts With
 #+begin_src ocaml :results verbatim
 String.starts_with ~prefix:"Dam" name;;
 #+end_src
@@ -232,7 +233,7 @@ String.starts_with ~prefix:"ien" name;;
 #+RESULTS:
 : - : bool = false
 
-** Ends With
+*** Ends With
 #+begin_src ocaml :results verbatim
 String.ends_with ~suffix:"ien" name;;
 #+end_src
@@ -247,7 +248,7 @@ String.ends_with ~suffix:"Dam" name;;
 #+RESULTS:
 : - : bool = false
 
-* Functions
+** Functions
 #+begin_src ocaml
 let plus x y = x + y;;
 
@@ -285,7 +286,7 @@ ratio 1 3;;
 #+RESULTS:
 : 0.33333333333333331
 
-** Anonymous Functions
+*** Anonymous Functions
 using =stdlib=
 #+begin_src ocaml :results verbatim
 List.map (fun x -> x * 2) [1; 2; 3];;
@@ -302,8 +303,8 @@ List.map [1; 2; 3] ~f:(fun x -> x*2);;
 #+RESULTS:
 : - : int list = [2; 4; 6]
 
-* Data Structures
-** Tuples
+** Data Structures
+*** Tuples
 Ordered collection of values that can each be of a different type.
 #+begin_src ocaml :results verbatim
 let tuple_a = (9, "nine");;
@@ -335,7 +336,7 @@ x + String.length y;;
 #+RESULTS:
 : - : Base.Int.t = 13
 
-** Lists
+*** Lists
 https://ocaml.org/api/List.html
 
 Any number of (ordered) items of the same type.
@@ -358,7 +359,7 @@ let numbers = [1;"two";3]
 : Error: This expression has type string but an expression was expected of type
 :          int
 
-*** Semicolons vs Commas
+**** Semicolons vs Commas
 Because commas are reserved to separate elements of tuples, using them in Lists returns a tuple inside a list:
 #+begin_src ocaml :results verbatim
 ["OCaml", "Python", "Ruby"];;
@@ -375,7 +376,7 @@ Even without parentheses, commas create a tuple:
 #+RESULTS:
 : - : int * int * int = (1, 2, 3)
 
-*** Length
+**** Length
 Getting the length of a list:
 #+begin_src ocaml
 List.length countries;;
@@ -384,7 +385,7 @@ List.length countries;;
 #+RESULTS:
 : 3
 
-*** Nth
+**** Nth
 #+begin_src ocaml
 List.nth ["a"; "b"; "c"] 2;;
 #+end_src
@@ -392,7 +393,7 @@ List.nth ["a"; "b"; "c"] 2;;
 #+RESULTS:
 : c
 
-*** Mem
+**** Mem
 Short for "member of" list
 #+begin_src ocaml :results verbatim
 List.mem "France" countries;;
@@ -408,7 +409,7 @@ List.mem "China" countries;;
 #+RESULTS:
 : - : bool = false
 
-*** Prepending
+**** Prepending
 Prepending to a list:
 #+begin_src ocaml :results verbatim
 "Germany" :: "Spain" :: countries;;
@@ -425,7 +426,7 @@ countries;;
 #+RESULTS:
 : - : string list = ["United States"; "France"; "Canada"]
 
-*** Concatenate Lists
+**** Concatenate Lists
 #+begin_src ocaml :results verbatim
 [1; 2; 3] @ [4; 5; 6];;
 #+end_src
@@ -433,7 +434,7 @@ countries;;
 #+RESULTS:
 : - : int Base.List.t = [1; 2; 3; 4; 5; 6]
 
-*** Pattern Matching on Lists
+**** Pattern Matching on Lists
 Compiler warns us that the code below is incomplete, because it doesn't support the case where countries is an empty list.
 #+begin_src ocaml :results verbatim
 let favourite :: the_rest = countries;;
@@ -475,7 +476,7 @@ my_favourite_country [];;
 #+RESULTS:
 : Canada
 
-*** Iter
+**** Iter
 #+begin_src ocaml :results verbatim
 List.iter print_endline ["a"; "b"; "c"];;
 #+end_src
@@ -486,7 +487,7 @@ List.iter print_endline ["a"; "b"; "c"];;
 : c
 : - : unit = ()
 
-*** Map
+**** Map
 =map= over list:
 #+begin_src ocaml :results verbatim
 List.map String.length countries;;
@@ -505,7 +506,7 @@ List.map ~f:String.length countries;;
 #+RESULTS:
 : - : int list = [13; 6; 6]
 
-*** Map2
+**** Map2
 Called =zip= in most other languages?
 #+begin_src ocaml :results verbatim
 List.map2 ( + ) [1; 2; 3] [4; 5; 6];;
@@ -514,7 +515,7 @@ List.map2 ( + ) [1; 2; 3] [4; 5; 6];;
 #+RESULTS:
 : - : int list = [5; 7; 9]
 
-*** Find
+**** Find
 Returns first element given predicate:
 #+begin_src ocaml
 List.find (fun x -> x > 2) [1; 2; 3; 4; 5];;
@@ -523,7 +524,7 @@ List.find (fun x -> x > 2) [1; 2; 3; 4; 5];;
 #+RESULTS:
 : 3
 
-*** Filter
+**** Filter
 Returns *all* element given predicate:
 #+begin_src ocaml :results verbatim
 List.filter (fun x -> x > 2) [1; 2; 3; 4; 5];;
@@ -532,7 +533,7 @@ List.filter (fun x -> x > 2) [1; 2; 3; 4; 5];;
 #+RESULTS:
 : - : int list = [3; 4; 5]
 
-*** Sort
+**** Sort
 Comparison feature =compare= can be used:
 #+begin_src ocaml :results verbatim
 List.sort compare [3; 4; 1; 2; 4; 5];;
@@ -549,8 +550,8 @@ List.sort (Fun.flip compare) [3; 4; 1; 2; 4; 5];;
 #+RESULTS:
 : - : int list = [5; 4; 4; 3; 2; 1]
 
-*** Folds
-**** Fold left
+**** Folds
+***** Fold left
 #+begin_src ocaml
 List.fold_left ( + ) 0 [1; 2; 3];;
 #+end_src
@@ -565,7 +566,7 @@ List.fold_left ( - ) 0 [1; 2; 3];;
 #+RESULTS:
 : -6
 
-**** Fold right
+***** Fold right
 Accumulator is placed after the list:
 #+begin_src ocaml
 List.fold_right ( + ) [1; 2; 3] 0;;
@@ -581,7 +582,7 @@ List.fold_right ( - ) [1; 2; 3] 0;;
 #+RESULTS:
 : 2
 
-*** Partition
+**** Partition
 If you also need elements which tested false:
 #+begin_src ocaml :results verbatim
 List.partition (fun x -> x > 2) [1; 2; 3; 4; 5];;
@@ -590,7 +591,7 @@ List.partition (fun x -> x > 2) [1; 2; 3; 4; 5];;
 #+RESULTS:
 : - : int list * int list = ([3; 4; 5], [1; 2])
 
-*** Recursive List Functions
+**** Recursive List Functions
 #+begin_src ocaml :results verbatim
 let rec sum l =
   match l with
@@ -609,7 +610,7 @@ sum [1;2;3];;
 #+RESULTS:
 : 6
 
-*** Association lists
+**** Association lists
 Simplistic dictionary data structure:
 #+begin_src ocaml :results verbatim
 let numbers = [(1, "one"); (2, "two"); (3, "three"); (4, "four"); (5, "five")];;
@@ -619,7 +620,7 @@ let numbers = [(1, "one"); (2, "two"); (3, "three"); (4, "four"); (5, "five")];;
 : val numbers : (int * string) list =
 :   [(1, "one"); (2, "two"); (3, "three"); (4, "four"); (5, "five")]
 
-**** Get value from key
+***** Get value from key
 #+begin_src ocaml :results verbatim
 List.assoc 3 numbers;;
 #+end_src
@@ -627,7 +628,7 @@ List.assoc 3 numbers;;
 #+RESULTS:
 : - : string = "three"
 
-**** Check that key exists
+***** Check that key exists
 #+begin_src ocaml :results verbatim
 List.mem_assoc 3 numbers;;
 #+end_src
@@ -642,7 +643,7 @@ List.mem_assoc 6 numbers;;
 #+RESULTS:
 : - : bool = false
 
-**** Split keys and values
+***** Split keys and values
 #+begin_src ocaml :results verbatim
 List.split numbers;;
 #+end_src
@@ -651,7 +652,7 @@ List.split numbers;;
 : - : int list * string list =
 : ([1; 2; 3; 4; 5], ["one"; "two"; "three"; "four"; "five"])
 
-**** Combine keys and values to create an association list
+***** Combine keys and values to create an association list
 #+begin_src ocaml :results verbatim
 List.combine [1; 2; 3; 4; 5] ["one"; "two"; "three"; "four"; "five"];;
 #+end_src
@@ -660,7 +661,7 @@ List.combine [1; 2; 3; 4; 5] ["one"; "two"; "three"; "four"; "five"];;
 : - : (int * string) list =
 : [(1, "one"); (2, "two"); (3, "three"); (4, "four"); (5, "five")]
 
-** Records and Variants
+*** Records and Variants
 #+begin_src ocaml :results verbatim
 type point2d = { x : float; y : float }
 #+end_src
@@ -700,7 +701,7 @@ type circle_desc  = { center: point2d; radius: float }
 #+RESULTS:
 : type circle_desc = { center : point2d; radius : Base.float; }
 
-** Maps
+*** Maps
 #+begin_src ocaml
 module Names = Map.Make(String);;
 #+end_src
@@ -805,7 +806,7 @@ Names.find "Damien" n;;
 #+RESULTS:
 : - : string = "Gonot"
 
-** Sets
+*** Sets
 #+begin_src ocaml :results verbatim
 module StringSet = Set.Make(String);;
 #+end_src
@@ -892,7 +893,7 @@ StringSet.mem "stranger" s;
 #+RESULTS:
 : - : bool = true
 
-** Hash Tables
+*** Hash Tables
 =1000= is the initial size of the hash table.
 Hash tables can grow further is size has been underestimated.
 #+begin_src ocaml :results verbatim
@@ -928,7 +929,7 @@ my_hash;;
 #+RESULTS:
 : - : (string, string) Hashtbl.t = <abstr>
 
-*** Find
+**** Find
 =Hashtbl.find= returns the *last* added element:
 #+begin_src ocaml :results verbatim
 Hashtbl.find my_hash "h";;
@@ -937,7 +938,7 @@ Hashtbl.find my_hash "h";;
 #+RESULTS:
 : - : string = "harbour"
 
-*** Find all
+**** Find all
 To find *all* elements:
 #+begin_src ocaml :results verbatim
 Hashtbl.find_all my_hash "w";;
@@ -946,7 +947,7 @@ Hashtbl.find_all my_hash "w";;
 #+RESULTS:
 : - : string list = ["wonderful"; "win"; "world"]
 
-*** Replace
+**** Replace
 Instead of using =Hashtbl.add=, we can use =Hashtbl.replace= if we only want one value per key:
 #+begin_src ocaml :results verbatim
 Hashtbl.replace my_hash "t" "try";;
@@ -965,7 +966,7 @@ Hashtbl.find my_hash "t";;
 #+RESULTS:
 : Exception: Not_found.
 
-* Scope
+** Scope
 #+begin_src ocaml
 let z = 7 in
 z + z
@@ -997,7 +998,7 @@ x + y
 #+RESULTS:
 : 56
 
-* If expressions
+** If expressions
 #+begin_src ocaml :results verbatim
 let max a b =
   if a > b then a else b;;
@@ -1013,7 +1014,7 @@ max 9 10;;
 #+RESULTS:
 : 10
 
-* Options
+** Options
 Used to express that a value might or might not be present.
 #+begin_src ocaml :results verbatim
 let divide x y =
@@ -1026,7 +1027,7 @@ let divide x y =
 
 Values can't be =null= in [[file:ocaml.org][OCaml]]. Missing values are explicit. If you want to allow some data to be absent, you have to use Options.
 
-* Pipes
+** Pipes
 =|>= pipes work!
 #+begin_src ocaml :results verbatim
 [1; 2; 3] |> List.map (fun x -> x * 2)
@@ -1051,12 +1052,12 @@ List.map (fun x -> x * 2) @@ [1; 2; 3]
 #+RESULTS:
 : - : int list = [2; 4; 6]
 
-* Imperative Programming
+** Imperative Programming
 [[file:ocaml.org][OCaml]] is mostly pure and functional.
 Almost all data structures are immutable.
 But [[file:ocaml.org][OCaml]] does support imperative programming.
 
-** Arrays
+*** Arrays
 #+begin_src ocaml :results verbatim
 let numbers = [| 1; 2; 3; 4; 5 |];;
 #+end_src
@@ -1081,8 +1082,8 @@ numbers;;
 #+RESULTS:
 : - : int array = [|1; 2; 4; 4; 5|]
 
-** Refs
-*** Basic
+*** Refs
+**** Basic
 #+begin_src ocaml :results verbatim
 let x = { contents = 0 };;
 #+end_src
@@ -1104,7 +1105,7 @@ x;;
 #+RESULTS:
 : - : int ref = {contents = 1}
 
-*** More Terse Syntax
+**** More Terse Syntax
 #+begin_src ocaml :results verbatim
 let x = ref 0;;
 #+end_src
@@ -1133,7 +1134,7 @@ x := !x + 1;;
 #+RESULTS:
 : - : int = 1
 
-*** Real-life Example
+**** Real-life Example
 #+begin_src ocaml :results verbatim
 let sum list =
   let sum = ref 0 in
@@ -1152,7 +1153,7 @@ sum [5; 5; 5];;
 #+RESULTS:
 : - : int = 15
 
-** For loops
+*** For loops
 #+begin_src ocaml :results verbatim
 for i = 1 to 5 do
   print_endline (string_of_int i)
@@ -1181,7 +1182,7 @@ done
 : 1
 : - : unit = ()
 
-** While loops
+*** While loops
 Have to use =refs= in order to be able to quit the loop
 #+begin_src ocaml :results verbatim
 let quit_loop = ref false in
@@ -1195,10 +1196,10 @@ let quit_loop = ref false in
 : this will print once
 : - : unit = ()
 
-* Modules
+** Modules
 Module names always start with an uppercase letter.
 
-** Local Imports
+*** Local Imports
 #+begin_src ocaml :results verbatim
 let ratio x y =
   let open Float.O in
@@ -1219,7 +1220,7 @@ let ratio x y =
 #+RESULTS:
 : val ratio : int -> int -> Base.Float.t = <fun>
 
-* File manipulation
+** File manipulation
 https://ocaml.org/learn/tutorials/file_manipulation.html
 
 * Packages

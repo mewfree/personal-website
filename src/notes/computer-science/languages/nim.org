@@ -6,7 +6,8 @@ https://nim-lang.org/
 
 Fast general purpose programming language
 
-* Basics
+* Language Features
+** Basics
 #+begin_src nim
 echo "Hello World!"
 #+end_src
@@ -21,7 +22,7 @@ echo 1+1
 #+RESULTS:
 : 2
 
-* Variables
+** Variables
 #+begin_src nim
 var letter = 'a'
 echo letter
@@ -57,7 +58,7 @@ echo number
 #+RESULTS:
 : 9
 
-* Strings
+** Strings
 Concatenation:
 #+begin_src nim
 var name = "Damien"
@@ -68,8 +69,8 @@ echo greeting & name
 #+RESULTS:
 : Hello Damien
 
-* Containers
-** Arrays
+** Containers
+*** Arrays
 #+begin_src nim
 echo ['a', 'b', 'c', 'd', 'e']
 #+end_src
@@ -87,7 +88,7 @@ echo list[^1]
 | b |
 | e |
 
-* Countup
+** Countup
 #+begin_src nim
 for i in countup(1, 5):
   echo i
@@ -113,7 +114,7 @@ for i in 1 .. 5:
 | 4 |
 | 5 |
 
-* Control Flow
+** Control Flow
 #+begin_src nim
 if 1 < 2:
   echo "Math is right"
@@ -122,7 +123,7 @@ if 1 < 2:
 #+RESULTS:
 : Math is right
 
-* For Loops
+** For Loops
 #+begin_src nim
 for letter in "Damien":
   echo letter

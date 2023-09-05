@@ -2,7 +2,8 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / JavaScript
 
-* Strings
+* Language Features
+** Strings
 #+begin_src js :results output
 console.log('Hello, World!')
 #+end_src
@@ -18,7 +19,7 @@ return 'hello' + 'world'
 #+RESULTS:
 : helloworld
 
-* Numbers
+** Numbers
 #+begin_src js
 return 1 + 1
 #+end_src
@@ -26,7 +27,7 @@ return 1 + 1
 #+RESULTS:
 : 2
 
-* Arrays
+** Arrays
 #+begin_src js :results verbatim
 return [1, 2, 3]
 #+end_src
@@ -34,7 +35,7 @@ return [1, 2, 3]
 #+RESULTS:
 : [ 1, 2, 3 ]
 
-* Objects
+** Objects
 #+begin_src js
 return {key: 'value'}
 #+end_src
@@ -42,8 +43,8 @@ return {key: 'value'}
 #+RESULTS:
 : { key: 'value' }
 
-* TypeScript
-** Basics
+** TypeScript
+*** Basics
 #+begin_src typescript
 function hello(name) {
     return "hello " + name;
@@ -87,19 +88,19 @@ obj.location;
 #+RESULTS:
 : ../../../../../var/folders/5j/jvlb0vrx4kl385s_yhg0h81w0000gn/T/babel-xhBADG/ts-src-NiBopQ.ts(2,5): error TS2339: Property 'location' does not exist on type '{ name: string; age: number; }'.
 
-** Types
+*** Types
 - =string=
 - =number=
 - =boolean=
 - =number[]= / =Array<number>=
 - =any=
 
-*** Type declaration on variable
+**** Type declaration on variable
 #+begin_src typescript :results silent
 let myName: string = "Damien";
 #+end_src
 
-*** Type declaration on function parameter
+**** Type declaration on function parameter
 #+begin_src typescript
 function greet(name: string) {
     console.log("Hello, " + name.toUpperCase());
@@ -121,14 +122,14 @@ greet(42);
 
 ^ runtime error
 
-*** Type declaration on function return
+**** Type declaration on function return
 #+begin_src typescript :results silent
 function getFavoriteNumber(): number {
   return 9;
 }
 #+end_src
 
-*** Object Types
+**** Object Types
 #+begin_src typescript
 function printCoord(pt: { x: number; y: number }) {
   console.log(`${pt.x}, ${pt.y}`);
@@ -140,7 +141,7 @@ printCoord({ x: 9, y: 2 });
 #+RESULTS:
 : 9, 2
 
-**** Optional Parameters
+***** Optional Parameters
 #+begin_src typescript
 function printName(obj: { firstName: string; lastName?: string }) {
   console.log(`${obj.firstName}${obj.lastName}`);
@@ -171,7 +172,7 @@ printName({ firstName: "Damien", lastName: "Gonot" });
 : Damien!
 : Damien Gonot!
 
-*** Union Types
+**** Union Types
 When a value could be any of multiple types.
 #+begin_src typescript
 function printId(id: number | string) {
@@ -192,7 +193,7 @@ printId({ myID: 22342 });
 : Your ID is: 202
 : Your ID is: [object Object]
 
-*** Type Aliases
+**** Type Aliases
 #+begin_src typescript
 type Point = {
   x: number;
@@ -211,7 +212,7 @@ printCoord({ x: 100, y: 100 });
 : The coordinate's x value is 100
 : The coordinate's y value is 100
 
-*** Interfaces
+**** Interfaces
 #+begin_src typescript
 interface Point {
   x: number;
@@ -230,7 +231,7 @@ printCoord({ x: 100, y: 100 });
 : The coordinate's x value is 100
 : The coordinate's y value is 100
 
-*** Type Assertions
+**** Type Assertions
 When you know what to expect but TS doesn't know about it yet.
 #+begin_src typescript :results silent
 const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
@@ -240,7 +241,7 @@ const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
 #+end_src
 
-*** Literal Types
+**** Literal Types
 #+begin_src typescript
 function printDirection(s: "North" | "East" | "South" | "West") {
   console.log(s);
@@ -255,7 +256,7 @@ printDirection("South-West");
 : North
 : South-West
 
-** Enums
+*** Enums
 Not related to types but more of a new features added by TS.
 #+begin_src typescript :results silent
 enum Direction {

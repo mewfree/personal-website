@@ -56,20 +56,21 @@ https://doc.rust-lang.org/book/appendix-02-operators.html
 Cargo book
 [[https://doc.rust-lang.org/stable/cargo/]]
 
-* Primitives
-** Scalar Types
+* Language Features
+** Primitives
+*** Scalar Types
 - Signed integers, unsigned integers
 - Floating point
 - Character: ='a'=, ='b'=...
 - Boolean: =true= or =false=
 - =()= which is an empty tuple
 
-** Compound Types
+*** Compound Types
 - Arrays
 - Tuples
 
-* Variables
-** Mutable Variables
+** Variables
+*** Mutable Variables
 #+begin_src rust
 fn main() {
     let x = 5 + 5;
@@ -93,7 +94,7 @@ fn main() {
 #+RESULTS:
 : 15
 
-** Destructuring Assignment
+*** Destructuring Assignment
 Starting from Rust 1.59:
 #+begin_src rust
 fn main() {
@@ -107,7 +108,7 @@ fn main() {
 : 1
 : 2
 
-* Functions
+** Functions
 snake_case is the convention for naming functions
 
 #+begin_src rust
@@ -125,7 +126,7 @@ fn another_function() {
 : Hello
 : World!
 
-** Function Arguments
+*** Function Arguments
 Arguments' types have to be specified:
 #+begin_src rust
 fn greet(name: &str) {
@@ -138,7 +139,7 @@ greet("Damien");
 #+RESULTS:
 : Hello, Damien
 
-** Function Return
+*** Function Return
 Function's return type have to be specified too:
 #+begin_src rust
 fn sum(x: i32, y: i32) -> i32 {
@@ -164,7 +165,7 @@ println!("{}", sum(4, 5));
 #+RESULTS:
 : 9
 
-* Strings
+** Strings
 #+begin_src rust
 fn main() {
     let s = "Damien";
@@ -175,7 +176,7 @@ fn main() {
 #+RESULTS:
 : Damien
 
-** String to chars
+*** String to chars
 #+begin_src rust
 fn main() {
     let s = "Damien".chars();
@@ -186,7 +187,7 @@ fn main() {
 #+RESULTS:
 : Chars(['D', 'a', 'm', 'i', 'e', 'n'])
 
-* Numbers
+** Numbers
 #+begin_src rust
 let x = 9;
 println!("{x}");
@@ -195,7 +196,7 @@ println!("{x}");
 #+RESULTS:
 : 9
 
-** Ranges
+*** Ranges
 #+begin_src rust
 let range = 1..5;
 
@@ -226,7 +227,7 @@ for i in range {
 : 4
 : 5
 
-* Formatted Print
+** Formatted Print
 #+begin_src rust
 fn main() {
     let a = 1 + 1;
@@ -250,9 +251,9 @@ fn main() {
 
 https://www.rustnote.com/blog/format_strings.html
 
-* Data Structures
-** Sequence Collections
-*** Tuple
+** Data Structures
+*** Sequence Collections
+**** Tuple
 Tuples can contain multiple types.
 Tuples have a fixed length.
 
@@ -260,7 +261,7 @@ Tuples have a fixed length.
 let tup: (i32, f64, u8) = (500, 6.4, 1);
 #+end_src
 
-*** Array
+**** Array
 Every element of an array has to have the same type.
 Array in [[file:rust.org][Rust]] have a fixed length.
 
@@ -286,7 +287,7 @@ println!("{:?}", a);
 #+RESULTS:
 : [3, 3, 3, 3, 3]
 
-**** Accessing array elements
+***** Accessing array elements
 By using the index:
 #+begin_src rust
 let a = [1, 2, 3, 4, 5];
@@ -302,7 +303,7 @@ println!("{:?}", second);
 : 1
 : 2
 
-*** Vec
+**** Vec
 A type has to be specified when creating an empty =vec= as type can't be inferred:
 #+begin_src rust
 let v: Vec<i32> = Vec::new();
@@ -323,7 +324,7 @@ println!("{:?}", v);
 #+RESULTS:
 : [1, 2, 3]
 
-**** Accessing values
+***** Accessing values
 #+begin_src rust
 let mut v = vec![1, 2, 3];
 
@@ -335,7 +336,7 @@ println!("{}", &v[2]);
 : 1
 : 3
 
-**** Adding values
+***** Adding values
 When adding values later in the code, [[file:rust.org][Rust]] can also infer the =vec= type
 #+begin_src rust
 let mut v = Vec::new();
@@ -349,7 +350,7 @@ println!("{:?}", v);
 #+RESULTS:
 : [5, 6, 7]
 
-**** Removing values
+***** Removing values
 #+begin_src rust
 let mut v = vec![1, 2, 3];
 v.remove(0);
@@ -360,7 +361,7 @@ println!("{:?}", v);
 #+RESULTS:
 : [2, 3]
 
-**** Iterating over values
+***** Iterating over values
 #+begin_src rust
 let v = vec![9, 10, 11];
 for i in &v {
@@ -386,7 +387,7 @@ println!("{:?}", v);
 #+RESULTS:
 : [10, 11, 12]
 
-*** VecDeque
+**** VecDeque
 A double-ended queue implemented with a growable ring buffer.
 #+begin_src rust
 use std::collections::VecDeque;
@@ -409,7 +410,7 @@ println!("{:?}", deq);
 #+RESULTS:
 : [-1, 0, 1]
 
-**** Push / Pop
+***** Push / Pop
 #+begin_src rust
 use std::collections::VecDeque;
 
@@ -471,11 +472,11 @@ println!("{:?}", deq);
 #+RESULTS:
 : [1, 2]
 
-*** LinkedList
+**** LinkedList
 A doubly-linked list with owned nodes.
 
-** Map Collections
-*** HashMap
+*** Map Collections
+**** HashMap
 Allows to store key/value pairs.
 #+begin_src rust
 use std::collections::HashMap;
@@ -497,7 +498,7 @@ println!("{:?}", map);
 : {"France": "Paris", "Japan": "Tokyo", "Canada": "Ottawa"}
 : {"Japan": "Tokyo", "Canada": "Ottawa"}
 
-*** BTreeMap
+**** BTreeMap
 Equivalent to =HashMaps= but "sorted".
 #+begin_src rust
 use std::collections::BTreeMap;
@@ -519,8 +520,8 @@ println!("{:?}", btree);
 : {"Germany": "Berlin", "Taiwan": "Taipei", "United Kingdom": "London"}
 : {"Germany": "Berlin", "Taiwan": "Taipei"}
 
-** Set Collections
-*** HashSet
+*** Set Collections
+**** HashSet
 Set form of =HashMap=, meaning no duplicate keys are allowed.
 #+begin_src rust
 use std::collections::HashSet;
@@ -535,14 +536,14 @@ println!("{:?}", set);
 
 Note how "key" is only present once, not twice.
 
-*** BTreeSet
+**** BTreeSet
 Set form of =BTreeMap=.
 #+begin_src rust :results silent
 use std::collections::BTreeSet;
 let set: BTreeSet<u32> = BTreeSet::new();
 #+end_src
 
-** Structs
+*** Structs
 A struct contains fields.
 Access value by dot notation.
 
@@ -573,7 +574,7 @@ println!("{:?}", user1.email);
 : "someone@example.com"
 : "anotheremail@example.com"
 
-*** Field Init Shorthand
+**** Field Init Shorthand
 #+begin_src rust
 #[derive(Debug)]
 struct User {
@@ -599,7 +600,7 @@ println!("{:?}", user1);
 #+RESULTS:
 : User { active: true, username: "someone@example.com", email: "someone@example.com", sign_in_count: 1 }
 
-*** Struct Update Syntax
+**** Struct Update Syntax
 #+begin_src rust
 #[derive(Debug)]
 struct User {
@@ -627,7 +628,7 @@ println!("{:?}", user2);
 #+RESULTS:
 : User { active: true, username: "someusername123", email: "anotheruser@example.com", sign_in_count: 1 }
 
-*** Defining Methods
+**** Defining Methods
 #+begin_src rust
 struct Rectangle {
     width: u32,
@@ -651,8 +652,8 @@ println!("{:}", rect1.area());
 #+RESULTS:
 : 1500
 
-* Control Flow
-** If/else statements
+** Control Flow
+*** If/else statements
 #+begin_src rust
 fn sum(x: i32, y: i32) -> i32 {
     return x + y;
@@ -670,7 +671,7 @@ if sum(4, 5) > 10 {
 #+RESULTS:
 : This is correct
 
-*** Inline conditional
+**** Inline conditional
 #+begin_src rust
 let x = if true { 1 } else { 0 };
 
@@ -680,7 +681,7 @@ println!("{}", x);
 #+RESULTS:
 : 1
 
-** Loop
+*** Loop
 #+begin_src rust
 let mut counter = 0;
 
@@ -719,7 +720,7 @@ println!("Loop has been executed {nth} times");
 #+RESULTS:
 : Loop has been executed 5 times
 
-*** Labeled loops
+**** Labeled loops
 By default, =break= applies to the innermost loop.
 You can specify a loop label to break a specific loop.
 #+begin_src rust
@@ -753,7 +754,7 @@ let mut count_two = 10;
 : count_two = 6
 : count_two = 5
 
-** While
+*** While
 #+begin_src rust
 let mut number = 0;
 
@@ -772,7 +773,7 @@ while number != 6 {
 : 4
 : 5
 
-* Iterators
+** Iterators
 Since Rust 1.23, no need to call =.iter()=
 #+begin_src rust
 fn main() {
@@ -787,9 +788,9 @@ fn main() {
 : 2
 : 3
 
-** Iterator methods
+*** Iterator methods
 https://doc.rust-lang.org/std/iter/trait.Iterator.html
-*** Reverse
+**** Reverse
 #+begin_src rust
 for i in (0..4).rev() {
     println!("{i}");
@@ -802,7 +803,7 @@ for i in (0..4).rev() {
 : 1
 : 0
 
-*** Min/Max
+**** Min/Max
 #+begin_src rust
 println!("{}", [1, 2, 3].iter().min().unwrap());
 #+end_src
@@ -817,7 +818,7 @@ println!("{}", [1, 2, 3].iter().max().unwrap());
 #+RESULTS:
 : 3
 
-*** Last
+**** Last
 #+begin_src rust
 println!("{}", [1, 3, 5].last().unwrap());
 #+end_src
@@ -825,7 +826,7 @@ println!("{}", [1, 3, 5].last().unwrap());
 #+RESULTS:
 : 5
 
-*** Map
+**** Map
 #+begin_src rust
 println!("{:?}", [1, 3, 5].map(|x| 2 * x));
 #+end_src
@@ -833,7 +834,7 @@ println!("{:?}", [1, 3, 5].map(|x| 2 * x));
 #+RESULTS:
 : [2, 6, 10]
 
-*** Filter
+**** Filter
 #+begin_src rust
 (1..20).filter(|x| x % 3 == 0).for_each(|i| println!("{}", i));
 #+end_src
@@ -846,7 +847,7 @@ println!("{:?}", [1, 3, 5].map(|x| 2 * x));
 : 15
 : 18
 
-*** Fold / Reduce
+**** Fold / Reduce
 #+begin_src rust
 let a = [1, 2, 3];
 let sum = a.iter().fold(0, |acc, x| acc + x);
@@ -856,7 +857,7 @@ println!("{}", sum);
 #+RESULTS:
 : 6
 
-* Misc
+** Misc
 Naming conventions:
 [[https://doc.rust-lang.org/1.0.0/style/style/naming/README.html]]
 

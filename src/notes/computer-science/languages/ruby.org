@@ -3,10 +3,11 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Ruby
 
-* Strings
+* Language Features
+** Strings
 Can use both single quotes ='= or double quotes ="=.
 
-** String interpolation
+*** String interpolation
 /!\ Must use double quotes
 #+begin_src ruby
 name = 'world'
@@ -16,7 +17,7 @@ str = "hello #{name}"
 #+RESULTS:
 : hello world
 
-** Append to string
+*** Append to string
 #+begin_src ruby
 str = 'hello '
 str << 'world'
@@ -25,7 +26,7 @@ str << 'world'
 #+RESULTS:
 : hello world
 
-** Freezing strings
+*** Freezing strings
 #+begin_src ruby
 str = 'hello'.freeze
 str.frozen?
@@ -42,13 +43,13 @@ str << ' world'
 #+RESULTS:
 =can't modify frozen String: "hello" (FrozenError)=
 
-*** Frozen string literals
+**** Frozen string literals
 =# frozen_string_literal: true=
 This line placed at the beginning of a file will freeze all strings in the file.
 
 See also: https://docs.ruby-lang.org/en/3.0.0/doc/syntax/comments_rdoc.html#label-Magic+Comments
 
-** String to chars
+*** String to chars
 #+begin_src ruby :results verbatim
 "Damien".chars
 #+end_src
@@ -56,7 +57,7 @@ See also: https://docs.ruby-lang.org/en/3.0.0/doc/syntax/comments_rdoc.html#labe
 #+RESULTS:
 : ["D", "a", "m", "i", "e", "n"]
 
-** Split
+*** Split
 #+begin_src ruby :results verbatim
 "String to be split".split
 #+end_src
@@ -71,9 +72,9 @@ See also: https://docs.ruby-lang.org/en/3.0.0/doc/syntax/comments_rdoc.html#labe
 #+RESULTS:
 : ["String", "to", "be", "split"]
 
-* Arrays
+** Arrays
 https://docs.ruby-lang.org/en/3.0.0/Array.html
-** Concatenation
+*** Concatenation
 #+begin_src ruby :results verbatim
 a = [1, 2, 3]
 b = [4, 5, 6]
@@ -84,7 +85,7 @@ a.push(*b)
 #+RESULTS:
 : [1, 2, 3, 4, 5, 6]
 
-** Appending
+*** Appending
 #+begin_src ruby :results verbatim
 list = []
 
@@ -96,7 +97,7 @@ list
 #+RESULTS:
 : [1, 2, 3, 4, 5]
 
-** Destructuring / Pattern Matching
+*** Destructuring / Pattern Matching
 #+begin_src ruby
 [1, 2, 3] => [a, b, c]
 c
@@ -105,7 +106,7 @@ c
 #+RESULTS:
 : 3
 
-* Hashes
+** Hashes
 https://ruby-doc.org/core-3.0.0/Hash.html
 Older syntax, "hash rocket":
 #+begin_src ruby :results verbatim
@@ -115,7 +116,7 @@ h = {:foo => 0, :bar => 1}
 #+RESULTS:
 : {:foo=>0, :bar=>1}
 
-** Newer JSON-like syntax
+*** Newer JSON-like syntax
 #+begin_src ruby :results verbatim
 h = {foo: 0, bar: 1}
 #+end_src
@@ -123,8 +124,8 @@ h = {foo: 0, bar: 1}
 #+RESULTS:
 : {:foo=>0, :bar=>1}
 
-** Getting value from key
-*** Using array-like notation
+*** Getting value from key
+**** Using array-like notation
 #+begin_src ruby
 h = {foo: 0, bar: 1}
 h[:foo]
@@ -133,7 +134,7 @@ h[:foo]
 #+RESULTS:
 : 0
 
-** Using fetch
+*** Using fetch
 #+begin_src ruby
 h = {foo: 0, bar: 1}
 h.fetch(:foo)
@@ -151,7 +152,7 @@ h.fetch(:baz, "Oops")
 #+RESULTS:
 : Oops
 
-** "Deep" nested value
+*** "Deep" nested value
 #+begin_src ruby
 h = {foo: {deepfoo: {nested: 'deep_nested_value'}}, bar: 1}
 h.dig(:foo, :deepfoo, :nested)
@@ -160,7 +161,7 @@ h.dig(:foo, :deepfoo, :nested)
 #+RESULTS:
 : deep_nested_value
 
-** Delete Key
+*** Delete Key
 #+begin_src ruby :results verbatim
 h = {foo: 0, bar: 1}
 h.delete(:foo) # this returns the deleted key's value, so 0 in this case
@@ -170,7 +171,7 @@ h
 #+RESULTS:
 : {:bar=>1}
 
-** Merging two hashes
+*** Merging two hashes
 #+begin_src ruby :results verbatim
 a = {first: 'value'}
 b = {second: 'another value'}
@@ -180,7 +181,7 @@ a.merge(b)
 #+RESULTS:
 : {:first=>"value", :second=>"another value"}
 
-*** Using Double Splat Operator
+**** Using Double Splat Operator
 #+begin_src ruby :results verbatim
 a = {first: 'value'}
 b = {**a, second: 'another value'}
@@ -189,7 +190,7 @@ b = {**a, second: 'another value'}
 #+RESULTS:
 : {:first=>"value", :second=>"another value"}
 
-** Getting Keys Only
+*** Getting Keys Only
 #+begin_src ruby :results verbatim
 h = {foo: 0, bar: 1}
 h.keys
@@ -198,7 +199,7 @@ h.keys
 #+RESULTS:
 : [:foo, :bar]
 
-** Getting Values Only
+*** Getting Values Only
 #+begin_src ruby :results verbatim
 h = {foo: 0, bar: 1}
 h.values
@@ -207,7 +208,7 @@ h.values
 #+RESULTS:
 : [0, 1]
 
-** Omitting values
+*** Omitting values
 Starting from Ruby 3.1
 #+begin_src ruby :results verbatim
 x = 8
@@ -219,7 +220,7 @@ y = 9
 #+RESULTS:
 : {:x=>8, :y=>9}
 
-** Slice
+*** Slice
 #+begin_src ruby :results verbatim
 user = { name: 'Damien', age: 28, role: 'CEO' }
 user.slice(:name, :age)
@@ -228,7 +229,7 @@ user.slice(:name, :age)
 #+RESULTS:
 : {:name=>"Damien", :age=>28}
 
-** Except
+*** Except
 #+begin_src ruby :results verbatim
 user = { name: 'Damien', age: 28, role: 'CEO' }
 user.except(:role)
@@ -237,7 +238,7 @@ user.except(:role)
 #+RESULTS:
 : {:name=>"Damien", :age=>28}
 
-** Transform Values
+*** Transform Values
 #+begin_src ruby :results verbatim
 {a: true, b: false}.transform_values(&:!)
 #+end_src
@@ -245,7 +246,7 @@ user.except(:role)
 #+RESULTS:
 : {:a=>false, :b=>true}
 
-** Iterate Over Hash
+*** Iterate Over Hash
 #+begin_src ruby :results output
 h = {foo: 0, bar: 1}
 h.each do |key, value|
@@ -257,7 +258,7 @@ end
 : foo: 0
 : bar: 1
 
-** Any?
+*** Any?
 #+begin_src ruby
 h = {foo: 0, bar: 1}
 h.any? { |key, value| value > 0 }
@@ -266,7 +267,7 @@ h.any? { |key, value| value > 0 }
 #+RESULTS:
 : true
 
-** Compact
+*** Compact
 Removes any null values
 #+begin_src ruby :results verbatim
 h = {foo: 0, bar: nil}
@@ -276,7 +277,7 @@ h.compact
 #+RESULTS:
 : {:foo=>0}
 
-** Empty?
+*** Empty?
 #+begin_src ruby :results output
 h = {foo: 0, bar: nil}
 puts h.empty?
@@ -289,7 +290,7 @@ puts h.empty?
 : false
 : true
 
-* Functions
+** Functions
 #+begin_src ruby :results output
 def say_hello(name)
   puts "hello #{name}"
@@ -301,7 +302,7 @@ say_hello('Damien')
 #+RESULTS:
 : hello Damien
 
-** Optional Arguments
+*** Optional Arguments
 #+begin_src ruby :results output
 def greet_name(name = 'John Doe')
   puts "hello #{name}"
@@ -315,7 +316,7 @@ greet_name('Damien')
 : hello John Doe
 : hello Damien
 
-** Keyword Arguments
+*** Keyword Arguments
 #+begin_src ruby :results output
 def greet_name(greeting:, name:)
   puts "#{greeting}, #{name}"
@@ -341,7 +342,7 @@ greet_name(name:, greeting:)
 #+RESULTS:
 : hi, Damien
 
-** One-liner
+*** One-liner
 Starting from Ruby 3.0
 #+begin_src ruby
 def increment(x) = x + 1
@@ -351,9 +352,9 @@ increment(42)
 #+RESULTS:
 : 43
 
-* Iterators
+** Iterators
 https://docs.ruby-lang.org/en/3.0.0/doc/syntax/control_expressions_rdoc.html
-** While
+*** While
 #+begin_src ruby :results output
 x = 0
 
@@ -371,7 +372,7 @@ end
 : 3
 : 4
 
-** Until
+*** Until
 #+begin_src ruby :results output
 x = 0
 
@@ -388,7 +389,7 @@ end
 : 3
 : 4
 
-** For
+*** For
 #+begin_src ruby :results output
 x = [1, 2, 3, 4, 5]
 
@@ -404,7 +405,7 @@ end
 : 4
 : 5
 
-** Each
+*** Each
 #+begin_src ruby :results output
 names = ['Bob', 'Joe', 'Steve', 'Janice', 'Susan', 'Helen']
 
@@ -419,9 +420,9 @@ names.each { |name| puts name }
 : Susan
 : Helen
 
-* Enumerables
+** Enumerables
 https://docs.ruby-lang.org/en/3.0.0/Enumerable.html
-** Any?
+*** Any?
 #+begin_src ruby :session any
 x = ['a', 'b', 'c']
 
@@ -438,7 +439,7 @@ x.any?('d')
 #+RESULTS:
 : false
 
-** Min
+*** Min
 #+begin_src ruby
 [1, 2, 3].min
 #+end_src
@@ -446,7 +447,7 @@ x.any?('d')
 #+RESULTS:
 : 0
 
-** Max
+*** Max
 #+begin_src ruby
 [1, 2, 3].max
 #+end_src
@@ -454,7 +455,7 @@ x.any?('d')
 #+RESULTS:
 : 3
 
-** minmax
+*** minmax
 #+begin_src ruby :results verbatim
 [1, 2, 3].minmax
 #+end_src
@@ -462,7 +463,7 @@ x.any?('d')
 #+RESULTS:
 : [1, 3]
 
-** Sort
+*** Sort
 #+begin_src ruby :results verbatim
 [3, 2, 1].sort
 #+end_src
@@ -470,7 +471,7 @@ x.any?('d')
 #+RESULTS:
 : [1, 2, 3]
 
-** Filter
+*** Filter
 #+begin_src ruby :results verbatim
 [1, 2, 3, 4, 5].filter {|i| i >= 3}
 #+end_src
@@ -478,7 +479,7 @@ x.any?('d')
 #+RESULTS:
 : [3, 4, 5]
 
-** Each With Index
+*** Each With Index
 #+begin_src ruby :results verbatim
 hash = Hash.new
 
@@ -492,7 +493,7 @@ hash
 #+RESULTS:
 : {0=>"a", 1=>"b", 2=>"c"}
 
-** Each With Object
+*** Each With Object
 #+begin_src ruby :results verbatim
 (1..10).each_with_object([]) {|i, a| a << i*2}
 #+end_src
@@ -500,7 +501,7 @@ hash
 #+RESULTS:
 : [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
-** Map
+*** Map
 #+begin_src ruby :results verbatim
 [1, 2, 3, 4, 5].map {|i| i * 2}
 #+end_src
@@ -508,7 +509,7 @@ hash
 #+RESULTS:
 : [2, 4, 6, 8, 10]
 
-** Reduce
+*** Reduce
 #+begin_src ruby
 [1, 2, 3, 4, 5].reduce(:+)
 #+end_src
@@ -516,7 +517,7 @@ hash
 #+RESULTS:
 : 15
 
-* Pattern Matching
+** Pattern Matching
 Starting from Ruby 3.1
 #+begin_src ruby
 [1, 2] => _, x
@@ -534,7 +535,7 @@ name
 #+RESULTS:
 : Damien
 
-* Classes
+** Classes
 https://docs.ruby-lang.org/en/3.0.0/Class.html
 #+begin_src ruby :session
 class Greeter
@@ -556,10 +557,10 @@ g.salute
 #+RESULTS:
 : Hello World!
 
-** What is =@foobar=?
+*** What is =@foobar=?
 The variable which name begins which the character `@', is an instance variable of self. Instance variables are belong to the certain object. Non-initialized instance variables has value nil.
 
-** =attr_reader=
+*** =attr_reader=
 To avoid having to call =@name= with the =@=, =attr_reader= can be used:
 #+begin_src ruby :session
 class Greeter
@@ -583,7 +584,7 @@ g.salute
 #+RESULTS:
 : Hello World!
 
-** Methods
+*** Methods
 #+begin_src ruby :session
 Greeter.instance_methods(false)
 #+end_src
@@ -591,7 +592,7 @@ Greeter.instance_methods(false)
 #+RESULTS:
 | :salute | :name |
 
-* Modules
+** Modules
 https://docs.ruby-lang.org/en/3.0.0/Module.html
 #+begin_src ruby :session
 module Greeter
@@ -607,7 +608,7 @@ Greeter.salute
 #+RESULTS:
 : Hello World!
 
-** What is =::=?
+*** What is =::=?
 Allow to access items in modules or class-level items in classes.
 Example:
 
@@ -628,7 +629,7 @@ SomeModule::InnerModule::MyClass::CONSTANT
 
 You could access =CONSTANT= by: =SomeModule::InnerModule::MyClass::CONSTANT=
 
-* Time
+** Time
 #+begin_src ruby
 Time.now
 #+end_src
@@ -636,7 +637,7 @@ Time.now
 #+RESULTS:
 : 2021-05-31 21:31:48.883643 -0400
 
-** UNIX Timestamp
+*** UNIX Timestamp
 #+begin_src ruby
 Time.now.to_i
 #+end_src
@@ -644,13 +645,13 @@ Time.now.to_i
 #+RESULTS:
 : 1622511129
 
-* Fibers
+** Fibers
 https://noteflakes.com/articles/2021-10-20-explaining-ruby-fibers
 
 https://brunosutic.com/blog/ruby-fiber-scheduler
 
-* Misc
-** Conditional Assignment Operator
+** Misc
+*** Conditional Assignment Operator
 a ||= b means:
 If =a= is =undefined=, =nil= or =false=, assign =b= to =a=.
 Otherwise, keep =a= intact.

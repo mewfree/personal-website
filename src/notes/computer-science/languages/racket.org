@@ -2,9 +2,10 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Racket
 
-Lisp! Very functional!
+Modern dialect of Lisp
 
-* Booleans
+* Language Features
+** Booleans
 =#t= true or =#f= false
 #+begin_src racket
 #lang racket
@@ -15,7 +16,7 @@ Lisp! Very functional!
 #+RESULTS:
 : #t
 
-* Numbers
+** Numbers
 #+begin_src racket
 #lang racket
 (+ 1 1)
@@ -24,7 +25,7 @@ Lisp! Very functional!
 #+RESULTS:
 : 2
 
-* Strings
+** Strings
 #+begin_src racket
 #lang racket
 "Damien"
@@ -41,7 +42,7 @@ Lisp! Very functional!
 #+RESULTS:
 : neimaD
 
-* Characters
+** Characters
 #+begin_src racket
 #lang racket
 
@@ -51,7 +52,7 @@ Lisp! Very functional!
 #+RESULTS:
 : #\A
 
-* Variables
+** Variables
 #+begin_src racket
 #lang racket
 (define x 9)
@@ -61,7 +62,7 @@ x
 #+RESULTS:
 : 9
 
-* Pairs
+** Pairs
 Can use =cons= to construct a pair:
 #+begin_src racket
 #lang racket
@@ -90,7 +91,7 @@ Or the quote with . notation:
 : 2
 : #t
 
-* Lists
+** Lists
 https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
 
 =(list i j k)= is similar to ='(i j k)=
@@ -111,7 +112,7 @@ https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
 #+RESULTS:
 : '(1 2 3)
 
-** Length
+*** Length
 #+begin_src racket
 #lang racket
 (length '(1 2 3))
@@ -120,7 +121,7 @@ https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
 #+RESULTS:
 : 3
 
-** Sort
+*** Sort
 #+begin_src racket :results verbatim
 #lang racket
 (sort '(1 2 3) >)
@@ -129,7 +130,7 @@ https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
 #+RESULTS:
 : '(3 2 1)
 
-** Take
+*** Take
 #+begin_src racket :results verbatim
 #lang racket
 (take '(1 2 3) 2)
@@ -138,7 +139,7 @@ https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html
 #+RESULTS:
 : '(1 2)
 
-** Map
+*** Map
 Can insert lambda in Emacs with =C-M-y= or =racket-insert-lambda=
 #+begin_src racket :results verbatim
 #lang racket
@@ -148,7 +149,7 @@ Can insert lambda in Emacs with =C-M-y= or =racket-insert-lambda=
 #+RESULTS:
 : '(2 4 6)
 
-** Foldl
+*** Foldl
 #+begin_src racket
 #lang racket
 (foldl (λ (acc n) (+ acc n)) 0 '(1 2 3))
@@ -166,7 +167,7 @@ Actually a way simpler way of writing it:
 #+RESULTS:
 : 6
 
-* Hash Tables
+** Hash Tables
 #+begin_src racket
 #lang racket
 
@@ -176,7 +177,7 @@ Actually a way simpler way of writing it:
 #+RESULTS:
 : '#hash(("apple" . "red") ("banana" . "yellow"))
 
-** Get value by key
+*** Get value by key
 #+begin_src racket
 #lang racket
 
@@ -187,7 +188,7 @@ Actually a way simpler way of writing it:
 #+RESULTS:
 : red
 
-** Set value by key
+*** Set value by key
 =hash-set= returns a new list
 #+begin_src racket
 #lang racket
@@ -199,7 +200,7 @@ Actually a way simpler way of writing it:
 #+RESULTS:
 : '#hash(("apple" . "red-ish") ("banana" . "yellow"))
 
-* Functions
+** Functions
 https://docs.racket-lang.org/guide/syntax-overview.html
 #+begin_src racket
 #lang racket
@@ -211,7 +212,7 @@ https://docs.racket-lang.org/guide/syntax-overview.html
 #+RESULTS:
 : 10
 
-** Anonymous Functions
+*** Anonymous Functions
 Either =lambda= or =λ= can be used
 #+begin_src racket
 #lang racket
@@ -229,7 +230,7 @@ Either =lambda= or =λ= can be used
 #+RESULTS:
 : 4
 
-* Thread Macros
+** Thread Macros
 #+begin_src racket
 #lang racket
 (require threading)
@@ -239,7 +240,7 @@ Either =lambda= or =λ= can be used
 #+RESULTS:
 : neimaD
 
-* Pattern Matching
+** Pattern Matching
 #+begin_src racket
 #lang racket
 
@@ -252,7 +253,7 @@ Either =lambda= or =λ= can be used
 #+RESULTS:
 : nine
 
-* Eval
+** Eval
 #+begin_src bash
 racket -e '(+ 1 1)'
 #+end_src
@@ -260,8 +261,8 @@ racket -e '(+ 1 1)'
 #+RESULTS:
 : 2
 
-* Typed Racket
-** Annotations
+** Typed Racket
+*** Annotations
 #+begin_src racket
 #lang typed/racket
 
@@ -283,7 +284,7 @@ x
 #+RESULTS:
 : 9
 
-** Basic Types
+*** Basic Types
 | Name    | Example        |
 |---------+----------------|
 | String  | "Hello, world" |
@@ -294,7 +295,7 @@ x
 | Integer | 1              |
 | Flonum  | 2.1            |
 
-** Example
+*** Example
 #+begin_src racket
 #lang typed/racket
 

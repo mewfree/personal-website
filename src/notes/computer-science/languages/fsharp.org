@@ -2,7 +2,8 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / F#
 
-* Basics
+* Language Features
+** Basics
 Type inference
 #+begin_src fsharp
 "Hello, World!"
@@ -18,7 +19,7 @@ let myInt = 9
 #+RESULTS:
 : val myInt: int = 9
 
-* Lists
+** Lists
 Commas are never user as delimiters, only semicolons
 #+begin_src fsharp
 let firstList = [1; 2; 3]
@@ -34,7 +35,7 @@ let firstList = [1; 2; 3]
 #+RESULTS:
 : val it: int list = [1; 2; 3; 4; 5]
 
-** List Comprehensions
+*** List Comprehensions
 #+begin_src fsharp
 [for i in 1..10 do i * i]
 #+end_src
@@ -42,7 +43,7 @@ let firstList = [1; 2; 3]
 #+RESULTS:
 : val it: int list = [1; 4; 9; 16; 25; 36; 49; 64; 81; 100]
 
-* Functions
+** Functions
 #+begin_src fsharp
 let square x = x * x
 square 4
@@ -61,7 +62,7 @@ add 2 3
 : val add: x: int -> y: int -> int
 : val it: int = 5
 
-** Anonymous Functions
+*** Anonymous Functions
 #+begin_src fsharp
 List.map (fun x -> x * x) [1; 2; 3]
 #+end_src
@@ -69,7 +70,7 @@ List.map (fun x -> x * x) [1; 2; 3]
 #+RESULTS:
 : val it: int list = [1; 4; 9]
 
-* Pattern Matching
+** Pattern Matching
 #+begin_src fsharp
 let x = "a"
 match x with
@@ -82,7 +83,7 @@ match x with
 : val x: string = "a"
 : val it: string = "x is a"
 
-* Pipe Operator
+** Pipe Operator
 #+begin_src fsharp
 firstList |> List.map square
 #+end_src
@@ -97,7 +98,7 @@ firstList |> List.map square |> List.sum
 #+RESULTS:
 : val it: int = 14
 
-** Backwards Pipe
+*** Backwards Pipe
 #+begin_src fsharp
 List.sum <| [1; 2; 3; 4]
 #+end_src

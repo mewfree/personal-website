@@ -1,6 +1,8 @@
 <!doctype html><html lang="en"><head><title>Racket - Damien Gonot</title><link rel="stylesheet" href="/main.css"><link rel="stylesheet" href="/katex.min.css"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Homepage  Notes  Computer Science  Programming Languages  Racket
 
-Lisp Very functional
+Modern dialect of Lisp
+
+Language Features
 
 Booleans
 
@@ -27,30 +29,28 @@ Strings
     Damien
 
     lang racket
-    liststring reverse stringlist Damien
-
-..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Racket</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Racket</p><p>Lisp! Very functional!</p><h2 id="booleans">Booleans</h2><p><code class="verbatim">#t</code> true or <code class="verbatim">#f</code> false</p><pre class="racket" data-exports="both"><code>#lang racket
+    liststring revers..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Racket</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Racket</p><p>Modern dialect of Lisp</p><h2 id="language-features">Language Features</h2><h3 id="booleans">Booleans</h3><p><code class="verbatim">#t</code> true or <code class="verbatim">#f</code> false</p><pre class="racket" data-exports="both"><code>#lang racket
 
 #t
 </code></pre><pre class="example"><code>#t
-</code></pre><h2 id="numbers">Numbers</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="numbers">Numbers</h3><pre class="racket" data-exports="both"><code>#lang racket
 (+ 1 1)
 </code></pre><pre class="example"><code>2
-</code></pre><h2 id="strings">Strings</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="strings">Strings</h3><pre class="racket" data-exports="both"><code>#lang racket
 &quot;Damien&quot;
 </code></pre><pre class="example"><code>Damien
 </code></pre><pre class="racket" data-exports="both"><code>#lang racket
 (list-&gt;string (reverse (string-&gt;list &quot;Damien&quot;)))
 </code></pre><pre class="example"><code>neimaD
-</code></pre><h2 id="characters">Characters</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="characters">Characters</h3><pre class="racket" data-exports="both"><code>#lang racket
 
 #\A
 </code></pre><pre class="example"><code>#\A
-</code></pre><h2 id="variables">Variables</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="variables">Variables</h3><pre class="racket" data-exports="both"><code>#lang racket
 (define x 9)
 x
 </code></pre><pre class="example"><code>9
-</code></pre><h2 id="pairs">Pairs</h2><p>Can use <code class="verbatim">cons</code> to construct a pair:</p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="pairs">Pairs</h3><p>Can use <code class="verbatim">cons</code> to construct a pair:</p><pre class="racket" data-exports="both"><code>#lang racket
 
 (car (cons 1 2))
 (cdr (cons 1 2))
@@ -66,68 +66,68 @@ x
 </code></pre><pre class="example"><code>1
 2
 #t
-</code></pre><h2 id="lists">Lists</h2><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
+</code></pre><h3 id="lists">Lists</h3><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (list 1 2 3)
 </code></pre><pre class="example"><code>&#39;(1 2 3)
 </code></pre><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 &#39;(1 2 3)
 </code></pre><pre class="example"><code>&#39;(1 2 3)
-</code></pre><h3 id="length">Length</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h4 id="length">Length</h4><pre class="racket" data-exports="both"><code>#lang racket
 (length &#39;(1 2 3))
 </code></pre><pre class="example"><code>3
-</code></pre><h3 id="sort">Sort</h3><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
+</code></pre><h4 id="sort">Sort</h4><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (sort &#39;(1 2 3) &gt;)
 </code></pre><pre class="example"><code>&#39;(3 2 1)
-</code></pre><h3 id="take">Take</h3><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
+</code></pre><h4 id="take">Take</h4><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (take &#39;(1 2 3) 2)
 </code></pre><pre class="example"><code>&#39;(1 2)
-</code></pre><h3 id="map">Map</h3><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
+</code></pre><h4 id="map">Map</h4><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
 (map (λ (n) (* 2 n)) &#39;(1 2 3))
 </code></pre><pre class="example"><code>&#39;(2 4 6)
-</code></pre><h3 id="foldl">Foldl</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h4 id="foldl">Foldl</h4><pre class="racket" data-exports="both"><code>#lang racket
 (foldl (λ (acc n) (+ acc n)) 0 &#39;(1 2 3))
 </code></pre><pre class="example"><code>6
 </code></pre><p>Actually a way simpler way of writing it:</p><pre class="racket" data-exports="both"><code>#lang racket
 (foldl + 0 &#39;(1 2 3))
 </code></pre><pre class="example"><code>6
-</code></pre><h2 id="hash-tables">Hash Tables</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="hash-tables">Hash Tables</h3><pre class="racket" data-exports="both"><code>#lang racket
 
 (hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;)
 </code></pre><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
-</code></pre><h3 id="get-value-by-key">Get value by key</h3><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h4 id="get-value-by-key">Get value by key</h4><pre class="racket" data-exports="both"><code>#lang racket
 
 (define fruit-colours (hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;))
 (hash-ref fruit-colours &quot;apple&quot;)
 </code></pre><pre class="example"><code>red
-</code></pre><h3 id="set-value-by-key">Set value by key</h3><p><code class="verbatim">hash-set</code> returns a new list</p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h4 id="set-value-by-key">Set value by key</h4><p><code class="verbatim">hash-set</code> returns a new list</p><pre class="racket" data-exports="both"><code>#lang racket
 
 (define fruit-colours (hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;))
 (hash-set fruit-colours &quot;apple&quot; &quot;red-ish&quot;)
 </code></pre><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red-ish&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
-</code></pre><h2 id="functions">Functions</h2><p><a href="https://docs.racket-lang.org/guide/syntax-overview.html">https://docs.racket-lang.org/guide/syntax-overview.html</a></p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="functions">Functions</h3><p><a href="https://docs.racket-lang.org/guide/syntax-overview.html">https://docs.racket-lang.org/guide/syntax-overview.html</a></p><pre class="racket" data-exports="both"><code>#lang racket
 (define (double x) (* x 2))
 
 (double 5)
 </code></pre><pre class="example"><code>10
-</code></pre><h3 id="anonymous-functions">Anonymous Functions</h3><p>Either <code class="verbatim">lambda</code> or <code class="verbatim">λ</code> can be used</p><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h4 id="anonymous-functions">Anonymous Functions</h4><p>Either <code class="verbatim">lambda</code> or <code class="verbatim">λ</code> can be used</p><pre class="racket" data-exports="both"><code>#lang racket
 ((lambda (n) (* 2 n)) 2)
 </code></pre><pre class="example"><code>4
 </code></pre><pre class="racket" data-exports="both"><code>#lang racket
 ((λ (n) (* 2 n)) 2)
 </code></pre><pre class="example"><code>4
-</code></pre><h2 id="thread-macros">Thread Macros</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="thread-macros">Thread Macros</h3><pre class="racket" data-exports="both"><code>#lang racket
 (require threading)
 (~&gt; &quot;Damien&quot; string-&gt;list reverse list-&gt;string)
 </code></pre><pre class="example"><code>neimaD
-</code></pre><h2 id="pattern-matching">Pattern Matching</h2><pre class="racket" data-exports="both"><code>#lang racket
+</code></pre><h3 id="pattern-matching">Pattern Matching</h3><pre class="racket" data-exports="both"><code>#lang racket
 
 (match 9
   [7 &#39;seven]
   [8 &#39;eight]
   [9 &#39;nine])
 </code></pre><pre class="example"><code>nine
-</code></pre><h2 id="eval">Eval</h2><div class="sourceCode" id="cb49" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
-</code></pre><h2 id="typed-racket">Typed Racket</h2><h3 id="annotations">Annotations</h3><pre class="racket" data-exports="both"><code>#lang typed/racket
+</code></pre><h3 id="eval">Eval</h3><div class="sourceCode" id="cb49" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
+</code></pre><h3 id="typed-racket">Typed Racket</h3><h4 id="annotations">Annotations</h4><pre class="racket" data-exports="both"><code>#lang typed/racket
 
 (: x Number)
 (define x 9)
@@ -138,7 +138,7 @@ x
 (define x : Number 9)
 x
 </code></pre><pre class="example"><code>9
-</code></pre><h3 id="basic-types">Basic Types</h3><table><thead><tr class="header"><th>Name</th><th>Example</th></tr></thead><tbody><tr class="odd"><td>String</td><td>"Hello, world"</td></tr><tr class="even"><td>Char</td><td>#|̣</td></tr><tr class="odd"><td>True</td><td>#t</td></tr><tr class="even"><td>False</td><td>#f</td></tr><tr class="odd"><td>Symbol</td><td>'foo</td></tr><tr class="even"><td>Integer</td><td>1</td></tr><tr class="odd"><td>Flonum</td><td>2.1</td></tr></tbody></table><h3 id="example">Example</h3><pre class="racket" data-exports="both"><code>#lang typed/racket
+</code></pre><h4 id="basic-types">Basic Types</h4><table><thead><tr class="header"><th>Name</th><th>Example</th></tr></thead><tbody><tr class="odd"><td>String</td><td>"Hello, world"</td></tr><tr class="even"><td>Char</td><td>#|̣</td></tr><tr class="odd"><td>True</td><td>#t</td></tr><tr class="even"><td>False</td><td>#f</td></tr><tr class="odd"><td>Symbol</td><td>'foo</td></tr><tr class="even"><td>Integer</td><td>1</td></tr><tr class="odd"><td>Flonum</td><td>2.1</td></tr></tbody></table><h4 id="example">Example</h4><pre class="racket" data-exports="both"><code>#lang typed/racket
 
 (struct pt ([x : Real] [y : Real]))
 

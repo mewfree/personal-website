@@ -5,13 +5,14 @@
 Futhark is a small programming language designed to be compiled to efficient parallel code. It is a statically typed, data-parallel, and purely functional array language in the ML family, and comes with a heavily optimising ahead-of-time compiler that presently generates either GPU code via CUDA and OpenCL, or multi-threaded CPU code.
 https://futhark-lang.org/
 
-* Basic
-** Compile (CPU) =futhark= code
+* Language Features
+** Basic
+*** Compile (CPU) =futhark= code
 #+begin_example
 futhark c main.fut
 #+end_example
 
-** Run
+*** Run
 #+begin_example
 ./main
 #+end_example
@@ -21,34 +22,34 @@ Run with arguments:
 echo 9 | ./main
 #+end_example
 
-** Compile (GPU - OpenCL) =futhark= code
+*** Compile (GPU - OpenCL) =futhark= code
 #+begin_example
 futhark opencl main.fut
 #+end_example
 
-** REPL
+*** REPL
 #+begin_example
 futhark repl
 #+end_example
 
-* Primitives
+** Primitives
 https://futhark-lang.org/examples/values.html
-** Integers
+*** Integers
 #+begin_src futhark
 def an_int : i32 = 9
 #+end_src
 
-** Floats
+*** Floats
 #+begin_src futhark
 def a_float : f64 = 9.0
 #+end_src
 
-** Booleans
+*** Booleans
 #+begin_src futhark
 def a_boolean = true
 #+end_src
 
-* Arrays
+** Arrays
 https://futhark-lang.org/examples/arrays.html
 
 #+begin_src futhark
@@ -72,67 +73,67 @@ def marr = [[1,2,3], [4,5]]
 Dimensions "3" and "2" do not match.
 #+end_src
 
-** Index
+*** Index
 Arrays are indexed from zero:
 #+begin_src futhark
 arr[0]
 1i32
 #+end_src
 
-** Slice
+*** Slice
 Arrays can be sliced:
 #+begin_src futhark
 arr[1:]
 [2i32, 3i32]
 #+end_src
 
-** Reverse
+*** Reverse
 Strides are supported
 #+begin_src futhark
 arr[::-1]
 [3i32, 2i32, 1i32]
 #+end_src
 
-** Iota
+*** Iota
 #+begin_src futhark
 iota 5
 [0i64, 1i64, 2i64, 3i64, 4i64]
 #+end_src
 
-** Range
+*** Range
 Three dots, not two
 #+begin_src futhark
 1...5
 [1i32, 2i32, 3i32, 4i32, 5i32]
 #+end_src
 
-** Replicate
+*** Replicate
 #+begin_src futhark
 replicate 3 9
 [9i32, 9i32, 9i32]
 #+end_src
 
-** Map
+*** Map
 #+begin_src futhark
 map (+1) [1, 2, 3]
 [2i32, 3i32, 4i32]
 #+end_src
 
-** Map2
+*** Map2
 
-** Reduce
+*** Reduce
 #+begin_src futhark
 reduce (+) 0 [1, 2, 3]
 6i32
 #+end_src
 
-** Scan
+*** Scan
 #+begin_src futhark
 scan (+) 0 [1, 2, 3, 4]
 [1i32, 3i32, 6i32, 10i32]
 #+end_src
 
-* Tuples
+** Tuples
 #+begin_src futhark
 def a_tuple = (1, true)
 
@@ -145,7 +146,7 @@ a_tuple.0
 1i32
 #+end_src
 
-* Records
+** Records
 #+begin_src futhark
 def a_record = {foo = 1, bar = true}
 
@@ -158,7 +159,7 @@ a_record.foo
 1i32
 #+end_src
 
-* Functions
+** Functions
 https://futhark-lang.org/examples/functions.html
 
 With type inference:
@@ -182,7 +183,7 @@ sum [1, 2, 3]
 6i32
 #+end_src
 
-** Functions as infix operator
+*** Functions as infix operator
 #+begin_src futhark
 def plus = (+)
 #+end_src
@@ -192,13 +193,13 @@ def plus = (+)
 4i32
 #+end_src
 
-* Pipe operator
+** Pipe operator
 #+begin_src futhark
 [1,2,3,4] |> scan (+) 0 |> reduce (+) 0
 20i32
 #+end_src
 
-* Sequential Loops
+** Sequential Loops
 #+begin_src futhark
 loop x = 1 for i < 5 do
   x * (i + 1)

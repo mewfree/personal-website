@@ -2,7 +2,8 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Python
 
-* Strings
+* Language Features
+** Strings
 #+begin_src python :session
 'hello'
 #+end_src
@@ -10,7 +11,7 @@
 #+RESULTS:
 : hello
 
-* Numbers
+** Numbers
 #+begin_src python :session
 1 + 1
 #+end_src
@@ -18,7 +19,7 @@
 #+RESULTS:
 : 2
 
-** Ranges
+*** Ranges
 #+begin_src python :results output
 for i in range(1, 5):
     print(i)
@@ -30,7 +31,7 @@ for i in range(1, 5):
 : 3
 : 4
 
-* List Comprehensions
+** List Comprehensions
 #+begin_src python :results verbatim :session
 [x**2 for x in range(5)]
 #+end_src
@@ -45,7 +46,7 @@ for i in range(1, 5):
 #+RESULTS:
 : [0, 2, 4, 6, 8]
 
-* Classes
+** Classes
 Docs: https://docs.python.org/3/tutorial/classes.html
 
 Most basic example:
@@ -70,11 +71,11 @@ About =__init()__=:
 (3.0, -4.5)
 #+end_src
 
-* Conventions
-** Single leading underscore: _var
+** Conventions
+*** Single leading underscore: _var
 Hint to the programmer that it is for internal use only.
 Not enforced in any way.
-** Double leading underscore: __var
+*** Double leading underscore: __var
 "Name mangling".
 #+begin_src python
 >>> class Test:
@@ -87,28 +88,28 @@ Not enforced in any way.
 >>> [attr for attr in dir(t) if "name" in attr]
 ['_Test__mangled_name', 'normal_name']
 #+end_src
-** Single trailing underscore: var_
+*** Single trailing underscore: var_
 To avoid naming conflicts, for example =class_=.
-** Double leading and trailing underscore: __var__
+*** Double leading and trailing underscore: __var__
 Reserved for spcial use like =__init__=.
-** Single underscore: _
+*** Single underscore: _
 By convention, used as a temporary variable name.
 
-* Type hints
+** Type hints
 =Typing=
 
 Docs: https://docs.python.org/3/library/typing.html
 
 Not enforced in any way, only there to help.
 
-** Basic example
+*** Basic example
 Takes a string, outputs a string:
 #+begin_src python
 def greeting(name: str) -> str:
     return 'Hello ' + name
 #+end_src
 
-* Pattern Matching
+** Pattern Matching
 Introduced in Python 3.10
 #+begin_src python :results output
 def string_age(age):

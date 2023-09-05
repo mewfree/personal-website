@@ -10,7 +10,8 @@ println("Hello, World!")
 #+RESULTS:
 : Hello, World!
 
-* Functions
+* Language Features
+** Functions
 #+begin_src kotlin
 fun sum(x: Int, y: Int): Int {
     return x + y
