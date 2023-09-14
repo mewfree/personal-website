@@ -49,6 +49,7 @@ for filename in readdir("src/posts")
     output =
         replace(
             header,
+            "{SLUG}" => "/blog/" * slug,
             "{TITLE}" => title * " - Damien Gonot",
             "{DESCRIPTION}" => "$(first(excerpt, 297))...",
         ) *
@@ -75,6 +76,7 @@ content = replace(posts_template, "{CONTENT}" => join(posts_list))
 output =
     replace(
         header,
+        "{SLUG}" => "/blog",
         "{TITLE}" => "Blog Posts - Damien Gonot",
         "{DESCRIPTION}" => "List of blog posts by Damien Gonot.",
     ) *
@@ -147,6 +149,7 @@ for (root, dirs, files) in walkdir("src/notes")
             local output =
                 replace(
                     header,
+                    "{SLUG}" => "/notes/" * slug,
                     "{TITLE}" => title * " - Damien Gonot",
                     "{DESCRIPTION}" => "$(first(excerpt, 297))...",
                 ) *
@@ -209,12 +212,15 @@ for route in routes
     else
     end
 
+    local slug = "/" * replace(destination, ".html" => "")
+
     if destination == "index.html"
         local content = replace(content, "{RECENT_BLOG_POSTS}" => join(posts_list[1:5]))
+        local slug = ""
     end
 
     local output =
-        replace(header, "{TITLE}" => title, "{DESCRIPTION}" => description) *
+        replace(header, "{SLUG}" => slug, "{TITLE}" => title, "{DESCRIPTION}" => description) *
         content *
         footer
     open("build/$destination", "w") do io
