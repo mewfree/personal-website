@@ -38,3 +38,7 @@ https://www.susanrigetti.com/physics
 "Feynman's Lectures are essential readings for everyone interested in physics, and you'll find a copy on the bookshelf of every amateur and professional physicist. These lectures are what got me into physics: my astronomy professor told me to read them and see if I liked physics - they changed my life! They are somewhat difficult to understand if you are just getting started, but they will make more and more sense by the time you reach levels 5 and 6 in the undergraduate curriculum."
 ** Deep Down Things: The Breathtaking Beauty of Particle Physics by Bruce Schumm (Level: Difficult)
 "The very best popular book about particle physics — it clearly explains the most difficult concepts without resorting to speculation. (I had the honor of working with Bruce on a search for supersymmetry at the ATLAS detector.) This book is a great read while you are starting level 7 in the undergraduate curriculum."
+** Learn Physics with Functional Programming
+A Hands-on Guide to Exploring Physics with [[file:computer-science/languages/haskell.org][Haskell]]
+by Scott N. Walck
+https://nostarch.com/learn-physics-functional-programming

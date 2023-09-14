@@ -118,6 +118,8 @@ https://github.com/casey/just
 * HTTP Clients
 ** CLI
 *** curl
+**** Resources
+- https://antonz.org/mastering-curl/
 *** wget
 *** httpie
 #+begin_src bash :results verbatim
