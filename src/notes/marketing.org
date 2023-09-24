@@ -65,6 +65,8 @@ https://twitter.com/alexgarcia_atx/status/1405155705477156866
 
 * SEO
 https://developers.google.com/search/apis/indexing-api/v3/quickstart
+** Resources
+- https://twitter.com/ericlancheres
 
 * Resources
 https://university.mobileaction.co/

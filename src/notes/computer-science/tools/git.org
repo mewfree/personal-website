@@ -3,19 +3,15 @@
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../tools.org][Tools]] / Git
 
 * Commands
-Start a new repo: =git init=
-
-Add files to be committed: =git add=
-
-Check status: =git status=
-
-Commit: =git commit -m "commit message"=
-
-Push: =git push origin {branch}=
-
-Start a new branch: =git checkout -b {branch}= (new: =git switch=?)
-
-=git log -p= lists git commit history with the =diff=
+- Start a new repo: =git init=
+- Add files to be committed: =git add=
+- Check status: =git status=
+- Commit: =git commit -m "commit message"=
+- Push: =git push origin {branch}=
+- Start a new branch: =git checkout -b {branch}= (new: =git switch=?)
+- =git log -p= lists git commit history with the =diff=
+- ~git show {hash}~ show commit ~{hash}~ details
+- Search based on commit message with: ~git log --grep="{search_term}"~
 
 ** Stash
 - Put away uncommitted changes: =git stash=

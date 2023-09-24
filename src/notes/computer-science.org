@@ -199,3 +199,5 @@ https://github.com/8483/notes
 https://refactoring.guru/
 ** Putting the "You" in CPU
 https://cpu.land/
+** Performance Engineering Of Software Systems
+https://ocw.mit.edu/courses/6-172-performance-engineering-of-software-systems-fall-2018/

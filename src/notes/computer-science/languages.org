@@ -65,10 +65,12 @@ print "hi ${name}\n";
 ** R
 https://github.com/matloff/fasteR
 ** HTML
-=<datalist>=
+*** =<datalist>=
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
-*** Resources
+**** Resources
 https://www.smashingmagazine.com/2022/03/html-attributes-you-never-use/
+*** =<progress>=
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 ** [[file:languages/css.org][CSS]]
 ** [[file:languages/sql.org][SQL]]
 ** D

@@ -32,6 +32,7 @@ Announcing D1: our first SQL database
 
 ** Serverless
 *** AWS Lambda
+- https://aws.amazon.com/blogs/compute/introducing-aws-lambda-response-streaming/
 *** Google Cloud Functions
 *** Cloudflare Workers
 https://workers.cloudflare.com/

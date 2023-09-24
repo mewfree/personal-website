@@ -377,3 +377,5 @@ https://github.com/yongfook/saas-growth-articles
 https://go.consulting.com/evergreen-training
 ** Case studies of successful companies
 https://www.starterstory.com/explore
+** Solopreneurs
+- https://twitter.com/marc_louvion

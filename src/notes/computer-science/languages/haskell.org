@@ -2,6 +2,12 @@
 
 [[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../languages.org][Programming Languages]] / Haskell
 
+[[file:haskell.org][Haskell]] is:
+- Functional: functions are first-class and programs are centered around evaluating expressions
+- Pure: everything is immutable, expressions never have side effects, calling the same function with the same arguments always results in the same output
+- Lazy: expressions are not evaluated until their results are actually needed
+- Statistically typed: every [[file:haskell.org][Haskell]] expression has a type and types are all checked at compile time
+
 * Language Features
 ** Variables
 #+begin_src haskell

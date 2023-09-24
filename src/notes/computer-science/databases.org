@@ -75,6 +75,13 @@ https://duckdb.org/2021/10/29/duckdb-wasm.html
 Useful for data analysis.
 https://duckdb.org/2021/05/14/sql-on-pandas.html
 
+** Harlequin
+https://harlequin.sh/
+
+#+begin_quote
+A drop-in replacement for the DuckDB CLI.
+#+end_quote
+
 * Datalog
 Datalog is a declarative logic programming language that syntactically is a subset of Prolog. It is often used as a query language for deductive databases.
 
