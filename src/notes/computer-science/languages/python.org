@@ -135,6 +135,47 @@ print(string_age(90))
 : User is an adult
 : User is probably retired
 
+** itertools
+*** repeat
+#+begin_src python
+from itertools import repeat
+return list(repeat('A', 3))
+#+end_src
+
+#+RESULTS:
+| A | A | A |
+
+*** combinations
+#+begin_src python
+from itertools import combinations
+return list(combinations('ABC', 2))
+#+end_src
+
+#+RESULTS:
+| A | B |
+| A | C |
+| B | C |
+
+*** permutations
+#+begin_src python
+from itertools import permutations
+return list(permutations('ABC', 2))
+#+end_src
+
+#+RESULTS:
+| A | B |
+| A | C |
+| B | A |
+| B | C |
+| C | A |
+| C | B |
+
+*** batched
+#+begin_src python :results none
+from itertools import batched
+return list(batched(['green', 'blue', 'red', 'yellow', 'black', 'pink'], 2))
+#+end_src
+
 * Libraries
 ** NumPy
 https://numpy.org/
