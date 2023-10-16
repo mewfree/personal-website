@@ -268,9 +268,23 @@ enum Direction {
 #+end_src
 
 * Full-stack frameworks
+** Next.js
+https://nextjs.org/
+#+begin_quote
+The React Framework for the Web
+#+end_quote
+
+*** i18n
+https://daily.dev/blog/internationalization-i18n-in-nextjs
+
 ** Blitzjs
 https://blitzjs.com/
-Looks very very interesting!
+
+#+begin_quote
+Ship. Fast.
+The Missing Fullstack Toolkit for Next.js
+Blitz picks up where Next.js leaves off, providing battle-tested libraries and conventions for shipping and scaling world wide applications.
+#+end_quote
 
 ** RedwoodJS
 https://redwoodjs.com/
@@ -278,29 +292,31 @@ https://redwoodjs.com/
 ** Remix
 https://remix.run/
 
-* Front-end frameworks
+** Astro
+https://astro.build/
+#+begin_quote
+Build faster websites.
+Pull content from anywhere and serve it fast with Astro's next-gen island architecture. Astro is the web framework that you'll enjoy using.
+#+end_quote
+
+* Front-end
 ** React
 React codebase generator: https://divjoy.com/
 *** Hooks
 https://wattenberger.com/blog/react-hooks
-*** Keajs
+
+*** State Management
+**** Kea
 https://keajs.org/
 #+begin_quote
-heekily addi(c)tive state management for React
+Composable state management for React
 #+end_quote
 
-*** Recoil
+**** Recoil
 https://recoiljs.org/
 #+begin_quote
 A state management library for React
 #+end_quote
-
-*** React-based Frameworks
-**** Gatsby
-**** Next.js
-***** i18n
-https://daily.dev/blog/internationalization-i18n-in-nextjs
-**** Remix
 
 ** Lightweight
 *** React-like
@@ -328,14 +344,6 @@ https://qwik.builder.io/
 ** Thin
 https://thin.dev/
 Paid backend for SPA React apps
-
-* Static Site Generators
-** Astro
-https://astro.build/
-#+begin_quote
-Build faster websites.
-Pull content from anywhere and serve it fast with Astro's next-gen island architecture. Astro is the web framework that you'll enjoy using.
-#+end_quote
 
 * Bundlers
 ** Webpack
@@ -462,8 +470,8 @@ https://vitejs.dev/
 Modern Webpack replacement
 #+end_quote
 
-*** vite-plugin-ssr
-https://vite-plugin-ssr.com/
+*** Vike
+https://vike.dev/
 #+begin_quote
 Like Next.js/Nuxt but as do-one-thing-do-it-well Vite plugin.
 #+end_quote
@@ -515,6 +523,32 @@ Authentication for the Web.
 https://rxdb.info/
 #+begin_quote
 The perfect Database for JavaScript applications
+#+end_quote
+
+** AutoAnimate
+https://auto-animate.formkit.com/
+#+begin_quote
+Add motion to your apps with a single line of code.
+AutoAnimate is a zero-config, drop-in animation utility that adds smooth transitions to your web app. You can use it with React, Solid, Vue, Svelte, or any other JavaScript application.
+#+end_quote
+
+** ~react-hot-toast~
+https://react-hot-toast.com/
+#+begin_quote
+Smoking hot Notifications for React.
+Lightweight, customizable and beautiful by default.
+#+end_quote
+
+** Remeda
+https://remedajs.com/
+#+begin_quote
+The first "data-first" and "data-last" utility library designed especially for TypeScript.
+#+end_quote
+
+** ky
+https://github.com/sindresorhus/ky
+#+begin_quote
+🌳 Tiny & elegant JavaScript HTTP client based on the browser Fetch API
 #+end_quote
 
 * Resources

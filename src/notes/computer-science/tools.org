@@ -71,6 +71,10 @@ https://lunatic.solutions/
 Lunatic is an Erlang-inspired runtime for WebAssembly
 #+end_quote
 
+** Resources
+*** WebAssembly Concepts
+https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts
+
 * Pandoc
 https://pandoc.org/
 "If you need to convert files from one markup format into another, pandoc is your swiss-army knife."

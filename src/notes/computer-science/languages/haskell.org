@@ -13,6 +13,7 @@ GHCi is an interactive [[file:haskell.org][Haskell]] REPL.
 
 * Language Features
 ** Variables
+Variables (including names of functions) must always start with a lowercase letter.
 #+begin_src haskell
 name = "Damien"
 name
@@ -22,6 +23,7 @@ name
 : Damien
 
 ** Types
+Types must always start with a capital letter.
 =::= = "has type"
 #+begin_src haskell :results none
 x :: Int
@@ -36,6 +38,45 @@ x :: Int
 | Bool    | Booleans                                |
 | Char    | Unicode characters                      |
 | String  | Lists of characters with special syntax |
+
+*** Enumeration Types
+#+begin_src haskell :results none
+data Fruit = Banana
+           | Strawberry
+           | Apple
+           | Orange
+
+apple :: Fruit
+apple = Apple
+#+end_src
+
+Pattern matching on enumeration types:
+#+begin_src haskell :results none
+isRound :: Fruit -> Bool
+isRound Banana     = False
+isRound Strawberry = False
+isRound Apple      = True
+isRound Orange     = True
+#+end_src
+
+Since function clauses are tried in order from top to bottom, we could make it a bit shorter:
+#+begin_src haskell :results none
+isRound :: Fruit -> Bool
+isRound Banana     = False
+isRound Strawberry = False
+isRound _          = True
+#+end_src
+
+*** Data Constructors
+#+begin_src haskell :results none
+data Person = Person String Int Fruit
+
+damien :: Person
+damien = Person "Damien" 30 Banana
+
+getAge :: Person -> Int
+getAge (Person _ a _) = a
+#+end_src
 
 ** Numbers
 #+begin_src haskell
@@ -553,6 +594,15 @@ flip concat "damien" "hello"
 #+RESULTS:
 : hello damien
 
+*** Guards
+#+begin_src haskell :results none
+describeNumber :: Int -> String
+describeNumber n
+  | n < 0     = "Negative"
+  | n == 0    = "Zero"
+  | otherwise = "Positive"
+#+end_src
+
 ** Sections
 =(2^)= is equivalent to =(^) 2= or =\x -> 2 ^ x=
 =(^2)= is equivalent to =flip (^) 2= or =\x -> x ^ 2=
@@ -618,6 +668,18 @@ g . f $ 2
 #+RESULTS:
 : 16
 
+** Pattern Matching
+An underscore ~_~ can be used as a "wildcard pattern" which matches anything
+
+#+begin_src haskell :results none
+example = case "Hello" of
+           []      -> 3
+           ('H':s) -> length s
+           _       -> 7
+example
+#+end_src
+Evaluates to 4
+
 * Literate Haskell
 https://wiki.haskell.org/Literate_programming
 
@@ -634,7 +696,8 @@ https://ihp.digitallyinduced.com/
 
 * Resources
 ** List of Resources
-https://www.haskell.org/documentation/
+- https://www.haskell.org/documentation/
+- https://github.com/soupi/haskell-study-plan
 
 ** CIS 194: Introduction to Haskell
 https://www.seas.upenn.edu/~cis194/spring13/lectures.html

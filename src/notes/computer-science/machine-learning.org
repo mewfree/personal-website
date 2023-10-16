@@ -3,6 +3,11 @@
 [[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Machine Learning
 
 * Deep Learning
+** Quantization
+Process of reducing the number of bits (weights and biases) of a model/neural network.
+The primary goal is to compress the model in size for faster execution/computation without sacrificing too much in terms of accuracy.
+** LoRA (Low-Rank Adaptation)
+Efficient training method by creating and updating low-rank approximations of the original weight matrices (update matrices).
 ** Resources
 *** MIT 6.S191: Introduction to Deep Learning
 http://introtodeeplearning.com/
