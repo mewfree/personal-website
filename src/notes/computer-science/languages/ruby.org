@@ -106,6 +106,30 @@ c
 #+RESULTS:
 : 3
 
+** Symbols
+Symbols are immutable, unique identifiers represented by a name preceded by a colon (~:~).
+#+begin_src ruby
+:hello
+#+end_src
+
+#+RESULTS:
+: :hello
+
+You can easily convert a string to a symbol and vice-versa:
+#+begin_src ruby
+:name.to_s
+#+end_src
+
+#+RESULTS:
+: name
+
+#+begin_src ruby
+"name".to_sym
+#+end_src
+
+#+RESULTS:
+: :name
+
 ** Hashes
 https://ruby-doc.org/core-3.0.0/Hash.html
 Older syntax, "hash rocket":
@@ -512,6 +536,59 @@ hash
 *** Reduce
 #+begin_src ruby
 [1, 2, 3, 4, 5].reduce(:+)
+#+end_src
+
+#+RESULTS:
+: 15
+
+** Blocks, Procs and Lambdas
+*** Blocks
+A block of code that can be passed to a method.
+
+**** Single-line syntax
+#+begin_src ruby :results output
+[1, 2, 3].each { |num| puts num }
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+
+**** Multi-line syntax
+#+begin_src ruby :results output
+[1, 2, 3].each do |num|
+  puts num
+end
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+
+*** Procs
+#+begin_src ruby
+double = Proc.new { |num| num * 2 }
+double.call(5)
+#+end_src
+
+#+RESULTS:
+: 10
+
+*** Lambdas
+#+begin_src ruby
+l = lambda { |x| x * 3 }
+l.call(3)
+#+end_src
+
+#+RESULTS:
+: 9
+
+A shorter syntax is available using ~->~:
+#+begin_src ruby
+l = ->(x) { x * 3 }
+l.call(5)
 #+end_src
 
 #+RESULTS:
