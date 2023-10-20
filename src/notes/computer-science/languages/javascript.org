@@ -551,6 +551,12 @@ https://github.com/sindresorhus/ky
 🌳 Tiny & elegant JavaScript HTTP client based on the browser Fetch API
 #+end_quote
 
+** postgres
+https://github.com/porsager/postgres
+#+begin_quote
+Postgres.js - The Fastest full featured PostgreSQL client for Node.js, Deno, Bun and CloudFlare
+#+end_quote
+
 * Resources
 [[https://javascript.info/][The Modern JavaScript Tutorial]]
 
