@@ -532,6 +532,12 @@ Add motion to your apps with a single line of code.
 AutoAnimate is a zero-config, drop-in animation utility that adds smooth transitions to your web app. You can use it with React, Solid, Vue, Svelte, or any other JavaScript application.
 #+end_quote
 
+** ~react-magic-motion~
+https://www.react-magic-motion.com/
+#+begin_quote
+react-magic-motion is a react.js library that ✨ magically animates your components.
+#+end_quote
+
 ** ~react-hot-toast~
 https://react-hot-toast.com/
 #+begin_quote
@@ -555,6 +561,12 @@ https://github.com/sindresorhus/ky
 https://github.com/porsager/postgres
 #+begin_quote
 Postgres.js - The Fastest full featured PostgreSQL client for Node.js, Deno, Bun and CloudFlare
+#+end_quote
+
+** zod
+https://zod.dev/
+#+begin_quote
+TypeScript-first schema validation with static type inference
 #+end_quote
 
 * Resources
