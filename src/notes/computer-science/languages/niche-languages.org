@@ -205,5 +205,17 @@ https://cyberscript.dev/
 Cyber is a new language for fast, efficient, and concurrent scripting.
 #+end_quote
 
+* Flix
+https://flix.dev/
+#+begin_quote
+Next-generation reliable, safe, concise, and functional-first programming language.
+#+end_quote
+
+* Roc
+https://www.roc-lang.org/
+#+begin_quote
+A fast, friendly, functional language.
+#+end_quote
+
 * Resources
 ** http://proglangdesign.net/

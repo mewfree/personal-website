@@ -86,9 +86,16 @@ https://en.wikipedia.org/wiki/Combinatory_logic
 by Raymond Smullyan
 *** John's Lambda Calculus and Combinatory Logic Playground
 https://tromp.github.io/cl/cl.html
+*** Combinatory Logic table
+https://combinatorylogic.com/table.html
 
 * Equational Logic
 https://en.wikipedia.org/wiki/Equational_logic
+
+* Fibonacci sequence
+A sequence in which each number is the sum of the two preceding ones
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 * Category Theory
 ** Categories

@@ -299,6 +299,13 @@ Build faster websites.
 Pull content from anywhere and serve it fast with Astro's next-gen island architecture. Astro is the web framework that you'll enjoy using.
 #+end_quote
 
+** AdonisJS
+https://adonisjs.com/
+#+begin_quote
+A fully featured web framework for Node.js
+AdonisJS includes everything you need to create a fully functional web app or an API server. So stop wasting hours downloading and assembling hundreds of packages — Use AdonisJS and be productive from day one.
+#+end_quote
+
 * Front-end
 ** React
 React codebase generator: https://divjoy.com/

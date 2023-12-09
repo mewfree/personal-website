@@ -106,6 +106,8 @@ Match with co-founders based on your preferences for interests, skills, location
 https://news.ycombinator.com/item?id=28774647
 ** Ask HN: Main things to consider when building an app for business/enterprise?
 https://news.ycombinator.com/item?id=34287685
+** Business Broker (for selling a business)
+https://quietlight.com/
 
 * Spreadsheets
 ** Google Spreadsheets
