@@ -137,3 +137,8 @@ by Roger D. Peng, and others
 
 ** Practical Time Series Analysis
 by Tural Sadigov, William Thistleton
+
+** Computational and Inferential Thinking: The Foundations of Data Science
+2nd Edition by Ani Adhikari, John DeNero, David Wagner
+
+https://inferentialthinking.com/chapters/intro.html

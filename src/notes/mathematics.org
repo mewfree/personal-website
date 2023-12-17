@@ -66,6 +66,14 @@ by Sarah Boslaugh
 by Derek Rowntree
 *** Improving your statistical inferences
 by Daniel Lakens
+*** Introduction to Modern Statistics (2nd Ed)
+https://openintro-ims2.netlify.app/
+*** Statistical Rethinking
+A Bayesian Course with Examples in R and Stan
+https://xcelab.net/rm/statistical-rethinking/
+**** Stastistical Rethinking Recoded
+Statistical Rethinking with brms, ggplot2, and the tidyverse
+https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/
 
 * Operations
 ** Unary Operations

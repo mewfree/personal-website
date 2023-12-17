@@ -69,3 +69,8 @@ https://tdinh.notion.site/Every-pricing-page-should-have-GIFs-e74d6d363d4c4d33b5
 
 * Dark Modes
 https://darkmodes.com/
+
+* Guidelines
+** iOS
+*** Navigation
+https://frankrausch.com/ios-navigation

@@ -476,6 +476,20 @@ https://github.com/charmbracelet/gum
 A tool for glamorous shell scripts 🎀
 #+end_quote
 
+** Huh?
+https://github.com/charmbracelet/huh
+
+#+begin_quote
+A simple, powerful library for building interactive forms and prompts in the terminal.
+#+end_quote
+
+** Templ
+https://templ.guide/
+
+#+begin_quote
+Build HTML with Go
+#+end_quote
+
 * Resources
 ** Go by Example
 https://gobyexample.com/
