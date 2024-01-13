@@ -383,3 +383,8 @@ https://www.starterstory.com/explore
 - https://twitter.com/marc_louvion
 ** Startup Playbook by Sam Altman
 https://playbook.samaltman.com/
+** Startup CTO's Handbook
+#+begin_quote
+The Startup CTO's Handbook, a book covering leadership, management and technical topics for leaders of software engineering teams
+#+end_quote
+https://github.com/ZachGoldberg/Startup-CTO-Handbook

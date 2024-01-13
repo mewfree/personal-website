@@ -3,6 +3,15 @@
 [[file:../../homepage.org][Homepage]] / [[file:../../notes.org][Notes]] / [[file:../computer-science.org][Computer Science]] / Machine Learning
 
 * Deep Learning
+** Neural Networks
+*** Resources
+**** Neural Networks: Zero to Hero
+#+begin_quote
+A course by Andrej Karpathy on building neural networks, from scratch, in code.
+We start with the basics of backpropagation and build up to modern deep neural networks, like GPT. In my opinion language models are an excellent place to learn deep learning, even if your intention is to eventually go to other areas like computer vision because most of what you learn will be immediately transferable. This is why we dive into and focus on languade models.
+Prerequisites: solid programming (Python), intro-level math (e.g. derivative, gaussian).
+#+end_quote
+https://karpathy.ai/zero-to-hero.html
 ** Quantization
 Process of reducing the number of bits (weights and biases) of a model/neural network.
 The primary goal is to compress the model in size for faster execution/computation without sacrificing too much in terms of accuracy.
@@ -27,6 +36,19 @@ https://sebastianraschka.com/blog/2021/dl-course.html
 https://physicsbaseddeeplearning.org/intro.html
 *** Deep Learning with Python
 by François Chollet
+*** Practical Deep Learning
+#+begin_quote
+A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.
+#+end_quote
+https://course.fast.ai/
+
+* Tools
+** Weights & Biases (W&B)
+https://wandb.ai/site
+#+begin_quote
+The AI Developer Platform
+Weights & Biases helps AI developers build better models faster. Quickly track experiments, version and iterate on datasets, evaluate model performance, reproduce models, and manage your ML workflows end-to-end.
+#+end_quote
 
 * Resources
 ** Cornell CS5785: Applied Machine Learning

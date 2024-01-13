@@ -111,6 +111,10 @@ https://tailscale.com/
 
 * Mobile Development
 ** React Native
+- https://reactnative.dev/
+- https://www.reactnative.express/
+*** Navigation
+https://reactnavigation.org/
 
 ** Flutter
 https://github.com/go-flutter-desktop/go-flutter
@@ -157,6 +161,9 @@ hurl sample.hurl
 Went enterprise-?
 
 *** Insomnia
+
+*** Bruno
+https://www.usebruno.com/
 
 *** =restclient=
 Favourite for now, great integration with [[file:tools/text-editors/emacs.org][Emacs]]
@@ -259,16 +266,26 @@ Create diagrams with separate definitions of domain, substance and style
 - https://carbon.now.sh/
 - GIF from Terminal: https://github.com/charmbracelet/vhs
 
-** Pipedream
+** Workflow Automation
+*** Pipedream
 https://pipedream.com/
 #+begin_quote
 Connect APIs, remarkably fast.
 Stop writing boilerplate code, struggling with authentication and managing infrastructure. Start connecting APIs with code-level control when you need it — and no code when you don't.
 #+end_quote
 
-** Windmill
+*** Windmill
 https://docs.windmill.dev/
 Open source alternative to Pipedream?
+
+*** n8n
+https://n8n.io/
+
+*** Huginn
+https://github.com/huginn/huginn
+#+begin_quote
+Create agents that monitor and act on your behalf. Your agents are standing by!
+#+end_quote
 
 ** saasform
 https://github.com/saasform/saasform

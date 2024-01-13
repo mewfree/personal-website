@@ -105,3 +105,8 @@ List.sum <| [1; 2; 3; 4]
 
 #+RESULTS:
 : val it: int = 10
+
+* Resources
+** Announcing F# 8
+List of F# 8 new features:
+https://devblogs.microsoft.com/dotnet/announcing-fsharp-8/

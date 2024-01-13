@@ -12,6 +12,10 @@ https://gleam.run/
 Gleam is a friendly language for building type-safe, scalable systems!
 #+end_quote
 
+** Resources
+*** My Favorite Gleam Feature
+https://erikarow.land/notes/gleam-favorite-feature
+
 * Elm
 https://elm-lang.org/
 #+begin_quote

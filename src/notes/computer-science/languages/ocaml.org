@@ -1287,6 +1287,12 @@ https://github.com/rgrinberg/opium
 Sinatra like web toolkit for OCaml
 #+end_quote
 
+** MintTea
+https://github.com/leostera/minttea
+#+begin_quote
+A fun little TUI framework for OCaml
+#+end_quote
+
 * Tools
 ** Spin
 https://github.com/tmattio/spin

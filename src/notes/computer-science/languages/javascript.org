@@ -325,6 +325,12 @@ https://recoiljs.org/
 A state management library for React
 #+end_quote
 
+**** TanStack Query
+https://tanstack.com/query/v3/
+#+begin_quote
+Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte
+#+end_quote
+
 ** Lightweight
 *** React-like
 - https://preactjs.com/
@@ -337,6 +343,7 @@ A state management library for React
 - https://elderguide.com/tech/elderjs/ Elder.js: An Opinionated, SEO focused, Svelte Framework
 - https://github.com/alpinejs/alpine minimal framework for composing JavaScript behaviour in your markup
 - https://htmx.org/ htmx allows you to access AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
+  htmx playground: https://lassebomh.github.io/htmx-playground/
 
 ** Solid.js
 Similar to React, but compiled, interesting
@@ -351,6 +358,20 @@ https://qwik.builder.io/
 ** Thin
 https://thin.dev/
 Paid backend for SPA React apps
+
+** Components
+*** Stencil
+#+begin_quote
+Stencil is a library for building reusable, scalable component libraries.
+Generate small, blazing fast Web Components that run everywhere.
+#+end_quote
+https://stenciljs.com/
+
+*** Shoelace
+#+begin_quote
+A forward-thinking library of web components.
+#+end_quote
+https://shoelace.style/
 
 * Bundlers
 ** Webpack
@@ -577,12 +598,13 @@ TypeScript-first schema validation with static type inference
 #+end_quote
 
 * Resources
-[[https://javascript.info/][The Modern JavaScript Tutorial]]
+** [[https://javascript.info/][The Modern JavaScript Tutorial]]
 
-https://react-query.tanstack.com/
+** Modern Javascript: Everything you missed over the last 10 years
+https://turriate.com/articles/modern-javascript-everything-you-missed-over-10-years
 
-https://stenciljs.com/ Design system
-
-https://turriate.com/articles/modern-javascript-everything-you-missed-over-10-years ES6 features
-
+** JavaScript for impatient programmers
 https://exploringjs.com/impatient-js/toc.html
+
+** Mastering DOM manipulation with vanilla JavaScript
+https://phuoc.ng/collection/html-dom/

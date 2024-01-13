@@ -1649,3 +1649,5 @@ by Thomas Malthus (1766-1834)
 * Resources
 ** Certificate in Quantitative Finance (CQF)
 https://www.cqf.com/
+** A Practical Guide To Quantitative Finance Interviews
+by Xinfeng Zhou

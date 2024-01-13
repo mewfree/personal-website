@@ -2,6 +2,17 @@
 
 [[file:../homepage.org][Homepage]] / [[file:../notes.org][Notes]] / Biology
 
+* Neuroscience
+** NMDA Receptors
+NMDA (N-methyl-D-aspartate) receptors are a type of receptor in the brain that play a crucial role in synaptic plasticity, which is important for learning and memory.
+They are a subtype of glutamate receptors, as they are activated by the neurotransmitter glutamate, which is the primary excitatory neurotransmitter in the central nervous system.
+NMDA receptors are unique because they are both ligand-gated and voltage-dependent. This means they require the binding of glutamate and a change in the electrical potential of the cell membrane to become active.
+
+** Neurotransmitters
+*** Excitatory and Inhibitory Neurons
+Neurons in the brain can be broadly classified into excitatory and inhibitory types based on the type of neurotransmitters they release and the effect they have on target neurons.
+Excitatory Neurons: These neurons release excitatory neurotransmitters, like glutamate, which increase the likelihood that the target neuron will fire an action.
+
 * Resources
 ** Molecular Biology of the Cell
 https://www.ncbi.nlm.nih.gov/books/NBK21054/
