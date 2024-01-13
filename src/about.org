@@ -15,6 +15,7 @@
 - 📱 Google Pixel 6a
 - 📖 Hisense Hi Reader
 - ⌨️ UHK 60 v2
+- 📷 Sony α7C II
 
 ** Software
 - ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (with evil-mode)
