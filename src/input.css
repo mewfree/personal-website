@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Recoleta";
-  src: url("fonts/recoleta.otf") format("opentype");
+  font-family: "MADE Mirage";
+  src: url("fonts/made_mirage_medium.otf") format("opentype");
 }
 
 h1,
@@ -14,7 +14,7 @@ h4,
 h5,
 h6,
 .dg {
-  font-family: "Recoleta", Arial, sans-serif;
+  font-family: "MADE Mirage", Arial, sans-serif;
 }
 
 pre code {
