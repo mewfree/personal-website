@@ -353,3 +353,9 @@ Interactive learning of multiple languages
 Really smart, can code in your own text editor
 
 *** Advent of Code
+
+** PocketBase
+#+begin_quote
+Open Source backend for your next SaaS and Mobile app in 1 file
+#+end_quote
+https://pocketbase.io/

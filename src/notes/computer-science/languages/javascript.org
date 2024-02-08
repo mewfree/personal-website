@@ -267,6 +267,33 @@ enum Direction {
 }
 #+end_src
 
+*** ts-pattern
+#+begin_src typescript :results silent
+import { match } from 'ts-pattern';
+
+type State =
+  | { status: 'success'; data: string }
+  | { status: 'error'; error: Error };
+
+const result: State = { status: 'success', data: 'toast' };
+
+const output = match(result)
+  .with({ status: 'error' }, () => 'An error occurred')
+  .with({ status: 'success' }, () => result.data)
+  .exhaustive();
+
+console.log(output)
+#+end_src
+
+#+RESULTS:
+: toast
+
+**** pattycake
+#+begin_quote
+Pattycake is an optimizing compiler for ts-pattern that lets you have your cake (expressive pattern matching), and eat it too (zero runtime overhead).
+#+end_quote
+https://github.com/aidenybai/pattycake
+
 * Full-stack frameworks
 ** Next.js
 https://nextjs.org/

@@ -101,9 +101,13 @@ The Open Source Firebase Alternative with GraphQL
 ** Docker Compose
 https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
 
-* Terraform
+* Infrastructure-as-code
+** Terraform
 https://www.terraform.io/
 Deliver Infrastructure as Code
+** OpenTofu
+https://opentofu.org/
+Open-source Terraform fork
 
 * Earthly
 https://earthly.dev/

@@ -99,6 +99,12 @@ How to sync with Google Calendar?
 * TOTP
 https://www.masteringemacs.org/article/securely-generating-totp-tokens-emacs
 
+* Local copilot
+#+begin_quote
+Large language model code completion for Emacs
+#+end_quote
+https://github.com/jart/emacs-copilot
+
 * Resources
 Glossary:
 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Glossary.html]]

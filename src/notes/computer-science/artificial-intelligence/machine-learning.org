@@ -1,0 +1,62 @@
+#+title: Machine Learning
+
+[[file:../../../homepage.org][Homepage]] / [[file:../../../notes.org][Notes]] / [[file:../../computer-science.org][Computer Science]] / [[file:../artificial-intelligence.org][Artificial Intelligence]] / Machine Learning
+
+* Artificial Neural Networks
+** Deep Learning
+*** Quantization
+Process of reducing the number of bits (weights and biases) of a model/neural network.
+The primary goal is to compress the model in size for faster execution/computation without sacrificing too much in terms of accuracy.
+*** LoRA (Low-Rank Adaptation)
+Efficient training method by creating and updating low-rank approximations of the original weight matrices (update matrices).
+*** Resources
+**** MIT 6.S191: Introduction to Deep Learning
+http://introtodeeplearning.com/
+**** NYU DS-GA 1008: Deep Learning
+https://atcold.github.io/pytorch-Deep-Learning/
+**** UC Berkeley Full Stack Deep Learning
+- https://fullstackdeeplearning.com/
+- https://inst.eecs.berkeley.edu/~cs194/
+**** UC Berkeley CS182: Designing, Visualizing and Understanding Deep Neural Networks
+https://www2.eecs.berkeley.edu/Courses/CS182/
+**** Deep Learning Book by MIT Press
+https://www.deeplearningbook.org/
+**** Cornell CS5787: Deep Learning
+**** Introduction to Deep Learning
+https://sebastianraschka.com/blog/2021/dl-course.html
+**** Physics-based Deep Learning Book
+https://physicsbaseddeeplearning.org/intro.html
+**** Deep Learning with Python
+by François Chollet
+**** Practical Deep Learning
+#+begin_quote
+A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.
+#+end_quote
+https://course.fast.ai/
+** Gradient descent
+A method of mathematical optimization.
+Algorithm to find the local minimum of a loss function.
+** Resources
+*** Neural Networks: Zero to Hero
+#+begin_quote
+A course by Andrej Karpathy on building neural networks, from scratch, in code.
+We start with the basics of backpropagation and build up to modern deep neural networks, like GPT. In my opinion language models are an excellent place to learn deep learning, even if your intention is to eventually go to other areas like computer vision because most of what you learn will be immediately transferable. This is why we dive into and focus on languade models.
+Prerequisites: solid programming (Python), intro-level math (e.g. derivative, gaussian).
+#+end_quote
+https://karpathy.ai/zero-to-hero.html
+
+* Tools
+** Weights & Biases (W&B)
+https://wandb.ai/site
+#+begin_quote
+The AI Developer Platform
+Weights & Biases helps AI developers build better models faster. Quickly track experiments, version and iterate on datasets, evaluate model performance, reproduce models, and manage your ML workflows end-to-end.
+#+end_quote
+
+* Resources
+** Cornell CS5785: Applied Machine Learning
+https://cornelltech.github.io/cs5785-fall-2018/index.html
+** Hands-On Machine Learning with Scikit-Learn and Tensorflow
+by Aurélien Géron
+** Machine Learning Engineering Open Book
+https://github.com/stas00/ml-engineering

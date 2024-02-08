@@ -75,6 +75,12 @@ https://xcelab.net/rm/statistical-rethinking/
 Statistical Rethinking with brms, ggplot2, and the tidyverse
 https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/
 
+* Decision Theory
+** Loss Function
+A function that maps an event or values to a real number representing some "cost".
+Typically, the difference between estimated values and true values.
+To optimize is to seek to minimize a loss function.
+
 * Operations
 ** Unary Operations
 https://en.wikipedia.org/wiki/Unary_operation
@@ -124,6 +130,10 @@ An element of a ~vector space~. Multiple scalars form a ~vector~.
 An element of a ~vector space~
 ** Vector Space
 A set of vectors
+
+* Glossary
+** Singularity
+A point at which the mathematical object is not defined.
 
 * Resources
 ** Math equations to LaTeX OCR

@@ -33,3 +33,7 @@ PRQL is a modern language for transforming data — a simple, powerful, pipeline
 
 * HAVING clause
 https://smallthingssql.com/having-a-less-understood-sql-clause
+
+* Resources
+** Let's talk about joins
+https://cghlewis.com/blog/joins/

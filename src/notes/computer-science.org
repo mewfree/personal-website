@@ -53,7 +53,7 @@ A function that takes another function as an argument, and return a function
 
 * Testing
 
-* [[file:computer-science/machine-learning.org][Machine Learning]]
+* [[file:computer-science/artificial-intelligence.org][Artificial Intelligence]]
 
 * [[file:computer-science/data-science.org][Data Science]]
 
@@ -70,6 +70,19 @@ A function that takes another function as an argument, and return a function
 [[file:computer-science/unix.org][UNIX Commands]]
 *** [[file:computer-science/linux.org][Linux]]
 *** macOS
+**** Virtualization
+***** Tart
+#+begin_quote
+Tart is a virtualization toolset to build, run and manage macOS and Linux virtual machines on Apple Silicon.
+#+end_quote
+https://tart.run/
+***** OrbStack
+#+begin_quote
+Say goodbye to slow, clunky containers and VMs
+
+OrbStack is the fast, light, and easy way to run Docker containers and Linux. Develop at lightspeed with our Docker Desktop alternative.
+#+end_quote
+https://orbstack.dev/
 
 ** Windows
 

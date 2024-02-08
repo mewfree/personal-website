@@ -1651,3 +1651,5 @@ by Thomas Malthus (1766-1834)
 https://www.cqf.com/
 ** A Practical Guide To Quantitative Finance Interviews
 by Xinfeng Zhou
+** Financial Markets Microstructure - University of Copenhagen
+https://www.youtube.com/playlist?list=PL4pUs4P_j1Wa2_P1lw44kFWWjKDTGUY7S

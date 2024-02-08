@@ -22,6 +22,8 @@ https://tailwindcss.com/docs/dark-mode
 *** daisyUI
 Free Tailwind Components
 https://daisyui.com/
+*** Colour Palette Generator
+https://www.tints.dev/
 ** CSS-in-JS
 *** Panda CSS
 https://panda-css.com/
@@ -29,6 +31,8 @@ https://panda-css.com/
 * Random
 ** FAQ in CSS (Tailwind)
 https://play.tailwindcss.com/bvwqlf7mwO
+** Loader Indicator
+https://www.loadership.com/
 
 * Resources
 - https://web.dev/learn/css/
