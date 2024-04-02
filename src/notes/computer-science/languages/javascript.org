@@ -353,7 +353,7 @@ A state management library for React
 #+end_quote
 
 **** TanStack Query
-https://tanstack.com/query/v3/
+https://tanstack.com/query/latest
 #+begin_quote
 Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte
 #+end_quote
@@ -371,6 +371,7 @@ Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte
 - https://github.com/alpinejs/alpine minimal framework for composing JavaScript behaviour in your markup
 - https://htmx.org/ htmx allows you to access AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
   htmx playground: https://lassebomh.github.io/htmx-playground/
+- https://leanrada.com/htmz/ htmz is a minimalist HTML microframework that gives you the power to create modular web user interfaces with the familiar simplicity of plain HTML
 
 ** Solid.js
 Similar to React, but compiled, interesting

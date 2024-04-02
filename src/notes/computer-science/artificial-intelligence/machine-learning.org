@@ -4,6 +4,13 @@
 
 * Artificial Neural Networks
 ** Deep Learning
+*** Large Language Models
+- Next word prediction
+**** Resources
+***** Intro to Large Language Models - Andrej Karpathy
+https://www.youtube.com/watch?v=zjkBMFhNj_g
+***** Happy New Year: GPT in 500 lines of SQL
+https://explainextended.com/2023/12/31/happy-new-year-15/
 *** Quantization
 Process of reducing the number of bits (weights and biases) of a model/neural network.
 The primary goal is to compress the model in size for faster execution/computation without sacrificing too much in terms of accuracy.

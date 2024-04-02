@@ -54,6 +54,10 @@ A modern, clean, and very simple responsive HTML invoice template.
 ** Stripe
 *** Payment Links
 https://stripe.com/en-ca/payments/payment-links
+** Paddle
+https://www.paddle.com/
+** lemon squeezy
+https://www.lemonsqueezy.com/
 ** Rotessa
 https://rotessa.com/
 A better way to get paid.
@@ -108,6 +112,8 @@ https://news.ycombinator.com/item?id=28774647
 https://news.ycombinator.com/item?id=34287685
 ** Business Broker (for selling a business)
 https://quietlight.com/
+** User Management
+https://clerk.com/
 
 * Spreadsheets
 ** Google Spreadsheets

@@ -708,5 +708,10 @@ Traditionally, can use =man {command}= to get info about =command= but can be qu
 =tldr {command}= solves this problem by being a short cheatsheet with many examples.
 
 * Resources
+** 6 Command Line Tools for Productive Programmers
 https://earthly.dev/blog/command-line-tools/
+
 https://news.ycombinator.com/item?id=27992073
+
+** Command Line Interface Guidelines
+https://clig.dev/

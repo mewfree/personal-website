@@ -1354,3 +1354,6 @@ https://www.youtube.com/watch?v=BnTYMOOPEzw
 
 ** Guide for writing shell scripts in Julia
 https://github.com/ninjaaron/administrative-scripting-with-julia
+
+** Romeo and Julia, where Romeo is Basic Statistics
+https://b-lukaszuk.github.io/RJ_BS_eng/

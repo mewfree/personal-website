@@ -680,6 +680,10 @@ example
 #+end_src
 Evaluates to 4
 
+* Prelude
+Haskell's standard module that's imported by default into all modules.
+Provides definition for commonly used types, classes and functions.
+
 * Literate Haskell
 https://wiki.haskell.org/Literate_programming
 
