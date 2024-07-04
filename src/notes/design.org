@@ -36,6 +36,12 @@
 * Shadows
 https://www.joshwcomeau.com/css/designing-shadows/
 
+* Component Libraries
+** Radix
+https://www.radix-ui.com/
+** Shadcn
+https://ui.shadcn.com/
+
 * Fonts
 - Gotham
 - Avant-Garde
@@ -77,3 +83,11 @@ https://shots.so/
 ** iOS
 *** Navigation
 https://frankrausch.com/ios-navigation
+
+* Resources
+** RefactoringUI
+https://www.refactoringui.com/
+** Laws of UX
+https://lawsofux.com/
+** Dieter Rams: Ten Principles for Good Design
+Book

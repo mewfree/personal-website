@@ -4,8 +4,8 @@
 A tiny script to generate my personal website
 
 * Tools required
-- =julia 1.9.2=
-- =pandoc 3.1.6.2=
+- =julia 1.10.4=
+- =pandoc 3.2.1=
 - =tailwindcss 3.1.8=
 - =html-minifier 4.0.0=
 

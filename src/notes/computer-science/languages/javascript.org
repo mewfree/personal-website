@@ -304,6 +304,12 @@ The React Framework for the Web
 *** i18n
 https://daily.dev/blog/internationalization-i18n-in-nextjs
 
+*** Kirimase
+#+begin_quote
+Kirimase is a command-line tool (CLI) for building full-stack Next.js apps faster. It supercharges your development workflow, allowing you to quickly integrate packages and scaffold resources for your application with best practices in mind.
+#+end_quote
+https://kirimase.dev/
+
 ** Blitzjs
 https://blitzjs.com/
 

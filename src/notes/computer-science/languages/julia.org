@@ -1357,3 +1357,6 @@ https://github.com/ninjaaron/administrative-scripting-with-julia
 
 ** Romeo and Julia, where Romeo is Basic Statistics
 https://b-lukaszuk.github.io/RJ_BS_eng/
+
+** Calculus with Julia
+https://jverzani.github.io/CalculusWithJuliaNotes.jl/

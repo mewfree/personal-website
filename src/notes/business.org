@@ -112,8 +112,18 @@ https://news.ycombinator.com/item?id=28774647
 https://news.ycombinator.com/item?id=34287685
 ** Business Broker (for selling a business)
 https://quietlight.com/
-** User Management
+** User Management (Auth System)
+*** Clerk
 https://clerk.com/
+*** Supertokens
+https://github.com/supertokens
+*** Firebase Auth
+https://firebase.google.com/docs/auth
+*** Supabase Auth
+https://supabase.com/auth
+** Feature Flags
+*** Configflare
+https://www.configflare.com/
 
 * Spreadsheets
 ** Google Spreadsheets
@@ -141,6 +151,19 @@ https://twitter.com/mynameis_davis/status/1473299500290695175
 
 ** Twitter
 https://tasshin.com/blog/a-guide-to-twitter/
+
+** List of techniques
+- SEO
+- Blog
+- Medium
+- Landing Page optimization
+- Social Media
+- Reviews / Social proof
+- Product Hunt
+- Influencers
+- Communities
+- Partnerships
+- Word of mouth
 
 * Strategy
 ** SaaS pricing
