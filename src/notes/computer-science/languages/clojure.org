@@ -800,6 +800,12 @@ https://github.com/vouch-opensource/krell
 Simple ClojureScript React Native Tooling
 #+end_quote
 
+** HumbleUI
+https://github.com/HumbleUI/HumbleUI
+#+begin_quote
+Clojure Desktop UI framework
+#+end_quote
+
 * Resources
 ** Syntax
 - https://clojure.org/guides/learn/syntax

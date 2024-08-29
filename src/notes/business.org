@@ -58,6 +58,7 @@ https://stripe.com/en-ca/payments/payment-links
 https://www.paddle.com/
 ** lemon squeezy
 https://www.lemonsqueezy.com/
+Acquired by Stripe.
 ** Rotessa
 https://rotessa.com/
 A better way to get paid.
@@ -140,6 +141,7 @@ Create your own AI video.
 - Convertkit
 - MailerLite
 - https://emailoctopus.com/
+- https://www.mailhub.sh/ (transactional emails)
 
 ** Tracking
 *** Jitsu
