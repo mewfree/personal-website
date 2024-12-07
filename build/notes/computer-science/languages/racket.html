@@ -29,124 +29,97 @@ Strings
     Damien
 
     lang racket
-    liststring revers..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="dg text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Racket</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Racket</p><p>Modern dialect of Lisp</p><h2 id="language-features">Language Features</h2><h3 id="booleans">Booleans</h3><p><code class="verbatim">#t</code> true or <code class="verbatim">#f</code> false</p><pre class="racket" data-exports="both"><code>#lang racket
-
-#t
-</code></pre><pre class="example"><code>#t
-</code></pre><h3 id="numbers">Numbers</h3><pre class="racket" data-exports="both"><code>#lang racket
-(+ 1 1)
-</code></pre><pre class="example"><code>2
-</code></pre><h3 id="strings">Strings</h3><pre class="racket" data-exports="both"><code>#lang racket
-&quot;Damien&quot;
-</code></pre><pre class="example"><code>Damien
-</code></pre><pre class="racket" data-exports="both"><code>#lang racket
-(list-&gt;string (reverse (string-&gt;list &quot;Damien&quot;)))
-</code></pre><pre class="example"><code>neimaD
-</code></pre><h3 id="characters">Characters</h3><pre class="racket" data-exports="both"><code>#lang racket
-
-#\A
-</code></pre><pre class="example"><code>#\A
-</code></pre><h3 id="variables">Variables</h3><pre class="racket" data-exports="both"><code>#lang racket
-(define x 9)
-x
-</code></pre><pre class="example"><code>9
-</code></pre><h3 id="pairs">Pairs</h3><p>Can use <code class="verbatim">cons</code> to construct a pair:</p><pre class="racket" data-exports="both"><code>#lang racket
-
-(car (cons 1 2))
-(cdr (cons 1 2))
-(pair? (cons 1 2))
-</code></pre><pre class="example"><code>1
+    liststring revers..."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="bg-white dark:bg-black"><header class="bg-indigo-600 dark:bg-black text-center text-white p-8"><div class="dg text-4xl font-bold mb-4">Damien Gonot</div><div class="text-xl flex flex-wrap gap-x-4 gap-y-2 justify-center"><a href="/" class="hover:underline">Home</a> <a href="/blog" class="hover:underline">Blog</a> <a href="/notes" class="hover:underline">Notes</a> <a href="/about" class="hover:underline">About</a> <button id="theme" class="text-2xl hover:cursor-pointer hover:dark" onclick="toggleTheme()">🌝</button></div><script src="/custom.js"></script><script src="/highlight.js"></script><script defer="defer" src="/katex.min.js"></script><script defer="defer" src="/katex-auto-render.min.js"></script></header><div class="prose prose-indigo dark:prose-invert dark:prose-a:text-indigo-400 max-w-3xl mx-auto p-8"><h1>Racket</h1><p><a href="../../../homepage">Homepage</a> / <a href="../../../notes">Notes</a> / <a href="../../computer-science">Computer Science</a> / <a href="../languages">Programming Languages</a> / Racket</p><p>Modern dialect of Lisp</p><h2 id="language-features">Language Features</h2><h3 id="booleans">Booleans</h3><p><code class="verbatim">#t</code> true or <code class="verbatim">#f</code> false</p><div class="sourceCode" id="cb1" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">#t</span></span></code></pre></div><pre class="example"><code>#t
+</code></pre><h3 id="numbers">Numbers</h3><div class="sourceCode" id="cb3" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">(+</span> <span class="dv">1</span> <span class="dv">1</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>2
+</code></pre><h3 id="strings">Strings</h3><div class="sourceCode" id="cb5" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Damien&quot;</span></span></code></pre></div><pre class="example"><code>Damien
+</code></pre><div class="sourceCode" id="cb7" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">list-&gt;string</span> <span class="op">(</span><span class="kw">reverse</span> <span class="op">(</span><span class="kw">string-&gt;list</span> <span class="st">&quot;Damien&quot;</span><span class="op">)))</span></span></code></pre></div><pre class="example"><code>neimaD
+</code></pre><h3 id="characters">Characters</h3><div class="sourceCode" id="cb9" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ch">#\A</span></span></code></pre></div><pre class="example"><code>#\A
+</code></pre><h3 id="variables">Variables</h3><div class="sourceCode" id="cb11" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> x </span><span class="dv">9</span><span class="op">)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><pre class="example"><code>9
+</code></pre><h3 id="pairs">Pairs</h3><p>Can use <code class="verbatim">cons</code> to construct a pair:</p><div class="sourceCode" id="cb13" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">car</span> <span class="op">(</span><span class="kw">cons</span> <span class="dv">1</span> <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">cdr</span> <span class="op">(</span><span class="kw">cons</span> <span class="dv">1</span> <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">pair?</span> <span class="op">(</span><span class="kw">cons</span> <span class="dv">1</span> <span class="dv">2</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>1
 2
 #t
-</code></pre><p>Or the quote with . notation:</p><pre class="racket" data-exports="both"><code>#lang racket
-
-(car &#39;(1 . 2))
-(cdr &#39;(1 . 2))
-(pair? &#39;(1 . 2))
-</code></pre><pre class="example"><code>1
+</code></pre><p>Or the quote with . notation:</p><div class="sourceCode" id="cb15" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">car</span> &#39;<span class="op">(</span><span class="dv">1</span> . <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">cdr</span> &#39;<span class="op">(</span><span class="dv">1</span> . <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">pair?</span> &#39;<span class="op">(</span><span class="dv">1</span> . <span class="dv">2</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>1
 2
 #t
-</code></pre><h3 id="lists">Lists</h3><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
-(list 1 2 3)
-</code></pre><pre class="example"><code>&#39;(1 2 3)
-</code></pre><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
-&#39;(1 2 3)
-</code></pre><pre class="example"><code>&#39;(1 2 3)
-</code></pre><h4 id="length">Length</h4><pre class="racket" data-exports="both"><code>#lang racket
-(length &#39;(1 2 3))
-</code></pre><pre class="example"><code>3
-</code></pre><h4 id="sort">Sort</h4><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
-(sort &#39;(1 2 3) &gt;)
-</code></pre><pre class="example"><code>&#39;(3 2 1)
-</code></pre><h4 id="take">Take</h4><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
-(take &#39;(1 2 3) 2)
-</code></pre><pre class="example"><code>&#39;(1 2)
-</code></pre><h4 id="map">Map</h4><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><pre class="racket" data-results="verbatim" data-exports="both"><code>#lang racket
-(map (λ (n) (* 2 n)) &#39;(1 2 3))
-</code></pre><pre class="example"><code>&#39;(2 4 6)
-</code></pre><h4 id="foldl">Foldl</h4><pre class="racket" data-exports="both"><code>#lang racket
-(foldl (λ (acc n) (+ acc n)) 0 &#39;(1 2 3))
-</code></pre><pre class="example"><code>6
-</code></pre><p>Actually a way simpler way of writing it:</p><pre class="racket" data-exports="both"><code>#lang racket
-(foldl + 0 &#39;(1 2 3))
-</code></pre><pre class="example"><code>6
-</code></pre><h3 id="hash-tables">Hash Tables</h3><pre class="racket" data-exports="both"><code>#lang racket
-
-(hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;)
-</code></pre><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
-</code></pre><h4 id="get-value-by-key">Get value by key</h4><pre class="racket" data-exports="both"><code>#lang racket
-
-(define fruit-colours (hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;))
-(hash-ref fruit-colours &quot;apple&quot;)
-</code></pre><pre class="example"><code>red
-</code></pre><h4 id="set-value-by-key">Set value by key</h4><p><code class="verbatim">hash-set</code> returns a new list</p><pre class="racket" data-exports="both"><code>#lang racket
-
-(define fruit-colours (hash &quot;apple&quot; &quot;red&quot; &quot;banana&quot; &quot;yellow&quot;))
-(hash-set fruit-colours &quot;apple&quot; &quot;red-ish&quot;)
-</code></pre><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red-ish&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
-</code></pre><h3 id="functions">Functions</h3><p><a href="https://docs.racket-lang.org/guide/syntax-overview.html">https://docs.racket-lang.org/guide/syntax-overview.html</a></p><pre class="racket" data-exports="both"><code>#lang racket
-(define (double x) (* x 2))
-
-(double 5)
-</code></pre><pre class="example"><code>10
-</code></pre><h4 id="anonymous-functions">Anonymous Functions</h4><p>Either <code class="verbatim">lambda</code> or <code class="verbatim">λ</code> can be used</p><pre class="racket" data-exports="both"><code>#lang racket
-((lambda (n) (* 2 n)) 2)
-</code></pre><pre class="example"><code>4
-</code></pre><pre class="racket" data-exports="both"><code>#lang racket
-((λ (n) (* 2 n)) 2)
-</code></pre><pre class="example"><code>4
-</code></pre><h3 id="thread-macros">Thread Macros</h3><pre class="racket" data-exports="both"><code>#lang racket
-(require threading)
-(~&gt; &quot;Damien&quot; string-&gt;list reverse list-&gt;string)
-</code></pre><pre class="example"><code>neimaD
-</code></pre><h3 id="pattern-matching">Pattern Matching</h3><pre class="racket" data-exports="both"><code>#lang racket
-
-(match 9
-  [7 &#39;seven]
-  [8 &#39;eight]
-  [9 &#39;nine])
-</code></pre><pre class="example"><code>nine
+</code></pre><h3 id="lists">Lists</h3><p><a href="https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html">https://docs.racket-lang.org/guide/Lists__Iteration__and_Recursion.html</a></p><p><code class="verbatim">(list i j k)</code> is similar to <code class="verbatim">'(i j k)</code></p><div class="sourceCode" id="cb17" data-results="verbatim" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">list</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>&#39;(1 2 3)
+</code></pre><div class="sourceCode" id="cb19" data-results="verbatim" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>&#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>&#39;(1 2 3)
+</code></pre><h4 id="length">Length</h4><div class="sourceCode" id="cb21" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">length</span> &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>3
+</code></pre><h4 id="sort">Sort</h4><div class="sourceCode" id="cb23" data-results="verbatim" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>sort &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">)</span> <span class="op">&gt;)</span></span></code></pre></div><pre class="example"><code>&#39;(3 2 1)
+</code></pre><h4 id="take">Take</h4><div class="sourceCode" id="cb25" data-results="verbatim" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>take &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">)</span> <span class="dv">2</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>&#39;(1 2)
+</code></pre><h4 id="map">Map</h4><p>Can insert lambda in Emacs with <code class="verbatim">C-M-y</code> or <code class="verbatim">racket-insert-lambda</code></p><div class="sourceCode" id="cb27" data-results="verbatim" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">map</span> <span class="op">(</span>λ <span class="op">(</span>n<span class="op">)</span> <span class="op">(*</span> <span class="dv">2</span> n<span class="op">))</span> &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>&#39;(2 4 6)
+</code></pre><h4 id="foldl">Foldl</h4><div class="sourceCode" id="cb29" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>foldl <span class="op">(</span>λ <span class="op">(</span>acc n<span class="op">)</span> <span class="op">(+</span> acc n<span class="op">))</span> <span class="dv">0</span> &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>6
+</code></pre><p>Actually a way simpler way of writing it:</p><div class="sourceCode" id="cb31" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>foldl <span class="op">+</span> <span class="dv">0</span> &#39;<span class="op">(</span><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>6
+</code></pre><h3 id="hash-tables">Hash Tables</h3><div class="sourceCode" id="cb33" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>hash <span class="st">&quot;apple&quot;</span> <span class="st">&quot;red&quot;</span> <span class="st">&quot;banana&quot;</span> <span class="st">&quot;yellow&quot;</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
+</code></pre><h4 id="get-value-by-key">Get value by key</h4><div class="sourceCode" id="cb35" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> fruit-colours </span><span class="op">(</span>hash <span class="st">&quot;apple&quot;</span> <span class="st">&quot;red&quot;</span> <span class="st">&quot;banana&quot;</span> <span class="st">&quot;yellow&quot;</span><span class="op">))</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>hash-ref fruit-colours <span class="st">&quot;apple&quot;</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>red
+</code></pre><h4 id="set-value-by-key">Set value by key</h4><p><code class="verbatim">hash-set</code> returns a new list</p><div class="sourceCode" id="cb37" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> fruit-colours </span><span class="op">(</span>hash <span class="st">&quot;apple&quot;</span> <span class="st">&quot;red&quot;</span> <span class="st">&quot;banana&quot;</span> <span class="st">&quot;yellow&quot;</span><span class="op">))</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>hash-set fruit-colours <span class="st">&quot;apple&quot;</span> <span class="st">&quot;red-ish&quot;</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>&#39;#hash((&quot;apple&quot; . &quot;red-ish&quot;) (&quot;banana&quot; . &quot;yellow&quot;))
+</code></pre><h3 id="functions">Functions</h3><p><a href="https://docs.racket-lang.org/guide/syntax-overview.html">https://docs.racket-lang.org/guide/syntax-overview.html</a></p><div class="sourceCode" id="cb39" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> </span><span class="op">(</span>double x<span class="op">)</span> <span class="op">(*</span> x <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>double <span class="dv">5</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>10
+</code></pre><h4 id="anonymous-functions">Anonymous Functions</h4><p>Either <code class="verbatim">lambda</code> or <code class="verbatim">λ</code> can be used</p><div class="sourceCode" id="cb41" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="op">((</span><span class="kw">lambda</span> <span class="op">(</span>n<span class="op">)</span> <span class="op">(*</span> <span class="dv">2</span> n<span class="op">))</span> <span class="dv">2</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>4
+</code></pre><div class="sourceCode" id="cb43" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>λ <span class="op">(</span>n<span class="op">)</span> <span class="op">(*</span> <span class="dv">2</span> n<span class="op">))</span> <span class="dv">2</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>4
+</code></pre><h3 id="thread-macros">Thread Macros</h3><div class="sourceCode" id="cb45" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">require</span> threading<span class="op">)</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>~&gt; <span class="st">&quot;Damien&quot;</span> <span class="kw">string-&gt;list</span> <span class="kw">reverse</span> <span class="kw">list-&gt;string</span><span class="op">)</span></span></code></pre></div><pre class="example"><code>neimaD
+</code></pre><h3 id="pattern-matching">Pattern Matching</h3><div class="sourceCode" id="cb47" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang racket</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>match <span class="dv">9</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">[</span><span class="dv">7</span> &#39;seven<span class="op">]</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">[</span><span class="dv">8</span> &#39;eight<span class="op">]</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">[</span><span class="dv">9</span> &#39;nine<span class="op">])</span></span></code></pre></div><pre class="example"><code>nine
 </code></pre><h3 id="eval">Eval</h3><div class="sourceCode" id="cb49" data-exports="both"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">racket</span> <span class="at">-e</span> <span class="st">&#39;(+ 1 1)&#39;</span></span></code></pre></div><pre class="example"><code>2
-</code></pre><h3 id="typed-racket">Typed Racket</h3><h4 id="annotations">Annotations</h4><pre class="racket" data-exports="both"><code>#lang typed/racket
-
-(: x Number)
-(define x 9)
-x
-</code></pre><pre class="example"><code>9
-</code></pre><pre class="racket" data-exports="both"><code>#lang typed/racket
-
-(define x : Number 9)
-x
-</code></pre><pre class="example"><code>9
-</code></pre><h4 id="basic-types">Basic Types</h4><table><thead><tr><th>Name</th><th>Example</th></tr></thead><tbody><tr><td>String</td><td>"Hello, world"</td></tr><tr><td>Char</td><td>#|̣</td></tr><tr><td>True</td><td>#t</td></tr><tr><td>False</td><td>#f</td></tr><tr><td>Symbol</td><td>'foo</td></tr><tr><td>Integer</td><td>1</td></tr><tr><td>Flonum</td><td>2.1</td></tr></tbody></table><h4 id="example">Example</h4><pre class="racket" data-exports="both"><code>#lang typed/racket
-
-(struct pt ([x : Real] [y : Real]))
-
-(: distance (-&gt; pt pt Real))
-(define (distance p1 p2)
-  (sqrt (+ (sqr (- (pt-x p2) (pt-x p1)))
-           (sqr (- (pt-y p2) (pt-y p1))))))
-
-(distance (pt 0 0) (pt 2 2))
-</code></pre><pre class="example"><code>2.8284271247461903
+</code></pre><h3 id="typed-racket">Typed Racket</h3><h4 id="annotations">Annotations</h4><div class="sourceCode" id="cb51" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang typed/racket</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>: x Number<span class="op">)</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> x </span><span class="dv">9</span><span class="op">)</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><pre class="example"><code>9
+</code></pre><div class="sourceCode" id="cb53" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang typed/racket</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> x </span>: Number <span class="dv">9</span><span class="op">)</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><pre class="example"><code>9
+</code></pre><h4 id="basic-types">Basic Types</h4><table><thead><tr><th>Name</th><th>Example</th></tr></thead><tbody><tr><td>String</td><td>"Hello, world"</td></tr><tr><td>Char</td><td>#|̣</td></tr><tr><td>True</td><td>#t</td></tr><tr><td>False</td><td>#f</td></tr><tr><td>Symbol</td><td>'foo</td></tr><tr><td>Integer</td><td>1</td></tr><tr><td>Flonum</td><td>2.1</td></tr></tbody></table><h4 id="example">Example</h4><div class="sourceCode" id="cb55" data-exports="both"><pre class="sourceCode racket"><code class="sourceCode racket"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lang typed/racket</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">struct</span> pt <span class="op">([</span>x : Real<span class="op">]</span> <span class="op">[</span>y : Real<span class="op">]))</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>: distance <span class="op">(</span>-&gt; pt pt Real<span class="op">))</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="ex">define</span><span class="fu"> </span><span class="op">(</span>distance p1 p2<span class="op">)</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">(</span><span class="kw">sqrt</span> <span class="op">(+</span> <span class="op">(</span>sqr <span class="op">(-</span> <span class="op">(</span>pt-x p2<span class="op">)</span> <span class="op">(</span>pt-x p1<span class="op">)))</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>           <span class="op">(</span>sqr <span class="op">(-</span> <span class="op">(</span>pt-y p2<span class="op">)</span> <span class="op">(</span>pt-y p1<span class="op">))))))</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>distance <span class="op">(</span>pt <span class="dv">0</span> <span class="dv">0</span><span class="op">)</span> <span class="op">(</span>pt <span class="dv">2</span> <span class="dv">2</span><span class="op">))</span></span></code></pre></div><pre class="example"><code>2.8284271247461903
 </code></pre><h2 id="resources">Resources</h2><h3 id="the-racket-guide">The Racket Guide</h3><p><a href="https://docs.racket-lang.org/guide/index.html">https://docs.racket-lang.org/guide/index.html</a></p><h3 id="the-racket-reference">The Racket Reference</h3><p><a href="https://docs.racket-lang.org/reference/index.html">https://docs.racket-lang.org/reference/index.html</a></p><h3 id="beautiful-racket">Beautiful Racket</h3><p><a href="https://beautifulracket.com/">https://beautifulracket.com/</a></p><h3 id="realm-of-racket">Realm of Racket</h3><p><a href="https://nostarch.com/realmofracket.htm">https://nostarch.com/realmofracket.htm</a></p></div></body></html>

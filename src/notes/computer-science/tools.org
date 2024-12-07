@@ -359,3 +359,11 @@ Really smart, can code in your own text editor
 Open Source backend for your next SaaS and Mobile app in 1 file
 #+end_quote
 https://pocketbase.io/
+
+** =sc-im=
+CLI spreadsheet tool
+- ~hjkl~ for movements
+- ~=~ to add a numerical value
+- ~\~ to add a string value
+- ~i~ insert ~r~ row / ~c~ column
+- ~d~ delete ~r~ row / ~c~ column

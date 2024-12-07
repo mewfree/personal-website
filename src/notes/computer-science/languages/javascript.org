@@ -364,6 +364,18 @@ https://tanstack.com/query/latest
 Powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte
 #+end_quote
 
+**** MobX-State-Tree
+https://github.com/mobxjs/mobx-state-tree
+#+begin_quote
+Full-featured reactive state management without the boilerplate
+#+end_quote
+
+**** Zustand
+https://github.com/pmndrs/zustand
+#+begin_quote
+🐻 Bear necessities for state management in React
+#+end_quote
+
 ** Lightweight
 *** React-like
 - https://preactjs.com/

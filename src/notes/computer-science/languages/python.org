@@ -398,10 +398,19 @@ https://textual.textualize.io/
 Textual is a framework for building applications that run within your terminal. Text User Interfaces (TUIs) have a number of advantages over web and desktop apps.
 #+end_quote
 
+** Ibis
+https://ibis-project.org/
+#+begin_quote
+An open source dataframe library that works with any data system
+#+end_quote
+
 * Resources
 ** https://learnpythontherightway.com/
 
 ** [[https://python-poetry.org/]]
+
+** Layman's Guide to Python Built-in Functions
+https://www.mattlayman.com/blog/2024/layman-guide-python-built-in-functions/
 
 ** Python Tricks: A Buffet of Awesome Python Features
 by Dan Bader
