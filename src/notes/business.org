@@ -142,6 +142,8 @@ Create your own AI video.
 - MailerLite
 - https://emailoctopus.com/
 - https://www.mailhub.sh/ (transactional emails)
+- https://resend.com/
+- https://loops.so/
 
 ** Tracking
 *** Jitsu
@@ -389,6 +391,9 @@ How to handle clients in a freelancing / agency relationship?
 * Real Estate
 Becoming a broker:
 https://www.collegeimmobilier.com/
+
+* Analytics
+- https://github.com/benvinegar/counterscale
 
 * Resources
 https://bigmachine.io/products/going-solo/
