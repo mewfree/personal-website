@@ -14,6 +14,14 @@ https://explainextended.com/2023/12/31/happy-new-year-15/
 *** Quantization
 Process of reducing the number of bits (weights and biases) of a model/neural network.
 The primary goal is to compress the model in size for faster execution/computation without sacrificing too much in terms of accuracy.
+
+Example: FP32 ("full precision"), FP16 ("half precision")
+
+The more bits we use to represent a value, the more precise it generally is.
+The more bits we have available, the larger the range of values that can be represented.
+**** Resources
+***** A Visual Guide to Quantization
+https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization
 *** LoRA (Low-Rank Adaptation)
 Efficient training method by creating and updating low-rank approximations of the original weight matrices (update matrices).
 *** Resources
@@ -40,6 +48,8 @@ by François Chollet
 A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.
 #+end_quote
 https://course.fast.ai/
+**** Building LLMs from the Ground Up: A 3-hour Coding Workshop
+https://www.youtube.com/watch?v=quh7z1q7-uc
 ** Gradient descent
 A method of mathematical optimization.
 Algorithm to find the local minimum of a loss function.

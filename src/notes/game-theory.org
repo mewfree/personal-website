@@ -23,3 +23,5 @@ A strategy in which a player randomly chooses among a set of possible actions.
 https://www.coursera.org/learn/game-theory-1
 ** Game Theory: Basic Concepts and Terminology
 https://www2.econ.iastate.edu/tesfatsi/GameDef.pdf
+** Algorithmic Game Theory
+https://www.cs.cmu.edu/~sandholm/cs15-892F13/algorithmic-game-theory.pdf

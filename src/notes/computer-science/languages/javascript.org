@@ -376,6 +376,13 @@ https://github.com/pmndrs/zustand
 🐻 Bear necessities for state management in React
 #+end_quote
 
+*** Tools
+**** React Scan
+https://github.com/aidenybai/react-scan
+#+begin_quote
+React Scan automatically detects performance issues in your React app
+#+end_quote
+
 ** Lightweight
 *** React-like
 - https://preactjs.com/
@@ -593,6 +600,12 @@ https://authjs.dev/
 Authentication for the Web.
 #+end_quote
 
+** Better Auth
+https://github.com/better-auth/better-auth
+#+begin_quote
+The most comprehensive authentication framework for TypeScript
+#+end_quote
+
 ** RxDB
 https://rxdb.info/
 #+begin_quote
@@ -641,6 +654,12 @@ Postgres.js - The Fastest full featured PostgreSQL client for Node.js, Deno, Bun
 https://zod.dev/
 #+begin_quote
 TypeScript-first schema validation with static type inference
+#+end_quote
+
+** Orange
+https://orange-js.dev/
+#+begin_quote
+A full-stack JavaScript framework for Cloudflare's developer platform on top of React Router v7
 #+end_quote
 
 * Resources

@@ -555,6 +555,11 @@ A block of code that can be passed to a method.
 : 2
 : 3
 
+Since Ruby 3.4, a default ~it~ variable is available:
+#+begin_src ruby :results none
+[1, 2, 3].each { puts it }
+#+end_src
+
 **** Multi-line syntax
 #+begin_src ruby :results output
 [1, 2, 3].each do |num|

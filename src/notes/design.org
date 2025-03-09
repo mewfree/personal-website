@@ -24,6 +24,9 @@
 - Adobe Premiere
 - Pitivi
 
+** AI
+- https://playground.com/
+
 * Icons
 - https://feathericons.com/
 - https://lucide.dev/
