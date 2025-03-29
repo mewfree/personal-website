@@ -196,6 +196,10 @@ A privacy layer for the Solana ecosystem.
 https://cypher.trade/
 cypher enables global access to historically gated pre-public markets.
 
+** Kamino
+https://app.kamino.finance/
+Lending platform
+
 ** List of new projects
 https://solasystem.io/
 
