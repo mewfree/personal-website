@@ -48,6 +48,11 @@ Emacs-based window manager
 - Cycle through window arrangement: Mod-Space
 - Go to workspace n (1-9): Mod-n
 ** StumpWM
+** niri
+https://github.com/YaLTeR/niri
+#+begin_quote
+A scrollable-tiling Wayland compositor.
+#+end_quote
 
 * Desktop Environments
 ** Gnome

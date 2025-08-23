@@ -63,6 +63,11 @@ Acquired by Stripe.
 https://rotessa.com/
 A better way to get paid.
 Withdraw money directly from your customer’s bank account when their payments are due. Schedule one-time or recurring payments to get paid on time.
+** Polar
+https://polar.sh/
+#+begin_quote
+Payment infrastructure for the 21st century
+#+end_quote
 
 * Billing
 ** Killbill.io
@@ -125,6 +130,9 @@ https://supabase.com/auth
 ** Feature Flags
 *** Configflare
 https://www.configflare.com/
+** Notifications
+*** Novu
+https://novu.co/
 
 * Spreadsheets
 ** Google Spreadsheets
@@ -363,6 +371,11 @@ Sprint planning is an event in scrum that kicks off the sprint. The purpose of s
 ** A|B Testing
 *** Growthbook
 https://www.growthbook.io/
+** Misc
+- Bring extreme clarity
+- Have a canonical doc
+  https://naomi.com/canonical-everything-c85441a84e70
+- Show 3 options with one recommendation
 
 * People Management
 ** https://www.manager-tools.com/
@@ -393,7 +406,18 @@ Becoming a broker:
 https://www.collegeimmobilier.com/
 
 * Analytics
-- https://github.com/benvinegar/counterscale
+** Counterscale
+https://github.com/benvinegar/counterscale
+#+begin_quote
+Scalable web analytics you run yourself on Cloudflare
+#+end_quote
+** OpenPanel
+https://openpanel.dev/
+#+begin_quote
+An open-source alternative to Mixpanel
+
+The power of Mixpanel, the ease of Plausible and nothing from Google Analytics 😉
+#+end_quote
 
 * Resources
 https://bigmachine.io/products/going-solo/

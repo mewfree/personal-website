@@ -1,25 +1,15 @@
 module.exports = {
-  content: ["./src/**/*.html"],
+  content: ["./src/**/*.html", "./src/*.html"],
   darkMode: "class",
   theme: {
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            pre: false,
-            code: false,
-            "pre code": false,
-            "code::before": false,
-            "code::after": false,
-            h1: {
-              marginBottom: "0.5rem",
-            },
-            a: {
-              textDecoration: "none",
-            },
-            "a:hover": {
-              textDecoration: "underline",
-            },
+            /* Keep Tailwind's default prose styles; only small tweaks */
+            h1: { marginBottom: "0.5rem" },
+            a: { textDecoration: "none" },
+            "a:hover": { textDecoration: "underline" },
           },
         },
       },

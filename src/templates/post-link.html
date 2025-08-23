@@ -1,8 +1,8 @@
-<div class="mb-2">
-    <div class="text-xl">
-        <a href="/blog/{SLUG}">{TITLE}</a>
+<div class="py-4">
+  <a href="/blog/{SLUG}" class="group block">
+    <div class="flex items-baseline justify-between gap-4">
+      <div class="text-base md:text-lg font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">{TITLE}</div>
+      <div class="text-xs text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{DATE}</div>
     </div>
-    <div>
-        written on {DATE}
-    </div>
+  </a>
 </div>

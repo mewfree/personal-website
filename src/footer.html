@@ -1,3 +1,17 @@
+      </div>
+    </main>
+    <footer class="border-t border-zinc-200/60 dark:border-zinc-800">
+      <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+        <div>© <span id="year"></span> Damien Gonot</div>
+        <div class="flex items-center gap-4">
+          <a href="/about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+          <a href="/blog" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+          <a href="/notes" class="hover:text-indigo-600 dark:hover:text-indigo-400">Notes</a>
         </div>
-    </body>
+      </div>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
 </html>
