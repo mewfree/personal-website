@@ -1,9 +1,10 @@
 using Dates
 using Suppressor
 
-print("Generating website...")
+println("Generating website...")
 
 # Clean up first
+println("Cleaning up...")
 isdir("build") && rm("build", recursive=true)
 isfile("src/notes.org") && rm("src/notes.org")
 isdir("src/notes") && rm("src/notes", recursive=true)
@@ -12,9 +13,11 @@ header = read("src/header.html", String)
 footer = read("src/footer.html", String)
 
 # Handling blog posts
+println("Handling blog posts...")
 mkpath("build/blog")
 posts = []
 for filename in readdir("src/posts")
+    println("  Handling post: $filename")
     slug, type = split(filename, ".")
     if type == "org"
         data = read("src/posts/$filename", String)
@@ -61,6 +64,7 @@ for filename in readdir("src/posts")
 end
 
 # List of blog posts
+println("Generating list of blog posts...")
 posts = sort(posts, by=p -> Date(p["date"]), rev=true)
 post_link_template = read("src/templates/post-link.html", String)
 posts_template = read("src/templates/posts.html", String)
@@ -87,6 +91,7 @@ open("build/blog.html", "w") do io
 end
 
 # Notes
+println("Handling notes...")
 mkpath("build/notes")
 cp(homedir() * "/meworg/university.org", "src/notes.org")
 if Sys.isapple()
@@ -102,6 +107,7 @@ for (root, dirs, files) in walkdir("src/notes")
     end
     for file in files
         filename = joinpath(root, file)
+        println("  Handling file: $filename")
         slug, type = split(filename, ".")
         slug = replace(slug, "src/notes/" => "")
         if type == "org"
@@ -166,6 +172,7 @@ for (root, dirs, files) in walkdir("src/notes")
 end
 
 # Other routes
+println("Handling other routes...")
 routes = [
     (
         destination="index.html",
@@ -199,6 +206,7 @@ routes = [
 
 for route in routes
     (; destination, source, title, heading, description) = route
+    println("  Handling route: $destination")
 
     if endswith(source, ".org")
         local template = read("src/templates/default.html", String)
@@ -229,12 +237,11 @@ for route in routes
 end
 
 # Wrap it up
-@suppress begin
-    run(`cp -a src/public/. build/`)
-    run(`./tailwindcss -i src/input.css -o build/main.css --minify`)
-    run(
-        `html-minifier --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
-    )
-end
+println("Wrapping it up...")
+run(`cp -a src/public/. build/`)
+run(`npx @tailwindcss/cli -i src/input.css -o build/main.css --minify`)
+run(
+    `html-minifier --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
+)
 
-println("\rWebsite has been generated!")
+println("Website has been generated!")

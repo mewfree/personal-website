@@ -4,9 +4,9 @@
 A tiny script to generate my personal website
 
 * Tools required
-- =julia 1.11.4=
-- =pandoc 3.6.4=
-- =tailwindcss 3.1.8=
+- =julia 1.12.5=
+- =pandoc 3.9=
+- =tailwindcss 4.2.0=
 - =html-minifier 4.0.0=
 
 * Build
