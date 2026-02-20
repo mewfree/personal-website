@@ -8,7 +8,7 @@
 Can use both single quotes ='= or double quotes ="=.
 
 *** String interpolation
-/!\ Must use double quotes
+⚠️ Must use double quotes
 #+begin_src ruby
 name = 'world'
 str = "hello #{name}"

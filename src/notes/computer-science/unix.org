@@ -661,7 +661,7 @@ No support for emojis?
 ** ufw
 "UncomplicatedFireWall"
 
-/!\ allow SSH when setting up =ufw= on a remote server so you don't lose the connection
+⚠️ allow SSH when setting up =ufw= on a remote server so you don't lose the connection
 =sudo ufw allow ssh=
 
 Status: =sudo ufw status=

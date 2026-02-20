@@ -17,10 +17,10 @@ https://www.youtube.com/watch?v=pS9QAhSBfhE
 https://www.youtube.com/watch?v=Z2YXJiiNREw
 
 * Tones
-- 1 -> -
-- 2 -> /
-- 3 -> V
-- 4 -> \
+- 1 -> =-=
+- 2 -> =/=
+- 3 -> =V=
+- 4 -> =\=
 
 * Bopomofo / Zhuyin
 https://en.wikipedia.org/wiki/Bopomofo

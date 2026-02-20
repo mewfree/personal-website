@@ -88,8 +88,6 @@ https://orbstack.dev/
 
 * [[file:computer-science/devops.org][DevOps]]
 
-* [[file:computer-science/regex.org][Regular Expressions (Regex)]]
-
 * Application Layer Protocols
 ** HTTP
 ** Gemini

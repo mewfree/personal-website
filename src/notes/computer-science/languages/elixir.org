@@ -382,7 +382,7 @@ Enum.reduce([1, 2, 3], 0, fn(x, acc) -> x + acc end)
 : 6
 
 *** With index
-/!\ Elixir v1.12 only
+⚠️ Elixir v1.12 only
 #+begin_src elixir
 Enum.with_index(["a", "b", "c"], fn(x, index) -> {index, x} end)
 #+end_src
