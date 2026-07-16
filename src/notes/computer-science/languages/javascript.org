@@ -589,10 +589,48 @@ The reactive data store for local‑first apps.
 
 ** tRPC
 https://trpc.io/
-#+begin_quote
-Move Fast and Break Nothing.
-End-to-end typesafe APIs made easy.
-#+end_quote
+
+End-to-end typesafe APIs without code generation.
+TypeScript types flow directly from server to client — no REST schemas, no GraphQL codegen.
+Built on React Query.
+
+Use when: full-stack TypeScript (Next.js, SvelteKit...). Not ideal for public/multi-language APIs.
+
+*** Router & Procedures
+#+begin_src javascript
+import { initTRPC } from '@trpc/server';
+import { z } from 'zod';
+
+const t = initTRPC.create();
+
+export const appRouter = t.router({
+  user: t.router({
+    getById: t.procedure
+      .input(z.object({ id: z.string() }))
+      .query(async ({ input }) => db.user.findUnique({ where: { id: input.id } })),
+
+    create: t.procedure
+      .input(z.object({ name: z.string() }))
+      .mutation(async ({ input }) => db.user.create({ data: input })),
+  }),
+});
+
+export type AppRouter = typeof appRouter;
+#+end_src
+
+- =.query()= → read (GET semantics)
+- =.mutation()= → write (POST/PUT/DELETE semantics)
+
+*** React Client
+#+begin_src javascript
+import { createTRPCReact } from '@trpc/react-query';
+import type { AppRouter } from './server';
+
+export const trpc = createTRPCReact<AppRouter>();
+
+const { data } = trpc.user.getById.useQuery({ id: '123' });
+const mutation = trpc.user.create.useMutation();
+#+end_src
 
 ** Auth.js
 https://authjs.dev/

@@ -1,0 +1,38 @@
+#+title: EMMS
+
+[[file:../../../../../homepage.org][Homepage]] / [[file:../../../../../notes.org][Notes]] / [[file:../../../../computer-science.org][Computer Science]] / [[file:../../text-editors.org][Text editors]] / [[file:../emacs.org][Emacs]] / EMMS
+
+Official manual: [[https://www.gnu.org/software/emms/manual/]]
+
+"Emacs Multi-Media System" — plays music inside Emacs by delegating actual playback to an external player (mpv, VLC, mplayer...).
+
+* Open
+- =M-x emms-browser= open the music browser
+- =M-x emms-playlist-mode-go= open the playlist buffer
+- =M-x emms-add-directory-tree= add a directory tree to the playlist
+- =M-x emms-play-url= play a URL (stream, YouTube...)
+
+* Playback
+- =M-x emms-pause= play / pause
+- =M-x emms-next= next track
+- =M-x emms-previous= previous track
+- =M-x emms-stop= stop
+
+Bind to multimedia keys:
+#+begin_src emacs-lisp
+(global-set-key (kbd "<XF86AudioPlay>") #'emms-pause)
+(global-set-key (kbd "<XF86AudioNext>") #'emms-next)
+(global-set-key (kbd "<XF86AudioPrev>") #'emms-previous)
+#+end_src
+
+* Playlist mode
+Press =?= to see all bindings. Common ones:
+
+- =RET= play track under point
+- =n= / =p= next / previous track
+- =d= remove track from playlist
+- =C= create new playlist
+
+* Volume
+- =M-x emms-volume-raise= increase volume
+- =M-x emms-volume-lower= decrease volume

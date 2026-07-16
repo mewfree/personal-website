@@ -897,6 +897,40 @@ https://github.com/Wulf/create-rust-app
 Set up a modern rust+react web app by running one command.
 #+end_quote
 
+** Polars
+https://www.pola.rs/
+
+Lightning-fast DataFrames library for Rust and Python, built on Apache Arrow.
+
+#+begin_src rust :crates '((polars . *))
+use polars::prelude::*;
+
+let df = df!(
+    "name" => ["Alice", "Bob", "Charlie"],
+    "age"  => [25, 30, 35],
+).unwrap();
+
+println!("{}", df);
+#+end_src
+
+#+RESULTS:
+#+begin_example
+shape: (3, 2)
+┌─────┬─────┐
+│ nam ┆ age │
+│ e   ┆ --- │
+│ --- ┆ i32 │
+│ str ┆     │
+╞═════╪═════╡
+│ Ali ┆ 25  │
+│ ce  ┆     │
+│ Bob ┆ 30  │
+│ Cha ┆ 35  │
+│ rli ┆     │
+│ e   ┆     │
+└─────┴─────┘
+#+end_example
+
 ** Leptos
 https://github.com/leptos-rs/leptos
 #+begin_quote

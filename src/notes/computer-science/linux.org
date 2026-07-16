@@ -54,6 +54,43 @@ https://github.com/YaLTeR/niri
 A scrollable-tiling Wayland compositor.
 #+end_quote
 
+* Boot
+** EFI / UEFI
+UEFI (Unified Extensible Firmware Interface) replaced BIOS as the firmware standard.
+Stores boot entries in NVRAM. Boot manager selects which bootloader (e.g. GRUB, systemd-boot) to run.
+
+EFI System Partition (ESP): a FAT32 partition (usually =/boot/efi= or =/boot=) where bootloaders and kernel images are stored.
+Mounted at boot time by the firmware.
+
+** Secure Boot
+Secure Boot verifies that bootloader and kernel are signed with trusted keys before executing them.
+Prevents bootkits and unauthorized OS loading.
+
+Keys:
+- =PK= (Platform Key): root of trust, owned by hardware vendor
+- =KEK= (Key Exchange Key): used to update =db= and =dbx=
+- =db= (Allowed): signatures of trusted bootloaders/kernels
+- =dbx= (Forbidden): revoked signatures
+
+Most distros ship with a shim signed by Microsoft's key, which then verifies the distro's own key.
+Custom kernels require enrolling your own key (=mokutil=).
+
+Useful commands:
+- =mokutil --sb-state= check if Secure Boot is enabled
+- =mokutil --import your-key.der= enroll a custom key
+- =bootctl status= (systemd-boot) show EFI/Secure Boot status
+
+** Package Managers
+| distro family | tool     | install          | update          | search          |
+|---------------+----------+------------------+-----------------+-----------------|
+| Debian/Ubuntu | apt      | =apt install=    | =apt upgrade=   | =apt search=    |
+| Arch          | pacman   | =pacman -S=      | =pacman -Syu=   | =pacman -Ss=    |
+| Arch (AUR)    | yay/paru | =yay -S=         | =yay -Syu=      | =yay -Ss=       |
+| Fedora/RHEL   | dnf      | =dnf install=    | =dnf upgrade=   | =dnf search=    |
+| openSUSE      | zypper   | =zypper install= | =zypper update= | =zypper search= |
+| NixOS         | nix      | =nix-env -iA=    | =nixos-rebuild= | =nix search=    |
+| Guix          | guix     | =guix install=   | =guix pull=     | =guix search=   |
+
 * Desktop Environments
 ** Gnome
 *** Shortcuts

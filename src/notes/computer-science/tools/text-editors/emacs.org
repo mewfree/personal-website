@@ -58,6 +58,8 @@ https://github.com/LionyxML/auto-dark-emacs
 
 * [[file:emacs/org-mode.org][org-mode]]
 
+* [[file:emacs/emms.org][EMMS]]
+
 * restclient
 #+begin_src restclient :results value :wrap "src json"
 GET https://jsonplaceholder.typicode.com/posts/1

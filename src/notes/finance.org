@@ -1646,6 +1646,21 @@ by Thomas Malthus (1766-1834)
 - Maintain human capital, strategically oriented
 - Maintain humanity in an unforgiving business world
 
+* Real Return Bonds (Canada)
+https://www.finiki.org/wiki/Real_Return_Bonds
+
+Government of Canada bonds where both principal and interest payments are adjusted for inflation (CPI). Unlike conventional bonds, your real return is locked in regardless of future inflation — they protect against unexpected inflation.
+
+Interest is paid semi-annually, adjusted every 6 months. Principal repaid in inflation-adjusted dollars at maturity.
+
+Note: as of November 2022, the Canadian Government stopped issuing new RRBs. Existing ones remain tradeable on the secondary market.
+
+** ETFs
+| ticker | issuer  | tracks                                          |   MER |
+|--------+---------+-------------------------------------------------+-------|
+| XRB    | iShares | FTSE Canada Real Return Bond Index (fed + prov) | 0.40% |
+| ZRR    | BMO     | FTSE Canada Real Return Federal Bond Index      | 0.28% |
+
 * Resources
 ** Certificate in Quantitative Finance (CQF)
 https://www.cqf.com/

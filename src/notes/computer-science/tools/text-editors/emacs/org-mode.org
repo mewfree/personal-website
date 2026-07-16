@@ -324,6 +324,25 @@ Press =C-c C-v t= to "tangle" the file (extract source code from =.org= file).
 To tangle every code block in a file, place this in the document headers:
 =#+property: header-args :tangle {filename}=
 
+*** Tangle on Save
+Auto-tangle whenever the =.org= file is saved:
+=(add-hook 'after-save-hook #'org-babel-tangle t t)=
+
+*** Keep Tangled File in Sync
+Add =:comments link= so tangled files contain links back to the source =.org= block.
+This lets you edit the tangled file directly and propagate changes back with =org-babel-detangle=:
+=#+property: header-args:emacs-lisp :tangle yes :comments link=
+
+** Execute All Blocks
+Run every source block in the current buffer:
+=(org-babel-execute-buffer)=
+
+** Caching
+=:cache yes= in a block header skips re-evaluation if inputs haven't changed:
+#+begin_src python :cache yes
+return expensive_computation()
+#+end_src
+
 ** Reference Other Code Blocks
 https://orgmode.org/manual/Noweb-Reference-Syntax.html
 Source code blocks can include references to other source code blocks, using a noweb style syntax:

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "MADE Mirage";
   src: url("fonts/made_mirage_medium.otf") format("opentype");
