@@ -181,6 +181,8 @@ From time to time, L2 is synced to L1
 https://fulcrum.trade
 **** Deversifi
 https://deversifi.com
+**** Lighter
+https://lighter.xyz
 *** Aggregators
 **** 1inch
 https://1inch.exchange
