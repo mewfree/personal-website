@@ -1,0 +1,4 @@
+#+title: 2026-07-24
+
+* Artificial Intelligence
+- Anthropic introduced [[https://www.anthropic.com/news/claude-opus-5][Opus 5]]

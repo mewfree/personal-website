@@ -90,6 +90,122 @@ open("build/blog.html", "w") do io
     write(io, output)
 end
 
+# Daily (append-only curated days from src/daily/YYYY-MM-DD.org)
+println("Handling daily...")
+mkpath("build/daily")
+dailies = []
+daily_dir = "src/daily"
+if isdir(daily_dir)
+    for filename in readdir(daily_dir)
+        endswith(filename, ".org") || continue
+        println("  Handling daily: $filename")
+        local slug = replace(filename, ".org" => "")
+        local date = Date(slug)
+        local title = Dates.format(date, dateformat"U d, Y")
+        local weekday = Dates.format(date, dateformat"EEEE")
+        local content = read(
+            `pandoc $daily_dir/$filename --from=org --shift-heading-level-by=1`,
+            String,
+        )
+        local excerpt = read(
+            `pandoc $daily_dir/$filename --from=org -t plain`,
+            String,
+        )
+        push!(
+            dailies,
+            Dict(
+                "slug" => slug,
+                "date" => date,
+                "title" => title,
+                "weekday" => weekday,
+                "content" => content,
+                "excerpt" => excerpt,
+            ),
+        )
+    end
+end
+
+dailies = sort(dailies, by=d -> d["date"], rev=true)
+daily_day_template = read("src/templates/daily-day.html", String)
+for (i, day) in enumerate(dailies)
+    # Chronological neighbors: newer = previous index, older = next index
+    local prev_html = if i < length(dailies)
+        older = dailies[i + 1]
+        """<a href="/daily/$(older["slug"])" class="hover:text-indigo-600 dark:hover:text-indigo-400">← $(older["title"])</a>"""
+    else
+        ""
+    end
+    local next_html = if i > 1
+        newer = dailies[i - 1]
+        """<a href="/daily/$(newer["slug"])" class="hover:text-indigo-600 dark:hover:text-indigo-400">$(newer["title"]) →</a>"""
+    else
+        ""
+    end
+
+    local templated_string = replace(
+        daily_day_template,
+        "{TITLE}" => day["title"],
+        "{SLUG}" => day["slug"],
+        "{WEEKDAY}" => day["weekday"],
+        "{CONTENT}" => day["content"],
+        "{PREV}" => prev_html,
+        "{NEXT}" => next_html,
+    )
+    local output =
+        replace(
+            header,
+            "{SLUG}" => "/daily/" * day["slug"],
+            "{TITLE}" => day["title"] * " - Daily - Damien Gonot",
+            "{DESCRIPTION}" => "$(first(day["excerpt"], 297))...",
+        ) *
+        templated_string *
+        footer
+    open("build/daily/$(day["slug"]).html", "w") do io
+        write(io, output)
+    end
+end
+
+println("Generating daily index...")
+daily_entry_template = read("src/templates/daily-entry.html", String)
+daily_list_template = read("src/templates/daily.html", String)
+# Full reverse-chronological stream of every available day
+daily_entries = [
+    replace(
+        daily_entry_template,
+        "{TITLE}" => day["title"],
+        "{SLUG}" => day["slug"],
+        "{WEEKDAY}" => day["weekday"],
+        "{CONTENT}" => day["content"],
+    ) for day in dailies
+]
+daily_content = replace(daily_list_template, "{CONTENT}" => join(daily_entries))
+daily_output =
+    replace(
+        header,
+        "{SLUG}" => "/daily",
+        "{TITLE}" => "Daily - Damien Gonot",
+        "{DESCRIPTION}" => "Curated daily links and notes by Damien Gonot.",
+    ) *
+    daily_content *
+    footer
+open("build/daily.html", "w") do io
+    write(io, daily_output)
+end
+
+# Homepage teaser: latest day (if any)
+latest_daily = if isempty(dailies)
+    """<p class="text-sm text-zinc-500 dark:text-zinc-400">No entries yet.</p>"""
+else
+    day = dailies[1]
+    replace(
+        daily_entry_template,
+        "{TITLE}" => day["title"],
+        "{SLUG}" => day["slug"],
+        "{WEEKDAY}" => day["weekday"],
+        "{CONTENT}" => day["content"],
+    )
+end
+
 # Notes
 println("Handling notes...")
 mkpath("build/notes")
@@ -223,7 +339,11 @@ for route in routes
     local slug = "/" * replace(destination, ".html" => "")
 
     if destination == "index.html"
-        local content = replace(content, "{RECENT_BLOG_POSTS}" => join(posts_list[1:5]))
+        local content = replace(
+            content,
+            "{RECENT_BLOG_POSTS}" => join(posts_list[1:5]),
+            "{LATEST_DAILY}" => latest_daily,
+        )
         local slug = ""
     end
 

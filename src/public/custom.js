@@ -38,7 +38,7 @@ function toggleTheme() {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  document.querySelectorAll("h2, h3, h4, h5, h6").forEach((el) => {
+  document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]").forEach((el) => {
     const link = document.createElement("a");
     link.setAttribute("href", "#" + el.id);
     link.classList.add("header-anchor");
