@@ -1,13 +1,31 @@
 using Dates
-using Suppressor
 
 println("Generating website...")
+
+# Notes source: local meworg vault (optional). Override with MEWORG_ROOT.
+# On CI / machines without meworg, committed src/notes is used as-is.
+meworg_root = get(ENV, "MEWORG_ROOT", joinpath(homedir(), "meworg"))
+meworg_org = joinpath(meworg_root, "university.org")
+meworg_dir = joinpath(meworg_root, "university")
+has_meworg = isfile(meworg_org) && isdir(meworg_dir)
 
 # Clean up first
 println("Cleaning up...")
 isdir("build") && rm("build", recursive=true)
-isfile("src/notes.org") && rm("src/notes.org")
-isdir("src/notes") && rm("src/notes", recursive=true)
+if has_meworg
+    println("Importing notes from $meworg_root ...")
+    isfile("src/notes.org") && rm("src/notes.org")
+    isdir("src/notes") && rm("src/notes", recursive=true)
+    cp(meworg_org, "src/notes.org")
+    if Sys.isapple()
+        run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+    else
+        run(`sed -i -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
+    end
+    cp(meworg_dir, "src/notes")
+else
+    println("No meworg at $meworg_root; using committed notes if present")
+end
 
 header = read("src/header.html", String)
 footer = read("src/footer.html", String)
@@ -208,83 +226,81 @@ end
 
 # Notes
 println("Handling notes...")
-mkpath("build/notes")
-cp(homedir() * "/meworg/university.org", "src/notes.org")
-if Sys.isapple()
-    run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
-else
-    run(`sed -i -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
-end
-cp(homedir() * "/meworg/university", "src/notes")
-for (root, dirs, files) in walkdir("src/notes")
-    for dir in dirs
-        path = replace(joinpath(root, dir), "src/" => "build/")
-        mkpath(path)
-    end
-    for file in files
-        filename = joinpath(root, file)
-        println("  Handling file: $filename")
-        slug, type = split(filename, ".")
-        slug = replace(slug, "src/notes/" => "")
-        if type == "org"
-            if Sys.isapple()
-                run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
-            else
-                run(`sed -i 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
-            end
-            local data = read(filename, String)
-            local exports_both = map(
-                line ->
-                    if startswith(line, "#+begin_src") && !contains(line, ":exports")
-                        return line * " :exports both"
-                    else
-                        return line
-                    end,
-                split(data, "\n"),
-            )
-            local joined = join(["#+options: H:6"; exports_both], "\n")
-            local matches = collect(eachmatch(r"#\+(?<key>.*): (?<value>.*)", data))
-            local metadata = Dict(match["key"] => match["value"] for match in matches)
-            local title = metadata["title"]
-            local content = replace(
-                read(
-                    pipeline(
-                        `echo $joined`,
-                        `pandoc --quiet --from=org --shift-heading-level-by=1 --mathjax`,
+has_notes = isfile("src/notes.org") && isdir("src/notes")
+if has_notes
+    mkpath("build/notes")
+    for (root, dirs, files) in walkdir("src/notes")
+        for dir in dirs
+            path = replace(joinpath(root, dir), "src/" => "build/")
+            mkpath(path)
+        end
+        for file in files
+            filename = joinpath(root, file)
+            println("  Handling file: $filename")
+            slug, type = split(filename, ".")
+            slug = replace(slug, "src/notes/" => "")
+            if type == "org"
+                if Sys.isapple()
+                    run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
+                else
+                    run(`sed -i 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
+                end
+                local data = read(filename, String)
+                local exports_both = map(
+                    line ->
+                        if startswith(line, "#+begin_src") && !contains(line, ":exports")
+                            return line * " :exports both"
+                        else
+                            return line
+                        end,
+                    split(data, "\n"),
+                )
+                local joined = join(["#+options: H:6"; exports_both], "\n")
+                local matches = collect(eachmatch(r"#\+(?<key>.*): (?<value>.*)", data))
+                local metadata = Dict(match["key"] => match["value"] for match in matches)
+                local title = metadata["title"]
+                local content = replace(
+                    read(
+                        pipeline(
+                            `echo $joined`,
+                            `pandoc --quiet --from=org --shift-heading-level-by=1 --mathjax`,
+                        ),
+                        String,
                     ),
-                    String,
-                ),
-                "./images/" => "/images/",
-                ".org\">" => "\">",
-            )
-            local excerpt = replace(
-                read(
-                    pipeline(`echo $joined`, `pandoc --quiet --from=org -t plain`),
-                    String,
-                ),
-                r"[^a-zA-Z0-9_\s]" => "",
-            )
+                    "./images/" => "/images/",
+                    ".org\">" => "\">",
+                )
+                local excerpt = replace(
+                    read(
+                        pipeline(`echo $joined`, `pandoc --quiet --from=org -t plain`),
+                        String,
+                    ),
+                    r"[^a-zA-Z0-9_\s]" => "",
+                )
 
-            local template = read("src/templates/default.html", String)
-            local templated_string =
-                replace(template, "{TITLE}" => title, "{CONTENT}" => content)
-            local output =
-                replace(
-                    header,
-                    "{SLUG}" => "/notes/" * slug,
-                    "{TITLE}" => title * " - Damien Gonot",
-                    "{DESCRIPTION}" => "$(first(excerpt, 297))...",
-                ) *
-                templated_string *
-                footer
-            open("build/notes/$slug.html", "w") do io
-                write(io, output)
+                local template = read("src/templates/default.html", String)
+                local templated_string =
+                    replace(template, "{TITLE}" => title, "{CONTENT}" => content)
+                local output =
+                    replace(
+                        header,
+                        "{SLUG}" => "/notes/" * slug,
+                        "{TITLE}" => title * " - Damien Gonot",
+                        "{DESCRIPTION}" => "$(first(excerpt, 297))...",
+                    ) *
+                    templated_string *
+                    footer
+                open("build/notes/$slug.html", "w") do io
+                    write(io, output)
+                end
+            elseif type == "png"
+                run(`cp $filename src/public/images/$file`)
+            else
             end
-        elseif type == "png"
-            run(`cp $filename src/public/images/$file`)
-        else
         end
     end
+else
+    println("  Skipping notes (src/notes not found)")
 end
 
 # Other routes
@@ -311,14 +327,19 @@ routes = [
         heading="Citadel",
         description="Damien Gonot's own citadel.",
     ),
-    (
-        destination="notes.html",
-        source="notes.org",
-        title="Notes - Damien Gonot",
-        heading="Notes",
-        description="Damien Gonot's public notes.",
-    ),
 ]
+if has_notes
+    push!(
+        routes,
+        (
+            destination="notes.html",
+            source="notes.org",
+            title="Notes - Damien Gonot",
+            heading="Notes",
+            description="Damien Gonot's public notes.",
+        ),
+    )
+end
 
 for route in routes
     (; destination, source, title, heading, description) = route
@@ -359,9 +380,9 @@ end
 # Wrap it up
 println("Wrapping it up...")
 run(`cp -a src/public/. build/`)
-run(`npx @tailwindcss/cli -i src/input.css -o build/main.css --minify`)
+run(`npx @tailwindcss/cli -i ./src/input.css -o ./build/main.css --minify`)
 run(
-    `html-minifier --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
+    `npx html-minifier --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
 )
 
 println("Website has been generated!")

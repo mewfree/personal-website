@@ -1,20 +1,32 @@
 #+title: personal-website
 
 * Introduction
-A tiny script to generate my personal website
+A tiny script to generate my personal website.
 
-* Tools required
-- =julia 1.12.5=
-- =pandoc 3.9=
-- =tailwindcss 4.2.0=
-- =html-minifier 4.0.0=
+* Tools required (local)
+- =julia 1.12+=
+- =pandoc 3.x=
+- =node 22= (for Tailwind, html-minifier, wrangler)
+
+* Setup
+#+begin_src bash :results none
+npm install
+#+end_src
 
 * Build
 #+begin_src bash :results none
 julia build.jl
+# or: npm run build
 #+end_src
+
+Notes are imported from =~/meworg= when present (=university.org= + =university/=).
+Override with =MEWORG_ROOT=. Without meworg (e.g. CI), committed =src/notes= is used.
 
 * Development server
 #+begin_src bash :results none
-wrangler pages dev build
+npm run dev
+# or: wrangler pages dev build
 #+end_src
+
+* Deploy (CI)
+Push to =main= (or run the workflow manually). GitHub Actions builds and deploys to Cloudflare Pages.

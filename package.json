@@ -1,0 +1,15 @@
+{
+  "name": "personal-website",
+  "private": true,
+  "scripts": {
+    "build": "julia build.jl",
+    "dev": "wrangler pages dev build",
+    "deploy": "julia build.jl && wrangler pages deploy build"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.0",
+    "html-minifier": "^4.0.0",
+    "tailwindcss": "^4.2.0",
+    "wrangler": "^4.0.0"
+  }
+}
