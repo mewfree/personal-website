@@ -1,0 +1,66 @@
+#+title: À propos
+
+Développeur et marketer. Je travaille à l'intersection du produit, de la croissance et de l'ingénierie. Ce site regroupe un journal quotidien (surtout de l'IA), un blog d'articles plus longs (beaucoup d'ads et d'automatisation marketing), et un jardin de notes publiques.
+
+[[file:damiengonot_resume.pdf][💾 Télécharger mon CV en PDF]]
+
+* Contact
+- Courriel : =damien.gonot@gmail.com=
+- GitHub : [[https://github.com/mewfree][@mewfree]]
+- X/Twitter : [[https://x.com/mewfree][@mewfree]]
+- Bluesky : [[https://bsky.app/profile/dgonot.com][@dgonot.com]]
+- LinkedIn : [[https://www.linkedin.com/in/damiengonot][linkedin.com/in/damiengonot]]
+
+* Stack personnelle
+** Matériel
+- 💻 M1 MacBook Pro
+- 🐧 ThinkPad X1 Nano
+- 📱 Google Pixel 6a
+- 📖 Hisense Hi Reader
+- ⌨️ UHK 60 v2
+- 📷 Sony α7C II
+
+** Logiciels
+- ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (avec evil-mode)
+- 🧠 [[file:notes/computer-science/tools/text-editors/emacs/org-mode][Org Mode]] (cette page est construite avec [[file:notes/computer-science/tools/text-editors/emacs/org-mode][Org Mode]]!)
+- 👻 [[https://ghostty.org/][Ghostty]]
+- 🧑‍🌾 [[file:notes/computer-science/tools#zellij][Zellij]]
+- ⚙️ [[file:notes/computer-science/tools/terminal#zsh][Zsh]]
+
+** Langages
+- 💎 [[file:notes/computer-science/languages/ruby.org][Ruby]]
+- 🕸️ [[file:notes/computer-science/languages/javascript.org][JavaScript]]
+- 🔬 [[file:notes/computer-science/languages/julia.org][Julia]]
+- 🧙 [[file:notes/computer-science/languages/elixir.org][Elixir]]
+- 🐍 [[file:notes/computer-science/languages/python.org][Python]]
+
+* Aléatoire
+#+begin_src julia :exports results
+using UnicodePlots
+lineplot(sin, 0:0.5:10, width = 50, canvas = DotCanvas)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+           ┌──────────────────────────────────────────────────┐
+         1 │      .''..                          :'':         │ sin(x)
+           │    :'    '.                        :    '.       │
+           │   :       '.                     .:      '.      │
+           │  :         :                     :        '.     │
+           │  :          :                   :          ':    │
+           │ :           '.                 :            '.   │
+           │.'            ':                :             :   │
+   f(x)    │:..............:...............:...............:..│
+           │                :             .'               :  │
+           │                 :           .:                 : │
+           │                 :           :                  '.│
+           │                  :         :                    :│
+           │                   :       :                      │
+           │                   ':     :                       │
+        -1 │                     '...:                        │
+           └──────────────────────────────────────────────────┘
+            0                                               10
+                                     x
+#+end_example
+
+* λ

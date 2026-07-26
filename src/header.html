@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="{LANG}">
   <head>
     <title>{TITLE}</title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/katex.min.css">
     <link rel="icon" href="/favicon.ico">
-    <link rel="canonical" href="https://www.damiengonot.com{SLUG}">
+    <link rel="canonical" href="https://www.damiengonot.com{CANONICAL}">
+    <link rel="alternate" hreflang="en" href="https://www.damiengonot.com{EN_PATH}">
+    <link rel="alternate" hreflang="fr" href="https://www.damiengonot.com{FR_PATH}">
+    <link rel="alternate" hreflang="x-default" href="https://www.damiengonot.com{EN_PATH}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{DESCRIPTION}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,17 +25,22 @@
   <body class="min-h-screen flex flex-col bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
     <header class="sticky top-0 z-40 backdrop-blur bg-white/80 dark:bg-black/60 border-b border-zinc-200/60 dark:border-zinc-800">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-        <a href="/" class="flex items-center gap-2 min-w-0">
+        <a href="{HOME_HREF}" class="flex items-center gap-2 min-w-0">
           <span class="dg text-xl sm:text-2xl font-semibold truncate">Damien Gonot</span>
         </a>
         <div class="flex items-center gap-3 sm:gap-6 shrink-0">
           <nav class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
-            <a href="/daily" class="hover:text-indigo-600 dark:hover:text-indigo-400">Daily</a>
-            <a href="/blog" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
-            <a href="/notes" class="hover:text-indigo-600 dark:hover:text-indigo-400">Notes</a>
-            <a href="/about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+            <a href="{PREFIX}/daily" class="hover:text-indigo-600 dark:hover:text-indigo-400">{NAV_DAILY}</a>
+            <a href="{PREFIX}/blog" class="hover:text-indigo-600 dark:hover:text-indigo-400">{NAV_BLOG}</a>
+            <a href="{PREFIX}/notes" class="hover:text-indigo-600 dark:hover:text-indigo-400">{NAV_NOTES}</a>
+            <a href="{PREFIX}/about" class="hover:text-indigo-600 dark:hover:text-indigo-400">{NAV_ABOUT}</a>
           </nav>
-          <button id="theme" type="button" aria-label="Toggle color theme" class="text-xl hover:cursor-pointer" onclick="toggleTheme()">🌝</button>
+          <nav class="flex items-center gap-1.5 text-xs sm:text-sm tabular-nums" aria-label="{LANG_SWITCHER_LABEL}">
+            <a href="{EN_PATH}" class="{EN_CLASS}" hreflang="en" lang="en">EN</a>
+            <span class="text-zinc-300 dark:text-zinc-700" aria-hidden="true">/</span>
+            <a href="{FR_PATH}" class="{FR_CLASS}" hreflang="fr" lang="fr">FR</a>
+          </nav>
+          <button id="theme" type="button" aria-label="{THEME_ARIA}" class="text-xl hover:cursor-pointer" onclick="toggleTheme()">🌝</button>
         </div>
       </div>
       <script src="/custom.js"></script>
