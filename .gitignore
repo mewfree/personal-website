@@ -2,3 +2,4 @@
 tailwindcss
 node_modules/
 .wrangler
+build/

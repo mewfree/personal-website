@@ -5,6 +5,30 @@
 @font-face {
   font-family: "MADE Mirage";
   src: url("fonts/made_mirage_medium.otf") format("opentype");
+  font-display: swap;
+}
+
+::selection {
+  background-color: rgb(199 210 254); /* indigo-200 */
+  color: rgb(24 24 27); /* zinc-900 */
+}
+
+.dark ::selection {
+  background-color: rgb(67 56 202); /* indigo-700 */
+  color: rgb(250 250 250); /* zinc-50 */
+}
+
+/* Accessible visually-hidden utility (newsletter label) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 h1,

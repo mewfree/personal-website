@@ -9,21 +9,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{DESCRIPTION}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
     <header class="sticky top-0 z-40 backdrop-blur bg-white/80 dark:bg-black/60 border-b border-zinc-200/60 dark:border-zinc-800">
-      <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2">
-          <span class="dg text-2xl font-semibold">Damien Gonot</span>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+        <a href="/" class="flex items-center gap-2 min-w-0">
+          <span class="dg text-xl sm:text-2xl font-semibold truncate">Damien Gonot</span>
         </a>
-        <div class="flex items-center gap-6">
-          <nav class="hidden md:flex items-center gap-6 text-sm">
+        <div class="flex items-center gap-3 sm:gap-6 shrink-0">
+          <nav class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
             <a href="/daily" class="hover:text-indigo-600 dark:hover:text-indigo-400">Daily</a>
             <a href="/blog" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
             <a href="/notes" class="hover:text-indigo-600 dark:hover:text-indigo-400">Notes</a>
             <a href="/about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
           </nav>
-          <button id="theme" class="text-xl hover:cursor-pointer" onclick="toggleTheme()">🌝</button>
+          <button id="theme" type="button" aria-label="Toggle color theme" class="text-xl hover:cursor-pointer" onclick="toggleTheme()">🌝</button>
         </div>
       </div>
       <script src="/custom.js"></script>

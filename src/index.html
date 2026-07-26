@@ -1,92 +1,107 @@
-<section class="pt-8">
-  <div class="flex items-start gap-0">
-    <div>
-      <h1 class="!mt-0">Hey, I'm Damien</h1>
-      <p class="mt-2 text-zinc-700 dark:text-zinc-300">
-        Software Developer & Marketer. Currently at <a class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400" href="https://www.wealthsimple.com" target="_blank" rel="noopener">Wealthsimple</a>.
-        Previously at <a class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400" href="https://www.hopper.com" target="_blank" rel="noopener">Hopper</a>.
-      </p>
-    </div>
-  </div>
+<section class="pt-4 sm:pt-8">
+  <h1 class="!mt-0">Hey, I'm Damien</h1>
+  <p class="mt-3 text-lg text-zinc-700 dark:text-zinc-300 !mb-0">
+    Software developer &amp; marketer. Currently at
+    <a class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400" href="https://www.wealthsimple.com" target="_blank" rel="noopener">Wealthsimple</a>,
+    previously at
+    <a class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400" href="https://www.hopper.com" target="_blank" rel="noopener">Hopper</a>.
+  </p>
+  <p class="mt-3 text-zinc-600 dark:text-zinc-400 !mb-0">
+    I collect AI news and links in
+    <a href="/daily" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">Daily</a>,
+    keep longer posts in the
+    <a href="/blog" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">blog</a>
+    (a lot of ads and marketing automation), and grow a public
+    <a href="/notes" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">notes</a>
+    garden as I go.
+  </p>
 </section>
 
-<section class="mt-12">
-  <div class="flex items-center justify-between">
+<section class="mt-14">
+  <div class="flex items-center justify-between gap-4">
     <h2 id="daily" class="!mt-0 mb-0">Daily</h2>
-    <a href="/daily" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">See all</a>
+    <a href="/daily" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline shrink-0">See all</a>
   </div>
-  <div class="mt-4">
+  <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400 !mb-4">Mostly AI news and links, day by day.</p>
+  <div>
     {LATEST_DAILY}
   </div>
 </section>
 
-<section class="mt-12">
-  <div class="flex items-center justify-between">
-    <h2 id="recent-writing" class="!mt-0 mb-0">Recent writing</h2>
-    <a href="/blog" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">See all</a>
+<section class="mt-14">
+  <div class="flex items-center justify-between gap-4">
+    <h2 id="recent-writing" class="!mt-0 mb-0">From the blog</h2>
+    <a href="/blog" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline shrink-0">See all</a>
   </div>
-  <div class="divide-y divide-zinc-200 dark:divide-zinc-800">
+  <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400 !mb-0">Longer posts, including a lot on ads and marketing automation.</p>
+  <div class="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
     {RECENT_BLOG_POSTS}
   </div>
 </section>
 
-<section class="mt-12">
-  <div class="flex items-center justify-between">
+<section class="mt-14">
+  <div class="flex items-center justify-between gap-4">
     <h2 id="projects" class="!mt-0 mb-0">Projects</h2>
-    <a href="https://github.com/mewfree" target="_blank" rel="noopener" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">See all on GitHub</a>
+    <a href="https://github.com/mewfree" target="_blank" rel="noopener" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline shrink-0">See all on GitHub</a>
   </div>
-  <div class="mt-4 grid sm:grid-cols-2 gap-4">
-    <a href="https://sheetgpt.net" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🌐 SheetGPT</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Control Google Sheets with AI</div>
+  <div class="mt-4 grid sm:grid-cols-2 gap-3">
+    <a href="https://sheetgpt.net" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🌐 SheetGPT</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Control Google Sheets with AI</div>
     </a>
-    <a href="https://sheetfx.net" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🌐 SheetFX</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Free guides and tutorials to learn Google Sheets</div>
+    <a href="https://sheetfx.net" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🌐 SheetFX</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Free guides and tutorials to learn Google Sheets</div>
     </a>
-    <a href="https://palabres.net" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🌐 Palabres</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Every leading AI model, in one subscription</div>
+    <a href="https://palabres.net" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🌐 Palabres</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Every leading AI model, in one subscription</div>
     </a>
-    <a href="https://campfire.mewfree.com" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🌐 Campfire</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">A faster way to run Ads Manager</div>
+    <a href="https://campfire.mewfree.com" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🌐 Campfire</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">A faster way to run Ads Manager</div>
     </a>
-    <a href="https://github.com/mewfree/rugit" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🛠️ rugit</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Terminal UI for Git and Jujutsu</div>
+    <a href="https://github.com/mewfree/rugit" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🛠️ rugit</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Terminal UI for Git and Jujutsu</div>
     </a>
-    <a href="https://github.com/mewfree/clignote" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🛠️ clignote</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Terminal org-mode editor</div>
+    <a href="https://github.com/mewfree/clignote" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🛠️ clignote</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Terminal org-mode editor</div>
     </a>
-    <a href="https://github.com/mewfree/pronto" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🛠️ pronto</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">CLI task manager for org-mode</div>
+    <a href="https://github.com/mewfree/pronto" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🛠️ pronto</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">CLI task manager for org-mode</div>
     </a>
-    <a href="https://github.com/mewfree/tabathon" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🛠️ tabathon</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Browser extension that sums up the duration of YouTube videos you have open</div>
+    <a href="https://github.com/mewfree/tabathon" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🛠️ tabathon</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Browser extension that sums up the duration of YouTube videos you have open</div>
     </a>
-    <a href="https://github.com/mewfree/org-autolink" target="_blank" rel="noopener" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 transition-colors">
-      <div class="font-medium">🛠️ org-autolink</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400">Emacs company-mode backend to auto-link org-mode files</div>
+    <a href="https://github.com/mewfree/org-autolink" target="_blank" rel="noopener" class="group block rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:border-indigo-400 dark:hover:border-indigo-400 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40 transition-colors">
+      <div class="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">🛠️ org-autolink</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">Emacs company-mode backend to auto-link org-mode files</div>
     </a>
   </div>
 </section>
 
-<section class="mt-12">
-  <h2 id="subscribe-to-my-newsletter" class="!mt-0">Subscribe to my newsletter</h2>
+<section class="mt-14 mb-4">
+  <h2 id="subscribe-to-my-newsletter" class="!mt-0 mb-2">Get it by email</h2>
+  <p class="mt-0 text-zinc-600 dark:text-zinc-400 !mb-4">
+    My latest
+    <a href="/daily" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">Daily</a>
+    notes (mostly AI), plus longer posts when I publish one. No spam.
+  </p>
   <form
     action="https://damiengonot.us3.list-manage.com/subscribe/post?u=953d88edfeac49e5ff8f55651&amp;id=b086d70590"
     method="post"
     name="mc-embedded-subscribe-form"
-    class="mt-4"
     target="_blank"
     novalidate
   >
     <div class="max-w-xl flex flex-col sm:flex-row gap-3">
+      <label class="sr-only" for="mce-EMAIL">Email address</label>
       <input
+        id="mce-EMAIL"
         type="email"
         name="EMAIL"
         placeholder="you@example.com"
@@ -96,7 +111,7 @@
       <button
         type="submit"
         name="subscribe"
-        class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        class="inline-flex items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shrink-0"
       >
         Subscribe
       </button>

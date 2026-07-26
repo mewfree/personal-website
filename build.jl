@@ -100,7 +100,7 @@ output =
         header,
         "{SLUG}" => "/blog",
         "{TITLE}" => "Blog Posts - Damien Gonot",
-        "{DESCRIPTION}" => "List of blog posts by Damien Gonot.",
+        "{DESCRIPTION}" => "Blog posts by Damien Gonot: ads and marketing automation, plus occasional longer essays.",
     ) *
     content *
     footer
@@ -202,7 +202,7 @@ daily_output =
         header,
         "{SLUG}" => "/daily",
         "{TITLE}" => "Daily - Damien Gonot",
-        "{DESCRIPTION}" => "Curated daily links and notes by Damien Gonot.",
+        "{DESCRIPTION}" => "Daily AI links and short notes by Damien Gonot.",
     ) *
     daily_content *
     footer
@@ -311,14 +311,14 @@ routes = [
         source="index.html",
         title="Damien Gonot",
         heading="",
-        description="Homepage of Damien Gonot's personal website.",
+        description="Software developer & marketer. Daily AI notes, a blog on ads automation, and public notes by Damien Gonot.",
     ),
     (
         destination="about.html",
         source="about.org",
         title="About - Damien Gonot",
         heading="About me",
-        description="Learn more about Damien Gonot.",
+        description="About Damien Gonot, software developer & marketer. Contact, résumé, and personal stack.",
     ),
     (
         destination="citadel.html",
