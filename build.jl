@@ -164,6 +164,25 @@ function format_daily_weekday(date::Date, locale::AbstractString)
     return Dates.format(date, dateformat"EEEE")
 end
 
+"""Collapse whitespace and escape for double-quoted HTML attributes (e.g. meta description)."""
+function html_attr(s::AbstractString)
+    s = strip(replace(String(s), r"\s+" => " "))
+    s = replace(s, "&" => "&amp;")
+    s = replace(s, "\"" => "&quot;")
+    s = replace(s, "<" => "&lt;")
+    s = replace(s, ">" => "&gt;")
+    return s
+end
+
+"""Plain-text excerpt → one-line meta description (escaped later via wrap_page)."""
+function excerpt_description(excerpt::AbstractString; max_chars::Int=297)
+    plain = strip(replace(String(excerpt), r"\s+" => " "))
+    if length(plain) > max_chars
+        return first(plain, max_chars) * "..."
+    end
+    return plain * "..."
+end
+
 """Rewrite absolute in-site links so FR pages stay under /fr/."""
 function localize_hrefs(html::AbstractString, locale::AbstractString)
     locale == "fr" || return html
@@ -190,7 +209,7 @@ function apply_chrome(
         chrome,
         "{LANG}" => t["lang"],
         "{TITLE}" => title,
-        "{DESCRIPTION}" => description,
+        "{DESCRIPTION}" => html_attr(description),
         "{CANONICAL}" => canonical == "/" ? "" : canonical,
         "{EN_PATH}" => en_path,
         "{FR_PATH}" => fr_path,
@@ -310,7 +329,7 @@ for locale in LOCALES
             locale,
             "/blog/" * slug,
             body["title"] * " - Damien Gonot",
-            "$(first(body["excerpt"], 297))...",
+            excerpt_description(body["excerpt"]),
             templated,
         )
         write_page(locale, "blog/$slug.html", output)
@@ -434,7 +453,7 @@ for locale in LOCALES
             locale,
             "/daily/" * day["slug"],
             day["title"] * t["daily_suffix"],
-            "$(first(day["excerpt"], 297))...",
+            excerpt_description(day["excerpt"]),
             templated_string,
         )
         write_page(locale, "daily/$(day["slug"]).html", output)
@@ -561,7 +580,7 @@ if has_notes
                 locale,
                 "/notes/" * slug,
                 body["title"] * t["notes_suffix"],
-                "$(first(body["excerpt"], 297))...",
+                excerpt_description(body["excerpt"]),
                 templated,
             )
             write_page(locale, "notes/$slug.html", output)

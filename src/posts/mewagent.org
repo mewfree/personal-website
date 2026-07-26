@@ -1,0 +1,91 @@
+#+title: 🐈 mewagent - a personal AI agent on Cloudflare Workers
+#+date: 2026-07-26
+#+tags: generative AI,agents,cloudflare,telegram,openrouter,personal infrastructure
+
+* Introduction
+I wanted a personal AI agent I could message from my phone: something that remembers things about me, can fetch a page, update a daily note on this site, and otherwise sit quietly until I need it.
+
+There are already projects in this space ([[https://openclaw.ai/][OpenClaw]], [[https://hermes-agent.org/][Hermes]], and a pile of "personal agent" scaffolds). I like the shape: channels in, tools + memory in the middle, model out. What I didn't want was a VPS to babysit, multi-tenant auth, or a bot that talks to whoever finds its username.
+
+So I built *mewagent*: an OpenClaw/Hermes-style agent on a Cloudflare Worker + Telegram webhook, OpenRouter free models, long-term memory in Workers KV.
+
+* Why bother building another one?
+** The laptop is not a server
+Most personal agents assume a process on your machine or a cheap VPS: long-poll Telegram, keep the daemon alive, hope the laptop is open when you message from the bus. Fine for hacking; a poor always-on story.
+
+Cloudflare Workers give you an HTTPS endpoint, secrets, and KV without provisioning a box. Telegram posts to the Worker; the agent runs; you get a reply. No long-poll. No "is my gateway still running?"
+
+** Free models are good enough to start
+LLM calls go through [[https://openrouter.ai/][OpenRouter]], defaulting to free models (=openrouter/free= and other =:free= variants). For notes, context, and light tool use, that's often enough. When it isn't, you change a model string, not an architecture.
+
+Optionally route through [[https://developers.cloudflare.com/ai-gateway/][Cloudflare AI Gateway]] for analytics, caching, and rate limits. Same code; different base URL.
+
+* The shape of the system
+
+#+begin_example
+Telegram ──POST /telegram──► Worker ──► agent ──► [AI Gateway?] ──► OpenRouter
+                               │
+                               └── MEMORY (KV): notes + chat sessions
+#+end_example
+
+The agent loop is simple: load session, build a system prompt (persona + memories + optional project playbooks), call the model with tools, run tools for a few rounds, save the reply. Slash commands (=/help=, =/memory=, =/reset=, =/whoami=, =/model=) skip the LLM.
+
+Allowlisting happens at the edge. Worker tools stay Workers-safe: memory, web fetch, datetime, optional GitHub. No shell, no local filesystem.
+
+* Why Telegram
+For a personal agent, messaging friction matters more than feature checklists.
+
+| Platform             | Friction                    | Fit for me         |
+|----------------------+-----------------------------+--------------------|
+| *Telegram*           | free BotFather + webhook    | best default       |
+| Discord              | free bot                    | great, later       |
+| WhatsApp / Messenger | business APIs, verification | heavy for solo use |
+| Signal               | no official bot API         | poor fit           |
+
+Telegram gives you a real webhook, private chats, and a phone UI everyone already has. Groups are ignored. BotFather can disable groups so the bot never lands in a public chat by accident.
+
+* Security
+** Allowlist
+Worker + KV for memory and sessions. Secrets: OpenRouter, Telegram bot token, webhook secret.
+
+With =ALLOWED_TELEGRAM_IDS= empty, the bot only answers commands like =/whoami= - no agent, no tools. DM it, copy your numeric id, set the allowlist, redeploy. After that, only listed ids get the agent.
+
+** Webhook authenticity
+=TELEGRAM_WEBHOOK_SECRET= is required. Deploy the Worker, then Telegram's =setWebhook= to =/telegram= with the same =secret_token=. Missing secret → =/telegram= returns 503. Timing-safe compare. Random POSTs to a guessed path don't drive the agent.
+
+** GitHub with least privilege
+Optional: fine-grained PAT + =GITHUB_REPOS= allowlist so the agent can edit repos via the GitHub Contents API. PAT scoped to Contents only on those repos; the allowlist is a hard check in code as a second belt.
+
+For this site: I message the bot to add a daily entry, it reads =src/daily/YYYY-MM-DD.org=, appends a bullet, commits, replies with the URL. CI builds; Cloudflare Pages deploys. A system-prompt playbook keeps org-mode style.
+
+* What I use it for
+- Talk to a model from Telegram without opening a browser
+- Durable notes across sessions (preferences, project context) in KV
+- Append to the public [[file:../daily][daily]] log without a laptop editor
+- Occasional web fetch for a quick summary
+
+Not a desktop coding agent. The always-reachable assistant in my pocket.
+
+* Tradeoffs vs OpenClaw / Hermes-style daemons
+
+|               | mewagent         | typical local/VPS agent |
+|---------------+------------------+-------------------------|
+| always-on     | edge Worker      | process you supervise   |
+| channel       | Telegram         | often many              |
+| memory        | KV (simple keys) | often richer stores     |
+| skills / cron | planned          | often already there     |
+| multi-user    | intentionally no | varies                  |
+
+Smaller on purpose. Want multi-channel daemons, skills marketplaces, rich memory graphs? Use a bigger project. Want a single-owner bot on the edge that can edit your git-backed site? This shape has been pleasant.
+
+* Limits worth knowing
+- Free models + Workers free tier are fine for light use. Tool loops waiting on LLMs benefit from a paid Workers plan (CPU / wall time). Mid-reply deaths can trigger Telegram webhook retries.
+- KV is not a query engine. Note and session keys are enough for now; D1 if list/query needs grow.
+- Cron, Discord, Durable Objects per user, skills-as-=SKILL.md=: roadmap, not promises.
+
+* Closing
+Personal agents are having a moment. The interesting work is less "which model" than *where the loop runs*, *who can talk to it*, and *what tools you trust on that runtime*.
+
+mewagent is my answer for now: Workers for presence, Telegram for reach, OpenRouter for models, KV for memory, GitHub for the few write paths I care about, fail-closed so a discoverable bot username is not an open invitation.
+
+If you build something similar, or still prefer a VPS daemon, [[file:../about][I'd like to hear about it]].

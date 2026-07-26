@@ -87,11 +87,40 @@ pre code {
   margin-bottom: 1.5rem;
   line-height: 1.7;
 }
-.prose :where(ul, ol):not(:where(.not-prose *)) {
+/* Lists — preflight sets list-style: none; restore markers + indent without typography plugin */
+.prose :where(ul):not(:where(.not-prose *)) {
+  list-style-type: disc;
+  margin-top: 1.25rem;
   margin-bottom: 1.5rem;
+  padding-left: 1.625rem;
+}
+.prose :where(ol):not(:where(.not-prose *)) {
+  list-style-type: decimal;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.625rem;
 }
 .prose :where(li):not(:where(.not-prose *)) {
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  padding-left: 0.375rem;
+  line-height: 1.7;
+}
+.prose :where(li > ul, li > ol):not(:where(.not-prose *)) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose :where(ul ul, ol ul):not(:where(.not-prose *)) {
+  list-style-type: circle;
+}
+.prose :where(ul ul ul, ol ul ul, ul ol ul):not(:where(.not-prose *)) {
+  list-style-type: square;
+}
+.prose :where(ul > li, ol > li):not(:where(.not-prose *))::marker {
+  color: rgb(113 113 122); /* zinc-500 */
+}
+.dark .prose :where(ul > li, ol > li):not(:where(.not-prose *))::marker {
+  color: rgb(161 161 170); /* zinc-400 */
 }
 .prose :where(img):not(:where(.not-prose *)) {
   margin-top: 2rem;
@@ -110,6 +139,59 @@ pre code {
 /* Improve link underline aesthetics */
 .prose a {
   text-underline-offset: 3px;
+}
+
+/* Tables (pandoc/org export) — no cell padding without @tailwindcss/typography */
+.prose :where(table):not(:where(.not-prose *)) {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.925em;
+  line-height: 1.5;
+}
+
+.prose :where(thead):not(:where(.not-prose *)) {
+  border-bottom: 2px solid rgb(228 228 231); /* zinc-200 */
+}
+
+.dark .prose :where(thead):not(:where(.not-prose *)) {
+  border-bottom-color: rgb(63 63 70); /* zinc-700 */
+}
+
+.prose :where(th):not(:where(.not-prose *)) {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  vertical-align: bottom;
+  color: rgb(24 24 27); /* zinc-900 */
+}
+
+.dark .prose :where(th):not(:where(.not-prose *)) {
+  color: rgb(244 244 245); /* zinc-100 */
+}
+
+.prose :where(td):not(:where(.not-prose *)) {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid rgb(228 228 231); /* zinc-200 */
+}
+
+.dark .prose :where(td):not(:where(.not-prose *)) {
+  border-top-color: rgb(63 63 70); /* zinc-700 */
+}
+
+.prose :where(tbody tr:first-child td):not(:where(.not-prose *)) {
+  border-top: none;
+}
+
+.prose :where(th:first-child, td:first-child):not(:where(.not-prose *)) {
+  padding-left: 0;
+}
+
+.prose :where(th:last-child, td:last-child):not(:where(.not-prose *)) {
+  padding-right: 0;
 }
 
 /* Code blocks */
