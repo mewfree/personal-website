@@ -2,7 +2,7 @@
 
 * Artificial Intelligence
 - SSI (Ilya Sutskever's AI lab) announced partnership with Nvidia to expand compute reach [[https://www.wsj.com/tech/ai/nvidia-bets-on-ilya-sutskevers-new-ai-lab-to-expand-compute-reach-f95596e8][WSJ article]]
-- Anthropic's stance on open weights models [[https://www.anthropic.com/news/position-open-weights-models][Open weights models]]
+- Anthropic's stance on open-weights models [[https://www.anthropic.com/news/position-open-weights-models][Our position on open-weights models]]
 
 * Energy
 - Antares (nuclear microreactors) raised $470M [[https://x.com/AntaresNuclear/status/2081751942276211165][Twitter/X]]
