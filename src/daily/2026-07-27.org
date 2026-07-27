@@ -1,0 +1,4 @@
+#+title: 2026-07-27
+
+* Artificial Intelligence
+- SSI (Ilya Sutskever's AI lab) announced partnership with Nvidia to expand compute reach [[https://www.wsj.com/tech/ai/nvidia-bets-on-ilya-sutskevers-new-ai-lab-to-expand-compute-reach-f95596e8][WSJ article]]
