@@ -3,4 +3,6 @@
 * Artificial Intelligence
 - OpenAI reduced prices for GPT-5.6 Luna and Terra: [[https://x.com/OpenAI/status/2082878156483219672][announcement]].
 - Thinking Machines introduced [[https://thinkingmachines.ai/news/inkling-small/][Inkling-Small]].
+
+* Technology
 - Applied Electrodynamics introduced [[https://www.ae-dyn.com/][WaveSight]], a camera that can see through walls.
