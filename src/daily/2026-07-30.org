@@ -7,4 +7,4 @@
 
 * Technology
 - Applied Electrodynamics introduced [[https://www.ae-dyn.com/][WaveSight]], a camera that can see through walls.
-- Simile announced its Series B: $200 million at a $2 billion post-money valuation: [[https://www.simile.com/blog/series-b][announcement]].
+- Simile announced its Series B: 200 million dollars at a 2 billion dollar post-money valuation: [[https://www.simile.com/blog/series-b][announcement]].
