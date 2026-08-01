@@ -1,0 +1,4 @@
+#+title: 2026-08-01
+
+* Artificial Intelligence
+- [[https://openai.com/index/ten-advances-in-mathematics/][OpenAI: Ten advances in mathematics and theoretical computer science]] — results on long-standing problems spanning geometry, cryptography, and complexity theory.
