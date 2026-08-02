@@ -47,19 +47,16 @@ https://learnxinyminutes.com/docs/solidity/
 *** Interactive Tutorials
 https://cryptozombies.io/
 https://ethernaut.openzeppelin.com/
-https://vyper.fun/
 *** Infrastructure
-https://infura.io/: Ethereum node; have account and keys
-https://dashboard.alchemyapi.io/: Ethereum node; have account
+https://infura.io/: Ethereum node; have account and keys (acquired by ConsenSys, Feb 2026)
+https://dashboard.alchemy.com/: Ethereum node; have account (legacy alchemyapi.io retired Jan 2026)
 *** Local Dev Env
 https://ethereum.org/en/developers/local-environment/
-https://openzeppelin.com/sdk/ interacting with smart contracts in the CLI
-https://hardhat.org/ compile, deploy, test, and debug your Ethereum software
-https://www.trufflesuite.com/ tools for smart contracts
-https://www.trufflesuite.com/ganache local copy of an Ethereum blockchain
-https://framework.embarklabs.io/ all-in-one for dapps
-https://eth-brownie.readthedocs.io/en/stable/deploy.html Python-based, better than the rest?
-https://github.com/gakonst/foundry new (Dec 2021), very fast
+https://hardhat.org/ compile, deploy, test, and debug your Ethereum software (Hardhat 3 in dev, 2026)
++https://openzeppelin.com/sdk/ interacting with smart contracts in the CLI+ deprecated, superseded by OpenZeppelin Upgrades Plugins
++https://www.trufflesuite.com/ tools for smart contracts+ / +https://www.trufflesuite.com/ganache local copy of an Ethereum blockchain+ discontinued by ConsenSys, Sept 2023, repos archived Feb 2024 — use Hardhat/Foundry instead
++https://framework.embarklabs.io/ all-in-one for dapps+ effectively inactive, no maintenance
++https://eth-brownie.readthedocs.io/en/stable/deploy.html Python-based, better than the rest?+ unmaintained, use Ape Framework instead
 **** Foundry
 https://onbjerg.github.io/foundry-book/index.html
 =forge init {project}= to start a new project
@@ -150,37 +147,24 @@ https://lambert-guillaume.medium.com/pricing-uniswap-v3-lp-positions-towards-a-n
 https://github.com/ccyanxyz/uniswap-arbitrage-analysis
 https://github.com/libevm/subway
 **** Sushiswap
+Survived a near-collapse; new leadership took over Dec 2025, token down ~99% from ATH
 **** Balancer
+Hit by a $110-128M exploit (Nov 2025); the corporate entity behind it shut down in March 2026 citing legal exposure. Protocol/DAO continuing in some form.
 **** Kyberswap
+Repeatedly hacked ($47M in 2023, tied to an ~$80-100M USR exploit in 2026); aggregator still operating
 **** 0x
-**** mistX
-https://mistx.io/
-Gasless swaps, no frontrunners
-**** Futureswap
-https://www.futureswap.com/
 **** for stablecoins
 ***** Curve
 AMM for stablecoins
-****** Conic
-https://conic.finance/
-#+begin_quote
-Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.
-#+end_quote
-***** Shells
-https://shells.exchange/
-Another AMM for stablecoins
-***** Swerve
-https://swerve.fi
 *** Orderbook-based
 **** dYdX
 ***** L2
 Everything is done on L2
 No gas fees once coins are deposited on L2
 From time to time, L2 is synced to L1
-**** Fulcrum
-https://fulcrum.trade
-**** Deversifi
-https://deversifi.com
+**** Deversifi => rhino.fi
+Rebranded to rhino.fi in July 2022; still operating as a multi-chain L2 DeFi gateway
+https://rhino.fi
 **** Lighter
 https://lighter.xyz
 *** Aggregators
@@ -198,12 +182,10 @@ Automated on-chain hedge fund
 https://yearn.finance
 *** Stake DAO
 https://stakedao.org/
-*** Rari Capital
-https://v2.rari.capital
 *** Harvest Finance
 https://harvest.finance
-*** Keeper DAO
-https://app.keeperdao.com
+*** Keeper DAO => Rook
+Rebranded to Rook (ROOK); original KeeperDAO brand discontinued
 *** Formation.fi
 https://formation.fi/
 Yield farming optimizer
@@ -222,6 +204,7 @@ DECENTRALIZED PERPS
 Trade global markets with low fees, deep liquidity, and up to 100× leverage.
 #+end_quote
 On Arbitrum L2
+Status as of 2026 unclear/ambiguous (name conflated with other "Cap" projects)
 ** Alchemix
 https://app.alchemix.fi/
 Deposit DAI, borrow up to 50% as alUSD
@@ -229,36 +212,31 @@ Yield on DAI through YFI pays back the loan itself
 ** sideshift
 https://sideshift.ai/btc/eth
 Not sure I understand the appeal?
-** Pop
-https://pop.town/
-High-yield staking for ETH and USDC
 ** Fei
 New algo stablecoin
 
 <2021-04-07> update: looks like Fei failed miserably...
 https://rekt.news/fei-rekt/
-** APWine
-https://www.apwine.fi/
-The protocol allowing you to trade unrealised yield.
+Confirmed defunct: merged into Tribe DAO, wound down starting Aug 2022 after the $80M Rari/Fuse hack
+** APWine => Spectra Finance
+Rebranded to Spectra Finance (July 2023); relaunched June 2024, active (~$20M TVL)
+https://www.spectra.finance/
 ** TimeSwap
 "Like Uniswap, but for lending & borrowing"
 https://app.timeswap.io/
-** Fodl
-https://fodl.finance/
-Leveraged lending
+Faded: token has effectively stopped trading on major exchanges
 ** Euler
 https://www.euler.finance/#/
-Permissionless crypto lending markets are almost here.
+Hacked for ~$200M in March 2023 (100% recovered); relaunched as Euler v2, TVL hit an all-time high by 2026
 
 * Other Projects
-https://zapper.fi: portfolio management
+https://zapper.fi: portfolio management. Shutting down Aug 3, 2026 — site/apps/API closing after 7 years
 https://feed.chain.link: on-chain price reference data
 https://defirate.com & https://yieldfarming.info: yield rate comparison
-https://tornado.cash: anonymize ETH transactions
+https://tornado.cash: anonymize ETH transactions. OFAC lifted sanctions March 2025 (Fifth Circuit ruled immutable contracts aren't sanctionable "property"); co-founder Alexey Pertsev separately convicted of money laundering in the Netherlands, May 2024
 
 * Flash Loans
 AAVE, +dYdX+, Uniswap...
-Kollateral: https://docs.kollateral.co aggregated pools from different sources
 Balancer V2: https://twitter.com/fcmartinelli/status/1461777136071716875
 
 ** Resources

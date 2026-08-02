@@ -13,7 +13,6 @@ smart contracts = programs
 
 * Wallet
 ** Using Ledger: https://solflare.com/dashboard
-** Sollet.io
 
 * Tools
 - https://docs.solana.com/developing/clients/jsonrpc-api
@@ -39,30 +38,20 @@ The "Truffle" of Solana
 - https://jstarry.notion.site/Program-deploys-29780c48794c47308d5f138074dd9838
 
 * Projects
-** Serum
-https://github.com/project-serum/serum-dex
-Serum is a DEX developed on the Solana blockchain.
-Serum is fully non-custodial.
-*** Trading cycle
-SPL wallet => OpenOrders account => Request Queue => Event Queue => OpenOrders => Wallet
-*** How to interact?
-https://github.com/project-serum/awesome-serum
-serum-ts: https://github.com/project-serum/serum-ts/tree/master/packages/serum
-PySerum: https://github.com/serum-community/pyserum
-*** Bonfida
-A Serum GUI?
-Interesting API endpoint: https://docs.bonfida.com/#get-long-and-short-ratios
-*** Orca
-https://twitter.com/orca_so
+[[https://github.com/project-serum/serum-dex][Serum]] declared itself defunct in Nov 2022 after the FTX/Alameda collapse
+(FTX held its upgrade authority). Community-forked into OpenBook in 2023.
+
+** Bonfida
+Rebranded to Solana Name Service (SNS) in 2026.
+https://docs.bonfida.com/#get-long-and-short-ratios
+
+** Orca
+https://www.orca.so/
+Leading Solana DEX (Whirlpools), expanding into tokenized RWAs.
 
 ** Dashboards
-*** Step.finance
-https://step.finance/
-Basically Zapper for Solana.
-Super cool and easy to track Raydium yield farming.
-
 *** Sonar.watch
-https://sonar.watch/
+Acquired by Jupiter in 2026, folded into Jupiter's portfolio-tracking feature.
 
 ** Raydium
 AMM on Solana
@@ -72,28 +61,10 @@ https://raydium.io/farms
 Made for Uniswap but should be the same for Raydium:
 https://dailydefi.org/articles/lp-token-value-calculation/
 
-** Mango Markets
-5x leveraged spot trading
-https://trade.mango.markets/
-
-v1 was USDT based, v2 is USDC based
-
-DEX-like API for Mango Markets: https://github.com/tardis-dev/mango-bowl
-
-** SolRise
-https://solrise.finance/
-On-chain hedge fund?
-
-** Mercurial
-https://www.mercurial.finance/
-Dynamic Vaults with Stable Swaps
-
-AcceleRaytor launch on <2021-05-19>:
-https://raydium.medium.com/mercurial-finance-launching-on-acceleraytor-9e7ac60a21df
-
-** SolFarm
-https://solfarm.io/
-The Efficient Solana Yield Aggregator
+** Mercurial => Meteora
+Rebranded to Meteora in 2023 (clean break from FTX-linked MER token).
+Now powers Jupiter Swap infra.
+https://www.meteora.ag/
 
 ** Saber
 https://saber.so/
@@ -103,102 +74,41 @@ AMM for stablecoins
 https://symmetry.fi/
 "Create & invest in custom indices"
 
-** Steaking
-https://www.steaking.io/
-Auto-compounding staking
-
-** Moet.fi
-https://moet.fi/
-A scalable, decentralised, capital-efficient derivatives
-exchange built on Solana.
-Coming soon.
-
-** Synthetify
-https://synthetify.io/
-Decentralized synthetic assets exchange
-
-** Parrot
-https://doc.partyparrot.finance/guide/
-The Parrot Protocol is a DeFi network built on Solana that will include the stablecoin PAI, a non-custodial lending market, and a margin trading vAMM. These are all use cases designed to solve one single problem: making value locked in DeFi systems accessible.
-
 ** Hedgehog
 https://hedgehog.markets/
-Hedgehog is a lightning fast prediction market that generates passive yield for LPs while providing users a seamless experience.
-
-** 01
-https://01.xyz/
-Experience fully autonomous markets, instant liquidity, millisecond transaction speeds, and defi-wide low fees.
-
-*** Power Perpetuals
-https://01exchange.medium.com/01-exchange-introduces-power-perpetuals-squol-1c8aa1dbc1d8
-
-** LIQ Protocol
-https://liqsolana.com/
-A decentralized on-chain liquidation engine powering Serum markets & lending platforms on the Solana network
+Relaunched in 2026 as a prediction market platform.
 
 ** Marinade.finance
 https://marinade.finance/
 Liquid staking protocol built on Solana blockchain.
+Most-used Solana staking platform in 2026.
 
 ** Zeta Markets
 https://zeta.markets/
-Zeta is the premier under-collateralized DeFi options platform built on Solana.
+Migrating to the "Bullet" network, ZEX token launch pending.
 
-** Solend
-https://solend.fi/
-Solend is the autonomous interest rate machine for Solana.
-Earn interest on deposits and borrow assets on the fastest, lowest fee, and most scalable lending protocol.
-
-** Francium
-https://francium.io/
-An Innovative Leveraged Yield Protocol with Diverse Community Strategies Built on Solana
-https://francium-defi.medium.com/francium-explained-what-is-leveraged-yield-farming-lyf-5a203a0d649
-
-** Port Finance
-https://port.finance/
-The First Non-Custodial Liquidity Protocol On Solana
-Flash loans?
+** Solend => Save
+Rebranded to Save (save.finance) in July 2024.
+Added SUSD stablecoin and SaveSOL LST.
 
 ** Drift Protocol
 https://www.drift.trade/
-A lightning-fast and scalable perpetual futures DEX.
-
-** Jet Protocol
-https://www.jetprotocol.io/
-Jet is a decentralized borrowing and lending protocol built for speed, power, and scalability on Solana. We’re here to add jet fuel to the fire of the DeFi revolution.
+Suffered a $286M exploit in April 2026 (durable-nonce attack).
+Relaunch targeted Q3 2026 as a leaner perps-only venue.
 
 ** Jupiter
 https://jup.ag/
-Aggregator for best swap execution (1inch of Solana)
+Aggregator for best swap execution (1inch of Solana).
+Dominant, ~95% of Solana DEX volume; acquired Sonar.watch, launched JupUSD stablecoin.
 
 ** Apricot
 https://app.apricot.one/
-Better lending, IDO soon
-
-** Chest.fi
-https://www.chest.fi/
-Solana’s Premiere Yield Boosting Engine Token?
-
-** Hubble
-https://hubbleprotocol.io/
-Supercharge Your
-Liquidity On Solana
-
-Mint USDH stablecoin at 0% interest
-against multiple types of collateral
-
-** Otter Cash
-https://otter.cash/
-A privacy layer for the Solana ecosystem.
-"Tornado" of Solana
-
-** Cypher
-https://cypher.trade/
-cypher enables global access to historically gated pre-public markets.
+Still live, retiring some features to focus dev effort; expanded to Aptos.
 
 ** Kamino
 https://app.kamino.finance/
-Lending platform
+Lending platform. Largest lending protocol on Solana (~$3.2B TVL in 2026).
+Absorbed Hubble Protocol's lending business (Hubble's USDH wound down 2024).
 
 ** List of new projects
 https://solasystem.io/
@@ -206,5 +116,4 @@ https://solasystem.io/
 ** NFTs
 *** SolanaMonkeyBusiness (SMB)
 https://solanamonkey.business/
-*** Solend NFT isolated pool
-https://blog.solend.fi/nft-isolated-pool-with-solana-monkey-business-5396ea91235b
+Still a blue-chip collection in 2026; SMB Gen3 in progress.

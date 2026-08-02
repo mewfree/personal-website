@@ -11,6 +11,7 @@ https://www.kalzumeus.com/2019/10/28/tether-and-bitfinex/
 *** USDC
 *** TUSD
 https://www.trusttoken.com/
+Entities behind it (Archblock/TrustToken/TrueCoin) filed Chapter 11 bankruptcy March 2026 over a reserve-payment dispute with Techteryx; token itself still circulating, reserve ratio raised to 100% (US) in May 2026
 
 * NFTs
 https://coinmarketcap.com/nfts/
@@ -49,4 +50,4 @@ Index price: price of the underlying asset
 When the index price and the mark price diverge, the system transfers a funding fee between those who are long the perp (have bought it) and those who are short the perp (have sold it). In our example perp, the funding fee paid by the longs to the shorts is $(mark price - index price) per contract per day. When this number is negative, the shorts pay the longs.
 #+end_quote
 
-FTX / Mango / Drift comparison http://www.platyperps.com/
++FTX+ / Mango / Drift comparison http://www.platyperps.com/ — FTX defunct (collapsed Nov 2022), Mango Markets also defunct (hacked 2022, SEC-forced wind-down), comparison stale
