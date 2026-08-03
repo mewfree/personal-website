@@ -1,4 +1,4 @@
 #+title: 2026-08-03
 
 * Artificial Intelligence
-- [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8]]
+- Qwen introduced [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8-Max]], a new bar for coding and cowork.
