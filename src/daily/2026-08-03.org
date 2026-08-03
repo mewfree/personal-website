@@ -1,0 +1,4 @@
+#+title: 2026-08-03
+
+* Artificial Intelligence
+- [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8]]
