@@ -5,3 +5,4 @@
 
 * Energy
 - [[https://www.valaratomics.com/docs/Announcing-our-1B-Series-B-Led-By-Sequoia][Valar Atomics raised $1 billion in a Series B led by Sequoia Capital]] to manufacture fleets of nuclear reactors.
+- [[https://www.businesswire.com/news/home/20260803203117/en/Base-Power-Announces-%241B-Series-D-and-Launches-Base-Core-First-of-its-Kind-Home-Battery-Built-in-the-United-States][Base Power announced a $1 billion Series D and launched Base Core]], a home battery built in the United States.
