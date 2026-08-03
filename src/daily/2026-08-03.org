@@ -4,4 +4,4 @@
 - Qwen introduced [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8-Max]], a new bar for coding and cowork.
 
 * Energy
-- [[https://www.valaratomics.com/docs/Announcing-our-1B-Series-B-Led-By-Sequoia][Valar Atomics raised $1 billion in a Series B led by Sequoia Capital]] to develop a nuclear reactor.
+- [[https://www.valaratomics.com/docs/Announcing-our-1B-Series-B-Led-By-Sequoia][Valar Atomics raised $1 billion in a Series B led by Sequoia Capital]] to manufacture fleets of nuclear reactors.
