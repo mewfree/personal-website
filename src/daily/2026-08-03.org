@@ -2,3 +2,6 @@
 
 * Artificial Intelligence
 - Qwen introduced [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8-Max]], a new bar for coding and cowork.
+
+* Energy
+- Valar Atomics raised $1 billion in a Series B led by [[https://www.valaratomics.com/docs/Announcing-our-1B-Series-B-Led-By-Sequoia][Sequoia Capital]] to manufacture nuclear reactors.
