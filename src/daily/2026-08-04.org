@@ -2,3 +2,6 @@
 
 * Software
 - [[https://news.convex.dev/convex-raises-57m/][Convex raises $57M]]
+
+* Artificial Intelligence
+- [[https://bfl.ai/blog/flux-3-video][FLUX.3 Video]]
