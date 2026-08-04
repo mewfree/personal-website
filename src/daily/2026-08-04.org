@@ -1,0 +1,4 @@
+#+title: 2026-08-04
+
+* Software
+- [[https://news.convex.dev/convex-raises-57m/][Convex raises $57M]]
