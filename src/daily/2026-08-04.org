@@ -5,3 +5,4 @@
 
 * Artificial Intelligence
 - [[https://bfl.ai/blog/flux-3-video][FLUX.3 Video]]
+- [[https://www.spacex.com/spacexai/starmind][StarMind]]
