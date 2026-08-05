@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/][Google reshapes DeepMind leadership as Demis Hassabis shifts to AGI strategy and Koray Kavukcuoglu takes the helm]]; Jeff Dean and Sanjay Ghemawat also launch an independent public-benefit corporation focused on machine learning, science, and engineering.
+- [[https://x.com/finkd/status/2085080750034940201][Meta releases Muse Code, a terminal coding agent for large software-engineering tasks]]; the beta uses Muse Spark 1.2 and supports persistent background agents, parallel sub-agents, and local event logging for auditable execution.
