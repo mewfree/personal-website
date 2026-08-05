@@ -1,0 +1,4 @@
+#+title: 2026-08-05
+
+* Artificial Intelligence
+- [[https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/][Google reshapes DeepMind leadership as Demis Hassabis shifts to AGI strategy and Koray Kavukcuoglu takes the helm]]; Jeff Dean and Sanjay Ghemawat also launch an independent public-benefit corporation focused on machine learning, science, and engineering.
