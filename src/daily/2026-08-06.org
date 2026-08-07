@@ -1,0 +1,5 @@
+#+title: 2026-08-06
+
+* Artificial Intelligence
+- [[https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/][OpenAI improves GPT-5.6 Sol while expanding free ChatGPT access]] — the updated model brings better accuracy and consistency, alongside unlimited everyday text chats with GPT-5.6 Luna for free users.
+- [[https://newsroom.amd.com/news/amd-acquires-taalas-ai-inference/][AMD acquires Taalas to accelerate AI inference with model-specific silicon]] — Taalas’ technology is intended to improve inference performance and efficiency as AMD expands its AI compute platform.
