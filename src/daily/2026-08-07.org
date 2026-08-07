@@ -1,0 +1,4 @@
+#+title: 2026-08-07
+
+* Artificial Intelligence
+- [[https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/][OpenAI shares preliminary evaluations of Astra’s critical cybersecurity capabilities and outlines stronger safeguards and security controls for frontier cyber-capable models]].
