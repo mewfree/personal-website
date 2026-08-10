@@ -1,0 +1,8 @@
+#+title: 2026-08-10
+
+* Artificial Intelligence
+- [[https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model][Meta open-sources Muse Glimmer, a 30-billion-parameter agentic model designed to run locally on a single consumer GPU]] under Apache 2.0, with multimodal input, long-horizon tool use, and integrations for llama.cpp, MLX, and ExecuTorch.
+- [[https://www.meta.com/thefutureisforeveryone/][Meta outlines a personal-superintelligence future built around individual empowerment, invention, and widely distributed AI]] rather than centralized control.
+
+* Cybersecurity
+- [[https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/][OpenAI expands Daybreak with GPT-5.5-Cyber and new defensive tools and partnerships]] to help defenders find and patch vulnerabilities as AI accelerates the attack cycle.
