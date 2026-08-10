@@ -1,0 +1,5 @@
+#+title: Maintenant
+
+/(Dernière mise à jour le 2026-08-09, dans l'esprit de [[https://nownownow.com/about][nownownow.com]].)/
+
+Tout se passe dans [[file:notes/computer-science/tools/text-editors/emacs][Emacs]] avec evil-mode — [[file:notes/computer-science/tools/text-editors/emacs/org-mode][Org Mode]] construit d'ailleurs cette page. Le terminal, c'est [[https://ghostty.org/][Ghostty]] avec [[file:notes/computer-science/tools#zellij][Zellij]] et [[file:notes/computer-science/tools/terminal#zsh][zsh]]. J'écris surtout du [[file:notes/computer-science/languages/ruby.org][Ruby]] et du [[file:notes/computer-science/languages/javascript.org][JavaScript]] en ce moment, avec quelques incursions en [[file:notes/computer-science/languages/julia.org][Julia]], [[file:notes/computer-science/languages/elixir.org][Elixir]] et [[file:notes/computer-science/languages/python.org][Python]].

@@ -4,35 +4,14 @@ Software developer & marketer. I work at the intersection of product, growth, an
 
 [[file:damiengonot_resume.pdf][💾 Download my résumé as a PDF]]
 
+See what I'm currently using and writing on my [[/now][Now page]].
+
 * Contact
 - Email: =damien.gonot@gmail.com=
 - GitHub: [[https://github.com/mewfree][@mewfree]]
 - X/Twitter: [[https://x.com/mewfree][@mewfree]]
 - Bluesky: [[https://bsky.app/profile/dgonot.com][@dgonot.com]]
 - LinkedIn: [[https://www.linkedin.com/in/damiengonot][linkedin.com/in/damiengonot]]
-
-* Personal stack
-** Hardware
-- 💻 M1 MacBook Pro
-- 🐧 ThinkPad X1 Nano
-- 📱 Google Pixel 6a
-- 📖 Hisense Hi Reader
-- ⌨️ UHK 60 v2
-- 📷 Sony α7C II
-
-** Software
-- ✍️ [[file:notes/computer-science/tools/text-editors/emacs][GNU Emacs]] (with evil-mode)
-- 🧠 [[file:notes/computer-science/tools/text-editors/emacs/org-mode][Org Mode]] (this page is built using [[file:notes/computer-science/tools/text-editors/emacs/org-mode][Org Mode]]!)
-- 👻 [[https://ghostty.org/][Ghostty]]
-- 🧑‍🌾 [[file:notes/computer-science/tools#zellij][Zellij]]
-- ⚙️ [[file:notes/computer-science/tools/terminal#zsh][Zsh]]
-
-** Languages
-- 💎 [[file:notes/computer-science/languages/ruby.org][Ruby]]
-- 🕸️ [[file:notes/computer-science/languages/javascript.org][JavaScript]]
-- 🔬 [[file:notes/computer-science/languages/julia.org][Julia]]
-- 🧙 [[file:notes/computer-science/languages/elixir.org][Elixir]]
-- 🐍 [[file:notes/computer-science/languages/python.org][Python]]
 
 * Random
 #+begin_src julia :exports results

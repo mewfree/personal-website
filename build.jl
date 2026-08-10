@@ -84,10 +84,13 @@ const I18N = Dict(
         "home_description" => "Software developer & marketer. Daily AI notes, a blog on ads automation, and public notes by Damien Gonot.",
         "about_title" => "About - Damien Gonot",
         "about_heading" => "About me",
-        "about_description" => "About Damien Gonot, software developer & marketer. Contact, résumé, and personal stack.",
+        "about_description" => "About Damien Gonot, software developer & marketer. Contact and résumé.",
         "citadel_title" => "Citadel - Damien Gonot",
         "citadel_heading" => "Citadel",
         "citadel_description" => "Damien Gonot's own citadel.",
+        "now_title" => "Now - Damien Gonot",
+        "now_heading" => "Now",
+        "now_description" => "What Damien Gonot is currently using and writing.",
         "notes_title" => "Notes - Damien Gonot",
         "notes_heading" => "Notes",
         "notes_description" => "Damien Gonot's public notes.",
@@ -124,10 +127,13 @@ const I18N = Dict(
         "home_description" => "Développeur et marketer. Journal IA quotidien, blog sur l'automatisation des ads, et notes publiques de Damien Gonot.",
         "about_title" => "À propos - Damien Gonot",
         "about_heading" => "À propos de moi",
-        "about_description" => "À propos de Damien Gonot, développeur et marketer. Contact, CV et stack personnelle.",
+        "about_description" => "À propos de Damien Gonot, développeur et marketer. Contact et CV.",
         "citadel_title" => "Citadelle - Damien Gonot",
         "citadel_heading" => "Citadelle",
         "citadel_description" => "La citadelle de Damien Gonot.",
+        "now_title" => "Maintenant - Damien Gonot",
+        "now_heading" => "Maintenant",
+        "now_description" => "Ce que Damien Gonot utilise et écrit en ce moment.",
         "notes_title" => "Notes - Damien Gonot",
         "notes_heading" => "Notes",
         "notes_description" => "Les notes publiques de Damien Gonot.",
@@ -188,7 +194,7 @@ function localize_hrefs(html::AbstractString, locale::AbstractString)
     locale == "fr" || return html
     # Longer prefixes first so /notes is not half-matched oddly
     for path in
-        ("/daily", "/blog", "/notes", "/about", "/citadel", "/resume", "/homepage")
+        ("/daily", "/blog", "/notes", "/about", "/citadel", "/now", "/resume", "/homepage")
         html = replace(html, "href=\"$path" => "href=\"/fr$path")
     end
     return html
@@ -599,6 +605,7 @@ function render_org_route(source_path::AbstractString, heading::AbstractString, 
     html = replace(
         read(`pandoc $source_path --shift-heading-level-by=1`, String),
         ".org\">" => "\">",
+        "href=\"file:///now\"" => "href=\"/now\"",
     )
     html = localize_hrefs(html, locale)
     return replace(
@@ -662,6 +669,18 @@ for locale in LOCALES
         citadel_content,
     )
     write_page(locale, "citadel.html", citadel_output)
+
+    # Now
+    now_source = locale == "fr" ? "src/fr/now.org" : "src/now.org"
+    now_content = render_org_route(now_source, t["now_heading"], locale)
+    now_output = wrap_page(
+        locale,
+        "/now",
+        t["now_title"],
+        t["now_description"],
+        now_content,
+    )
+    write_page(locale, "now.html", now_output)
 
     # Notes index
     if has_notes
