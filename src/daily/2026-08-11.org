@@ -1,0 +1,4 @@
+#+title: 2026-08-11
+
+* Artificial Intelligence
+- [[https://www.wsj.com/tech/ai/anthropic-tries-to-shore-up-investor-confidence-ahead-of-blockbuster-ipo-0ff736ad][Anthropic courts investor confidence as it prepares for a potential blockbuster IPO]]; the AI company is reportedly arranging meetings with institutional investors ahead of a possible October listing, using the process to test demand and address doubts about the durability of AI returns.
