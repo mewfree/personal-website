@@ -1,0 +1,4 @@
+#+title: 2026-08-12
+
+* Artificial Intelligence
+- [[https://x.ai/news/grok-4-6][xAI releases Grok 4.6 for long-running agents and ambitious interactive work]], with stronger coding and knowledge-work performance, visual project generation, and availability through Grok Build, Cursor, the API, and partners.
