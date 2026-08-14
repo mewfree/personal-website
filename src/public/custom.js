@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       { left: "\\(", right: "\\)", display: false },
       { left: "\\[", right: "\\]", display: true },
     ],
+    ignoredClasses: ["no-katex"],
     throwOnError: false,
   });
 });
