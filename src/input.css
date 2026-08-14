@@ -136,17 +136,22 @@ pre code {
   margin: 2rem 0;
 }
 
-/* Prose links — preflight sets color/decoration inherit; style them explicitly */
+/* Prose links — show the underline only while interacting, while preserving the link colours */
 .prose a {
   color: rgb(79 70 229); /* indigo-600 */
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-color: rgb(129 140 248 / 0.5); /* indigo-400/50 */
   text-underline-offset: 3px;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .prose a:hover {
   color: rgb(67 56 202); /* indigo-700 */
+  text-decoration: underline;
   text-decoration-color: rgb(129 140 248); /* indigo-400 */
+}
+/* Project cards are links too, but their hover treatment is the card itself. */
+.prose a.group:hover {
+  text-decoration: none;
 }
 .dark .prose a {
   color: rgb(129 140 248); /* indigo-400 */
