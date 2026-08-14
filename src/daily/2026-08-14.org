@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://z.ai/blog/glm-5.3][Z.ai scales post-training to push GLM-5.3 to open-weights coding leadership—and unexpectedly strong cyber capabilities]]: the GLM-5.2 successor claims a 50% coding improvement, public-benchmark SOTA, and more than doubled exploitation-benchmark performance; open weights are forthcoming.
+- [[https://www.anthropic.com/news/claude-text-watermark][Anthropic introduces invisible Claude text watermarks to meet EU AI Act transparency rules]]: future Claude outputs will encode a detectable statistical pattern without visible changes, extra tokens, identifying information, or meaningful impact on quality; a detection API is planned.
