@@ -1,0 +1,4 @@
+#+title: 2026-08-14
+
+* Artificial Intelligence
+- [[https://z.ai/blog/glm-5.3][Z.ai scales post-training to push GLM-5.3 to open-weights coding leadership—and unexpectedly strong cyber capabilities]]: the GLM-5.2 successor claims a 50% coding improvement, public-benchmark SOTA, and more than doubled exploitation-benchmark performance; open weights are forthcoming.
