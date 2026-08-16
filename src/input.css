@@ -41,10 +41,6 @@ h6,
   font-family: "MADE Mirage", Arial, sans-serif;
 }
 
-pre code {
-  margin-bottom: 1.5em;
-}
-
 .header-anchor {
   margin-left: -1.5ch;
   padding-right: 0.5ch;
@@ -217,6 +213,7 @@ pre code {
 
 /* Code blocks */
 .prose pre {
+  margin-bottom: 1.5em;
   border-radius: 0.5rem;
   border: 1px solid rgba(100, 116, 139, 0.2);
   background-color: #f8fafc;
