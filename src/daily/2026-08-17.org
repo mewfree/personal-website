@@ -1,0 +1,4 @@
+#+title: 2026-08-17
+
+* Artificial Intelligence
+- [[https://groq.com/newsroom/groq-closes-usd350-million-series-a-building-the-world-s-leading-ai-inference-cloud][Groq raises $350 million at a $3.5 billion valuation to expand its global AI inference cloud]], with planned participation from NVIDIA and recent funding now totaling $1 billion.
