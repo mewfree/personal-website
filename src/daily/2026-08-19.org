@@ -1,0 +1,4 @@
+#+title: 2026-08-19
+
+* Artificial Intelligence
+- [[https://www.cerebras.ai/blog/introducing-cerebras-cs-4][Cerebras introduces CS-4, a rack-scale AI system promising up to 30× faster inference and 10× more throughput per watt than CS-3]]; its modular Nexus architecture combines three WSE-3 Turbo processors with low-latency wafer-to-wafer links and native disaggregated inference for hyperscale deployment.
