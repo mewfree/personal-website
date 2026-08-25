@@ -1,0 +1,4 @@
+#+title: 2026-08-25
+
+* Autonomous Vehicles
+- [[https://waymo.com/blog/2026/08/waymo-in-munich/][Waymo lays groundwork for a fully autonomous ride-hailing service in Munich]]: The company will begin manual mapping and testing in the coming weeks, targeting public commercial rides by the end of 2027 as it enters Germany.
