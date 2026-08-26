@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://qwen.ai/blog?id=qwen3.8-flash-next][Qwen previews its next-generation Qwen4 architecture with Qwen3.8-Flash-Next]]: The upcoming open-weight multimodal mixture-of-experts model is expected to pair 125B total parameters with roughly 6B active per token.
+- [[https://z.ai/blog/glm-5.3-flash][Z.ai introduces GLM-5.3-Flash]]: A new Flash model joining Z.ai’s GLM-5.3 family, aimed at fast, capable inference.
