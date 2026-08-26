@@ -1,0 +1,4 @@
+#+title: 2026-08-26
+
+* Artificial Intelligence
+- [[https://qwen.ai/blog?id=qwen3.8-flash-next][Qwen previews its next-generation Qwen4 architecture with Qwen3.8-Flash-Next]]: The upcoming open-weight multimodal mixture-of-experts model is expected to pair 125B total parameters with roughly 6B active per token.
