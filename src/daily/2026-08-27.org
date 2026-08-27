@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://www.reuters.com/technology/nvidia-talks-acquire-hugging-face-13-billion-deal-business-insider-reports-2026-08-27/][Nvidia reportedly explores a more-than-$13 billion acquisition of Hugging Face]]: The chip giant is said to be in serious talks to buy the AI platform, potentially bringing one of the leading open-model ecosystems under Nvidia’s umbrella.
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/][Gemini Omni 1.1 Flash adds production-ready controls for generative video]]: Google’s update supports scene extension, first-and-last-frame interpolation, faster 360p previews, video references, and upscaling to 4K through the Gemini API.
