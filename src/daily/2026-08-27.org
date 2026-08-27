@@ -1,0 +1,4 @@
+#+title: 2026-08-27
+
+* Artificial Intelligence
+- [[https://www.reuters.com/technology/nvidia-talks-acquire-hugging-face-13-billion-deal-business-insider-reports-2026-08-27/][Nvidia reportedly explores a more-than-$13 billion acquisition of Hugging Face]]: The chip giant is said to be in serious talks to buy the AI platform, potentially bringing one of the leading open-model ecosystems under Nvidia’s umbrella.
