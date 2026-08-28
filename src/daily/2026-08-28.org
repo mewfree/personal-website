@@ -1,0 +1,4 @@
+#+title: 2026-08-28
+
+* Artificial Intelligence
+- [[https://hy.tencent.ai/research/hy4-preview][Tencent open-sources Hy4 preview, a 770B-parameter model with a 1M+ context window and stronger real-world productivity capabilities]]
