@@ -1,0 +1,4 @@
+#+title: 2026-08-29
+
+* Artificial Intelligence
+- [[https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/][OpenAI to wind down Cursor model access after its SpaceX acquisition, with a proposed November 12 shutoff date]]
