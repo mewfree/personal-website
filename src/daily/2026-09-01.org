@@ -1,0 +1,5 @@
+#+title: 2026-09-01
+
+* Artificial Intelligence
+- [[https://www.anthropic.com/claude-fable-and-mythos-5-1][Anthropic introduces Claude Fable 5.1 and Mythos 5.1 for frontier coding and scientific research]], claiming substantial gains in agentic coding, knowledge work, and long-running problem solving, alongside lower cache-read pricing and new enterprise privacy safeguards.
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/][Google brings goal-directed video analysis to Gemini with agentic video understanding]], dynamically searching frames, audio, and transcripts to cut token use by up to 88%, reduce costs by up to 66%, and improve accuracy by up to 7%.
