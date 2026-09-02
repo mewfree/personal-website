@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/][Google launches Gemini 3.8 Flash for long-horizon agents and a trusted-defender Cyber variant]] — the new Flash model targets stronger coding, reasoning, and agentic workflows at $0.75 per million input tokens and $3.75 per million output tokens, while Flash Cyber focuses on vulnerability discovery and automated patching through the Fairwind Program.
+- [[https://research.meta.ai/blog/introducing-muse-spark-1-3][Meta releases Muse Spark 1.3 with stronger coding and agentic workflows]] — the model improves long-horizon task execution, multitasking, instruction following, and coding efficiency, and is now available in Muse Code and the Meta Model API; open weights are planned.
