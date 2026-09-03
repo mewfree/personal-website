@@ -1,0 +1,4 @@
+#+title: 2026-09-03
+
+* Artificial Intelligence
+- [[https://openai.com/index/gpt-6-astra/][OpenAI launches GPT-6 Astra, a computer-using model aimed at the AGI era]] — the new flagship is positioned around navigating software and browsers, writing code, and solving difficult problems, with an initial cybersecurity rollout.
