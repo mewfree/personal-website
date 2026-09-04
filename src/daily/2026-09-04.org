@@ -1,0 +1,5 @@
+#+title: 2026-09-04
+
+* Artificial Intelligence
+- [[https://extropic.ai/writing/z1t/][Extropic introduces Z1T, sparse transformer-like models designed for probabilistic hardware]] — an initial co-design study claiming over 100× energy-efficiency gains versus GPUs.
+- [[https://www.anthropic.com/research/formalizing-fermats-last-theorem][Claude formalizes Fermat’s Last Theorem in Lean]] — Anthropic reports the first complete computer-checked proof, produced largely autonomously over 11 days across 13 million lines of Lean.
