@@ -1,0 +1,7 @@
+#+title: 2026-09-08
+
+* Artificial Intelligence
+- [[https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/][Mistral raises €3 billion to build a sovereign, open-weight AI stack]]: the funding will expand frontier research, compute, infrastructure, and the company’s international commercial footprint.
+- [[https://www.inceptionlabs.ai/blog/introducing-mercury-2-5][Inception releases Mercury 2.5, a faster and more capable diffusion language model]]: the production model delivers 1,107 tokens per second, a 260K context window, tunable reasoning, and low-cost inference for search, voice, and coding workloads.
+- [[https://cognition.com/blog/series-e][Cognition raises over $2 billion at a $48 billion valuation for proactive software agents]]: the company reports nearly $900 million in run-rate revenue and outlines a future where Devin automates more engineering work across incident response, security, and developer workflows.
+- [[https://openai.com/index/introducing-chatgpt-images-2-5/][OpenAI launches ChatGPT Images 2.5 with faster generation and more precise editing]]: the new image model improves reference fidelity and multi-turn consistency, cuts latency by up to 50%, and adds Sketch, templates, and image comments.
