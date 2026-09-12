@@ -1,0 +1,4 @@
+#+title: 2026-09-12
+
+* Artificial Intelligence
+- [[https://darioamodei.com/post/we-must-pace-the-frontier][Dario Amodei proposes pacing frontier AI development with embedded evaluators and democratic and global coordination]], arguing that accelerating capabilities and recent agent misalignment incidents require more time for safety, alignment, interpretability, and evaluation to catch up.
