@@ -3,3 +3,4 @@
 * Artificial Intelligence
 - [[https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/][Waymo, GO, and Nihon Kotsu target a 2027 commercial autonomous ride-hailing launch in Tokyo]], combining Waymo’s driverless technology with GO’s app and Nihon Kotsu’s local taxi operations, pending regulatory approval.
 - [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/][Google introduces Gemini 3.8 Live models for fluid, reasoning-capable voice agents]], combining near-real-time visual grounding, background tool execution, multilingual conversation, and extended thinking for complex tasks.
+- [[https://typesafe.ai/blog/introducing-system-one-models-and-jev][TypeSafe introduces Jev, a fast System One model for typed, calibrated decisions]], trading open-ended text generation for structured outputs, confidence estimates, and automation-focused latency.
