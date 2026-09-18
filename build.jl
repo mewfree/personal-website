@@ -149,6 +149,13 @@ const LANG_INACTIVE =
 header_template = read("src/header.html", String)
 footer_template = read("src/footer.html", String)
 
+sitemap_items = NamedTuple{(:loc, :lastmod, :changefreq, :priority), Tuple{String, String, String, String}}[]
+
+function add_sitemap!(items, path::AbstractString; lastmod::AbstractString="", changefreq::AbstractString="monthly", priority::AbstractString="0.7")
+    url = "https://www.damiengonot.com" * path
+    push!(items, (loc=url, lastmod=String(lastmod), changefreq=String(changefreq), priority=String(priority)))
+end
+
 """Logical site path without locale prefix. Empty string for home."""
 function locale_paths(logical_path::AbstractString)
     en = logical_path == "" ? "/" : logical_path
@@ -351,6 +358,7 @@ for locale in LOCALES
             templated,
         )
         write_page(locale, "blog/$slug.html", output)
+        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/blog/$slug" : "/blog/$slug", lastmod=body["date"], changefreq="monthly", priority="0.8")
     end
 
     posts_list = [
@@ -376,6 +384,7 @@ for locale in LOCALES
         content,
     )
     write_page(locale, "blog.html", output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/blog" : "/blog", changefreq="weekly", priority="0.9")
 end
 
 # Handling daily
@@ -475,6 +484,7 @@ for locale in LOCALES
             templated_string,
         )
         write_page(locale, "daily/$(day["slug"]).html", output)
+        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/daily/$(day["slug"])" : "/daily/$(day["slug"])", lastmod=string(day["slug"]), changefreq="never", priority="0.6")
     end
 
     daily_entries = [
@@ -501,6 +511,7 @@ for locale in LOCALES
         daily_content,
     )
     write_page(locale, "daily.html", daily_output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/daily" : "/daily", changefreq="daily", priority="0.9")
 
     latest_daily_by_locale[locale] = if isempty(dailies)
         t["no_daily"]
@@ -602,6 +613,7 @@ if has_notes
                 templated,
             )
             write_page(locale, "notes/$slug.html", output)
+            add_sitemap!(sitemap_items, locale == "fr" ? "/fr/notes/$slug" : "/notes/$slug", changefreq="monthly", priority="0.7")
         end
     end
 else
@@ -648,6 +660,7 @@ for locale in LOCALES
         home_content,
     )
     write_page(locale, "index.html", home_output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr" : "/", changefreq="daily", priority="1.0")
 
     # About
     about_source = locale == "fr" ? "src/fr/about.org" : "src/about.org"
@@ -666,6 +679,7 @@ for locale in LOCALES
         about_content,
     )
     write_page(locale, "about.html", about_output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/about" : "/about", changefreq="monthly", priority="0.7")
 
     # Citadel
     citadel_source = locale == "fr" ? "src/fr/citadel.org" : "src/citadel.org"
@@ -681,6 +695,7 @@ for locale in LOCALES
         citadel_content,
     )
     write_page(locale, "citadel.html", citadel_output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/citadel" : "/citadel", changefreq="monthly", priority="0.5")
 
     # Now
     now_source = locale == "fr" ? "src/fr/now.org" : "src/now.org"
@@ -693,6 +708,7 @@ for locale in LOCALES
         now_content,
     )
     write_page(locale, "now.html", now_output)
+    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/now" : "/now", changefreq="monthly", priority="0.7")
 
     # Notes index
     if has_notes
@@ -709,7 +725,26 @@ for locale in LOCALES
             notes_content,
         )
         write_page(locale, "notes.html", notes_output)
+        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/notes" : "/notes", changefreq="weekly", priority="0.8")
     end
+end
+
+# Sitemap
+println("Generating sitemap.xml...")
+open("build/sitemap.xml", "w") do io
+    println(io, """<?xml version="1.0" encoding="UTF-8"?>""")
+    println(io, """<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""")
+    for item in sitemap_items
+        println(io, "  <url>")
+        println(io, "    <loc>$(item.loc)</loc>")
+        if !isempty(item.lastmod)
+            println(io, "    <lastmod>$(item.lastmod)</lastmod>")
+        end
+        println(io, "    <changefreq>$(item.changefreq)</changefreq>")
+        println(io, "    <priority>$(item.priority)</priority>")
+        println(io, "  </url>")
+    end
+    println(io, "</urlset>")
 end
 
 # Wrap it up
