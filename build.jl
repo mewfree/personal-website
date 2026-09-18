@@ -95,6 +95,11 @@ const I18N = Dict(
         "notes_heading" => "Notes",
         "notes_description" => "Damien Gonot's public notes.",
         "notes_suffix" => " - Damien Gonot",
+        "not_found_title" => "404 - Page Not Found - Damien Gonot",
+        "not_found_heading" => "Page Not Found",
+        "not_found_description" => "Sorry, this page does not exist or has moved.",
+        "not_found_message" => "Sorry, this page does not exist or has moved.",
+        "not_found_home" => "Back to Home",
     ),
     "fr" => Dict(
         "lang" => "fr",
@@ -138,6 +143,11 @@ const I18N = Dict(
         "notes_heading" => "Notes",
         "notes_description" => "Les notes publiques de Damien Gonot.",
         "notes_suffix" => " - Damien Gonot",
+        "not_found_title" => "404 - Page non trouvée - Damien Gonot",
+        "not_found_heading" => "Page non trouvée",
+        "not_found_description" => "Désolé, cette page n'existe pas ou a été déplacée.",
+        "not_found_message" => "Désolé, cette page n'existe pas ou a été déplacée.",
+        "not_found_home" => "Retour à l'accueil",
     ),
 )
 
@@ -727,6 +737,28 @@ for locale in LOCALES
         write_page(locale, "notes.html", notes_output)
         add_sitemap!(sitemap_items, locale == "fr" ? "/fr/notes" : "/notes", changefreq="weekly", priority="0.8")
     end
+
+    # 404 page
+    not_found_template = read("src/templates/404.html", String)
+    not_found_content = replace(
+        not_found_template,
+        "{NOT_FOUND_HEADING}" => t["not_found_heading"],
+        "{NOT_FOUND_MESSAGE}" => t["not_found_message"],
+        "{NOT_FOUND_HOME}" => t["not_found_home"],
+        "{HOME_HREF}" => t["home_href"],
+        "{PREFIX}" => t["prefix"],
+        "{NAV_DAILY}" => t["nav_daily"],
+        "{NAV_BLOG}" => t["nav_blog"],
+        "{NAV_NOTES}" => t["nav_notes"],
+    )
+    not_found_output = wrap_page(
+        locale,
+        "/404",
+        t["not_found_title"],
+        t["not_found_description"],
+        not_found_content,
+    )
+    write_page(locale, "404.html", not_found_output)
 end
 
 # Sitemap
