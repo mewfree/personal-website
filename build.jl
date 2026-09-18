@@ -206,10 +206,13 @@ function apply_chrome(
     logical_path::AbstractString;
     title::AbstractString,
     description::AbstractString,
+    has_math::Bool=false,
 )
     t = I18N[locale]
     en_path, fr_path = locale_paths(logical_path)
     canonical = locale == "fr" ? fr_path : en_path
+    katex_css = has_math ? """<link rel="stylesheet" href="/katex.min.css">""" : ""
+    katex_js = has_math ? """<script defer src="/katex.min.js"></script>\n      <script defer src="/katex-auto-render.min.js"></script>""" : ""
     # Avoid bare "/" becoming empty in some contexts; keep as-is
     return replace(
         chrome,
@@ -229,7 +232,13 @@ function apply_chrome(
         "{NAV_ABOUT}" => t["nav_about"],
         "{LANG_SWITCHER_LABEL}" => t["lang_switcher_label"],
         "{THEME_ARIA}" => t["theme_aria"],
+        "{KATEX_CSS}" => katex_css,
+        "{KATEX_JS}" => katex_js,
     )
+end
+
+function has_math_content(html::AbstractString)
+    return occursin("class=\"math ", html) || occursin("<math", html)
 end
 
 function wrap_page(
@@ -237,7 +246,8 @@ function wrap_page(
     logical_path::AbstractString,
     title::AbstractString,
     description::AbstractString,
-    content::AbstractString,
+    content::AbstractString;
+    has_math::Bool=has_math_content(content),
 )
     header = apply_chrome(
         header_template,
@@ -245,6 +255,7 @@ function wrap_page(
         logical_path;
         title=title,
         description=description,
+        has_math=has_math,
     )
     footer = apply_chrome(
         footer_template,
@@ -252,6 +263,7 @@ function wrap_page(
         logical_path;
         title=title,
         description=description,
+        has_math=has_math,
     )
     return header * content * footer
 end

@@ -53,14 +53,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     hljs.highlightElement(el);
   });
 
-  renderMathInElement(document.body, {
-    delimiters: [
-      { left: "$$", right: "$$", display: true },
-      { left: "$", right: "$", display: false },
-      { left: "\\(", right: "\\)", display: false },
-      { left: "\\[", right: "\\]", display: true },
-    ],
-    ignoredClasses: ["no-katex"],
-    throwOnError: false,
-  });
+  if (typeof renderMathInElement === "function") {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      ignoredClasses: ["no-katex"],
+      throwOnError: false,
+    });
+  }
 });
