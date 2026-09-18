@@ -1,0 +1,4 @@
+#+title: 2026-09-18
+
+* Autonomous Vehicles
+- [[https://waymo.com/blog/2026/09/waymo-in-singapore/][Waymo announces a 2028 autonomous ride-hailing launch in Singapore]] in partnership with the Ministry of Transport and Land Transport Authority, beginning local readiness work with electric Jaguar I-PACEs in 2027.
