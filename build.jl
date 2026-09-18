@@ -542,6 +542,7 @@ end
 println("Handling notes...")
 has_notes = isfile("src/notes.org") && isdir("src/notes")
 note_pages = Dict{String,Dict{String,String}}()  # slug => title/content/excerpt
+pandoc_math_flag = occursin("--math-method", read(`pandoc --help`, String)) ? "--math-method=mathjax" : "--mathjax"
 
 if has_notes
     mkpath("build/notes")
@@ -579,7 +580,7 @@ if has_notes
                     read(
                         pipeline(
                             `echo $joined`,
-                            `pandoc --quiet --from=org --shift-heading-level-by=1 --mathjax`,
+                            `pandoc --quiet --from=org --shift-heading-level-by=1 $pandoc_math_flag`,
                         ),
                         String,
                     ),
