@@ -1,0 +1,4 @@
+#+title: 2026-09-21
+
+* Artificial Intelligence
+- [[https://x.ai/news/grok-4-7][xAI introduces Grok 4.7, a faster and cheaper frontier model for coding and knowledge work]], with stronger long-horizon task planning, self-verification, professional-work performance, and jailbreak resistance; available in Cursor, Grok Build, and the API from $2 per million input tokens.
