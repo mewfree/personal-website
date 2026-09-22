@@ -1,0 +1,5 @@
+#+title: 2026-09-22
+
+* Artificial Intelligence
+- [[https://www.anthropic.com/claude-opus-5-5][Anthropic introduces Claude Opus 5.5, a more capable and efficient frontier model]], reporting leading results in agentic coding, computer use, and knowledge work while cutting typical costs by 40% versus Opus 5; API pricing starts at $4 per million input and $20 per million output tokens.
+- [[https://openai.com/index/introducing-gpt-6-sol-and-luna/][OpenAI introduces GPT-6 Sol and Luna]].
