@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/][Google’s Gemini 3.8 TTS models turn voice generation into a directed studio]] — Flash TTS and Flash-Lite add custom voice design, line-by-line performance control, and scalable multilingual speech generation, with consent checks and SynthID watermarking.
+- [[https://bfl.ai/models/flux-3-action][Black Forest Labs releases a fast, open 7B world-action model for robot control]] — FLUX 3 Action claims state-of-the-art RoboLab performance, combining video and action prediction with efficient inference for robotics and hybrid reasoning systems.
