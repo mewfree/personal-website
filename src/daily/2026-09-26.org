@@ -1,0 +1,4 @@
+#+title: 2026-09-26
+
+* Artificial Intelligence
+- [[https://supersoniclabs.ia.br/julia-1/][Supersonic Labs introduces Julia 1, a compact multilingual decision model built for CPU deployment]] — The 144M-parameter, Apache-licensed model selects among supplied answer options; early evaluations show promise on classification while exposing weaknesses with long lists of similar categories.
