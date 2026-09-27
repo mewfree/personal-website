@@ -1,0 +1,5 @@
+#+title: 2026-09-27
+
+* Artificial Intelligence
+- [[https://www.wsj.com/tech/ai/ai-safety-effective-altruism-anthropic-164b9d05][How effective altruism’s existential-risk fears shaped Anthropic’s safety culture]] — WSJ reports on doomsday scenarios and contingency planning among employees, illustrating the movement’s influence on the company.
+- [[https://www.axios.com/2026/09/27/anthropic-trump-dario-amodei-dinner-invite][Trump invites Anthropic CEO Dario Amodei to a private White House dinner]] — Their first one-on-one meeting signals a possible thaw in the company’s strained relations with the administration.
