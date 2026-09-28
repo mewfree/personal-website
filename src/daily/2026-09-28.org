@@ -1,0 +1,6 @@
+#+title: 2026-09-28
+
+* Artificial Intelligence
+- [[https://manus.im/blog/introducing-manus-2-0][Manus 2.0 expands its AI agent into a creative studio and personal-agent platform]] — The overhaul adds event-triggered automations, professional video and game-making tools, computer control, and Cue, a new app for coordinating personal agents.
+- [[https://www.anthropic.com/claude-sonnet-5-5][Anthropic’s Claude Sonnet 5.5 targets fast, affordable coding and everyday work]] — The model is over 30% faster and can cost up to 30% less per task than Sonnet 5, with major gains in agentic coding and knowledge work.
+- [[https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/][Anthropic’s IPO plans pair an expansive AI vision with sharply rising costs]] — Reuters reports the company sees AI reshaping the global economy, even as the infrastructure and compute needed to pursue that ambition drive costs higher.
