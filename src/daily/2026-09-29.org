@@ -1,0 +1,5 @@
+#+title: 2026-09-29
+
+* Artificial Intelligence
+- [[https://openai.com/index/introducing-dots/][OpenAI introduces always-on Dots agents, powered by GPT‑6 Astra]] — persistent AI agents with their own cloud computers, the ability to learn from feedback, and connections to more than 4,000 apps aim to move AI from answering prompts to working continuously toward users’ goals.
+- [[https://openai.com/index/introducing-gpt-6-1-sol/][GPT‑6.1 Sol brings near-Astra capability at one-fifth the price]] — the model upgrades GPT‑6 Sol for agentic coding, computer use, and professional work, with much cheaper cached inputs helping developers run context-rich agents more economically.
