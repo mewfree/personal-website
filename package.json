@@ -10,6 +10,6 @@
     "@tailwindcss/cli": "^4.2.0",
     "html-minifier": "^4.0.0",
     "tailwindcss": "^4.2.0",
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.131.0"
   }
 }
