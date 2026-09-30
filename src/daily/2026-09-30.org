@@ -1,0 +1,6 @@
+#+title: 2026-09-30
+
+* Artificial Intelligence
+- [[https://elevenlabs.io/blog/tender-22bn][ElevenLabs doubles its valuation to $22B as enterprise demand for voice agents grows]] — a $300M employee tender, backed by new and existing investors, reflects the company’s push from speech models into enterprise conversational agents.
+- [[https://www.nytimes.com/2026/09/30/technology/meta-ai-data-centers-taxes.html][Meta classifies AI data centers as experimental to claim billions in tax benefits]] — the Times reports research credits cut Meta’s federal tax bill by $3.9B in 2025, raising questions about how AI infrastructure qualifies for tax incentives.
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/][Google unveils Gemini 4 Argon for complex, long-horizon work]] — the frontier model targets software engineering, legal and financial work, and cyber defense; it is initially rolling out to trusted cyber defenders under a phased safety review.
