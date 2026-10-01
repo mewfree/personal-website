@@ -1,0 +1,4 @@
+#+title: 2026-10-01
+
+* Artificial Intelligence
+- [[https://blog.cloudflare.com/clef-decision-models/][Cloudflare open-sources Clef, fast decision models for agent workflows, and introduces RL fine-tuning]] — Clef and Clef-flash return calibrated, schema-bound decisions; Cloudflare hosts them on Workers AI, releases them under Apache 2.0, and offers fine-tuning for customer-specific workloads.
