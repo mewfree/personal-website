@@ -1,0 +1,4 @@
+#+title: 2026-10-05
+
+* Artificial Intelligence
+- [[https://cohere.com/blog/introducing-north-2][Cohere launches North 2, an enterprise agent platform built for security, governance, and deployment control]] — The upgrade adds a redesigned orchestration system, richer agent tools, model choice, flexible cloud/on-prem/air-gapped deployments, and granular cost controls.
