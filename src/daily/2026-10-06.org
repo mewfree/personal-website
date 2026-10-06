@@ -1,0 +1,8 @@
+#+title: 2026-10-06
+
+* Artificial Intelligence
+- [[https://mistral.ai/news/mistral-large-4/][Mistral launches Large 4, a 1-trillion-parameter open-weight model with 49B active parameters]] — Public preview is live; weights are due by month’s end, with European infrastructure and strong coding, multimodal, and cybersecurity performance.
+- [[https://x.com/Google/status/2107501209154204148][Google rolls out Nano Banana 2.1 with stronger visual design, mask editing, and subject consistency]] — The image generation and editing model begins arriving across Gemini, Search, AI Studio, Flow, Stitch, Ads, and Gemini Enterprise.
+
+* Defense
+- [[https://www.anduril.com/news/anduril-u-s-navy-invest-usd6-6-billion-to-expand-america-s-submarine-industrial-base][Anduril and the U.S. Navy commit $6.6 billion to expand submarine production]] — Anduril will invest $3.7 billion in a Maryland shipyard for Virginia-class submarine components, backed by a Navy contract worth up to $2.9 billion.
