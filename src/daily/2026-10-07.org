@@ -1,0 +1,4 @@
+#+title: 2026-10-07
+
+* Artificial Intelligence
+- [[https://www.anthropic.com/claude-haiku-5-5][Anthropic launches Haiku 5.5, its fastest and most capable small model, at roughly 75% lower cost than Haiku 4.5]]
