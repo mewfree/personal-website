@@ -11,21 +11,21 @@ has_meworg = isfile(meworg_org) && isdir(meworg_dir)
 
 # Clean up first
 println("Cleaning up...")
-isdir("build") && rm("build", recursive=true)
+rm("build"; recursive=true, force=true)
 if has_meworg
     println("Importing notes from $meworg_root ...")
-    isfile("src/notes.org") && rm("src/notes.org")
-    isdir("src/notes") && rm("src/notes", recursive=true)
-    cp(meworg_org, "src/notes.org")
-    if Sys.isapple()
-        run(`sed -i '' -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
-    else
-        run(`sed -i -e 's/university/notes/g' -e 's/University/Notes/g' src/notes.org`)
-    end
+    rm("src/notes"; recursive=true, force=true)
+    write(
+        "src/notes.org",
+        replace(read(meworg_org, String), "university" => "notes", "University" => "Notes"),
+    )
     cp(meworg_dir, "src/notes")
 else
     println("No meworg at $meworg_root; using committed notes if present")
 end
+
+# Static assets first; generated files (note images, pages) are written over them.
+cp("src/public", "build")
 
 # i18n
 const LOCALES = ["en", "fr"]
@@ -156,83 +156,86 @@ const LANG_ACTIVE =
 const LANG_INACTIVE =
     "text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400"
 
-header_template = read("src/header.html", String)
-footer_template = read("src/footer.html", String)
 
-sitemap_items = NamedTuple{(:loc, :lastmod, :changefreq, :priority), Tuple{String, String, String, String}}[]
+const SITE_URL = "https://www.damiengonot.com"
+const CONTENT_MARKER = "<!--CONTENT-->"
+const NAV_LINK_CLASS = "hover:text-indigo-600 dark:hover:text-indigo-400"
+const MAX_EXCERPT_CHARS = 297
+const RECENT_POSTS = 5
 
-function add_sitemap!(items, path::AbstractString; lastmod::AbstractString="", changefreq::AbstractString="monthly", priority::AbstractString="0.7")
-    url = "https://www.damiengonot.com" * path
-    push!(items, (loc=url, lastmod=String(lastmod), changefreq=String(changefreq), priority=String(priority)))
-end
+read_template(name) = read(joinpath("src", "templates", "$name.html"), String)
 
-"""Logical site path without locale prefix. Empty string for home."""
-function locale_paths(logical_path::AbstractString)
-    en = logical_path == "" ? "/" : logical_path
-    fr = logical_path == "" ? "/fr" : "/fr" * logical_path
-    return (en, fr)
-end
+# The shell is rendered once per page; content is spliced in afterwards so that
+# placeholder-looking text inside posts (code samples) is never substituted.
+const CHROME_TEMPLATE =
+    read("src/header.html", String) * CONTENT_MARKER * read("src/footer.html", String)
+const POST_LINK_TEMPLATE = read_template("post-link")
+const POSTS_TEMPLATE = read_template("posts")
+const POST_TEMPLATE = read_template("post")
+const DAILY_DAY_TEMPLATE = read_template("daily-day")
+const DAILY_ENTRY_TEMPLATE = read_template("daily-entry")
+const DAILY_LIST_TEMPLATE = read_template("daily")
+const DEFAULT_TEMPLATE = read_template("default")
+const NOT_FOUND_TEMPLATE = read_template("404")
 
-function format_daily_title(date::Date, locale::AbstractString)
-    if locale == "fr"
-        return "$(day(date)) $(FR_MONTHS[month(date)]) $(year(date))"
-    end
-    return Dates.format(date, dateformat"U d, Y")
-end
+const SITEMAP = NamedTuple{(:loc, :lastmod, :changefreq, :priority),NTuple{4,String}}[]
 
-function format_daily_weekday(date::Date, locale::AbstractString)
-    if locale == "fr"
-        return FR_WEEKDAYS[dayofweek(date)]
-    end
-    return Dates.format(date, dateformat"EEEE")
-end
+# Concurrent subprocess helpers (pandoc dominates build time).
+const PANDOC_TASKS = max(2, Sys.CPU_THREADS)
+pmap_files(f, items) = asyncmap(f, items; ntasks=PANDOC_TASKS)
+
+"""(en, fr) URL paths for a logical site path ("" is home)."""
+locale_paths(logical_path::AbstractString) =
+    isempty(logical_path) ? ("/", "/fr") : (logical_path, "/fr" * logical_path)
+
+localized_path(locale::AbstractString, logical_path::AbstractString) =
+    locale_paths(logical_path)[locale == "fr" ? 2 : 1]
+
+format_daily_title(date::Date, locale::AbstractString) =
+    locale == "fr" ? "$(day(date)) $(FR_MONTHS[month(date)]) $(year(date))" :
+    Dates.format(date, dateformat"U d, Y")
+
+format_daily_weekday(date::Date, locale::AbstractString) =
+    locale == "fr" ? FR_WEEKDAYS[dayofweek(date)] : Dates.format(date, dateformat"EEEE")
 
 """Collapse whitespace and escape for double-quoted HTML attributes (e.g. meta description)."""
-function html_attr(s::AbstractString)
-    s = strip(replace(String(s), r"\s+" => " "))
-    s = replace(s, "&" => "&amp;")
-    s = replace(s, "\"" => "&quot;")
-    s = replace(s, "<" => "&lt;")
-    s = replace(s, ">" => "&gt;")
-    return s
+html_attr(s::AbstractString) = replace(
+    strip(replace(s, r"\s+" => " ")),
+    "&" => "&amp;",
+    "\"" => "&quot;",
+    "<" => "&lt;",
+    ">" => "&gt;",
+)
+
+"""Plain-text excerpt → one-line meta description."""
+function excerpt_description(excerpt::AbstractString; max_chars::Int=MAX_EXCERPT_CHARS)
+    plain = strip(replace(excerpt, r"\s+" => " "))
+    return first(plain, max_chars) * "..."
 end
 
-"""Plain-text excerpt → one-line meta description (escaped later via wrap_page)."""
-function excerpt_description(excerpt::AbstractString; max_chars::Int=297)
-    plain = strip(replace(String(excerpt), r"\s+" => " "))
-    if length(plain) > max_chars
-        return first(plain, max_chars) * "..."
-    end
-    return plain * "..."
-end
+const LOCALIZED_HREF = r"href=\"(?=/(?:daily|blog|notes|about|citadel|now|resume|homepage))"
 
 """Rewrite absolute in-site links so FR pages stay under /fr/."""
-function localize_hrefs(html::AbstractString, locale::AbstractString)
-    locale == "fr" || return html
-    # Longer prefixes first so /notes is not half-matched oddly
-    for path in
-        ("/daily", "/blog", "/notes", "/about", "/citadel", "/now", "/resume", "/homepage")
-        html = replace(html, "href=\"$path" => "href=\"/fr$path")
-    end
-    return html
-end
+localize_hrefs(html::AbstractString, locale::AbstractString) =
+    locale == "fr" ? replace(html, LOCALIZED_HREF => s"href=\"/fr") : html
 
-function apply_chrome(
-    chrome::AbstractString,
+has_math_content(html::AbstractString) =
+    occursin("class=\"math ", html) || occursin("<math", html)
+
+function wrap_page(
     locale::AbstractString,
-    logical_path::AbstractString;
+    logical_path::AbstractString,
     title::AbstractString,
     description::AbstractString,
-    has_math::Bool=false,
+    content::AbstractString,
 )
     t = I18N[locale]
     en_path, fr_path = locale_paths(logical_path)
     canonical = locale == "fr" ? fr_path : en_path
-    katex_css = has_math ? """<link rel="stylesheet" href="/katex.min.css">""" : ""
-    katex_js = has_math ? """<script defer src="/katex.min.js"></script>\n      <script defer src="/katex-auto-render.min.js"></script>""" : ""
-    # Avoid bare "/" becoming empty in some contexts; keep as-is
-    return replace(
-        chrome,
+    has_math = has_math_content(content)
+    has_code = occursin("<pre", content)
+    chrome = replace(
+        CHROME_TEMPLATE,
         "{LANG}" => t["lang"],
         "{TITLE}" => title,
         "{DESCRIPTION}" => html_attr(description),
@@ -249,500 +252,388 @@ function apply_chrome(
         "{NAV_ABOUT}" => t["nav_about"],
         "{LANG_SWITCHER_LABEL}" => t["lang_switcher_label"],
         "{THEME_ARIA}" => t["theme_aria"],
-        "{KATEX_CSS}" => katex_css,
-        "{KATEX_JS}" => katex_js,
+        "{HIGHLIGHT_JS}" => has_code ? """<script defer src="/highlight.js"></script>""" : "",
+        "{KATEX_CSS}" => has_math ? """<link rel="stylesheet" href="/katex.min.css">""" : "",
+        "{KATEX_JS}" => has_math ?
+                        """<script defer src="/katex.min.js"></script>\n      <script defer src="/katex-auto-render.min.js"></script>""" :
+                        "",
     )
+    head, tail = split(chrome, CONTENT_MARKER; limit=2)
+    return head * content * tail
 end
 
-function has_math_content(html::AbstractString)
-    return occursin("class=\"math ", html) || occursin("<math", html)
-end
-
-function wrap_page(
+"""Render a page, write it under build/ and (optionally) register it in the sitemap."""
+function emit!(
     locale::AbstractString,
     logical_path::AbstractString,
     title::AbstractString,
     description::AbstractString,
     content::AbstractString;
-    has_math::Bool=has_math_content(content),
+    sitemap::Bool=true,
+    lastmod::AbstractString="",
+    changefreq::AbstractString="monthly",
+    priority::AbstractString="0.7",
 )
-    header = apply_chrome(
-        header_template,
-        locale,
-        logical_path;
-        title=title,
-        description=description,
-        has_math=has_math,
-    )
-    footer = apply_chrome(
-        footer_template,
-        locale,
-        logical_path;
-        title=title,
-        description=description,
-        has_math=has_math,
-    )
-    return header * content * footer
-end
-
-function build_out_path(locale::AbstractString, rel::AbstractString)
-    if locale == "fr"
-        return joinpath("build", "fr", rel)
-    end
-    return joinpath("build", rel)
-end
-
-function write_page(locale::AbstractString, rel::AbstractString, html::AbstractString)
-    path = build_out_path(locale, rel)
+    rel = isempty(logical_path) ? "index.html" : lstrip(logical_path, '/') * ".html"
+    path = locale == "fr" ? joinpath("build", "fr", rel) : joinpath("build", rel)
     mkpath(dirname(path))
-    open(path, "w") do io
-        write(io, html)
-    end
+    write(path, wrap_page(locale, logical_path, title, description, content))
+    sitemap && push!(
+        SITEMAP,
+        (
+            loc=SITE_URL * localized_path(locale, logical_path),
+            lastmod=String(lastmod),
+            changefreq=String(changefreq),
+            priority=String(priority),
+        ),
+    )
+    return nothing
 end
 
-# Handling blog posts (content shared; shell per locale)
-println("Handling blog posts...")
-mkpath("build/blog")
-mkpath("build/fr/blog")
-posts = []
-post_bodies = Dict{String,Dict{String,String}}()
-for filename in readdir("src/posts")
-    println("  Handling post: $filename")
-    slug, type = split(filename, ".")
-    if type == "org"
-        data = read("src/posts/$filename", String)
-        matches = collect(eachmatch(r"#\+(?<key>.*): (?<value>.*)", data))
-        metadata = Dict(match["key"] => match["value"] for match in matches)
-        title = metadata["title"]
-        date = metadata["date"]
-        tags = split(metadata["tags"], ",")
-        tags = strip.(tags)
-    elseif type == "md"
-        data = read("src/posts/$filename", String)
-        yaml = match(r"---\n((.|\n)+?)---", data).captures[1]
-        yaml = replace(yaml, "[" => "", "]" => "", "\"" => "")
-        metas = split(chomp(yaml), "\n")
-        metas = split.(metas, ": ", limit=2)
-        metadata = Dict(meta[1] => meta[2] for meta in metas)
-        title = metadata["title"]
-        date = metadata["date"]
-        tags = split(metadata["tags"], ",")
-        tags = strip.(tags)
-    else
-        continue
-    end
-    content = read(`pandoc src/posts/$filename --shift-heading-level-by=1`, String)
-    excerpt = read(`pandoc src/posts/$filename -t plain`, String)
+org_metadata(data::AbstractString) = Dict(
+    m["key"] => m["value"] for m in eachmatch(r"#\+(?<key>.*): (?<value>.*)", data)
+)
 
-    post = Dict("slug" => slug, "title" => title, "date" => date, "tags" => tags)
-    push!(posts, post)
-    post_bodies[slug] = Dict(
-        "title" => title,
-        "date" => date,
-        "content" => content,
-        "excerpt" => excerpt,
+function frontmatter_metadata(data::AbstractString)
+    yaml = match(r"---\n(.+?)---"s, data).captures[1]
+    yaml = replace(yaml, "[" => "", "]" => "", "\"" => "")
+    return Dict(
+        (p = split(line, ": "; limit=2); p[1] => p[2]) for line in split(chomp(yaml), "\n")
     )
 end
 
-posts = sort(posts, by=p -> Date(p["date"]), rev=true)
-post_link_template = read("src/templates/post-link.html", String)
-posts_template = read("src/templates/posts.html", String)
-post_template = read("src/templates/post.html", String)
+pandoc_html(path::AbstractString; from::AbstractString="") =
+    read(`pandoc $path $(isempty(from) ? [] : ["--from=$from"]) --shift-heading-level-by=1`, String)
+pandoc_plain(path::AbstractString; from::AbstractString="") =
+    read(`pandoc $path $(isempty(from) ? [] : ["--from=$from"]) -t plain`, String)
+
+# Blog posts (content shared; shell per locale)
+println("Handling blog posts...")
+
+struct Post
+    slug::String
+    title::String
+    date::String
+    content::String
+    excerpt::String
+end
+
+function load_post(filename::AbstractString)
+    path = joinpath("src", "posts", filename)
+    slug, ext = splitext(filename)
+    data = read(path, String)
+    meta = ext == ".org" ? org_metadata(data) : frontmatter_metadata(data)
+    return Post(slug, meta["title"], meta["date"], pandoc_html(path), pandoc_plain(path))
+end
+
+post_files = filter(f -> splitext(f)[2] in (".md", ".org"), readdir("src/posts"))
+posts = sort!(pmap_files(load_post, post_files); by=p -> Date(p.date), rev=true)
+
+post_links = Dict{String,Vector{String}}()
 
 for locale in LOCALES
     t = I18N[locale]
-    for (slug, body) in post_bodies
-        content = localize_hrefs(body["content"], locale)
-        templated = replace(
-            post_template,
-            "{TITLE}" => body["title"],
-            "{DATE}" => body["date"],
-            "{CONTENT}" => content,
+
+    for post in posts
+        content = replace(
+            POST_TEMPLATE,
+            "{TITLE}" => post.title,
+            "{DATE}" => post.date,
+            "{CONTENT}" => localize_hrefs(post.content, locale),
             "{CONTENT_LANG_NOTE}" => t["content_lang_note"],
         )
-        output = wrap_page(
+        emit!(
             locale,
-            "/blog/" * slug,
-            body["title"] * " - Damien Gonot",
-            excerpt_description(body["excerpt"]),
-            templated,
+            "/blog/" * post.slug,
+            post.title * " - Damien Gonot",
+            excerpt_description(post.excerpt),
+            content;
+            lastmod=post.date,
+            priority="0.8",
         )
-        write_page(locale, "blog/$slug.html", output)
-        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/blog/$slug" : "/blog/$slug", lastmod=body["date"], changefreq="monthly", priority="0.8")
     end
 
-    posts_list = [
+    post_links[locale] = [
         replace(
-            post_link_template,
-            "{TITLE}" => post["title"],
-            "{SLUG}" => post["slug"],
-            "{DATE}" => post["date"],
+            POST_LINK_TEMPLATE,
+            "{TITLE}" => post.title,
+            "{SLUG}" => post.slug,
+            "{DATE}" => post.date,
             "{PREFIX}" => t["prefix"],
         ) for post in posts
     ]
     content = replace(
-        posts_template,
-        "{CONTENT}" => join(posts_list),
+        POSTS_TEMPLATE,
+        "{CONTENT}" => join(post_links[locale]),
         "{BLOG_TITLE}" => t["blog_title"],
         "{BLOG_INTRO}" => t["blog_intro"],
     )
-    output = wrap_page(
+    emit!(
         locale,
         "/blog",
         t["blog_page_title"],
         t["blog_page_description"],
-        content,
+        content;
+        changefreq="weekly",
+        priority="0.9",
     )
-    write_page(locale, "blog.html", output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/blog" : "/blog", changefreq="weekly", priority="0.9")
 end
 
-# Handling daily
+# Daily
 println("Handling daily...")
-mkpath("build/daily")
-mkpath("build/fr/daily")
-dailies_raw = []
-daily_dir = "src/daily"
-if isdir(daily_dir)
-    for filename in readdir(daily_dir)
-        endswith(filename, ".org") || continue
-        println("  Handling daily: $filename")
-        local slug = replace(filename, ".org" => "")
-        local date = Date(slug)
-        local content = read(
-            `pandoc $daily_dir/$filename --from=org --shift-heading-level-by=1`,
-            String,
-        )
-        local excerpt = read(
-            `pandoc $daily_dir/$filename --from=org -t plain`,
-            String,
-        )
-        push!(
-            dailies_raw,
-            Dict(
-                "slug" => slug,
-                "date" => date,
-                "content" => content,
-                "excerpt" => excerpt,
-            ),
-        )
-    end
+
+struct Daily
+    slug::String
+    date::Date
+    content::String
+    excerpt::String
 end
 
-dailies_raw = sort(dailies_raw, by=d -> d["date"], rev=true)
-daily_day_template = read("src/templates/daily-day.html", String)
-daily_entry_template = read("src/templates/daily-entry.html", String)
-daily_list_template = read("src/templates/daily.html", String)
+function load_daily(filename::AbstractString)
+    path = joinpath("src", "daily", filename)
+    slug = first(splitext(filename))
+    return Daily(
+        slug,
+        Date(slug),
+        pandoc_html(path; from="org"),
+        pandoc_plain(path; from="org"),
+    )
+end
 
-latest_daily_by_locale = Dict{String,String}()
-posts_list_by_locale = Dict{String,Vector{String}}()
+daily_files =
+    isdir("src/daily") ? filter(endswith(".org"), readdir("src/daily")) : String[]
+dailies = sort!(pmap_files(load_daily, daily_files); by=d -> d.date, rev=true)
+
+nav_link(prefix, slug, label) =
+    """<a href="$prefix/daily/$slug" class="$NAV_LINK_CLASS">$label</a>"""
+
+latest_daily = Dict{String,String}()
 
 for locale in LOCALES
     t = I18N[locale]
-    posts_list_by_locale[locale] = [
-        replace(
-            post_link_template,
-            "{TITLE}" => post["title"],
-            "{SLUG}" => post["slug"],
-            "{DATE}" => post["date"],
-            "{PREFIX}" => t["prefix"],
-        ) for post in posts
-    ]
-
-    dailies = [
-        Dict(
-            "slug" => d["slug"],
-            "date" => d["date"],
-            "title" => format_daily_title(d["date"], locale),
-            "weekday" => format_daily_weekday(d["date"], locale),
-            "content" => localize_hrefs(d["content"], locale),
-            "excerpt" => d["excerpt"],
-        ) for d in dailies_raw
-    ]
+    prefix = t["prefix"]
+    titles = [format_daily_title(d.date, locale) for d in dailies]
+    weekdays = [format_daily_weekday(d.date, locale) for d in dailies]
+    contents = [localize_hrefs(d.content, locale) for d in dailies]
 
     for (i, day) in enumerate(dailies)
-        prev_html = if i < length(dailies)
-            older = dailies[i + 1]
-            """<a href="$(t["prefix"])/daily/$(older["slug"])" class="hover:text-indigo-600 dark:hover:text-indigo-400">← $(older["title"])</a>"""
-        else
-            ""
-        end
-        next_html = if i > 1
-            newer = dailies[i - 1]
-            """<a href="$(t["prefix"])/daily/$(newer["slug"])" class="hover:text-indigo-600 dark:hover:text-indigo-400">$(newer["title"]) →</a>"""
-        else
-            ""
-        end
-
-        templated_string = replace(
-            daily_day_template,
-            "{TITLE}" => day["title"],
-            "{SLUG}" => day["slug"],
-            "{WEEKDAY}" => day["weekday"],
-            "{CONTENT}" => day["content"],
-            "{PREV}" => prev_html,
-            "{NEXT}" => next_html,
-            "{PREFIX}" => t["prefix"],
+        content = replace(
+            DAILY_DAY_TEMPLATE,
+            "{TITLE}" => titles[i],
+            "{SLUG}" => day.slug,
+            "{WEEKDAY}" => weekdays[i],
+            "{CONTENT}" => contents[i],
+            "{PREV}" =>
+                i < length(dailies) ?
+                nav_link(prefix, dailies[i+1].slug, "← " * titles[i+1]) : "",
+            "{NEXT}" => i > 1 ? nav_link(prefix, dailies[i-1].slug, titles[i-1] * " →") : "",
+            "{PREFIX}" => prefix,
             "{DAILY_TITLE}" => t["daily_title"],
             "{CONTENT_LANG_NOTE}" => t["content_lang_note"],
         )
-        output = wrap_page(
+        emit!(
             locale,
-            "/daily/" * day["slug"],
-            day["title"] * t["daily_suffix"],
-            excerpt_description(day["excerpt"]),
-            templated_string,
+            "/daily/" * day.slug,
+            titles[i] * t["daily_suffix"],
+            excerpt_description(day.excerpt),
+            content;
+            lastmod=day.slug,
+            changefreq="never",
+            priority="0.6",
         )
-        write_page(locale, "daily/$(day["slug"]).html", output)
-        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/daily/$(day["slug"])" : "/daily/$(day["slug"])", lastmod=string(day["slug"]), changefreq="never", priority="0.6")
     end
 
-    daily_entries = [
+    entries = [
         replace(
-            daily_entry_template,
-            "{TITLE}" => day["title"],
-            "{SLUG}" => day["slug"],
-            "{WEEKDAY}" => day["weekday"],
-            "{CONTENT}" => day["content"],
-            "{PREFIX}" => t["prefix"],
-        ) for day in dailies
+            DAILY_ENTRY_TEMPLATE,
+            "{TITLE}" => titles[i],
+            "{SLUG}" => day.slug,
+            "{WEEKDAY}" => weekdays[i],
+            "{CONTENT}" => contents[i],
+            "{PREFIX}" => prefix,
+        ) for (i, day) in enumerate(dailies)
     ]
-    daily_content = replace(
-        daily_list_template,
-        "{CONTENT}" => join(daily_entries),
+    content = replace(
+        DAILY_LIST_TEMPLATE,
+        "{CONTENT}" => join(entries),
         "{DAILY_TITLE}" => t["daily_title"],
         "{DAILY_INTRO}" => t["daily_intro"],
     )
-    daily_output = wrap_page(
+    emit!(
         locale,
         "/daily",
         t["daily_page_title"],
         t["daily_page_description"],
-        daily_content,
+        content;
+        changefreq="daily",
+        priority="0.9",
     )
-    write_page(locale, "daily.html", daily_output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/daily" : "/daily", changefreq="daily", priority="0.9")
-
-    latest_daily_by_locale[locale] = if isempty(dailies)
-        t["no_daily"]
-    else
-        day = dailies[1]
-        replace(
-            daily_entry_template,
-            "{TITLE}" => day["title"],
-            "{SLUG}" => day["slug"],
-            "{WEEKDAY}" => day["weekday"],
-            "{CONTENT}" => day["content"],
-            "{PREFIX}" => t["prefix"],
-        )
-    end
+    latest_daily[locale] = isempty(entries) ? t["no_daily"] : first(entries)
 end
 
-# Handling notes (shared content; shell per locale)
+# Notes (shared content; shell per locale)
 println("Handling notes...")
 has_notes = isfile("src/notes.org") && isdir("src/notes")
-note_pages = Dict{String,Dict{String,String}}()  # slug => title/content/excerpt
-pandoc_math_flag = occursin("--math-method", read(`pandoc --help`, String)) ? "--math-method=mathjax" : "--mathjax"
+
+struct Note
+    slug::String
+    title::String
+    content::String
+    excerpt::String
+end
+
+pandoc_math_flag =
+    occursin("--math-method", read(`pandoc --help`, String)) ? "--math-method=mathjax" :
+    "--mathjax"
+
+function load_note(path::AbstractString)
+    slug = first(splitext(relpath(path, "src/notes")))
+    data = replace(read(path, String), "university.org][University]" => "notes.org][Notes]")
+    lines = map(split(data, "\n")) do line
+        startswith(line, "#+begin_src") && !contains(line, ":exports") ?
+        line * " :exports both" : line
+    end
+    joined = join(["#+options: H:6"; lines], "\n")
+    content = replace(
+        read(
+            pipeline(
+                `pandoc --quiet --from=org --shift-heading-level-by=1 $pandoc_math_flag`;
+                stdin=IOBuffer(joined),
+            ),
+            String,
+        ),
+        "./images/" => "/images/",
+        ".org\">" => "\">",
+    )
+    excerpt = replace(
+        read(pipeline(`pandoc --quiet --from=org -t plain`; stdin=IOBuffer(joined)), String),
+        r"[^a-zA-Z0-9_\s]" => "",
+    )
+    return Note(slug, org_metadata(data)["title"], content, excerpt)
+end
 
 if has_notes
-    mkpath("build/notes")
-    mkpath("build/fr/notes")
-    for (root, dirs, files) in walkdir("src/notes")
-        for dir in dirs
-            # Directories created per-locale when writing
-        end
-        for file in files
-            filename = joinpath(root, file)
-            println("  Handling file: $filename")
-            slug, type = split(filename, ".")
-            slug = replace(slug, "src/notes/" => "")
-            if type == "org"
-                if Sys.isapple()
-                    run(`sed -i '' 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
-                else
-                    run(`sed -i 's/university.org\]\[University\]/notes.org\]\[Notes\]/g' $filename`)
-                end
-                local data = read(filename, String)
-                local exports_both = map(
-                    line ->
-                        if startswith(line, "#+begin_src") && !contains(line, ":exports")
-                            return line * " :exports both"
-                        else
-                            return line
-                        end,
-                    split(data, "\n"),
-                )
-                local joined = join(["#+options: H:6"; exports_both], "\n")
-                local matches = collect(eachmatch(r"#\+(?<key>.*): (?<value>.*)", data))
-                local metadata = Dict(match["key"] => match["value"] for match in matches)
-                local title = metadata["title"]
-                local content = replace(
-                    read(
-                        pipeline(
-                            `echo $joined`,
-                            `pandoc --quiet --from=org --shift-heading-level-by=1 $pandoc_math_flag`,
-                        ),
-                        String,
-                    ),
-                    "./images/" => "/images/",
-                    ".org\">" => "\">",
-                )
-                local excerpt = replace(
-                    read(
-                        pipeline(`echo $joined`, `pandoc --quiet --from=org -t plain`),
-                        String,
-                    ),
-                    r"[^a-zA-Z0-9_\s]" => "",
-                )
-                note_pages[slug] = Dict(
-                    "title" => title,
-                    "content" => content,
-                    "excerpt" => excerpt,
-                )
-            elseif type == "png"
-                run(`cp $filename src/public/images/$file`)
-            end
+    org_paths = String[]
+    mkpath("build/images")
+    for (root, _, files) in walkdir("src/notes"), file in files
+        path = joinpath(root, file)
+        ext = splitext(file)[2]
+        if ext == ".org"
+            push!(org_paths, path)
+        elseif ext == ".png"
+            cp(path, joinpath("build", "images", file); force=true)
         end
     end
+    notes = pmap_files(load_note, org_paths)
 
-    default_template = read("src/templates/default.html", String)
     for locale in LOCALES
         t = I18N[locale]
-        for (slug, body) in note_pages
-            content = localize_hrefs(body["content"], locale)
-            templated = replace(
-                default_template,
-                "{TITLE}" => body["title"],
-                "{CONTENT}" => content,
+        for note in notes
+            content = replace(
+                DEFAULT_TEMPLATE,
+                "{TITLE}" => note.title,
+                "{CONTENT}" => localize_hrefs(note.content, locale),
                 "{CONTENT_LANG_NOTE}" => t["content_lang_note"],
             )
-            output = wrap_page(
+            emit!(
                 locale,
-                "/notes/" * slug,
-                body["title"] * t["notes_suffix"],
-                excerpt_description(body["excerpt"]),
-                templated,
+                "/notes/" * note.slug,
+                note.title * t["notes_suffix"],
+                excerpt_description(note.excerpt),
+                content,
             )
-            write_page(locale, "notes/$slug.html", output)
-            add_sitemap!(sitemap_items, locale == "fr" ? "/fr/notes/$slug" : "/notes/$slug", changefreq="monthly", priority="0.7")
         end
     end
 else
     println("  Skipping notes (src/notes not found)")
 end
 
-# Other routes (home, about, citadel, notes index)
+# Other routes (home, about, citadel, now, notes index, 404)
 println("Handling other routes...")
 
-# Pre-render org/html sources once where possible
-function render_org_route(source_path::AbstractString, heading::AbstractString, locale::AbstractString)
-    template = read("src/templates/default.html", String)
-    html = replace(
-        read(`pandoc $source_path --shift-heading-level-by=1`, String),
+"""Pandoc-render an org source once; per-locale localization happens later."""
+function render_org(source_path::AbstractString)
+    return replace(
+        pandoc_html(source_path),
         ".org\">" => "\">",
         "href=\"file:///now\"" => "href=\"/now\"",
-    )
-    html = localize_hrefs(html, locale)
-    return replace(
-        template,
-        "{TITLE}" => heading,
-        "{CONTENT}" => html,
-        "{CONTENT_LANG_NOTE}" => "",
+        "href=\"file:///damiengonot_resume.pdf\"" => "href=\"/damiengonot_resume.pdf\"",
+        "href=\"damiengonot_resume.pdf\"" => "href=\"/damiengonot_resume.pdf\"",
+        "href=\"./images/" => "href=\"/images/",
+        "src=\"./images/" => "src=\"/images/",
     )
 end
+
+route_content(html::AbstractString, heading::AbstractString, locale::AbstractString) =
+    replace(
+        DEFAULT_TEMPLATE,
+        "{TITLE}" => heading,
+        "{CONTENT}" => localize_hrefs(html, locale),
+        "{CONTENT_LANG_NOTE}" => "",
+    )
+
+# (logical path, i18n key stem, source basename, priority)
+const ORG_ROUTES = (
+    ("/about", "about", "about.org", "0.7"),
+    ("/citadel", "citadel", "citadel.org", "0.5"),
+    ("/now", "now", "now.org", "0.7"),
+)
+
+org_sources = Dict(
+    (locale, route[1]) =>
+        render_org(joinpath("src", locale == "fr" ? "fr" : "", route[3])) for
+    locale in LOCALES for route in ORG_ROUTES
+)
+notes_index_html = has_notes ? render_org("src/notes.org") : ""
 
 for locale in LOCALES
     t = I18N[locale]
     println("  Locale: $locale")
 
-    # Homepage
-    home_source = locale == "fr" ? "src/fr/index.html" : "src/index.html"
-    home_content = read(home_source, String)
+    home_source = joinpath("src", locale == "fr" ? "fr" : "", "index.html")
     home_content = replace(
-        home_content,
-        "{RECENT_BLOG_POSTS}" => join(posts_list_by_locale[locale][1:min(5, length(posts))]),
-        "{LATEST_DAILY}" => latest_daily_by_locale[locale],
+        read(home_source, String),
+        "{RECENT_BLOG_POSTS}" => join(first(post_links[locale], RECENT_POSTS)),
+        "{LATEST_DAILY}" => latest_daily[locale],
     )
-    home_output = wrap_page(
+    emit!(
         locale,
         "",
         t["home_title"],
         t["home_description"],
-        home_content,
+        home_content;
+        changefreq="daily",
+        priority="1.0",
     )
-    write_page(locale, "index.html", home_output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr" : "/", changefreq="daily", priority="1.0")
 
-    # About
-    about_source = locale == "fr" ? "src/fr/about.org" : "src/about.org"
-    about_content = render_org_route(about_source, t["about_heading"], locale)
-    # Ensure résumé link is root-absolute from any locale path
-    about_content = replace(
-        about_content,
-        "href=\"file:///damiengonot_resume.pdf\"" => "href=\"/damiengonot_resume.pdf\"",
-        "href=\"damiengonot_resume.pdf\"" => "href=\"/damiengonot_resume.pdf\"",
-    )
-    about_output = wrap_page(
-        locale,
-        "/about",
-        t["about_title"],
-        t["about_description"],
-        about_content,
-    )
-    write_page(locale, "about.html", about_output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/about" : "/about", changefreq="monthly", priority="0.7")
+    for (path, key, _, priority) in ORG_ROUTES
+        emit!(
+            locale,
+            path,
+            t["$(key)_title"],
+            t["$(key)_description"],
+            route_content(org_sources[(locale, path)], t["$(key)_heading"], locale);
+            priority=priority,
+        )
+    end
 
-    # Citadel
-    citadel_source = locale == "fr" ? "src/fr/citadel.org" : "src/citadel.org"
-    citadel_content = render_org_route(citadel_source, t["citadel_heading"], locale)
-    # Image path in org is relative; force absolute public path
-    citadel_content = replace(citadel_content, "href=\"./images/" => "href=\"/images/")
-    citadel_content = replace(citadel_content, "src=\"./images/" => "src=\"/images/")
-    citadel_output = wrap_page(
-        locale,
-        "/citadel",
-        t["citadel_title"],
-        t["citadel_description"],
-        citadel_content,
-    )
-    write_page(locale, "citadel.html", citadel_output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/citadel" : "/citadel", changefreq="monthly", priority="0.5")
-
-    # Now
-    now_source = locale == "fr" ? "src/fr/now.org" : "src/now.org"
-    now_content = render_org_route(now_source, t["now_heading"], locale)
-    now_output = wrap_page(
-        locale,
-        "/now",
-        t["now_title"],
-        t["now_description"],
-        now_content,
-    )
-    write_page(locale, "now.html", now_output)
-    add_sitemap!(sitemap_items, locale == "fr" ? "/fr/now" : "/now", changefreq="monthly", priority="0.7")
-
-    # Notes index
     if has_notes
-        notes_content = render_org_route("src/notes.org", t["notes_heading"], locale)
-        # For FR, also prefix relative notes links that pandoc may emit without leading slash
-        if locale == "fr"
-            notes_content = replace(notes_content, "href=\"notes/" => "href=\"/fr/notes/")
-        end
-        notes_output = wrap_page(
+        html = notes_index_html
+        # pandoc may emit relative notes links; keep FR ones under /fr/
+        locale == "fr" && (html = replace(html, "href=\"notes/" => "href=\"/fr/notes/"))
+        emit!(
             locale,
             "/notes",
             t["notes_title"],
             t["notes_description"],
-            notes_content,
+            route_content(html, t["notes_heading"], locale);
+            changefreq="weekly",
+            priority="0.8",
         )
-        write_page(locale, "notes.html", notes_output)
-        add_sitemap!(sitemap_items, locale == "fr" ? "/fr/notes" : "/notes", changefreq="weekly", priority="0.8")
     end
 
-    # 404 page
-    not_found_template = read("src/templates/404.html", String)
     not_found_content = replace(
-        not_found_template,
+        NOT_FOUND_TEMPLATE,
         "{NOT_FOUND_HEADING}" => t["not_found_heading"],
         "{NOT_FOUND_MESSAGE}" => t["not_found_message"],
         "{NOT_FOUND_HOME}" => t["not_found_home"],
@@ -752,14 +643,14 @@ for locale in LOCALES
         "{NAV_BLOG}" => t["nav_blog"],
         "{NAV_NOTES}" => t["nav_notes"],
     )
-    not_found_output = wrap_page(
+    emit!(
         locale,
         "/404",
         t["not_found_title"],
         t["not_found_description"],
-        not_found_content,
+        not_found_content;
+        sitemap=false,
     )
-    write_page(locale, "404.html", not_found_output)
 end
 
 # Sitemap
@@ -767,12 +658,10 @@ println("Generating sitemap.xml...")
 open("build/sitemap.xml", "w") do io
     println(io, """<?xml version="1.0" encoding="UTF-8"?>""")
     println(io, """<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""")
-    for item in sitemap_items
+    for item in SITEMAP
         println(io, "  <url>")
         println(io, "    <loc>$(item.loc)</loc>")
-        if !isempty(item.lastmod)
-            println(io, "    <lastmod>$(item.lastmod)</lastmod>")
-        end
+        isempty(item.lastmod) || println(io, "    <lastmod>$(item.lastmod)</lastmod>")
         println(io, "    <changefreq>$(item.changefreq)</changefreq>")
         println(io, "    <priority>$(item.priority)</priority>")
         println(io, "  </url>")
@@ -782,10 +671,9 @@ end
 
 # Wrap it up
 println("Wrapping it up...")
-run(`cp -a src/public/. build/`)
 run(`npx @tailwindcss/cli -i ./src/input.css -o ./build/main.css --minify`)
 run(
-    `npx html-minifier --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
+    `npx html-minifier-terser --input-dir ./build --output-dir ./build --collapse-whitespace --minify-js true --file-ext html`,
 )
 
 println("Website has been generated!")

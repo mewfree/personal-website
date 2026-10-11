@@ -1,49 +1,39 @@
-function loadCss(theme) {
-  let file = document.createElement("link");
-  file.setAttribute("rel", "stylesheet");
-  file.setAttribute("href", `/highlight.${theme}.css`);
-  document.getElementsByTagName("head")[0].appendChild(file);
-}
-
-if (
+const isDark = () =>
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-  document.getElementById("theme").innerText = "🌞️";
-  loadCss("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-  document.getElementById("theme").innerText = "🌝";
-  loadCss("light");
+    window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+// Syntax-highlighting theme: one <link> whose href is swapped, only on pages with code.
+const hasCode = document.querySelector("pre code") !== null;
+const codeTheme = hasCode ? document.createElement("link") : null;
+if (codeTheme) {
+  codeTheme.rel = "stylesheet";
+  document.head.append(codeTheme);
+}
+
+function applyTheme(dark) {
+  document.documentElement.classList.toggle("dark", dark);
+  document.getElementById("theme").innerText = dark ? "\u{1F31E}️" : "\u{1F31D}";
+  if (codeTheme) codeTheme.href = `/highlight.${dark ? "dark" : "light"}.css`;
 }
 
 function toggleTheme() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.remove("dark");
-    document.getElementById("theme").innerText = "🌝";
-    localStorage.theme = "light";
-    loadCss("light");
-  } else {
-    document.documentElement.classList.add("dark");
-    document.getElementById("theme").innerText = "🌞️";
-    localStorage.theme = "dark";
-    loadCss("dark");
-  }
+  const dark = !isDark();
+  localStorage.theme = dark ? "dark" : "light";
+  applyTheme(dark);
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]").forEach((el) => {
-    const link = document.createElement("a");
-    link.setAttribute("href", "#" + el.id);
-    link.classList.add("header-anchor");
-    el.prepend(link);
-  });
+applyTheme(isDark());
+
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
+    .forEach((el) => {
+      const link = document.createElement("a");
+      link.href = "#" + el.id;
+      link.classList.add("header-anchor");
+      el.prepend(link);
+    });
 
   document.querySelectorAll("pre code").forEach((el) => {
     el.classList.remove("sourceCode");

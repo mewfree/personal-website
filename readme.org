@@ -6,7 +6,7 @@ A tiny script to generate my personal website.
 * Tools required (local)
 - =julia 1.12+=
 - =pandoc 3.x=
-- =node 22= (for Tailwind, html-minifier, wrangler)
+- =node 22= (for Tailwind, html-minifier-terser, wrangler)
 
 * Setup
 #+begin_src bash :results none
