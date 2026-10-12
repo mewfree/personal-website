@@ -1,0 +1,4 @@
+#+title: 2026-10-12
+
+* Artificial Intelligence
+- [[https://research.meta.ai/blog/muse-wonder][Meta’s Muse Wonder models target frontier agent work with active memory and sustained focus]] — the new models tackle personal and professional tasks, including coding, with Wonder available through Meta Model API and Muse Code.
