@@ -1,0 +1,4 @@
+#+title: 2026-10-14
+
+* Artificial Intelligence
+- [[https://x.ai/news/grok-voice-3][xAI launches Grok Voice 3.0, a faster speech model aimed at customer support]]; the API release claims leading speech benchmarks, sub-second latency, and deployment across Tesla and SpaceX services.
