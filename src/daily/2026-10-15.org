@@ -1,0 +1,4 @@
+#+title: 2026-10-15
+
+* Artificial Intelligence
+- [[https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/][NVIDIA’s Nemotron 3.5 Super VL combines multimodal reasoning and tool use for specialized agents]] — the open 120B MoE model handles text, images, documents, and video, with NVIDIA touting up to 5× higher agent-task throughput and post-training wins in cost, latency, and accuracy.
