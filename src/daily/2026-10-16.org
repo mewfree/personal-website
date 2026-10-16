@@ -1,0 +1,4 @@
+#+title: 2026-10-16
+
+* Autonomous Vehicles
+- [[https://waymo.com/blog/2026/10/waymo-in-toronto/][Waymo begins Toronto mapping and testing, targeting autonomous rides in 2028]] — its Canadian launch includes a partnership with Element, hundreds of local jobs, and safety testing with trained specialists; [[https://waymo.com/waymo-in-canada/][Toronto information page]] lists planned testing areas and confirms participation in Ontario’s Automated Vehicle Pilot Program.
