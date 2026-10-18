@@ -1,0 +1,4 @@
+#+title: 2026-10-18
+
+* Artificial Intelligence
+- [[https://www.anthropic.com/news/public-benefit-fund][Anthropic commits a growing share of its equity to public benefit]] — 5% of shares will go to a new fund, with up to 2% more added for each 50% increase in company value, supporting flexible public-good initiatives.
