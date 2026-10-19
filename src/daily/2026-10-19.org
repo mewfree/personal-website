@@ -1,0 +1,4 @@
+#+title: 2026-10-19
+
+* Artificial Intelligence
+- [[https://www.inceptionlabs.ai/blog/introducing-mercury-3][Inception scales diffusion LLMs with Mercury 3, claiming 1,000+ tokens per second]] — The 1M-context model targets real-time applications and is available via Inception’s API and several hosting platforms.
