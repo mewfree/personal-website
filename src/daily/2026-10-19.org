@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://www.inceptionlabs.ai/blog/introducing-mercury-3][Inception scales diffusion LLMs with Mercury 3, claiming 1,000+ tokens per second]] — The 1M-context model targets real-time applications and is available via Inception’s API and several hosting platforms.
+- [[https://exa.ai/blog/exa-3][Exa 3.0 boosts search quality and adds a low-cost search tier]] — The update expands Exa’s index, makes token-efficient Dynamic Highlights generally available, and introduces Exa Lite at $4 per 1,000 requests.
