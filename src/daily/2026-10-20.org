@@ -1,0 +1,4 @@
+#+title: 2026-10-20
+
+* Artificial Intelligence
+- [[https://mistral.ai/news/voxtral-3/][Mistral packages multilingual speech models into a sovereign, real-time voice-agent stack]] — Voxtral 3 pairs transcription and expressive speech across dozens of languages with an SDK for reasoning and tool use, available via Mistral’s EU-hosted API or self-deployment.
