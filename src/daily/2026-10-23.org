@@ -1,0 +1,4 @@
+#+title: 2026-10-23
+
+* Artificial Intelligence
+- [[https://www.kimi.ai/blog/kimi-k3-1-pro][Kimi unveils its strongest 3T-class open-weight model, with a million-token context and weights due Nov. 4]]; K3.1 Pro strengthens coding, 3D creation, and financial workflows.
