@@ -1,0 +1,6 @@
+#+title: 2026-10-26
+
+* Artificial Intelligence
+- [[https://www.anthropic.com/news/s1-sec][Anthropic files S-1 for a proposed public offering]] — the company plans to list its Class A shares on Nasdaq under the symbol ANT; offering size and price range are still undetermined.
+- [[https://openai.com/index/introducing-gpt-6-1-terra/][OpenAI introduces GPT-6.1 Terra for faster, lower-cost computer use]] — the model interprets screens, acts across apps, and writes naturally, bringing capable computer-use workflows to more tasks.
+- [[https://openai.com/index/building-scientific-understanding-with-academic-communities/][OpenAI shares new mathematical, computer science, and physics results with academic communities]] — it publishes research manuscripts and formal proofs as starting points for scrutiny and collaboration, rather than presenting them as finished scientific understanding.
