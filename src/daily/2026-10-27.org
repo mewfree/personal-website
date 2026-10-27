@@ -1,0 +1,6 @@
+#+title: 2026-10-27
+
+* Artificial Intelligence
+- [[https://www.generalcompute.com/blog/general-compute-100m-series-a][General Compute raises $100M to build a multi-chip inference cloud]] — the round will fund GPU and inference-chip deployments, with over 50 MW of capacity in the pipeline and first major deployments planned for Q1 2027.
+- [[https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/][Google DeepMind unveils Genie 4 for real-time, multimodal world simulation]] — the model generates interactive worlds with physics, natural-language scene control, native audio and dialogue; it is rolling out first to trusted testers.
+- [[https://www.hyperbolic.ai/blog/a1-funding][Hyperbolic raises $30M to unify global GPU compute]] — the Series A1 will expand its multi-cloud orchestration platform and support a planned global compute grid for buying and selling GPU capacity.
