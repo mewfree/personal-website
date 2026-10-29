@@ -1,0 +1,4 @@
+#+title: 2026-10-29
+
+* Artificial Intelligence
+- [[https://mistral.ai/news/mistral-large-4-oss/][Mistral releases the weights of its trillion-parameter Large 4 model, with stronger agentic coding and defensive cybersecurity capabilities]] — the open-weight model adds more efficient reasoning modes and a clearer path to self-hosted, sovereign AI.
