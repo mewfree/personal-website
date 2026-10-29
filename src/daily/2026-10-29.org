@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://mistral.ai/news/mistral-large-4-oss/][Mistral releases the weights of its trillion-parameter Large 4 model, with stronger agentic coding and defensive cybersecurity capabilities]] — the open-weight model adds more efficient reasoning modes and a clearer path to self-hosted, sovereign AI.
+- [[https://cohere.com/blog/who-gets-to-build-the-frontier-for-ai][Cohere argues for more frontier AI builders across the democratic world]] — alongside announcing a Series E targeting up to CAD $7 billion, the company makes the case for sovereign AI systems countries can control and trust.
