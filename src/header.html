@@ -26,24 +26,23 @@
     </script>
   </head>
   <body class="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-    <header class="sticky top-0 z-40 backdrop-blur bg-neutral-50/80 dark:bg-neutral-950/70 border-b border-neutral-200/60 dark:border-neutral-800">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-        <a href="{HOME_HREF}" class="flex items-center gap-2 min-w-0">
-          <span class="dg text-2xl sm:text-3xl truncate">Damien Gonot</span>
+    <header class="sticky top-0 z-40 backdrop-blur bg-neutral-50/80 dark:bg-neutral-950/70 border-b border-neutral-200 dark:border-neutral-800">
+      <div class="chrome-inner py-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <a href="{HOME_HREF}" class="site-mark flex items-center gap-2 min-w-0">
+          <span class="dg text-2xl sm:text-3xl leading-none truncate">Damien <em>Gonot</em></span>
         </a>
-        <div class="flex items-center gap-3 sm:gap-6 shrink-0">
-          <nav class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
-            <a href="{PREFIX}/daily" class="hover:text-primary-600 dark:hover:text-primary-400">{NAV_DAILY}</a>
-            <a href="{PREFIX}/blog" class="hover:text-primary-600 dark:hover:text-primary-400">{NAV_BLOG}</a>
-            <a href="{PREFIX}/notes" class="hover:text-primary-600 dark:hover:text-primary-400">{NAV_NOTES}</a>
-            <a href="{PREFIX}/about" class="hover:text-primary-600 dark:hover:text-primary-400">{NAV_ABOUT}</a>
+        <div class="flex items-center gap-3 sm:gap-5 shrink-0">
+          <nav class="flex items-center gap-3 sm:gap-5 font-mono text-xs sm:text-[0.8rem]">
+            <a href="{PREFIX}/daily" class="nav-link">{NAV_DAILY}</a>
+            <a href="{PREFIX}/blog" class="nav-link">{NAV_BLOG}</a>
+            <a href="{PREFIX}/notes" class="nav-link">{NAV_NOTES}</a>
+            <a href="{PREFIX}/about" class="nav-link">{NAV_ABOUT}</a>
           </nav>
-          <nav class="flex items-center gap-1.5 text-xs sm:text-sm tabular-nums" aria-label="{LANG_SWITCHER_LABEL}">
+          <nav class="lang-pill font-mono text-[0.7rem] sm:text-xs" aria-label="{LANG_SWITCHER_LABEL}">
             <a href="{EN_PATH}" class="{EN_CLASS}" hreflang="en" lang="en">EN</a>
-            <span class="text-neutral-300 dark:text-neutral-700" aria-hidden="true">/</span>
             <a href="{FR_PATH}" class="{FR_CLASS}" hreflang="fr" lang="fr">FR</a>
           </nav>
-          <button id="theme" type="button" aria-label="{THEME_ARIA}" class="text-xl hover:cursor-pointer" onclick="toggleTheme()">🌝</button>
+          <button id="theme" type="button" aria-label="{THEME_ARIA}" class="theme-btn" onclick="toggleTheme()">🌝</button>
         </div>
       </div>
       <script defer src="/custom.js"></script>

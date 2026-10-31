@@ -368,3 +368,54 @@ html { overflow-x: clip; }
   display: block;
   margin-top: 0.15rem;
 }
+
+/* Header / footer chrome */
+.site-mark em {
+  font-style: italic;
+  color: var(--color-primary-600);
+}
+.dark .site-mark em { color: var(--color-primary-400); }
+.nav-link {
+  color: var(--color-neutral-600);
+  transition: color 0.15s;
+}
+.dark .nav-link { color: var(--color-neutral-400); }
+.nav-link:hover { color: var(--color-primary-600); }
+.dark .nav-link:hover { color: var(--color-primary-400); }
+.lang-pill {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 9999px;
+}
+.dark .lang-pill { border-color: var(--color-neutral-800); }
+.lang-pill a {
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+}
+.lang-pill a.font-semibold {
+  background: var(--color-primary-50);
+}
+.dark .lang-pill a.font-semibold { background: var(--color-primary-950); }
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 9999px;
+  transition: border-color 0.15s;
+}
+.dark .theme-btn { border-color: var(--color-neutral-800); }
+.theme-btn:hover { border-color: var(--color-primary-500); }
+
+/* Header/footer share the page's content column (48rem prose, 65rem on the homepage). */
+.chrome-inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+body:has(.home) .chrome-inner { max-width: 68rem; }

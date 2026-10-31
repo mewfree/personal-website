@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "julia build.jl",
-    "dev": "wrangler pages dev build",
+    "dev": "wrangler pages dev build --compatibility-date=2026-07-29",
     "deploy": "julia build.jl && wrangler pages deploy build"
   },
   "devDependencies": {
