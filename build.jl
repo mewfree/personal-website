@@ -20,6 +20,19 @@ if has_meworg
         replace(read(meworg_org, String), "university" => "notes", "University" => "Notes"),
     )
     cp(meworg_dir, "src/notes")
+    # "university" is the vault's internal name; the site calls it "notes". The top-level file is
+    # renamed wholesale above, so do the same for the breadcrumb links in every imported note.
+    for (dir, _, files) in walkdir("src/notes"), f in files
+        endswith(f, ".org") || continue
+        path = joinpath(dir, f)
+        text = read(path, String)
+        fixed = replace(
+            text,
+            r"(\[\[file:(?:\.\.?/)*)university(\.org|/)" => s"\1notes\2",
+            "][University]]" => "][Notes]]",
+        )
+        fixed == text || write(path, fixed)
+    end
 else
     println("No meworg at $meworg_root; using committed notes if present")
 end
@@ -69,17 +82,17 @@ const I18N = Dict(
         "blog_intro" => """Longer posts. Much of the archive is ads and marketing automation
     (Google Ads, Facebook Marketing API, spreadsheets). Newer writing wanders further afield.
     For day-to-day AI links, see
-    <a href="/daily" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">Daily</a>.""",
+    <a href="/daily" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">Daily</a>.""",
         "blog_page_title" => "Blog Posts - Damien Gonot",
         "blog_page_description" => "Blog posts by Damien Gonot: ads and marketing automation, plus occasional longer essays.",
         "daily_title" => "Daily",
         "daily_intro" => """Day-to-day links and short notes, mostly AI. For longer posts, see the
-    <a href="/blog" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">blog</a>.""",
+    <a href="/blog" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">blog</a>.""",
         "daily_page_title" => "Daily - Damien Gonot",
         "daily_page_description" => "Daily AI links and short notes by Damien Gonot.",
         "daily_suffix" => " - Daily - Damien Gonot",
         "content_lang_note" => "",
-        "no_daily" => """<p class="text-sm text-zinc-500 dark:text-zinc-400">No entries yet.</p>""",
+        "no_daily" => """<p class="text-sm text-neutral-500 dark:text-neutral-400">No entries yet.</p>""",
         "home_title" => "Damien Gonot",
         "home_description" => "Software developer & marketer. Daily AI notes, a blog on ads automation, and public notes by Damien Gonot.",
         "about_title" => "About - Damien Gonot",
@@ -115,19 +128,19 @@ const I18N = Dict(
         "blog_intro" => """Des articles plus longs. Une grande partie des archives porte sur les ads et l'automatisation marketing
     (Google Ads, Facebook Marketing API, tableurs). Les textes plus récents s'éloignent un peu.
     Pour les liens IA au jour le jour, voir le
-    <a href="/fr/daily" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">Journal</a>.
+    <a href="/fr/daily" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">Journal</a>.
     <span class="block mt-2 text-sm">Les articles sont pour l'instant en anglais.</span>""",
         "blog_page_title" => "Articles de blog - Damien Gonot",
         "blog_page_description" => "Articles de Damien Gonot : ads et automatisation marketing, et parfois des essais plus longs.",
         "daily_title" => "Journal",
         "daily_intro" => """Liens et notes au fil des jours, surtout de l'IA. Pour les textes plus longs, voir le
-    <a href="/fr/blog" class="underline decoration-indigo-400/50 underline-offset-4 hover:decoration-indigo-400">blog</a>.
+    <a href="/fr/blog" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">blog</a>.
     <span class="block mt-2 text-sm">Le contenu est souvent en anglais.</span>""",
         "daily_page_title" => "Journal - Damien Gonot",
         "daily_page_description" => "Liens IA et notes quotidiennes de Damien Gonot.",
         "daily_suffix" => " - Journal - Damien Gonot",
-        "content_lang_note" => """<p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400">Ce contenu est en anglais.</p>""",
-        "no_daily" => """<p class="text-sm text-zinc-500 dark:text-zinc-400">Pas encore d'entrées.</p>""",
+        "content_lang_note" => """<p class="mt-3 text-sm text-neutral-500 dark:text-neutral-400">Ce contenu est en anglais.</p>""",
+        "no_daily" => """<p class="text-sm text-neutral-500 dark:text-neutral-400">Pas encore d'entrées.</p>""",
         "home_title" => "Damien Gonot",
         "home_description" => "Développeur et marketer. Journal IA quotidien, blog sur l'automatisation des ads, et notes publiques de Damien Gonot.",
         "about_title" => "À propos - Damien Gonot",
@@ -152,16 +165,17 @@ const I18N = Dict(
 )
 
 const LANG_ACTIVE =
-    "font-semibold text-indigo-600 dark:text-indigo-400"
+    "font-semibold text-primary-600 dark:text-primary-400"
 const LANG_INACTIVE =
-    "text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400"
+    "text-neutral-500 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
 
 
 const SITE_URL = "https://www.damiengonot.com"
 const CONTENT_MARKER = "<!--CONTENT-->"
-const NAV_LINK_CLASS = "hover:text-indigo-600 dark:hover:text-indigo-400"
+const NAV_LINK_CLASS = "hover:text-primary-600 dark:hover:text-primary-400"
 const MAX_EXCERPT_CHARS = 297
 const RECENT_POSTS = 5
+const DAILY_WINDOW_ITEMS = 5
 
 read_template(name) = read(joinpath("src", "templates", "$name.html"), String)
 
@@ -409,6 +423,25 @@ nav_link(prefix, slug, label) =
 
 latest_daily = Dict{String,String}()
 
+"""One row per day for the homepage window: the day's first linked bullet and how many more follow."""
+function daily_window_items(dailies)
+    items = NamedTuple{(:slug, :date, :text, :more),Tuple{String,Date,String,Int}}[]
+    for d in dailies
+        headlines = String[]
+        for line in eachline(joinpath("src", "daily", "$(d.slug).org"))
+            m = match(r"^- \[\[[^\]]+\]\[([^\]]+)\]\]", line)
+            m === nothing || push!(headlines, String(m.captures[1]))
+        end
+        isempty(headlines) && continue
+        push!(items, (slug=d.slug, date=d.date, text=first(headlines), more=length(headlines) - 1))
+        length(items) >= DAILY_WINDOW_ITEMS && break
+    end
+    return items
+end
+
+daily_window = daily_window_items(dailies)
+daily_window_html = Dict{String,String}()
+
 for locale in LOCALES
     t = I18N[locale]
     prefix = t["prefix"]
@@ -469,6 +502,10 @@ for locale in LOCALES
         priority="0.9",
     )
     latest_daily[locale] = isempty(entries) ? t["no_daily"] : first(entries)
+    daily_window_html[locale] = join([
+        """<a href="$prefix/daily/$(it.slug)" class="daily-item"><span class="mono">$(Dates.format(it.date, "mm-dd"))</span><span><span class="daily-text">$(html_attr(it.text))</span>$(it.more > 0 ? """<span class="mono daily-more">+$(it.more) $(locale == "fr" ? "autres" : "more")</span>""" : "")</span></a>"""
+        for it in daily_window
+    ])
 end
 
 # Notes (shared content; shell per locale)
@@ -595,6 +632,7 @@ for locale in LOCALES
         read(home_source, String),
         "{RECENT_BLOG_POSTS}" => join(first(post_links[locale], RECENT_POSTS)),
         "{LATEST_DAILY}" => latest_daily[locale],
+        "{DAILY_WINDOW}" => daily_window_html[locale],
     )
     emit!(
         locale,

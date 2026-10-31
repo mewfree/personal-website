@@ -2,20 +2,46 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
-  font-family: "MADE Mirage";
-  src: url("fonts/made_mirage_medium.otf") format("opentype");
-  font-display: swap;
+@theme {
+  /* Same emerald accent + stone "ink" neutrals as SheetGPT / SheetFX. */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+  --color-primary-950: #022c22;
+
+  --color-neutral-50: #fbfaf7;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-300: #d6d3d1;
+  --color-neutral-400: #a8a29e;
+  --color-neutral-500: #78716c;
+  --color-neutral-600: #57534e;
+  --color-neutral-700: #44403c;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+  --color-neutral-950: #0c0a09;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
+
 ::selection {
-  background-color: rgb(199 210 254); /* indigo-200 */
-  color: rgb(24 24 27); /* zinc-900 */
+  background-color: var(--color-primary-200);
+  color: var(--color-neutral-900);
 }
 
 .dark ::selection {
-  background-color: rgb(67 56 202); /* indigo-700 */
-  color: rgb(250 250 250); /* zinc-50 */
+  background-color: var(--color-primary-700);
+  color: var(--color-neutral-50);
 }
 
 h1,
@@ -25,7 +51,9 @@ h4,
 h5,
 h6,
 .dg {
-  font-family: "MADE Mirage", Arial, sans-serif;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-synthesis: none;
 }
 
 .header-anchor {
@@ -51,20 +79,20 @@ h6,
 .prose :where(h1) {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 2.5em;
+  font-size: 3em;
   line-height: 1.1;
 }
 .prose :where(h2) {
   margin-top: 3rem;
   margin-bottom: 1rem;
-  font-size: 1.875em;
+  font-size: 2.25em;
   line-height: 1.2;
 }
 .prose :where(h3) {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  font-size: 1.5em;
-  line-height: 1.3;
+  font-size: 1.75em;
+  line-height: 1.2;
 }
 .prose :where(p) {
   margin-bottom: 1.5rem;
@@ -100,49 +128,46 @@ h6,
   list-style-type: square;
 }
 .prose :where(ul > li, ol > li)::marker {
-  color: rgb(113 113 122); /* zinc-500 */
+  color: var(--color-neutral-500);
 }
 .dark .prose :where(ul > li, ol > li)::marker {
-  color: rgb(161 161 170); /* zinc-400 */
+  color: var(--color-neutral-400);
 }
+/* Hairline-first, flat: no drop shadows on content images. */
 .prose :where(img) {
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-neutral-200);
 }
 .prose :where(blockquote) {
   font-style: italic;
   border-left-width: 4px;
-  border-left-color: #6366f1;
+  border-left-color: var(--color-primary-600);
   padding-left: 1.5rem;
   margin: 2rem 0;
 }
 
 /* Prose links — show the underline only while interacting, while preserving the link colours */
-.prose a {
-  color: rgb(79 70 229); /* indigo-600 */
+.prose a:is(:not([class]), .footnote-ref, .header-anchor) {
+  color: var(--color-primary-600);
   text-decoration: none;
-  text-decoration-color: rgb(129 140 248 / 0.5); /* indigo-400/50 */
+  text-decoration-color: color-mix(in oklab, var(--color-primary-400) 50%, transparent);
   text-underline-offset: 3px;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
-.prose a:hover {
-  color: rgb(67 56 202); /* indigo-700 */
+.prose a:is(:not([class]), .footnote-ref, .header-anchor):hover {
+  color: var(--color-primary-700);
   text-decoration: underline;
-  text-decoration-color: rgb(129 140 248); /* indigo-400 */
+  text-decoration-color: var(--color-primary-400);
 }
-/* Project cards are links too, but their hover treatment is the card itself. */
-.prose a.group:hover {
-  text-decoration: none;
+.dark .prose a:is(:not([class]), .footnote-ref, .header-anchor) {
+  color: var(--color-primary-400);
+  text-decoration-color: color-mix(in oklab, var(--color-primary-400) 40%, transparent);
 }
-.dark .prose a {
-  color: rgb(129 140 248); /* indigo-400 */
-  text-decoration-color: rgb(129 140 248 / 0.4);
-}
-.dark .prose a:hover {
-  color: rgb(165 180 252); /* indigo-300 */
-  text-decoration-color: rgb(165 180 252);
+.dark .prose a:is(:not([class]), .footnote-ref, .header-anchor):hover {
+  color: var(--color-primary-300);
+  text-decoration-color: var(--color-primary-300);
 }
 
 /* Tables (pandoc/org export) — no cell padding without @tailwindcss/typography */
@@ -156,11 +181,11 @@ h6,
 }
 
 .prose :where(thead) {
-  border-bottom: 2px solid rgb(228 228 231); /* zinc-200 */
+  border-bottom: 2px solid var(--color-neutral-200);
 }
 
 .dark .prose :where(thead) {
-  border-bottom-color: rgb(63 63 70); /* zinc-700 */
+  border-bottom-color: var(--color-neutral-700);
 }
 
 .prose :where(th) {
@@ -168,22 +193,22 @@ h6,
   text-align: left;
   font-weight: 600;
   vertical-align: bottom;
-  color: rgb(24 24 27); /* zinc-900 */
+  color: var(--color-neutral-900);
 }
 
 .dark .prose :where(th) {
-  color: rgb(244 244 245); /* zinc-100 */
+  color: var(--color-neutral-100);
 }
 
 .prose :where(td) {
   padding: 0.7rem 1rem;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid rgb(228 228 231); /* zinc-200 */
+  border-top: 1px solid var(--color-neutral-200);
 }
 
 .dark .prose :where(td) {
-  border-top-color: rgb(63 63 70); /* zinc-700 */
+  border-top-color: var(--color-neutral-700);
 }
 
 .prose :where(tbody tr:first-child td) {
@@ -203,17 +228,17 @@ h6,
   margin-bottom: 1.5em;
   border-radius: 0.5rem;
   border: 1px solid rgba(100, 116, 139, 0.2);
-  background-color: #f8fafc;
+  background-color: var(--color-neutral-100);
 }
 .prose pre code {
-  color: #334155;
+  color: var(--color-neutral-700);
 }
 .dark .prose pre {
   border-color: rgba(39, 39, 42, 0.6);
-  background-color: #1e293b;
+  background-color: var(--color-neutral-900);
 }
 .dark .prose pre code {
-  color: #e2e8f0;
+  color: var(--color-neutral-200);
 }
 
 /* Ensure inline code and preformatted blocks use default typography styles */
@@ -227,4 +252,119 @@ h6,
 /* Homepage avatar alignment */
 .hero-avatar img {
   object-position: top center;
+}
+
+.dark .prose :where(img) {
+  border-color: var(--color-neutral-800);
+}
+
+/* Homepage */
+body { font-family: var(--font-sans); }
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-neutral-500);
+  font-variant-numeric: tabular-nums;
+}
+.hero-title {
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--color-primary-600);
+}
+.dark .hero-title em {
+  color: var(--color-primary-400);
+}
+.window {
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 0.875rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04), 0 8px 24px -8px rgba(28, 25, 23, 0.12),
+    0 32px 64px -24px rgba(6, 78, 59, 0.18);
+}
+.dark .window {
+  background: var(--color-neutral-900);
+  border-color: var(--color-neutral-800);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 32px 64px -24px rgba(16, 185, 129, 0.12);
+}
+.window-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+.dark .window-bar { border-bottom-color: var(--color-neutral-800); }
+.window-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--color-neutral-200);
+}
+.dark .window-bar i { background: var(--color-neutral-700); }
+.window-bar span { margin-left: 0.6rem; }
+.daily-item {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--color-neutral-200);
+  color: var(--color-neutral-900);
+  font-size: 0.93rem;
+  line-height: 1.4;
+}
+.dark .daily-item { border-top-color: var(--color-neutral-800); color: var(--color-neutral-100); }
+.daily-item:first-of-type { border-top: 0; }
+.daily-item:hover { color: var(--color-primary-600); }
+.dark .daily-item:hover { color: var(--color-primary-400); }
+.daily-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.1rem;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 0.75rem;
+  background: #fff;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.dark .project-card { background: var(--color-neutral-900); border-color: var(--color-neutral-800); }
+.project-card:hover { border-color: var(--color-primary-500); transform: translateY(-2px); }
+.project-card h3 { margin: 0; font-size: 1.5rem; line-height: 1.1; }
+.project-card p { margin: 0; font-size: 0.92rem; color: var(--color-neutral-500); }
+.tag {
+  align-self: flex-start;
+  font: 500 0.7rem var(--font-mono);
+  color: var(--color-primary-700);
+  background: var(--color-primary-50);
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+}
+.dark .tag { color: var(--color-primary-300); background: var(--color-primary-950); }
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none; }
+  .project-card:hover { transform: none; }
+}
+
+/* Homepage breaks out of the 48rem prose column. */
+.home {
+  position: relative;
+  left: 50%;
+  width: min(65rem, 100vw - 3rem);
+  transform: translateX(-50%);
+}
+html { overflow-x: clip; }
+.daily-more {
+  display: block;
+  margin-top: 0.15rem;
 }
