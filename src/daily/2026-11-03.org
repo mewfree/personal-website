@@ -1,0 +1,4 @@
+#+title: 2026-11-03
+
+* Artificial Intelligence
+- [[https://fal.ai/blog/series-e-f][fal raises Series E and F to scale generative media infrastructure]] — the Series E, led by Sequoia, and new Series F, led by Bessemer with NVIDIA as a strategic investor, will fund inference capacity and the team’s next wave of creative AI work.
