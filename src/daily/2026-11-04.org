@@ -1,0 +1,4 @@
+#+title: 2026-11-04
+
+* Artificial Intelligence
+- [[https://cognition.com/blog/swe-2-flash][Cognition introduces SWE-2 Flash, a coding model three times faster and one-fifth the price of SWE-2]]; its mid-training and RL recipe lifts coding benchmarks, while weights will initially be shared only with trusted partners and researchers.
