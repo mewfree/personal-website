@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://cognition.com/blog/swe-2-flash][Cognition introduces SWE-2 Flash, a coding model three times faster and one-fifth the price of SWE-2]]; its mid-training and RL recipe lifts coding benchmarks, while weights will initially be shared only with trusted partners and researchers.
+- [[https://openai.com/index/introducing-images-2-6/][OpenAI brings animated GIF creation and frame-by-frame editing to ChatGPT with Images 2.6]]; developers also get faster image-generation APIs as weekly image creation passes four billion.
