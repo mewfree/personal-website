@@ -1,0 +1,4 @@
+#+title: 2026-11-05
+
+* Artificial Intelligence
+- [[https://openai.com/index/introducing-gpt-6-cyber/][OpenAI releases GPT-6 Cyber, a high-capability model for security research]] — the cybersecurity-focused model is being offered to vetted customers, with safeguards aimed at keeping its vulnerability-finding capabilities within authorized use.
