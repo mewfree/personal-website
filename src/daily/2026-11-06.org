@@ -1,0 +1,4 @@
+#+title: 2026-11-06
+
+* Artificial Intelligence
+- [[https://psi.inc/research/aaronson-ambainis/][AI-assisted proof settles a 2008 conjecture on quantum speedups]] — PSI says its research system produced a Lean-checked proof of the Aaronson–Ambainis conjecture, a result limiting exponential quantum speedups on random inputs.
