@@ -2,3 +2,5 @@
 
 * Artificial Intelligence
 - [[https://openai.com/index/introducing-gpt-6-cyber/][OpenAI releases GPT-6 Cyber, a high-capability model for security research]] — the cybersecurity-focused model is being offered to vetted customers, with safeguards aimed at keeping its vulnerability-finding capabilities within authorized use.
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/][Google brings 15-second video generation and conversational editing to Gemini Omni 1.2 Flash]] — the video model improves reference consistency and cuts pricing by 30%, with availability across developer and business platforms.
+- [[https://thinkingmachines.ai/news/inkling-2-small/][Thinking Machines unveils Inkling 2 Small, a stronger model for long-horizon agent work]] — the 594B-parameter MoE model is available on Tinker, with weights planned under Apache 2.0 after external safety testing.
