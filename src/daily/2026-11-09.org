@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5][Seedream 5.5 brings pixel-stable editing, native transparency and more realistic images]] — ByteDance’s image model targets production workflows with consistent edits across 100 rounds, native RGBA assets and improved realism and text rendering.
+- [[https://research.meta.ai/blog/muse-ember][Meta introduces Muse Ember, a low-cost model for agent workloads]] — Designed for repeated tool calls, coding subtasks and long-document analysis, the model offers a 1M-token context window and is available via Meta’s API.
