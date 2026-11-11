@@ -1,0 +1,4 @@
+#+title: 2026-11-11
+
+* Artificial Intelligence
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/][Google’s Gemini Decisions API scores up to 1,000 multimodal decisions in one low-latency pass]], offering calibrated probabilities for routing, policy checks, and other bounded choices.
