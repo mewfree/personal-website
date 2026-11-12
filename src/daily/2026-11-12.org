@@ -1,0 +1,5 @@
+#+title: 2026-11-12
+
+* Artificial Intelligence
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/][Google introduces Gemini 4 Hydrogen, a faster, more efficient model for everyday coding and agentic workflows, and makes it broadly available across its products.]]
+- [[https://claude.com/resources/articles/claude-meetings][Anthropic launches Claude Meetings in beta, bringing Claude into Google Meet to collaborate on documents and whiteboards, answer questions, and capture notes and action items.]]
