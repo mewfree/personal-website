@@ -1,0 +1,4 @@
+#+title: 2026-11-15
+
+* Artificial Intelligence
+- [[https://qwen.ai/blog?id=qwen4-max][Qwen4-Max targets stronger coding and agentic work while cutting token use and task costs]]; Alibaba positions its new flagship for complex real-world workflows, with reported lower token consumption and substantially reduced Work360 task costs.
