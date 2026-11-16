@@ -1,0 +1,4 @@
+#+title: 2026-11-16
+
+* Artificial Intelligence
+- [[https://cohere.com/blog/video-intelligence-preview][Cohere makes enterprise video searchable down to the exact moment]], letting Compass retrieve timestamped clips with transcripts and visual descriptions alongside documents for permission-aware search and AI workflows.
