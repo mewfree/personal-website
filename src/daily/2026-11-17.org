@@ -2,3 +2,4 @@
 
 * Artificial Intelligence
 - [[https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-c-investment-round][Isomorphic Labs raises $5 billion to scale AI-designed drug discovery]] — the Alphabet-backed company’s Series C will expand its drug-design engine and therapeutic pipeline.
+- [[https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/][Gemini expands into hands-on personal task management]] — Google says Gemini can handle calls, appointments, bill analysis and shopping, with new capabilities rolling out free in several countries.
