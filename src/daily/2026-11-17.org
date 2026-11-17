@@ -1,0 +1,4 @@
+#+title: 2026-11-17
+
+* Artificial Intelligence
+- [[https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-c-investment-round][Isomorphic Labs raises $5 billion to scale AI-designed drug discovery]] — the Alphabet-backed company’s Series C will expand its drug-design engine and therapeutic pipeline.
