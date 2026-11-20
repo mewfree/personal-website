@@ -1,0 +1,4 @@
+#+title: 2026-11-20
+
+* Artificial Intelligence
+- [[https://thinkingmachines.ai/news/inkling-2-mini/][Thinking Machines releases a laptop-ready, looped 26B open model that tops several sub-100B coding benchmarks]] — Inkling 2 Mini uses repeated transformer layers for stronger reasoning, runs in about 20GB, and is released with open weights.
