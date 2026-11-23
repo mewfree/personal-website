@@ -1,0 +1,4 @@
+#+title: 2026-11-23
+
+* Artificial Intelligence
+- [[https://z.ai/blog/glm-5.4][GLM-5.4 loops its layers to push coding beyond code]] — Z.ai’s first Loop Transformer flagship applies deeper computation to generalized coding, targeting a much broader range of tasks.
