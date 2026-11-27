@@ -57,6 +57,20 @@ const FR_MONTHS = [
     "novembre",
     "décembre",
 ]
+const FR_SHORT_MONTHS = [
+    "janv.",
+    "févr.",
+    "mars",
+    "avr.",
+    "mai",
+    "juin",
+    "juil.",
+    "août",
+    "sept.",
+    "oct.",
+    "nov.",
+    "déc.",
+]
 const FR_WEEKDAYS = [
     "lundi",
     "mardi",
@@ -208,6 +222,10 @@ localized_path(locale::AbstractString, logical_path::AbstractString) =
 format_daily_title(date::Date, locale::AbstractString) =
     locale == "fr" ? "$(day(date)) $(FR_MONTHS[month(date)]) $(year(date))" :
     Dates.format(date, dateformat"U d, Y")
+
+format_daily_short(date::Date, locale::AbstractString) =
+    locale == "fr" ? "$(day(date)) $(FR_SHORT_MONTHS[month(date)])" :
+    Dates.format(date, dateformat"u d")
 
 format_daily_weekday(date::Date, locale::AbstractString) =
     locale == "fr" ? FR_WEEKDAYS[dayofweek(date)] : Dates.format(date, dateformat"EEEE")
@@ -503,7 +521,7 @@ for locale in LOCALES
     )
     latest_daily[locale] = isempty(entries) ? t["no_daily"] : first(entries)
     daily_window_html[locale] = join([
-        """<a href="$prefix/daily/$(it.slug)" class="daily-item"><span class="mono">$(Dates.format(it.date, "mm-dd"))</span><span><span class="daily-text">$(html_attr(it.text))</span>$(it.more > 0 ? """<span class="mono daily-more">+$(it.more) $(locale == "fr" ? "autres" : "more")</span>""" : "")</span></a>"""
+        """<a href="$prefix/daily/$(it.slug)" class="daily-item"><span class="mono">$(format_daily_short(it.date, locale))</span><span><span class="daily-text">$(html_attr(it.text))</span>$(it.more > 0 ? """<span class="mono daily-more">+$(it.more) $(locale == "fr" ? "autres" : "more")</span>""" : "")</span></a>"""
         for it in daily_window
     ])
 end
