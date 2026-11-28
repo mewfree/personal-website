@@ -25,7 +25,70 @@ function toggleTheme() {
 
 applyTheme(isDark());
 
+function initWaveDivider() {
+  const btn = document.getElementById("wave-divider");
+  if (!btn) return;
+  const path = btn.querySelector("path");
+  const label = btn.querySelector(".wave-label");
+  const waves = [
+    { name: "sin(x)", fn: (t) => Math.sin(t * Math.PI * 6) },
+    { name: "sin(2x)", fn: (t) => Math.sin(t * Math.PI * 12) },
+    {
+      name: "sin(x) + ½sin(3x)",
+      fn: (t) => (Math.sin(t * Math.PI * 6) + 0.5 * Math.sin(t * Math.PI * 18)) / 1.35,
+    },
+    {
+      name: "e⁻ˣ·sin(8x)",
+      fn: (t) => Math.exp(-2.2 * t) * Math.sin(t * Math.PI * 16),
+    },
+  ];
+  let idx = 0;
+  let phase = 0;
+  let raf = null;
+
+  function draw(p) {
+    const fn = waves[idx].fn;
+    const pts = [];
+    const steps = 160;
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;
+      const x = (t * 600).toFixed(1);
+      const y = (11 - fn(t + p) * 7.5).toFixed(2);
+      pts.push((i === 0 ? "M" : "L") + x + "," + y);
+    }
+    path.setAttribute("d", pts.join(" "));
+  }
+
+  draw(0);
+
+  btn.addEventListener("click", () => {
+    idx = (idx + 1) % waves.length;
+    label.textContent = waves[idx].name;
+    draw(phase);
+  });
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    btn.addEventListener("mouseenter", () => {
+      if (raf) return;
+      const tick = () => {
+        phase += 0.0028;
+        draw(phase);
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    });
+    btn.addEventListener("mouseleave", () => {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initWaveDivider();
+
   document
     .querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
     .forEach((el) => {

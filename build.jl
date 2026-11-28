@@ -89,19 +89,16 @@ const I18N = Dict(
         "nav_daily" => "Daily",
         "nav_blog" => "Blog",
         "nav_notes" => "Notes",
+        "nav_now" => "Now",
         "nav_about" => "About",
         "lang_switcher_label" => "Language",
         "theme_aria" => "Toggle color theme",
         "blog_title" => "Blog",
-        "blog_intro" => """Longer posts. Much of the archive is ads and marketing automation
-    (Google Ads, Facebook Marketing API, spreadsheets). Newer writing wanders further afield.
-    For day-to-day AI links, see
-    <a href="/daily" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">Daily</a>.""",
-        "blog_page_title" => "Blog Posts - Damien Gonot",
-        "blog_page_description" => "Blog posts by Damien Gonot: ads and marketing automation, plus occasional longer essays.",
+        "blog_intro" => """Longer posts. Most of the older ones are about Google Ads, the Facebook Marketing API, and spreadsheets; the newer ones cover other topics. For daily AI links, see <a href="/daily">Daily</a>.""",
+        "blog_page_title" => "Blog - Damien Gonot",
+        "blog_page_description" => "Blog posts by Damien Gonot on ads automation, spreadsheets, and software.",
         "daily_title" => "Daily",
-        "daily_intro" => """Day-to-day links and short notes, mostly AI. For longer posts, see the
-    <a href="/blog" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">blog</a>.""",
+        "daily_intro" => """Daily links and short notes, mostly on AI. For longer posts, see the <a href="/blog">blog</a>.""",
         "daily_page_title" => "Daily - Damien Gonot",
         "daily_page_description" => "Daily AI links and short notes by Damien Gonot.",
         "daily_suffix" => " - Daily - Damien Gonot",
@@ -135,21 +132,18 @@ const I18N = Dict(
         "nav_daily" => "Journal",
         "nav_blog" => "Blog",
         "nav_notes" => "Notes",
+        "nav_now" => "Maintenant",
         "nav_about" => "À propos",
         "lang_switcher_label" => "Langue",
         "theme_aria" => "Changer le thème de couleur",
         "blog_title" => "Blog",
-        "blog_intro" => """Des articles plus longs. Une grande partie des archives porte sur les ads et l'automatisation marketing
-    (Google Ads, Facebook Marketing API, tableurs). Les textes plus récents s'éloignent un peu.
-    Pour les liens IA au jour le jour, voir le
-    <a href="/fr/daily" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">Journal</a>.
-    <span class="block mt-2 text-sm">Les articles sont pour l'instant en anglais.</span>""",
-        "blog_page_title" => "Articles de blog - Damien Gonot",
-        "blog_page_description" => "Articles de Damien Gonot : ads et automatisation marketing, et parfois des essais plus longs.",
+        "blog_intro" => """Des articles plus longs. Les plus anciens portent surtout sur Google Ads, la Facebook Marketing API et les tableurs ; les plus récents couvrent d'autres sujets. Pour les liens IA au quotidien, voir le <a href="/fr/daily">Journal</a>.
+    <span class="block mt-2 text-sm text-neutral-500 dark:text-neutral-400">Les articles sont pour l'instant en anglais.</span>""",
+        "blog_page_title" => "Blog - Damien Gonot",
+        "blog_page_description" => "Articles de Damien Gonot sur l'automatisation publicitaire, les tableurs et le logiciel.",
         "daily_title" => "Journal",
-        "daily_intro" => """Liens et notes au fil des jours, surtout de l'IA. Pour les textes plus longs, voir le
-    <a href="/fr/blog" class="underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400">blog</a>.
-    <span class="block mt-2 text-sm">Le contenu est souvent en anglais.</span>""",
+        "daily_intro" => """Liens et courtes notes au quotidien, surtout sur l'IA. Pour les articles plus longs, voir le <a href="/fr/blog">blog</a>.
+    <span class="block mt-2 text-sm text-neutral-500 dark:text-neutral-400">Le contenu est souvent en anglais.</span>""",
         "daily_page_title" => "Journal - Damien Gonot",
         "daily_page_description" => "Liens IA et notes quotidiennes de Damien Gonot.",
         "daily_suffix" => " - Journal - Damien Gonot",
@@ -179,14 +173,14 @@ const I18N = Dict(
 )
 
 const LANG_ACTIVE =
-    "font-semibold text-primary-600 dark:text-primary-400"
+    "font-medium text-neutral-950 dark:text-neutral-100"
 const LANG_INACTIVE =
-    "text-neutral-500 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+    "text-neutral-400 dark:text-neutral-500 hover:text-neutral-950 dark:hover:text-neutral-100 transition-colors"
 
 
 const SITE_URL = "https://www.damiengonot.com"
 const CONTENT_MARKER = "<!--CONTENT-->"
-const NAV_LINK_CLASS = "hover:text-primary-600 dark:hover:text-primary-400"
+const NAV_LINK_CLASS = "hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
 const MAX_EXCERPT_CHARS = 297
 const RECENT_POSTS = 5
 const DAILY_WINDOW_ITEMS = 5
@@ -281,6 +275,7 @@ function wrap_page(
         "{NAV_DAILY}" => t["nav_daily"],
         "{NAV_BLOG}" => t["nav_blog"],
         "{NAV_NOTES}" => t["nav_notes"],
+        "{NAV_NOW}" => t["nav_now"],
         "{NAV_ABOUT}" => t["nav_about"],
         "{LANG_SWITCHER_LABEL}" => t["lang_switcher_label"],
         "{THEME_ARIA}" => t["theme_aria"],
@@ -521,7 +516,7 @@ for locale in LOCALES
     )
     latest_daily[locale] = isempty(entries) ? t["no_daily"] : first(entries)
     daily_window_html[locale] = join([
-        """<a href="$prefix/daily/$(it.slug)" class="daily-item"><span class="mono">$(format_daily_short(it.date, locale))</span><span><span class="daily-text">$(html_attr(it.text))</span>$(it.more > 0 ? """<span class="mono daily-more">+$(it.more) $(locale == "fr" ? "autres" : "more")</span>""" : "")</span></a>"""
+        """<a href="$prefix/daily/$(it.slug)" class="daily-row"><span class="mono">$(format_daily_short(it.date, locale))</span><span>$(html_attr(it.text))$(it.more > 0 ? """<span class="daily-more">(+$(it.more))</span>""" : "")</span></a>"""
         for it in daily_window
     ])
 end

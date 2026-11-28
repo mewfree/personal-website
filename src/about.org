@@ -1,6 +1,6 @@
 #+title: About
 
-Software developer & marketer. I work at the intersection of product, growth, and engineering. This site holds a daily log (mostly AI), a blog of longer posts (a lot of ads and marketing automation), and a public notes garden.
+Software developer and marketer at Wealthsimple, previously at Hopper. This site has a daily log of AI links, longer blog posts (mostly ads and marketing automation in the archive), and my public notes.
 
 [[file:damiengonot_resume.pdf][💾 Download my résumé as a PDF]]
 

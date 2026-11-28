@@ -1,12 +1,17 @@
       </div>
     </main>
-    <footer class="border-t border-neutral-200 dark:border-neutral-800">
-      <div class="chrome-inner py-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 font-mono text-[0.8rem]">
-        <span class="text-neutral-500">© <span id="year"></span> Damien Gonot</span>
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-8">
+      <div class="site-container py-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 text-sm text-neutral-500 dark:text-neutral-400">
+        <span class="flex items-center gap-2">
+          <span>© <span id="year"></span> Damien Gonot</span>
+          <span class="text-neutral-300 dark:text-neutral-700" aria-hidden="true">·</span>
+          <a href="{PREFIX}/citadel" class="citadel-mark" title="Citadel" aria-label="Citadel">λ</a>
+        </span>
         <nav class="flex flex-wrap items-center gap-x-5 gap-y-2">
           <a href="{PREFIX}/daily" class="nav-link">{NAV_DAILY}</a>
           <a href="{PREFIX}/blog" class="nav-link">{NAV_BLOG}</a>
           <a href="{PREFIX}/notes" class="nav-link">{NAV_NOTES}</a>
+          <a href="{PREFIX}/now" class="nav-link">{NAV_NOW}</a>
           <a href="{PREFIX}/about" class="nav-link">{NAV_ABOUT}</a>
           <a href="https://github.com/mewfree" target="_blank" rel="noopener" class="nav-link">GitHub</a>
           <a href="https://x.com/mewfree" target="_blank" rel="noopener" class="nav-link">X</a>

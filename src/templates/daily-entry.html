@@ -1,11 +1,11 @@
-<article class="border-b border-neutral-200 dark:border-neutral-800 pb-12 last:border-b-0 last:pb-0">
-  <header class="mb-6">
-    <h2 id="{SLUG}" class="!mt-0 mb-1 text-2xl md:text-3xl font-bold leading-tight">
-      <a href="{PREFIX}/daily/{SLUG}" class="hover:text-primary-600 dark:hover:text-primary-400 no-underline">{TITLE}</a>
+<article class="border-b border-neutral-200 dark:border-neutral-800 pb-10 last:border-b-0 last:pb-0">
+  <header class="mb-4">
+    <h2 id="{SLUG}" class="!mt-0 !mb-1 !text-xl leading-snug">
+      <a href="{PREFIX}/daily/{SLUG}" class="text-neutral-950 dark:text-neutral-100 hover:text-accent-600 dark:hover:text-accent-400 no-underline transition-colors">{TITLE}</a>
     </h2>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">{WEEKDAY}</div>
+    <div class="mono">{WEEKDAY}</div>
   </header>
-  <div class="no-katex prose max-w-none">
+  <div class="no-katex daily-body prose max-w-none">
     {CONTENT}
   </div>
 </article>

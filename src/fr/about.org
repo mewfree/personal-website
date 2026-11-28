@@ -1,6 +1,6 @@
 #+title: À propos
 
-Développeur et marketer. Je travaille à l'intersection du produit, de la croissance et de l'ingénierie. Ce site regroupe un journal quotidien (surtout de l'IA), un blog d'articles plus longs (beaucoup d'ads et d'automatisation marketing), et un jardin de notes publiques.
+Développeur logiciel et marketer chez Wealthsimple, auparavant chez Hopper. On trouve ici un journal de liens sur l'IA, des articles de blog plus longs (beaucoup sur les ads et l'automatisation marketing dans les archives) et mes notes publiques.
 
 [[file:damiengonot_resume.pdf][💾 Télécharger mon CV en PDF]]
 

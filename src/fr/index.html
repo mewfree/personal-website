@@ -1,61 +1,109 @@
-<div class="home">
-<section class="pt-4 sm:pt-10 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12 items-center">
-  <div>
-    <p class="mono !mb-3">Développeur &amp; marketer</p>
-    <h1 class="hero-title !mt-0 !mb-0">Salut, moi c'est <em>Damien</em>. Développeur logiciel qui parle marketing.</h1>
-    <p class="mt-5 text-lg !mb-0 max-w-xl text-neutral-700 dark:text-neutral-300">
-      Actuellement chez <a class="text-primary-700 dark:text-primary-300 underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400" href="https://www.wealthsimple.com" target="_blank" rel="noopener">Wealthsimple</a>, auparavant chez <a class="text-primary-700 dark:text-primary-300 underline decoration-primary-400/50 underline-offset-4 hover:decoration-primary-400" href="https://www.hopper.com" target="_blank" rel="noopener">Hopper</a>. Je travaille là où le produit, la croissance et l'ingénierie se rencontrent, et je tiens un journal quotidien de l'actualité IA.
-    </p>
-    <div class="mt-6 flex flex-wrap gap-3">
-      <a href="/fr/daily" class="inline-flex items-center rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300">Lire le Journal</a>
-      <a href="/fr/blog" class="inline-flex items-center rounded-full border border-neutral-300 dark:border-neutral-700 px-5 py-2.5 text-sm font-medium hover:border-primary-500">Lire le blog</a>
-    </div>
+<section>
+  <h1 class="!mt-0 !mb-4">Salut, moi c'est Damien.</h1>
+  <p class="!mb-3 text-neutral-700 dark:text-neutral-300">
+    Développeur logiciel et marketer chez <a href="https://www.wealthsimple.com" target="_blank" rel="noopener">Wealthsimple</a>, auparavant chez <a href="https://www.hopper.com" target="_blank" rel="noopener">Hopper</a>.
+  </p>
+  <p class="!mb-0 text-neutral-700 dark:text-neutral-300">
+    Je tiens un <a href="/fr/daily">journal</a> de liens et d'actualité IA, j'écris parfois des <a href="/fr/blog">articles de blog</a> (surtout sur les ads et l'automatisation marketing dans les archives, d'autres sujets plus récemment), et je publie mes <a href="/fr/notes">notes</a>.
+  </p>
+  <button id="wave-divider" type="button" class="wave-divider" title="Cliquer pour changer l'onde" aria-label="Séparateur onde sinusoïdale interactive">
+    <svg viewBox="0 0 600 22" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,11 L600,11" />
+    </svg>
+    <span class="wave-label">sin(x)</span>
+  </button>
+</section>
+
+<section class="mt-10">
+  <div class="section-head">
+    <h2 id="daily">Journal</h2>
+    <a href="/fr/daily" class="section-all">Tout →</a>
   </div>
-  <div class="window">
-    <div class="window-bar"><i></i><i></i><i></i><span class="mono">journal / récent</span></div>
-    <div>
-      {DAILY_WINDOW}
-    </div>
+  <div class="pt-2">
+    {DAILY_WINDOW}
   </div>
 </section>
 
-<section class="mt-20">
-  <div class="flex items-baseline justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-3 mb-5">
-    <h2 id="recent-writing" class="!m-0 text-3xl">Depuis le blog</h2>
-    <a href="/fr/blog" class="text-sm text-primary-700 dark:text-primary-300 hover:underline shrink-0">Tous les articles →</a>
+<section class="mt-12">
+  <div class="section-head">
+    <h2 id="recent-writing">Blog</h2>
+    <a href="/fr/blog" class="section-all">Tout →</a>
   </div>
-  <div class="divide-y divide-neutral-200 dark:divide-neutral-800 border-b border-neutral-200 dark:border-neutral-800">
+  <div class="pt-2">
     {RECENT_BLOG_POSTS}
   </div>
 </section>
 
-<section class="mt-20">
-  <div class="flex items-baseline justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-3 mb-5">
-    <h2 id="projects" class="!m-0 text-3xl">Projets</h2>
-    <a href="https://github.com/mewfree" target="_blank" rel="noopener" class="text-sm text-primary-700 dark:text-primary-300 hover:underline shrink-0">Tout sur GitHub →</a>
+<section class="mt-12">
+  <div class="section-head">
+    <h2 id="projects">Projets</h2>
+    <a href="https://github.com/mewfree" target="_blank" rel="noopener" class="section-all">GitHub →</a>
   </div>
-  <div class="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
-    <a class="project-card" href="https://sheetgpt.net" target="_blank" rel="noopener"><span class="tag">sheetgpt.net</span><h3>SheetGPT</h3><p>Contrôle Google Sheets avec l'IA</p></a>
-    <a class="project-card" href="https://sheetfx.net" target="_blank" rel="noopener"><span class="tag">sheetfx.net</span><h3>SheetFX</h3><p>Guides gratuits pour apprendre Google Sheets</p></a>
-    <a class="project-card" href="https://palabres.net" target="_blank" rel="noopener"><span class="tag">palabres.net</span><h3>Palabres</h3><p>Tous les grands modèles d'IA, dans un seul abonnement</p></a>
-    <a class="project-card" href="https://brasier.net" target="_blank" rel="noopener"><span class="tag">brasier.net</span><h3>Brasier</h3><p>Un seul endroit rapide pour toutes tes pubs</p></a>
-    <a class="project-card" href="https://panneaux.quebec" target="_blank" rel="noopener"><span class="tag">panneaux.quebec</span><h3>Panneaux QC</h3><p>Cherche et parcours les panneaux routiers du Québec</p></a>
-    <a class="project-card" href="https://mixenergie.ca" target="_blank" rel="noopener"><span class="tag">mixenergie.ca</span><h3>Mix Énergie</h3><p>Le mix électrique du Québec, en graphiques</p></a>
+  <div class="project-grid">
+    <a class="project-tile" href="https://sheetgpt.net" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">📊 SheetGPT</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Contrôler Google Sheets avec l'IA</span>
+    </a>
+    <a class="project-tile" href="https://sheetfx.net" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">📗 SheetFX</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Guides gratuits pour apprendre Google Sheets</span>
+    </a>
+    <a class="project-tile" href="https://palabres.net" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">💬 Palabres</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Tous les grands modèles d'IA dans un seul abonnement</span>
+    </a>
+    <a class="project-tile" href="https://brasier.net" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">🔥 Brasier</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Gérer ses campagnes publicitaires plus vite</span>
+    </a>
+    <a class="project-tile" href="https://panneaux.quebec" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">🛑 Panneaux QC</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Chercher et parcourir les panneaux routiers du Québec</span>
+    </a>
+    <a class="project-tile" href="https://mixenergie.ca" target="_blank" rel="noopener">
+      <span class="project-tile-head"><span class="project-name">⚡ Mix Énergie</span><span class="project-arrow">↗</span></span>
+      <span class="project-desc">Le mix électrique du Canada en graphiques</span>
+    </a>
   </div>
-  <p class="mono !mt-5 !mb-0">Aussi en open source : <a class="hover:text-primary-600" href="https://github.com/mewfree/rugit">rugit</a> · <a class="hover:text-primary-600" href="https://github.com/mewfree/clignote">clignote</a> · <a class="hover:text-primary-600" href="https://github.com/mewfree/mijote">mijote</a> · <a class="hover:text-primary-600" href="https://github.com/mewfree/pronto">pronto</a> · <a class="hover:text-primary-600" href="https://github.com/mewfree/tabathon">tabathon</a> · <a class="hover:text-primary-600" href="https://github.com/mewfree/org-autolink">org-autolink</a></p>
+  <div class="oss-list">
+    <span class="mono mr-1">Open source :</span>
+    <a class="oss-chip" href="https://github.com/mewfree/rugit" target="_blank" rel="noopener">rugit</a>
+    <a class="oss-chip" href="https://github.com/mewfree/clignote" target="_blank" rel="noopener">clignote</a>
+    <a class="oss-chip" href="https://github.com/mewfree/mijote" target="_blank" rel="noopener">mijote</a>
+    <a class="oss-chip" href="https://github.com/mewfree/pronto" target="_blank" rel="noopener">pronto</a>
+    <a class="oss-chip" href="https://github.com/mewfree/tabathon" target="_blank" rel="noopener">tabathon</a>
+    <a class="oss-chip" href="https://github.com/mewfree/org-autolink" target="_blank" rel="noopener">org-autolink</a>
+  </div>
 </section>
 
-<section class="mt-20 mb-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-primary-50 dark:bg-primary-950/60 p-6 sm:p-8">
-  <div class="flex flex-wrap items-center justify-between gap-6">
-    <div>
-      <h2 id="subscribe-to-my-newsletter" class="!mt-0 !mb-1 text-3xl">Par courriel</h2>
-      <p class="!m-0 text-neutral-700 dark:text-neutral-300">Le dernier Journal, plus des textes plus longs quand j'en publie un. Pas de pourriel.</p>
-    </div>
-    <form action="https://damiengonot.us3.list-manage.com/subscribe/post?u=953d88edfeac49e5ff8f55651&amp;id=b086d70590" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate class="flex flex-wrap gap-2">
-      <label class="sr-only" for="mce-EMAIL">Email</label>
-      <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="you@example.com" required class="min-w-56 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary-500">
-      <button type="submit" name="subscribe" class="inline-flex items-center rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 cursor-pointer">S'abonner</button>
-    </form>
-  </div>
+<section class="mt-14 newsletter-box">
+  <h2 id="subscribe-to-my-newsletter" class="!mt-0 !mb-1 !text-base">Infolettre</h2>
+  <p class="!mt-0 !mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+    Les nouveaux billets du Journal et du blog par courriel.
+  </p>
+  <form
+    action="https://damiengonot.us3.list-manage.com/subscribe/post?u=953d88edfeac49e5ff8f55651&amp;id=b086d70590"
+    method="post"
+    name="mc-embedded-subscribe-form"
+    target="_blank"
+    novalidate
+    class="flex flex-col sm:flex-row gap-2 max-w-md"
+  >
+    <label class="sr-only" for="mce-EMAIL">Courriel</label>
+    <input
+      id="mce-EMAIL"
+      type="email"
+      name="EMAIL"
+      placeholder="vous@exemple.com"
+      required
+      class="flex-1 rounded-[5px] border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-2 text-sm text-neutral-950 dark:text-neutral-100 placeholder:text-neutral-400 focus:outline-none focus:border-accent-600 dark:focus:border-accent-400"
+    >
+    <button
+      type="submit"
+      name="subscribe"
+      class="rounded-[5px] bg-accent-600 dark:bg-accent-400 px-4 py-2 text-sm font-medium text-white dark:text-neutral-950 hover:bg-accent-700 dark:hover:bg-accent-300 transition-colors cursor-pointer shrink-0"
+    >
+      S'abonner
+    </button>
+  </form>
 </section>
-</div>
