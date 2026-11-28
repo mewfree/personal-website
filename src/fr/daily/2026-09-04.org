@@ -1,0 +1,5 @@
+#+title: 2026-09-04
+
+* Intelligence artificielle
+- [[https://extropic.ai/writing/z1t/][Extropic présente Z1T, des modèles clairsemés de type transformer conçus pour du matériel probabiliste]] — une première étude de co-conception revendiquant une efficacité énergétique plus de 100× supérieure à celle des GPU.
+- [[https://www.anthropic.com/research/formalizing-fermats-last-theorem][Claude formalise le dernier théorème de Fermat en Lean]] — Anthropic rapporte la première preuve complète vérifiée par ordinateur, produite de manière largement autonome en 11 jours sur 13 millions de lignes de Lean.

@@ -1,0 +1,5 @@
+#+title: 2026-09-22
+
+* Intelligence artificielle
+- [[https://www.anthropic.com/claude-opus-5-5][Anthropic lance Claude Opus 5.5, un modèle de pointe plus capable et plus efficace]], affichant des résultats de premier plan en code agentique, utilisation d'ordinateur et travail intellectuel tout en réduisant les coûts typiques de 40 % par rapport à Opus 5 ; l'API démarre à 4 $ par million de tokens en entrée et 20 $ en sortie.
+- [[https://openai.com/index/introducing-gpt-6-sol-and-luna/][OpenAI présente GPT-6 Sol et Luna]].

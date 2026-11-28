@@ -1,0 +1,4 @@
+#+title: 2026-11-23
+
+* Intelligence artificielle
+- [[https://z.ai/blog/glm-5.4][GLM-5.4 fait boucler ses couches pour pousser le code au-delà du code]] — le premier fleuron Loop Transformer de Z.ai applique un calcul plus profond au code généralisé, ciblant un éventail de tâches bien plus large.

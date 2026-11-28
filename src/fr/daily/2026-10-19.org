@@ -1,0 +1,5 @@
+#+title: 2026-10-19
+
+* Intelligence artificielle
+- [[https://www.inceptionlabs.ai/blog/introducing-mercury-3][Inception passe les LLM par diffusion à l'échelle supérieure avec Mercury 3, annonçant plus de 1 000 tokens par seconde]] — Ce modèle à contexte d'un million de tokens cible les applications temps réel et est disponible via l'API d'Inception ainsi que plusieurs plateformes d'hébergement.
+- [[https://exa.ai/blog/exa-3][Exa 3.0 améliore la qualité de recherche et ajoute une offre à bas coût]] — La mise à jour élargit l'index d'Exa, rend Dynamic Highlights (économe en tokens) généralement disponible et lance Exa Lite à 4 $ pour 1 000 requêtes.

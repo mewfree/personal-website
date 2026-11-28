@@ -1,0 +1,5 @@
+#+title: 2026-10-29
+
+* Intelligence artificielle
+- [[https://mistral.ai/news/mistral-large-4-oss/][Mistral publie les poids de son modèle Large 4 de 1 000 milliards de paramètres, doté de capacités renforcées en code agentique et en cybersécurité défensive]] — le modèle à poids ouverts ajoute des modes de raisonnement plus efficaces et trace une voie plus nette vers une IA souveraine auto-hébergée.
+- [[https://cohere.com/blog/who-gets-to-build-the-frontier-for-ai][Cohere plaide pour une plus grande diversité de concepteurs d'IA de pointe dans le monde démocratique]] — tout en annonçant une série E visant jusqu'à 7 milliards $ CA, l'entreprise défend des systèmes d'IA souverains que les pays peuvent contrôler et auxquels ils peuvent faire confiance.

@@ -1,0 +1,7 @@
+#+title: 2026-10-22
+
+* Intelligence artificielle
+- [[https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html][OpenAI serait près de conclure une levée de 30 milliards de dollars menée par des investisseurs des Émirats arabes unis à une valorisation de 1 250 milliards de dollars, présentée comme un financement relais avant IPO tout en négociant un important accord de calcul.]]
+
+* Technologies de défense
+- [[https://www.prnewswire.com/news-releases/warhound-launches-with-200-million-to-rebuild-americas-military-working-dog-supply-using-advanced-genetics-and-defense-technology-302917498.html][Warhound démarre avec 200 millions de dollars pour rebâtir l'approvisionnement américain en chiens militaires, en associant la génétique et le clonage de Colossal aux équipements cybernétiques et logiciels d'Anduril.]]

@@ -1,0 +1,5 @@
+#+title: 2026-11-13
+
+* Intelligence artificielle
+- [[https://openai.com/index/introducing-chatgpt-wallet/][OpenAI présente ChatGPT Wallet pour des achats sécurisés assistés par agents]], permettant aux agents ChatGPT de finaliser des achats avec l'approbation de l'utilisateur sans transmettre les détails de carte aux commerçants.
+- [[https://x.ai/news/grok-bot-1-0][Grok Bot 1.0 de xAI transforme les bots d'équipe en collaborateurs proactifs]], en ajoutant un contexte partagé, l'intégration Slack et Teams, la participation aux réunions et la capacité de prendre l'initiative sur le travail inachevé.

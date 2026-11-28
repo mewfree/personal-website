@@ -1,0 +1,10 @@
+#+title: 2026-07-30
+
+* Intelligence artificielle
+- OpenAI baisse les prix de GPT-5.6 Luna et Terra : [[https://x.com/OpenAI/status/2082878156483219672][annonce]].
+- Thinking Machines a présenté [[https://thinkingmachines.ai/news/inkling-small/][Inkling-Small]].
+- Anthropic publie son enquête sur des incidents liés à ses évaluations de cybersécurité : [[https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals][annonce]].
+
+* Technologie
+- Applied Electrodynamics a présenté [[https://www.ae-dyn.com/][WaveSight]], une caméra capable de voir à travers les murs.
+- Simile a annoncé sa série B : 200 millions de dollars à une valorisation post-money de 2 milliards de dollars : [[https://www.simile.com/blog/series-b][annonce]].

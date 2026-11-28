@@ -1,0 +1,5 @@
+#+title: 2026-11-04
+
+* Intelligence artificielle
+- [[https://cognition.com/blog/swe-2-flash][Cognition présente SWE-2 Flash, un modèle de code trois fois plus rapide et cinq fois moins cher que SWE-2]] ; sa recette de mid-training et de RL fait progresser les benchmarks de code, tandis que les poids ne seront d'abord partagés qu'avec des partenaires et chercheurs de confiance.
+- [[https://openai.com/index/introducing-images-2-6/][OpenAI ajoute la création de GIF animés et l'édition image par image à ChatGPT avec Images 2.6]] ; les développeurs profitent aussi d'API de génération d'images plus rapides alors que la création hebdomadaire dépasse les quatre milliards d'images.

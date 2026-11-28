@@ -1,0 +1,4 @@
+#+title: 2026-08-08
+
+* Intelligence artificielle
+- [[https://x.ai/news/grok-imagine-image-2][xAI lance Imagine Image 2.0, un générateur d'images grand public axé sur le suivi précis des instructions, l'édition itérative, la typographie, les références multi-images et le redimensionnement flexible]].

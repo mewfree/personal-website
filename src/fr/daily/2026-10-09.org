@@ -1,0 +1,4 @@
+#+title: 2026-10-09
+
+* Technologie
+- [[https://deno.com/blog/cloudflare][Deno rejoint Cloudflare pour bâtir une plateforme d'applications distribuées sur Workers et Durable Objects]] — L'équipe Deno se consacrera à la plateforme commune ; le runtime Deno bénéficie d'une année de support supplémentaire et Deno Deploy fermera après six mois. [[https://blog.cloudflare.com/deno-joins-cloudflare/][Annonce de Cloudflare]]

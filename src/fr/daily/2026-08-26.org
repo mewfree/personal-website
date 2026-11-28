@@ -1,0 +1,5 @@
+#+title: 2026-08-26
+
+* Intelligence artificielle
+- [[https://qwen.ai/blog?id=qwen3.8-flash-next][Qwen donne un aperçu de sa prochaine architecture Qwen4 avec Qwen3.8-Flash-Next]] : ce futur modèle multimodal open-weight à mélange d'experts devrait combiner 125 milliards de paramètres au total avec environ 6 milliards actifs par token.
+- [[https://z.ai/blog/glm-5.3-flash][Z.ai présente GLM-5.3-Flash]] : un nouveau modèle Flash qui rejoint la famille GLM-5.3 de Z.ai, conçu pour une inférence rapide et performante.

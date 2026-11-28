@@ -1,0 +1,6 @@
+#+title: 2026-09-30
+
+* Intelligence artificielle
+- [[https://elevenlabs.io/blog/tender-22bn][ElevenLabs double sa valorisation à 22 milliards de dollars portée par la demande d'agents vocaux en entreprise]] — une offre de rachat d'actions d'employés de 300 millions de dollars, soutenue par des investisseurs nouveaux et existants, reflète le virage de l'entreprise des modèles vocaux vers les agents conversationnels d'entreprise.
+- [[https://www.nytimes.com/2026/09/30/technology/meta-ai-data-centers-taxes.html][Meta classe ses centres de données IA comme expérimentaux pour réclamer des milliards en avantages fiscaux]] — selon le New York Times, les crédits de recherche ont réduit la facture fiscale fédérale de Meta de 3,9 milliards de dollars en 2025, soulevant des questions sur l'admissibilité des infrastructures IA à ces incitatifs.
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/][Google dévoile Gemini 4 Argon pour les travaux complexes à long horizon]] — ce modèle de pointe cible le génie logiciel, le droit, la finance et la cyberdéfense ; il est d'abord déployé auprès de cyberdéfenseurs de confiance dans le cadre d'une évaluation progressive de sûreté.

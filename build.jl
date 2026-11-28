@@ -142,8 +142,7 @@ const I18N = Dict(
         "blog_page_title" => "Blog - Damien Gonot",
         "blog_page_description" => "Articles de Damien Gonot sur l'automatisation publicitaire, les tableurs et le logiciel.",
         "daily_title" => "Journal",
-        "daily_intro" => """Liens et courtes notes au quotidien, surtout sur l'IA. Pour les articles plus longs, voir le <a href="/fr/blog">blog</a>.
-    <span class="block mt-2 text-sm text-neutral-500 dark:text-neutral-400">Le contenu est souvent en anglais.</span>""",
+        "daily_intro" => """Liens et courtes notes au quotidien, surtout sur l'IA. Pour les articles plus longs, voir le <a href="/fr/blog">blog</a>.""",
         "daily_page_title" => "Journal - Damien Gonot",
         "daily_page_description" => "Liens IA et notes quotidiennes de Damien Gonot.",
         "daily_suffix" => " - Journal - Damien Gonot",
@@ -412,24 +411,50 @@ println("Handling daily...")
 struct Daily
     slug::String
     date::Date
+    path::String
     content::String
     excerpt::String
+    is_fallback::Bool
 end
 
-function load_daily(filename::AbstractString)
-    path = joinpath("src", "daily", filename)
-    slug = first(splitext(filename))
+function load_daily(path::AbstractString; is_fallback::Bool=false)
+    slug = first(splitext(basename(path)))
     return Daily(
         slug,
         Date(slug),
+        String(path),
         pandoc_html(path; from="org"),
         pandoc_plain(path; from="org"),
+        is_fallback,
     )
 end
 
 daily_files =
     isdir("src/daily") ? filter(endswith(".org"), readdir("src/daily")) : String[]
-dailies = sort!(pmap_files(load_daily, daily_files); by=d -> d.date, rev=true)
+en_dailies = sort!(
+    pmap_files(f -> load_daily(joinpath("src", "daily", f)), daily_files);
+    by=d -> d.date,
+    rev=true,
+)
+
+fr_daily_paths = Dict(
+    first(splitext(f)) => joinpath("src", "fr", "daily", f) for f in (
+        isdir("src/fr/daily") ? filter(endswith(".org"), readdir("src/fr/daily")) : String[]
+    )
+)
+fr_loaded = Dict(
+    d.slug => d for d in pmap_files(
+        load_daily,
+        [fr_daily_paths[d.slug] for d in en_dailies if haskey(fr_daily_paths, d.slug)],
+    )
+)
+dailies_by_locale = Dict(
+    "en" => en_dailies,
+    "fr" => [
+        get(fr_loaded, d.slug, Daily(d.slug, d.date, d.path, d.content, d.excerpt, true))
+        for d in en_dailies
+    ],
+)
 
 nav_link(prefix, slug, label) =
     """<a href="$prefix/daily/$slug" class="$NAV_LINK_CLASS">$label</a>"""
@@ -441,7 +466,7 @@ function daily_window_items(dailies)
     items = NamedTuple{(:slug, :date, :text, :more),Tuple{String,Date,String,Int}}[]
     for d in dailies
         headlines = String[]
-        for line in eachline(joinpath("src", "daily", "$(d.slug).org"))
+        for line in eachline(d.path)
             m = match(r"^- \[\[[^\]]+\]\[([^\]]+)\]\]", line)
             m === nothing || push!(headlines, String(m.captures[1]))
         end
@@ -452,17 +477,17 @@ function daily_window_items(dailies)
     return items
 end
 
-daily_window = daily_window_items(dailies)
 daily_window_html = Dict{String,String}()
 
 for locale in LOCALES
     t = I18N[locale]
     prefix = t["prefix"]
-    titles = [format_daily_title(d.date, locale) for d in dailies]
-    weekdays = [format_daily_weekday(d.date, locale) for d in dailies]
-    contents = [localize_hrefs(d.content, locale) for d in dailies]
+    locale_dailies = dailies_by_locale[locale]
+    titles = [format_daily_title(d.date, locale) for d in locale_dailies]
+    weekdays = [format_daily_weekday(d.date, locale) for d in locale_dailies]
+    contents = [localize_hrefs(d.content, locale) for d in locale_dailies]
 
-    for (i, day) in enumerate(dailies)
+    for (i, day) in enumerate(locale_dailies)
         content = replace(
             DAILY_DAY_TEMPLATE,
             "{TITLE}" => titles[i],
@@ -470,12 +495,12 @@ for locale in LOCALES
             "{WEEKDAY}" => weekdays[i],
             "{CONTENT}" => contents[i],
             "{PREV}" =>
-                i < length(dailies) ?
-                nav_link(prefix, dailies[i+1].slug, "← " * titles[i+1]) : "",
-            "{NEXT}" => i > 1 ? nav_link(prefix, dailies[i-1].slug, titles[i-1] * " →") : "",
+                i < length(locale_dailies) ?
+                nav_link(prefix, locale_dailies[i+1].slug, "← " * titles[i+1]) : "",
+            "{NEXT}" => i > 1 ? nav_link(prefix, locale_dailies[i-1].slug, titles[i-1] * " →") : "",
             "{PREFIX}" => prefix,
             "{DAILY_TITLE}" => t["daily_title"],
-            "{CONTENT_LANG_NOTE}" => t["content_lang_note"],
+            "{CONTENT_LANG_NOTE}" => day.is_fallback ? t["content_lang_note"] : "",
         )
         emit!(
             locale,
@@ -497,7 +522,7 @@ for locale in LOCALES
             "{WEEKDAY}" => weekdays[i],
             "{CONTENT}" => contents[i],
             "{PREFIX}" => prefix,
-        ) for (i, day) in enumerate(dailies)
+        ) for (i, day) in enumerate(locale_dailies)
     ]
     content = replace(
         DAILY_LIST_TEMPLATE,
@@ -517,7 +542,7 @@ for locale in LOCALES
     latest_daily[locale] = isempty(entries) ? t["no_daily"] : first(entries)
     daily_window_html[locale] = join([
         """<a href="$prefix/daily/$(it.slug)" class="daily-row"><span class="mono">$(format_daily_short(it.date, locale))</span><span>$(html_attr(it.text))$(it.more > 0 ? """<span class="daily-more">(+$(it.more))</span>""" : "")</span></a>"""
-        for it in daily_window
+        for it in daily_window_items(locale_dailies)
     ])
 end
 

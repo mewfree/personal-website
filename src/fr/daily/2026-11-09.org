@@ -1,0 +1,6 @@
+#+title: 2026-11-09
+
+* Intelligence artificielle
+- [[https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5][Seedream 5.5 apporte une édition stable au pixel près, la transparence native et des images plus réalistes]] — Le modèle d'image de ByteDance vise les workflows de production avec des retouches cohérentes sur 100 itérations, des ressources RGBA natives ainsi qu'un réalisme et un rendu de texte améliorés.
+- [[https://research.meta.ai/blog/muse-ember][Meta lance Muse Ember, un modèle à bas coût pour les charges de travail d'agents]] — Conçu pour les appels d'outils répétés, les sous-tâches de code et l'analyse de longs documents, le modèle offre une fenêtre de contexte d'un million de tokens via l'API de Meta.
+- [[https://www.anthropic.com/claude-fable-and-mythos-5-2][Anthropic fait évoluer Claude Fable et Mythos pour les travaux techniques ambitieux]] — Les modèles progressent en code, raisonnement et vision, avec Fable largement disponible et un accès à Mythos concentré sur la cybersécurité défensive et la recherche biomédicale.

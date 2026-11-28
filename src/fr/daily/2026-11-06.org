@@ -1,0 +1,4 @@
+#+title: 2026-11-06
+
+* Intelligence artificielle
+- [[https://psi.inc/research/aaronson-ambainis/][Une preuve assistée par IA tranche une conjecture de 2008 sur les accélérations quantiques]] — PSI indique que son système de recherche a produit une preuve vérifiée en Lean de la conjecture d'Aaronson-Ambainis, un résultat qui limite les accélérations quantiques exponentielles sur des entrées aléatoires.

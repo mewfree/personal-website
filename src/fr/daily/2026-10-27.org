@@ -1,0 +1,6 @@
+#+title: 2026-10-27
+
+* Intelligence artificielle
+- [[https://www.generalcompute.com/blog/general-compute-100m-series-a][General Compute lève 100 millions de dollars pour bâtir un cloud d'inférence multi-puces]] — le tour de table financera des déploiements de GPU et de puces d'inférence, avec plus de 50 MW de capacité en préparation et de premiers grands déploiements prévus au T1 2027.
+- [[https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/][Google DeepMind dévoile Genie 4 pour la simulation de mondes multimodaux en temps réel]] — le modèle génère des mondes interactifs avec physique, contrôle de scène en langage naturel, audio natif et dialogues ; il est d'abord déployé auprès de testeurs de confiance.
+- [[https://www.hyperbolic.ai/blog/a1-funding][Hyperbolic lève 30 millions de dollars pour unifier le calcul GPU mondial]] — cette série A1 étendra sa plateforme d'orchestration multi-cloud et soutiendra un projet de grille mondiale d'achat et de vente de capacité GPU.

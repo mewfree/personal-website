@@ -1,0 +1,8 @@
+#+title: 2026-08-03
+
+* Intelligence artificielle
+- Qwen a présenté [[https://qwen.ai/blog?id=qwen3.8][Qwen3.8-Max]], une nouvelle référence pour le code et le travail collaboratif.
+
+* Énergie
+- [[https://www.valaratomics.com/docs/Announcing-our-1B-Series-B-Led-By-Sequoia][Valar Atomics lève 1 milliard de dollars en série B menée par Sequoia Capital]] pour fabriquer des flottes de réacteurs nucléaires.
+- [[https://www.businesswire.com/news/home/20260803203117/en/Base-Power-Announces-%241B-Series-D-and-Launches-Base-Core-First-of-its-Kind-Home-Battery-Built-in-the-United-States][Base Power annonce une série D de 1 milliard de dollars et lance Base Core]], une batterie résidentielle fabriquée aux États-Unis.

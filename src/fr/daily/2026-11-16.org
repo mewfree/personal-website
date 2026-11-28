@@ -1,0 +1,4 @@
+#+title: 2026-11-16
+
+* Intelligence artificielle
+- [[https://cohere.com/blog/video-intelligence-preview][Cohere rend les vidéos d'entreprise consultables à la seconde près]], permettant à Compass de retrouver des extraits horodatés avec transcriptions et descriptions visuelles aux côtés des documents, pour une recherche et des workflows IA respectant les permissions.

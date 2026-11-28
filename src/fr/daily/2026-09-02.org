@@ -1,0 +1,5 @@
+#+title: 2026-09-02
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/][Google lance Gemini 3.8 Flash pour les agents à long horizon ainsi qu'une variante Cyber pour les défenseurs de confiance]] — le nouveau modèle Flash vise de meilleures performances en code, raisonnement et workflows agentiques à 0,75 $ par million de tokens en entrée et 3,75 $ en sortie, tandis que Flash Cyber se concentre sur la découverte de vulnérabilités et les correctifs automatisés via le programme Fairwind.
+- [[https://research.meta.ai/blog/introducing-muse-spark-1-3][Meta lance Muse Spark 1.3 avec des workflows de code et d'agents renforcés]] — le modèle améliore l'exécution de tâches de longue durée, le multitâche, le suivi d'instructions et l'efficacité en code, et est désormais disponible dans Muse Code et l'API Meta Model ; des poids ouverts sont prévus.

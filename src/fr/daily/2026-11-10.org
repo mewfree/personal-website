@@ -1,0 +1,4 @@
+#+title: 2026-11-10
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/][Google ouvre Gemini 4 Carbon, son modèle de pointe pour les travaux agentiques et scientifiques exigeants]] — désormais accessible aux développeurs, entreprises, scientifiques et particuliers, Google mettant l'accent sur le code à long horizon, la cybersécurité et la recherche.

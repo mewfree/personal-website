@@ -1,0 +1,4 @@
+#+title: 2026-10-12
+
+* Intelligence artificielle
+- [[https://research.meta.ai/blog/muse-wonder][Les modèles Muse Wonder de Meta ciblent le travail d'agents de pointe avec mémoire active et concentration soutenue]] — les nouveaux modèles s'attaquent aux tâches personnelles et professionnelles, y compris le code, avec Wonder accessible via l'API Meta Model et Muse Code.

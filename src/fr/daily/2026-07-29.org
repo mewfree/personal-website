@@ -1,0 +1,4 @@
+#+title: 2026-07-29
+
+* Intelligence artificielle
+- SpaceXAI a présenté [[https://x.ai/news/grok-voice-think-fast-2][Grok Voice Think Fast 2.0]].

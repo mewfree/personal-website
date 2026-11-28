@@ -1,0 +1,4 @@
+#+title: 2026-08-17
+
+* Intelligence artificielle
+- [[https://groq.com/newsroom/groq-closes-usd350-million-series-a-building-the-world-s-leading-ai-inference-cloud][Groq lève 350 millions de dollars à une valorisation de 3,5 milliards de dollars pour étendre son cloud mondial d'inférence IA]], avec une participation prévue de NVIDIA et un total récent de 1 milliard de dollars levés.

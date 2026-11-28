@@ -1,0 +1,4 @@
+#+title: 2026-09-21
+
+* Intelligence artificielle
+- [[https://x.ai/news/grok-4-7][xAI lance Grok 4.7, un modèle de pointe plus rapide et moins cher pour le code et le travail intellectuel]], offrant une meilleure planification à long horizon, l'auto-vérification, de meilleures performances professionnelles et une résistance accrue au jailbreak ; disponible dans Cursor, Grok Build et l'API à partir de 2 $ par million de tokens en entrée.

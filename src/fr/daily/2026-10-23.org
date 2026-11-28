@@ -1,0 +1,4 @@
+#+title: 2026-10-23
+
+* Intelligence artificielle
+- [[https://www.kimi.ai/blog/kimi-k3-1-pro][Kimi dévoile son plus puissant modèle open-weight de classe 3 000 milliards de paramètres, avec un contexte d'un million de tokens et des poids attendus le 4 novembre]] ; K3.1 Pro renforce le code, la création 3D et les workflows financiers.

@@ -1,0 +1,5 @@
+#+title: 2026-08-14
+
+* Intelligence artificielle
+- [[https://z.ai/blog/glm-5.3][Z.ai intensifie le post-entraînement pour propulser GLM-5.3 en tête du code open-weight — avec des capacités cyber étonnamment élevées]] : le successeur de GLM-5.2 revendique un gain de 50 % en code, l'état de l'art sur les benchmarks publics et des performances plus que doublées sur les benchmarks d'exploitation ; les poids ouverts arrivent bientôt.
+- [[https://www.anthropic.com/news/claude-text-watermark][Anthropic introduit des filigranes texte invisibles dans Claude pour se conformer aux règles de transparence de l'AI Act européen]] : les futures sorties de Claude intégreront un motif statistique détectable sans changement visible, sans tokens supplémentaires, sans données identifiantes ni impact notable sur la qualité ; une API de détection est prévue.

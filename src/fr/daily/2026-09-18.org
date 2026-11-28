@@ -1,0 +1,4 @@
+#+title: 2026-09-18
+
+* Véhicules autonomes
+- [[https://waymo.com/blog/2026/09/waymo-in-singapore/][Waymo annonce le lancement d'un service de robotaxis à Singapour en 2028]] en partenariat avec le ministère des Transports et la Land Transport Authority, avec des préparatifs locaux en Jaguar I-PACE électriques dès 2027.

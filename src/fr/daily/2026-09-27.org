@@ -1,0 +1,5 @@
+#+title: 2026-09-27
+
+* Intelligence artificielle
+- [[https://www.wsj.com/tech/ai/ai-safety-effective-altruism-anthropic-164b9d05][Comment les craintes de risque existentiel de l'altruisme efficace ont façonné la culture de sûreté d'Anthropic]] — Le WSJ revient sur les scénarios catastrophes et les plans de contingence parmi les employés, illustrant l'influence du mouvement sur l'entreprise.
+- [[https://www.axios.com/2026/09/27/anthropic-trump-dario-amodei-dinner-invite][Trump invite le PDG d'Anthropic Dario Amodei à un dîner privé à la Maison-Blanche]] — Leur première rencontre en tête-à-tête laisse entrevoir un possible dégel dans les relations tendues entre l'entreprise et l'administration.

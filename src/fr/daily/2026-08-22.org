@@ -1,0 +1,4 @@
+#+title: 2026-08-22
+
+* Intelligence artificielle
+- [[https://www.wsj.com/tech/ai/nvidia-is-spending-6-billion-to-build-a-powerful-u-s-alternative-to-chinese-ai-c51c38cc][Nvidia engage 6 milliards de dollars dans Poolside pour bâtir un écosystème américain d'IA ouverte capable de rivaliser avec les leaders chinois et américains]].

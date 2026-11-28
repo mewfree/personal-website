@@ -1,0 +1,4 @@
+#+title: 2026-09-12
+
+* Intelligence artificielle
+- [[https://darioamodei.com/post/we-must-pace-the-frontier][Dario Amodei propose de cadencer le développement de l'IA de pointe grâce à des évaluateurs intégrés et une coordination démocratique et mondiale]], estimant que l'accélération des capacités et les récents incidents de désalignement d'agents exigent davantage de temps pour que la sûreté, l'alignement, l'interprétabilité et l'évaluation puissent suivre.

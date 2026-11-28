@@ -1,0 +1,6 @@
+#+title: 2026-11-17
+
+* Intelligence artificielle
+- [[https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-c-investment-round][Isomorphic Labs lève 5 milliards de dollars pour accélérer la découverte de médicaments conçus par IA]] — la série C de la société soutenue par Alphabet financera l'expansion de son moteur de conception de médicaments et de son portefeuille thérapeutique.
+- [[https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/][Gemini s'étend à la gestion concrète des tâches personnelles]] — Google indique que Gemini peut gérer des appels, des rendez-vous, l'analyse de factures et des achats, avec de nouvelles fonctions déployées gratuitement dans plusieurs pays.
+- [[https://openai.com/index/introducing-gpt-6-2-astra-sol/][OpenAI lance GPT-6.2 Astra et Sol avec de meilleures performances concrètes et plus d'efficacité]] — ces modèles mis à jour ciblent les travaux exigeants, dont la création de documents et le code, en consommant moins de tokens en sortie.

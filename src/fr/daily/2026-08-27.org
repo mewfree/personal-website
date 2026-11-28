@@ -1,0 +1,5 @@
+#+title: 2026-08-27
+
+* Intelligence artificielle
+- [[https://www.reuters.com/technology/nvidia-talks-acquire-hugging-face-13-billion-deal-business-insider-reports-2026-08-27/][Nvidia envisagerait une acquisition de Hugging Face pour plus de 13 milliards de dollars]] : le géant des puces serait en discussions avancées pour racheter la plateforme d'IA, ce qui placerait l'un des principaux écosystèmes de modèles ouverts sous l'aile de Nvidia.
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/][Gemini Omni 1.1 Flash ajoute des contrôles prêts pour la production en vidéo générative]] : la mise à jour de Google prend en charge l'extension de scène, l'interpolation première/dernière image, des aperçus 360p plus rapides, les références vidéo et la mise à l'échelle en 4K via l'API Gemini.

@@ -1,0 +1,4 @@
+#+title: 2026-08-01
+
+* Intelligence artificielle
+- [[https://openai.com/index/ten-advances-in-mathematics/][OpenAI : dix avancées en mathématiques et en informatique théorique]] — des résultats sur des problèmes de longue date en géométrie, en cryptographie et en théorie de la complexité.

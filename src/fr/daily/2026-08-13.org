@@ -1,0 +1,5 @@
+#+title: 2026-08-13
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/][Google lance Gemini 3.7 Flash, un modèle polyvalent plus abordable pour le code et les agents]] — le modèle améliore le débogage, le développement web, le travail sur documents denses et les workflows avec outils par rapport à Gemini 3.6 Flash, à un tarif de lancement de 0,75 $ par million de tokens en entrée et 3,75 $ par million de tokens en sortie.
+- [[https://openai.com/index/previewing-ultrafast/][OpenAI présente en aperçu le mode Ultrafast pour GPT-5.6 Sol]] — un nouveau palier d'API propulsé par Cerebras offrant des réponses jusqu'à 14× plus rapides, atteignant 750 tokens par seconde en sortie.

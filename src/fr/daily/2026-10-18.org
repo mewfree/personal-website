@@ -1,0 +1,4 @@
+#+title: 2026-10-18
+
+* Intelligence artificielle
+- [[https://www.anthropic.com/news/public-benefit-fund][Anthropic engage une part croissante de son capital au service de l'intérêt général]] — 5 % des actions alimenteront un nouveau fonds, augmentés jusqu'à 2 % supplémentaires à chaque hausse de 50 % de la valorisation de l'entreprise, pour soutenir des initiatives flexibles d'utilité publique.

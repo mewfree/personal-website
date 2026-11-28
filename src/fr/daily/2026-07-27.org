@@ -1,0 +1,8 @@
+#+title: 2026-07-27
+
+* Intelligence artificielle
+- SSI (le laboratoire d'IA d'Ilya Sutskever) a annoncé un partenariat avec Nvidia pour étendre sa capacité de calcul [[https://www.wsj.com/tech/ai/nvidia-bets-on-ilya-sutskevers-new-ai-lab-to-expand-compute-reach-f95596e8][Article du WSJ]]
+- La position d'Anthropic sur les modèles à poids ouverts [[https://www.anthropic.com/news/position-open-weights-models][Notre position sur les modèles à poids ouverts]]
+
+* Énergie
+- Antares (microréacteurs nucléaires) a levé 470 millions de dollars [[https://x.com/AntaresNuclear/status/2081751942276211165][Twitter/X]]

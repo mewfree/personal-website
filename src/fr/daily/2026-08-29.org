@@ -1,0 +1,4 @@
+#+title: 2026-08-29
+
+* Intelligence artificielle
+- [[https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/][OpenAI mettra fin à l'accès de Cursor à ses modèles après son rachat par SpaceX, avec une coupure proposée au 12 novembre]]

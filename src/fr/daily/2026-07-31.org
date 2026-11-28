@@ -1,0 +1,4 @@
+#+title: 2026-07-31
+
+* Intelligence artificielle
+- [[https://x.com/deepseek_ai/status/2083084415157022911][DeepSeek-V4-Flash]] passe en bêta publique via API avec des capacités d'agent améliorées, le support de l'API Responses et la compatibilité Codex.

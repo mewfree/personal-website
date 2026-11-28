@@ -1,0 +1,4 @@
+#+title: 2026-10-28
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/][Google présente Gemini 4 Carbon, son modèle le plus puissant pour l'ingénierie à long horizon et la cybersécurité]] ; l'accès initial est réservé aux cyberdéfenseurs de confiance pendant que Google teste les garde-fous avant un déploiement plus large.

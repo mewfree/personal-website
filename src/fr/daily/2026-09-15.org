@@ -1,0 +1,6 @@
+#+title: 2026-09-15
+
+* Intelligence artificielle
+- [[https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/][Waymo, GO et Nihon Kotsu visent un lancement commercial de robotaxis à Tokyo en 2027]], associant la technologie sans conducteur de Waymo à l'application GO et aux opérations de taxi locales de Nihon Kotsu, sous réserve d'approbation réglementaire.
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/][Google lance les modèles Gemini 3.8 Live pour des agents vocaux fluides capables de raisonner]], combinant ancrage visuel quasi temps réel, exécution d'outils en arrière-plan, conversation multilingue et réflexion étendue pour les tâches complexes.
+- [[https://typesafe.ai/blog/introducing-system-one-models-and-jev][TypeSafe présente Jev, un modèle rapide de « Système 1 » dédié aux décisions typées et calibrées]], qui privilégie les sorties structurées, les scores de confiance et une latence pensée pour l'automatisation plutôt que la génération de texte libre.

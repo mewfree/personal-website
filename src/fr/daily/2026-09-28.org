@@ -1,0 +1,6 @@
+#+title: 2026-09-28
+
+* Intelligence artificielle
+- [[https://manus.im/blog/introducing-manus-2-0][Manus 2.0 fait évoluer son agent IA vers un studio créatif et une plateforme d'agents personnels]] — La refonte ajoute des automatisations déclenchées par événements, des outils professionnels de vidéo et de création de jeux, le contrôle d'ordinateur ainsi que Cue, une nouvelle application pour coordonner ses agents personnels.
+- [[https://www.anthropic.com/claude-sonnet-5-5][Claude Sonnet 5.5 d'Anthropic vise un code rapide et abordable ainsi que les tâches quotidiennes]] — Le modèle est plus de 30 % plus rapide et peut coûter jusqu'à 30 % moins cher par tâche que Sonnet 5, avec des avancées majeures en code agentique et en travail intellectuel.
+- [[https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/][Le projet d'IPO d'Anthropic mêle une vision ambitieuse de l'IA et une flambée des coûts]] — Reuters rapporte que l'entreprise anticipe une transformation profonde de l'économie mondiale par l'IA, alors même que l'infrastructure et la puissance de calcul nécessaires font grimper les dépenses.

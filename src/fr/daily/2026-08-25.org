@@ -1,0 +1,4 @@
+#+title: 2026-08-25
+
+* Véhicules autonomes
+- [[https://waymo.com/blog/2026/08/waymo-in-munich/][Waymo pose les bases d'un service de robotaxis entièrement autonome à Munich]] : l'entreprise lancera la cartographie et les essais manuels dans les prochaines semaines, visant des trajets commerciaux publics fin 2027 pour son arrivée en Allemagne.

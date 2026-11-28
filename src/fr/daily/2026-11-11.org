@@ -1,0 +1,4 @@
+#+title: 2026-11-11
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/][L'API Gemini Decisions de Google évalue jusqu'à 1 000 décisions multimodales en une seule passe à faible latence]], fournissant des probabilités calibrées pour le routage, la vérification de règles et d'autres choix bornés.

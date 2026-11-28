@@ -1,0 +1,5 @@
+#+title: 2026-10-21
+
+* Intelligence artificielle
+- [[https://www.bloomberg.com/news/articles/2026-10-21/ai-research-startup-flapping-airplanes-valued-at-6-billion-in-round][Flapping Airplanes lève 1 milliard de dollars à une valorisation de 6 milliards de dollars pour explorer de nouvelles approches de recherche en IA]] — cette levée de la jeune pousse d'un an, menée par Index Ventures et Lux Capital, montre que les investisseurs financent des laboratoires ambitieux bien avant tout produit commercial.
+- [[https://claude.com/product/claude-duet][Anthropic présente Claude Duet, un agent IA proactif pour le suivi continu du travail]] — cet aperçu de recherche s'appuie sur vos applications connectées pour préparer des briefs matinaux et exécuter des tâches déléguées, en demandant l'accord de l'utilisateur pour les actions sensibles.

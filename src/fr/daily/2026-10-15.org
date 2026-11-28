@@ -1,0 +1,6 @@
+#+title: 2026-10-15
+
+* Intelligence artificielle
+- [[https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/][Nemotron 3.5 Super VL de NVIDIA combine raisonnement multimodal et utilisation d'outils pour des agents spécialisés]] — le modèle MoE ouvert de 120 milliards de paramètres traite texte, images, documents et vidéo, NVIDIA mettant en avant un débit d'agents jusqu'à 5× supérieur et des gains de post-entraînement en coût, latence et précision.
+- [[https://bfl.ai/blog/flux-3-image-klein][Black Forest Labs publie FLUX 3 Image Klein, un modèle d'image à poids ouverts de 5,6 milliards de paramètres]] — prend en charge la génération, l'édition et jusqu'à 10 références, avec des versions quantifiées destinées aux GPU grand public.
+- [[https://research.meta.ai/blog/muse-spark-open][Meta publie Muse Spark Open, un modèle multimodal de 816 milliards de paramètres pour les travaux agentiques à long horizon]] — ses 42 milliards de paramètres actifs, son contexte d'un million de tokens et ses optimisations Apple Silicon rendent le code et les agents avancés accessibles sur poste de travail.

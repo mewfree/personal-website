@@ -1,0 +1,4 @@
+#+title: 2026-09-26
+
+* Intelligence artificielle
+- [[https://supersoniclabs.ia.br/julia-1/][Supersonic Labs présente Julia 1, un modèle décisionnel multilingue compact conçu pour tourner sur CPU]] — Ce modèle de 144 millions de paramètres sous licence Apache choisit parmi des options de réponse fournies ; les premières évaluations sont prometteuses en classification tout en révélant des limites face à de longues listes de catégories proches.

@@ -1,0 +1,4 @@
+#+title: 2026-08-28
+
+* Intelligence artificielle
+- [[https://hy.tencent.ai/research/hy4-preview][Tencent publie en open source l'aperçu de Hy4, un modèle de 770 milliards de paramètres doté d'une fenêtre de contexte de plus d'un million de tokens et de meilleures capacités de productivité en conditions réelles]]

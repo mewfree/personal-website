@@ -1,0 +1,4 @@
+#+title: 2026-09-03
+
+* Intelligence artificielle
+- [[https://openai.com/index/gpt-6-astra/][OpenAI lance GPT-6 Astra, un modèle capable d'utiliser un ordinateur pensé pour l'ère de l'AGI]] — le nouveau fleuron est conçu pour naviguer dans les logiciels et les navigateurs, écrire du code et résoudre des problèmes complexes, avec un premier déploiement axé sur la cybersécurité.

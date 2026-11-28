@@ -1,0 +1,4 @@
+#+title: 2026-08-07
+
+* Intelligence artificielle
+- [[https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/][OpenAI partage des évaluations préliminaires des capacités critiques d'Astra en cybersécurité et présente des garde-fous et contrôles de sécurité renforcés pour les modèles de pointe dans ce domaine]].

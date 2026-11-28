@@ -1,0 +1,8 @@
+#+title: 2026-08-04
+
+* Logiciel
+- [[https://news.convex.dev/convex-raises-57m/][Convex lève 57 millions de dollars en série B pour bâtir le backend des logiciels agentiques]].
+
+* Intelligence artificielle
+- [[https://bfl.ai/blog/flux-3-video][Black Forest Labs lance FLUX.3 Video avec audio natif et clips HD de 20 secondes]].
+- [[https://www.spacex.com/spacexai/starmind][SpaceX dévoile Starmind, du calcul IA en orbite alimenté par l'énergie solaire spatiale]].

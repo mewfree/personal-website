@@ -1,0 +1,6 @@
+#+title: 2026-11-05
+
+* Intelligence artificielle
+- [[https://openai.com/index/introducing-gpt-6-cyber/][OpenAI lance GPT-6 Cyber, un modèle de haute capacité pour la recherche en sécurité]] — ce modèle axé sur la cybersécurité est proposé à des clients sélectionnés, avec des garde-fous destinés à limiter ses capacités de recherche de vulnérabilités aux usages autorisés.
+- [[https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/][Google apporte la génération vidéo de 15 secondes et l'édition conversationnelle à Gemini Omni 1.2 Flash]] — le modèle vidéo améliore la cohérence des références et réduit ses tarifs de 30 %, avec une disponibilité sur les plateformes développeurs et entreprises.
+- [[https://thinkingmachines.ai/news/inkling-2-small/][Thinking Machines dévoile Inkling 2 Small, un modèle plus puissant pour le travail d'agents à long horizon]] — ce modèle MoE de 594 milliards de paramètres est disponible sur Tinker, avec des poids prévus sous licence Apache 2.0 après des tests de sûreté externes.

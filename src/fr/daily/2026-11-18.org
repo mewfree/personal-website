@@ -1,0 +1,4 @@
+#+title: 2026-11-18
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/][Google lance Gemini 4 Neon, un modèle de pointe plus rapide pour les agents de longue durée en code, travail intellectuel et sciences, avec une fenêtre de contexte d'un million de tokens et un coût par tâche réduit.]]

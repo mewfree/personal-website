@@ -1,0 +1,5 @@
+#+title: 2026-08-19
+
+* Intelligence artificielle
+- [[https://www.cerebras.ai/blog/introducing-cerebras-cs-4][Cerebras présente le CS-4, un système IA à l'échelle du rack promettant une inférence jusqu'à 30× plus rapide et un débit par watt 10× supérieur au CS-3]] ; son architecture modulaire Nexus réunit trois processeurs WSE-3 Turbo avec des interconnexions wafer-à-wafer à faible latence et une inférence désagrégée native pour les déploiements hyperscale.
+- [[https://stripe.com/en-ca/newsroom/news/stripe-agrees-to-acquire-openrouter][Stripe conclut un accord pour acquérir OpenRouter et faire du routage de modèles une infrastructure économique de l'ère IA]] ; l'acquisition associerait les outils de facturation et de gestion des coûts de tokens de Stripe à la passerelle d'OpenRouter, qui route dynamiquement les requêtes vers plus de 400 modèles et 80 fournisseurs.

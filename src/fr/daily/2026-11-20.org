@@ -1,0 +1,4 @@
+#+title: 2026-11-20
+
+* Intelligence artificielle
+- [[https://thinkingmachines.ai/news/inkling-2-mini/][Thinking Machines publie un modèle ouvert de 26 milliards de paramètres à couches en boucle, taillé pour ordinateur portable et en tête de plusieurs benchmarks de code sous les 100 milliards]] — Inkling 2 Mini répète ses couches transformer pour un raisonnement renforcé, tient dans environ 20 Go et est distribué avec des poids ouverts.

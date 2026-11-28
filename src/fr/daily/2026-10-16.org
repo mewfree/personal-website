@@ -1,0 +1,4 @@
+#+title: 2026-10-16
+
+* Véhicules autonomes
+- [[https://waymo.com/blog/2026/10/waymo-in-toronto/][Waymo entame la cartographie et les essais à Toronto, en visant des trajets autonomes en 2028]] — son arrivée au Canada comprend un partenariat avec Element, des centaines d'emplois locaux et des tests de sécurité avec des spécialistes formés ; la [[https://waymo.com/waymo-in-canada/][page d'information sur Toronto]] détaille les zones d'essai prévues et confirme la participation au programme pilote de véhicules automatisés de l'Ontario.

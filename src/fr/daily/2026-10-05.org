@@ -1,0 +1,4 @@
+#+title: 2026-10-05
+
+* Intelligence artificielle
+- [[https://cohere.com/blog/introducing-north-2][Cohere lance North 2, une plateforme d'agents d'entreprise axée sur la sécurité, la gouvernance et le contrôle du déploiement]] — Cette version apporte une orchestration repensée, des outils d'agents plus riches, le choix du modèle, des déploiements flexibles (cloud, sur site ou isolés) et un suivi fin des coûts.

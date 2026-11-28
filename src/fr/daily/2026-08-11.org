@@ -1,0 +1,6 @@
+#+title: 2026-08-11
+
+* Intelligence artificielle
+- [[https://www.wsj.com/tech/ai/anthropic-tries-to-shore-up-investor-confidence-ahead-of-blockbuster-ipo-0ff736ad][Anthropic cherche à rassurer les investisseurs en vue d'une potentielle entrée en bourse majeure]] ; l'entreprise organiserait des rencontres avec des investisseurs institutionnels avant une possible cotation en octobre, afin de tester la demande et de répondre aux doutes sur la pérennité des rendements de l'IA.
+- [[https://x.ai/news/introducing-grok-bot][xAI présente Grok Bot, des coéquipiers IA capables d'utiliser vos applications et sites web]] ; ces bots peuvent exécuter des tâches en plusieurs étapes, apprendre des workflows récurrents, collaborer en parallèle et demander une validation au besoin.
+- [[https://mistral.ai/news/regional-inference-open-models-new-compute/][Mistral renforce l'IA souveraine avec l'inférence régionale, des modèles ouverts et des engagements de calcul européens]] ; sa plateforme propose désormais des points de terminaison Europe ou États-Unis, un niveau prioritaire avec SLA, des modèles ouverts tiers à commencer par GLM-5.2 de Z.ai, et prévoit d'agréger une demande à long terme allant jusqu'à 1 GW de capacité européenne d'ici 2030.

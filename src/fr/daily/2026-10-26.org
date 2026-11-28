@@ -1,0 +1,6 @@
+#+title: 2026-10-26
+
+* Intelligence artificielle
+- [[https://www.anthropic.com/news/s1-sec][Anthropic dépose son formulaire S-1 en vue d'une introduction en bourse]] — l'entreprise prévoit de coter ses actions de catégorie A au Nasdaq sous le symbole ANT ; la taille de l'offre et la fourchette de prix ne sont pas encore fixées.
+- [[https://openai.com/index/introducing-gpt-6-1-terra/][OpenAI présente GPT-6.1 Terra pour une utilisation d'ordinateur plus rapide et moins chère]] — le modèle interprète les écrans, agit dans les applications et rédige naturellement, ouvrant l'automatisation sur ordinateur à davantage de tâches.
+- [[https://openai.com/index/building-scientific-understanding-with-academic-communities/][OpenAI partage de nouveaux résultats en mathématiques, informatique et physique avec les milieux universitaires]] — l'entreprise publie des manuscrits de recherche et des preuves formelles comme points de départ pour l'examen critique et la collaboration, plutôt que comme un savoir scientifique achevé.

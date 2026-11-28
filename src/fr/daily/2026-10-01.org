@@ -1,0 +1,4 @@
+#+title: 2026-10-01
+
+* Intelligence artificielle
+- [[https://blog.cloudflare.com/clef-decision-models/][Cloudflare publie en open source Clef, des modèles décisionnels rapides pour workflows d'agents, et lance le fine-tuning par RL]] — Clef et Clef-flash renvoient des décisions calibrées et contraintes par schéma ; Cloudflare les héberge sur Workers AI, les publie sous Apache 2.0 et propose du fine-tuning adapté aux besoins des clients.

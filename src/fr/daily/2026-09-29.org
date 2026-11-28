@@ -1,0 +1,5 @@
+#+title: 2026-09-29
+
+* Intelligence artificielle
+- [[https://openai.com/index/introducing-dots/][OpenAI lance les agents permanents Dots, propulsés par GPT‑6 Astra]] — ces agents IA persistants, dotés de leurs propres ordinateurs dans le cloud, capables d'apprendre des retours et connectés à plus de 4 000 applications, visent à faire passer l'IA de la réponse à des prompts au travail continu vers les objectifs des utilisateurs.
+- [[https://openai.com/index/introducing-gpt-6-1-sol/][GPT‑6.1 Sol offre des capacités proches d'Astra pour un cinquième du prix]] — le modèle améliore GPT‑6 Sol en code agentique, utilisation d'ordinateur et travail professionnel, avec des entrées mises en cache nettement moins chères pour faire tourner des agents riches en contexte de façon plus économique.

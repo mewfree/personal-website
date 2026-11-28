@@ -1,0 +1,4 @@
+#+title: 2026-08-16
+
+* Intelligence artificielle
+- [[https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion][Stripe s'apprêterait à acquérir OpenRouter pour plus de 7 milliards de dollars]], un pari majeur sur la couche de routage qui permet aux développeurs d'accéder à des modèles d'IA concurrents via une passerelle unique.

@@ -1,0 +1,6 @@
+#+title: 2026-09-23
+
+* Intelligence artificielle
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/][Les modèles Gemini 3.8 TTS de Google transforment la synthèse vocale en studio dirigé]] — Flash TTS et Flash-Lite ajoutent la création de voix sur mesure, le contrôle de l'interprétation ligne par ligne et la génération vocale multilingue à grande échelle, avec vérification du consentement et filigrane SynthID.
+- [[https://bfl.ai/models/flux-3-action][Black Forest Labs publie un modèle ouvert rapide de 7 milliards de paramètres pour le contrôle robotique]] — FLUX 3 Action revendique l'état de l'art sur RoboLab, combinant prédiction vidéo et d'actions avec une inférence efficace pour la robotique et les systèmes de raisonnement hybrides.
+- [[https://www.anthropic.com/news/claude-discovers-novel-enzyme-system][Claude contribue à découvrir un système enzymatique proche de CRISPR chez des bactériophages]] — Anthropic rapporte que des agents IA ont identifié un système de transcriptase inverse accompagné de répétitions d'ADN, confirmé en laboratoire comme un nouveau système candidat désormais à l'étude.

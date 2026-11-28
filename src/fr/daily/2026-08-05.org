@@ -1,0 +1,5 @@
+#+title: 2026-08-05
+
+* Intelligence artificielle
+- [[https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/][Google remanie la direction de DeepMind : Demis Hassabis se concentre sur la stratégie AGI et Koray Kavukcuoglu prend les rênes]] ; Jeff Dean et Sanjay Ghemawat lancent aussi une société d'intérêt public indépendante dédiée à l'apprentissage automatique, à la science et à l'ingénierie.
+- [[https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2][Meta lance Muse Code et Muse Spark 1.2 pour le génie logiciel à long terme]] ; l'agent de code en bêta coordonne des sous-agents persistants et s'appuie sur un journal d'événements local rejouable à l'identique pour une exécution résiliente aux redémarrages.

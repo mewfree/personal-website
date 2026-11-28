@@ -1,0 +1,5 @@
+#+title: 2026-09-01
+
+* Intelligence artificielle
+- [[https://www.anthropic.com/claude-fable-and-mythos-5-1][Anthropic lance Claude Fable 5.1 et Mythos 5.1 pour le code de pointe et la recherche scientifique]], annonçant des gains importants en code agentique, en travail intellectuel et en résolution de problèmes de longue durée, avec une baisse du coût de lecture en cache et de nouvelles garanties de confidentialité pour les entreprises.
+- [[https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/][Google apporte l'analyse vidéo orientée objectif à Gemini avec la compréhension vidéo agentique]], qui explore dynamiquement les images, l'audio et les transcriptions pour réduire jusqu'à 88 % la consommation de tokens, baisser les coûts jusqu'à 66 % et améliorer la précision jusqu'à 7 %.

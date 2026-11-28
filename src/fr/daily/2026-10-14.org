@@ -1,0 +1,4 @@
+#+title: 2026-10-14
+
+* Intelligence artificielle
+- [[https://x.ai/news/grok-voice-3][xAI lance Grok Voice 3.0, un modèle vocal plus rapide pensé pour le service client]] ; la sortie API revendique la tête des benchmarks vocaux, une latence inférieure à la seconde et un déploiement dans les services de Tesla et SpaceX.

@@ -1,0 +1,4 @@
+#+title: 2026-10-20
+
+* Intelligence artificielle
+- [[https://mistral.ai/news/voxtral-3/][Mistral réunit ses modèles vocaux multilingues dans une pile souveraine d'agents vocaux temps réel]] — Voxtral 3 associe transcription et parole expressive dans des dizaines de langues à un SDK de raisonnement et d'utilisation d'outils, disponible via l'API hébergée dans l'UE ou en auto-hébergement.
