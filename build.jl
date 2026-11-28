@@ -137,8 +137,7 @@ const I18N = Dict(
         "lang_switcher_label" => "Langue",
         "theme_aria" => "Changer le thème de couleur",
         "blog_title" => "Blog",
-        "blog_intro" => """Des articles plus longs. Les plus anciens portent surtout sur Google Ads, la Facebook Marketing API et les tableurs ; les plus récents couvrent d'autres sujets. Pour les liens IA au quotidien, voir le <a href="/fr/daily">Journal</a>.
-    <span class="block mt-2 text-sm text-neutral-500 dark:text-neutral-400">Les articles sont pour l'instant en anglais.</span>""",
+        "blog_intro" => """Des articles plus longs. Les plus anciens portent surtout sur Google Ads, la Facebook Marketing API et les feuilles de calcul; les plus récents couvrent d'autres sujets. Pour les liens IA au quotidien, voir le <a href="/fr/daily">Journal</a>.""",
         "blog_page_title" => "Blog - Damien Gonot",
         "blog_page_description" => "Articles de Damien Gonot sur l'automatisation publicitaire, les tableurs et le logiciel.",
         "daily_title" => "Journal",
@@ -333,7 +332,7 @@ pandoc_html(path::AbstractString; from::AbstractString="") =
 pandoc_plain(path::AbstractString; from::AbstractString="") =
     read(`pandoc $path $(isempty(from) ? [] : ["--from=$from"]) -t plain`, String)
 
-# Blog posts (content shared; shell per locale)
+# Blog posts
 println("Handling blog posts...")
 
 struct Post
@@ -342,31 +341,65 @@ struct Post
     date::String
     content::String
     excerpt::String
+    is_fallback::Bool
 end
 
-function load_post(filename::AbstractString)
-    path = joinpath("src", "posts", filename)
-    slug, ext = splitext(filename)
+function load_post(path::AbstractString; is_fallback::Bool=false)
+    slug, ext = splitext(basename(path))
     data = read(path, String)
     meta = ext == ".org" ? org_metadata(data) : frontmatter_metadata(data)
-    return Post(slug, meta["title"], meta["date"], pandoc_html(path), pandoc_plain(path))
+    content = replace(
+        pandoc_html(path),
+        "src=\"../images/" => "src=\"/images/",
+        "src=\"file:///images/" => "src=\"/images/",
+        "href=\"../images/" => "href=\"/images/",
+    )
+    return Post(slug, meta["title"], meta["date"], content, pandoc_plain(path), is_fallback)
 end
 
 post_files = filter(f -> splitext(f)[2] in (".md", ".org"), readdir("src/posts"))
-posts = sort!(pmap_files(load_post, post_files); by=p -> Date(p.date), rev=true)
+en_posts = sort!(
+    pmap_files(f -> load_post(joinpath("src", "posts", f)), post_files);
+    by=p -> Date(p.date),
+    rev=true,
+)
+
+fr_post_paths = Dict(
+    first(splitext(f)) => joinpath("src", "fr", "posts", f) for f in (
+        isdir("src/fr/posts") ?
+        filter(f -> splitext(f)[2] in (".md", ".org"), readdir("src/fr/posts")) : String[]
+    )
+)
+fr_posts_loaded = Dict(
+    p.slug => p for p in pmap_files(
+        load_post,
+        [fr_post_paths[p.slug] for p in en_posts if haskey(fr_post_paths, p.slug)],
+    )
+)
+posts_by_locale = Dict(
+    "en" => en_posts,
+    "fr" => [
+        get(
+            fr_posts_loaded,
+            p.slug,
+            Post(p.slug, p.title, p.date, p.content, p.excerpt, true),
+        ) for p in en_posts
+    ],
+)
 
 post_links = Dict{String,Vector{String}}()
 
 for locale in LOCALES
     t = I18N[locale]
+    locale_posts = posts_by_locale[locale]
 
-    for post in posts
+    for post in locale_posts
         content = replace(
             POST_TEMPLATE,
             "{TITLE}" => post.title,
             "{DATE}" => post.date,
             "{CONTENT}" => localize_hrefs(post.content, locale),
-            "{CONTENT_LANG_NOTE}" => t["content_lang_note"],
+            "{CONTENT_LANG_NOTE}" => post.is_fallback ? t["content_lang_note"] : "",
         )
         emit!(
             locale,
@@ -386,7 +419,7 @@ for locale in LOCALES
             "{SLUG}" => post.slug,
             "{DATE}" => post.date,
             "{PREFIX}" => t["prefix"],
-        ) for post in posts
+        ) for post in locale_posts
     ]
     content = replace(
         POSTS_TEMPLATE,

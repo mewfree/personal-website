@@ -1,0 +1,236 @@
+#+title: 🚆 Transformer un flux GTFS en base de données SQLite pour une appli de transport en commun
+#+date: 2026-08-16
+#+tags: gtfs,sqlite,transport en commun,react native,expo,sig,données ouvertes
+
+* Introduction
+Il y a un bout de temps, j'ai commencé à bâtir [[https://github.com/mewfree/MewTransit][MewTransit]], une petite application React Native pour consulter les horaires des trains de banlieue d'EXO dans la région de Montréal. Le bout intéressant, ce n'est pas l'appli elle-même, c'est la façon dont les données y arrivent : je prends le flux GTFS brut de la société de transport et je le livre sous forme de simple fichier SQLite empaqueté directement dans l'application. Pas de backend, pas d'appels API, juste un fichier =.db= qui dort dans =assets/= et du SQL.
+
+Ce billet porte sur cette approche : ce qu'est GTFS, pourquoi SQLite s'est avéré la bonne cible, comment fonctionne la conversion et à quoi ressemblent concrètement les requêtes sur des données de transport collectif une fois qu'elles vivent dans une vraie base de données.
+
+** Un petit mot sur EXO
+[[https://exo.quebec/][EXO]] exploite le réseau de trains de banlieue (et d'autobus de banlieue) autour de Montréal — les trains qui amènent les gens des banlieues (Vaudreuil-Hudson, Saint-Jérôme, Mont-Saint-Hilaire, Candiac, Mascouche...) jusqu'au centre-ville. Contrairement à la STM (le métro et les autobus de Montréal), l'horaire d'EXO est petit : une poignée de lignes, quelques dizaines de gares, et des trains qui roulent surtout aux heures de pointe plutôt qu'aux quelques minutes toute la journée. C'est exactement pour ça que c'était une bonne première cible — assez petit pour qu'un projet personnel puisse réalistement stocker tout l'horaire sur un téléphone, et assez peu fréquent pour que la question « c'est quand le prochain train? » vaille la peine d'avoir un accès rapide et hors ligne. J'avais d'abord jeté un coup d'œil au flux GTFS de la STM aussi, mais il est d'un ordre de grandeur plus gros (autobus + métro à l'échelle de la ville), ce qui rendait l'approche SQLite empaquetée pas mal moins intéressante.
+
+* C'est quoi, GTFS?
+GTFS (General Transit Feed Specification) est le format dans lequel presque toutes les sociétés de transport au monde publient leurs horaires. Il a été conçu à l'origine par Google (pour ce qui allait devenir les itinéraires de transport en commun dans Google Maps) et est aujourd'hui une norme ouverte de fait.
+
+Un flux GTFS, c'est un fichier zip rempli de fichiers =.txt= qui ne sont en fait que des CSV :
+- =routes.txt= — la liste des lignes (une ligne de train, une ligne d'autobus...)
+- =trips.txt= — chaque trajet individuel sur une ligne, chacun avec son =route_id=
+- =stop_times.txt= — chaque arrêt d'un trajet, avec les heures d'arrivée et de départ, faisant référence à un =trip_id=
+- =stops.txt= — les arrêts physiques, avec latitude/longitude, infos d'accessibilité, etc.
+- =calendar.txt= / =calendar_dates.txt= — quels jours de la semaine (et quelles exceptions) un =service_id= donné est en vigueur
+
+Les relations sont exactement ce qu'on attendrait de données pensées pour vivre dans une base de données relationnelle : les lignes ont des trajets, les trajets ont des heures de passage, les heures de passage pointent vers des arrêts, et tout ce qui détermine /quand/ un trajet roule réellement passe par un calendrier de service. C'est du CSV sur le disque, mais relationnel dans l'âme.
+
+* Pourquoi en faire une base SQLite?
+Mon premier réflexe, comme on peut le voir dans le tout premier commit du projet, a été de décompresser le flux et de le charger en JSON. Ça s'écroule vite. Le fichier =stop_times.txt= d'une seule société de transport compte couramment des centaines de milliers de lignes, et la question à laquelle je veux vraiment répondre — « quels sont les 5 prochains départs pour cette ligne, à cet arrêt, selon le calendrier de service d'aujourd'hui? » — est une jointure sur plusieurs tables avec un filtre de date. Faire ça à la main sur des tableaux d'objets JSON en JavaScript revient à rebâtir des index et une logique de jointure qu'une base de données fait déjà pour vous, juste en moins bon.
+
+GTFS est tabulaire, structuré par clés étrangères et fait pour être interrogé par requêtes. SQLite correspond parfaitement à ce projet pour plusieurs raisons précises :
+
+- *C'est un seul fichier.* Pas de serveur, pas de chaîne de connexion, rien à faire rouler. Ça compte énormément pour une application React Native : =expo-sqlite= peut ouvrir un fichier =.db= directement depuis le paquet de l'appli et l'interroger sur l'appareil.
+- *C'est amplement rapide pour des données statiques en lecture seule.* L'horaire ne change pas tant que la société de transport ne publie pas un nouveau flux (chaque semaine ou chaque mois, habituellement). Je n'écris jamais dans cette base de données à l'exécution, donc je n'ai besoin de rien de plus que ce que SQLite m'offre gratuitement.
+- *SQL est le bon outil pour le vrai problème.* Des jointures entre =routes=, =trips=, =stop_times= et =calendar=, filtrées par jour de la semaine et par heure, triées et limitées — c'est littéralement ce pour quoi SQL a été créé.
+- *Ça s'embarque dans l'appli.* Le fichier =.db= au complet pèse ~2,6 Mo pour les trains d'une société de transport. C'est assez léger pour l'inclure comme ressource statique et le copier dans le système de fichiers de l'appareil au premier lancement, sans aucune requête réseau.
+
+Le compromis, ce sont les données statiques : je dois regénérer et réempaqueter la base de données chaque fois que l'horaire change, sans synchronisation en direct. Pour un projet personnel qui suit un horaire de train qui change une poignée de fois par année, c'est un compromis très raisonnable.
+
+* Convertir GTFS en SQLite
+Le pipeline réel est agréablement banal, et c'est tout l'intérêt : télécharger manuellement le flux GTFS compressé de la société de transport, puis le passer à [[https://github.com/BlinkTagInc/node-gtfs][node-gtfs]] pour le transformer en base de données.
+
+#+begin_src sh
+npm install gtfs
+gtfs-import --configPath ./config.json
+#+end_src
+
+node-gtfs (publié sur npm sous le nom =gtfs=) est un outil CLI et une bibliothèque de BlinkTag qui lit un fichier zip GTFS selon une petite configuration JSON et l'importe directement dans SQLite, en respectant les types et contraintes de la [[https://gtfs.org/schedule/reference/][référence officielle GTFS]] table par table. Il fournit aussi =gtfs-export= pour faire l'inverse, ainsi que des fonctions utilitaires de requête si vous voulez manipuler les données depuis Node plutôt qu'en SQL brut. Je n'ai pas eu à écrire d'importateur CSV vers SQL du tout : il suffit de le pointer vers le flux et de le laisser bâtir le schéma.
+
+Le schéma obtenu suit la spécification de près. Voici la structure de quelques-unes des tables principales (allégée pour la lisibilité) :
+
+#+begin_src sql
+CREATE TABLE routes (
+  route_id varchar(255) NOT NULL,
+  agency_id varchar(255),
+  route_short_name varchar(255) COLLATE NOCASE,
+  route_long_name varchar(255) COLLATE NOCASE,
+  route_type integer NOT NULL,
+  route_color varchar(255) COLLATE NOCASE,
+  route_text_color varchar(255) COLLATE NOCASE,
+  PRIMARY KEY (route_id)
+);
+
+CREATE TABLE trips (
+  route_id varchar(255) NOT NULL,
+  service_id varchar(255) NOT NULL,
+  trip_id varchar(255) NOT NULL,
+  trip_headsign varchar(255) COLLATE NOCASE,
+  direction_id integer CHECK (direction_id >= 0 AND direction_id <= 1),
+  PRIMARY KEY (trip_id)
+);
+CREATE INDEX idx_trips_route_id ON trips (route_id);
+
+CREATE TABLE stop_times (
+  trip_id varchar(255) NOT NULL,
+  arrival_time varchar(255),
+  departure_time varchar(255),
+  stop_id varchar(255) NOT NULL,
+  stop_sequence integer NOT NULL,
+  PRIMARY KEY (trip_id, stop_sequence)
+);
+CREATE INDEX idx_stop_times_stop_id ON stop_times (stop_id);
+#+end_src
+
+Quelques détails qui comptent plus qu'ils en ont l'air :
+
+*Des contraintes =CHECK= plutôt que de faire confiance.* Les énumérations GTFS (comme =direction_id= qui vaut 0 ou 1, ou =wheelchair_boarding= qui vaut 0/1/2) sont appliquées directement dans le schéma, de sorte qu'un flux mal formé échoue bruyamment dès l'importation au lieu de produire un résultat silencieusement faux trois écrans plus loin dans l'application.
+
+*Des index sur les colonnes sur lesquelles on filtre et on joint vraiment.* =trip_id=, =route_id= et =stop_id= apparaissent dans les clauses =WHERE= et =ON= de presque toutes les requêtes que l'appli exécute. Sans index sur =stop_times.stop_id=, demander « qu'est-ce qui part de cet arrêt? » devient un balayage complet de centaines de milliers de lignes sur un cellulaire. Avec un index, c'est instantané.
+
+*=COLLATE NOCASE= sur les champs texte qu'on cherche ou qu'on trie.* Noms de lignes, noms d'arrêts — tout ce qu'un humain va lire ou filtrer profite de comparaisons insensibles à la casse, sans avoir à se rappeler d'envelopper chaque colonne dans =LOWER()= au moment de la requête.
+
+node-gtfs crée aussi les tables =trip_updates=, =vehicle_positions= et =stop_times_updates= par défaut, puisqu'il peut importer des flux GTFS-Realtime dans la même base de données (en mettant à jour les positions et retards en direct avec =REPLACE= dans SQLite). Je n'ai jamais branché cette partie, donc dans la base de données de MewTransit ces tables restent là, vides — un avant-goût de la limite dont je parle plus bas.
+
+Ce qui est intéressant, ce n'est pas un truc de conversion astucieux : c'est de traiter un paquet de CSV pour ce qu'il est déjà conceptuellement — un schéma relationnel qui se trouve à être sérialisé en fichiers plats — et de laisser le système de types et les contraintes SQLite de node-gtfs faire le travail de validation en amont, une seule fois, plutôt que défensivement dans l'application à chaque lecture.
+
+* Interroger les données, écran par écran
+Une fois les données dans SQLite, =expo-sqlite= ouvre le fichier =.db= empaqueté sur l'appareil et l'application se contente... d'exécuter du SQL. Pas d'ORM, pas de générateur de requêtes, juste des requêtes paramétrées dans =db.transaction()=. Quatre écrans, quatre requêtes, chacune un peu plus costaude que la précédente.
+
+** Liste des lignes
+#+begin_example
+┌───────────────────────────┐
+│  EXO - Lignes de train    │
+├───────────────────────────┤
+│  Candiac                  │
+│  Vaudreuil-Hudson         │
+│  Saint-Jérôme             │
+│  Mascouche                │
+│  Mont-Saint-Hilaire       │
+└───────────────────────────┘
+#+end_example
+
+Écran d'accueil, aucun paramètre. Simplement la table =routes= :
+
+#+begin_src sql
+SELECT * FROM routes
+#+end_src
+
+** Détails d'une ligne
+#+begin_example
+┌───────────────────────────┐
+│ ← Lignes  Candiac         │
+├───────────────────────────┤
+│  Candiac                  │
+│  Delson                   │
+│  Saint-Constant           │
+│  Sainte-Catherine         │
+│  ...                      │
+│  Lucien-L'Allier          │
+└───────────────────────────┘
+#+end_example
+
+On touche une ligne, on obtient ses arrêts dans l'ordre. Un seul =route_id= passé à travers trois jointures :
+
+#+begin_src sql
+SELECT DISTINCT stops.stop_id, stops.stop_name
+FROM routes
+JOIN trips ON routes.route_id = trips.route_id
+JOIN stop_times ON trips.trip_id = stop_times.trip_id
+JOIN stops ON stop_times.stop_id = stops.stop_id
+WHERE routes.route_id = ?
+ORDER BY stop_times.stop_sequence
+#+end_src
+
+** Détails d'un arrêt
+#+begin_example
+┌───────────────────────────┐
+│ ← Candiac   Delson        │
+├───────────────────────────┤
+│  06:42 - Montréal         │
+│  07:15 - Montréal         │
+│  16:58 - Candiac          │
+└───────────────────────────┘
+#+end_example
+
+On touche un arrêt, on obtient les prochains départs. C'est ici que le modèle de calendrier de GTFS justifie sa complexité : un trajet ne compte que si son =service_id= roule aujourd'hui (via =calendar=), s'il tombe dans la plage de dates du service, et si l'arrêt n'est pas le terminus du trajet (on ne peut pas monter dans un train qui termine déjà sa course là) :
+
+#+begin_src sql
+SELECT trips.trip_id, stop_times.departure_time, trips.trip_headsign
+FROM stops
+JOIN stop_times ON stops.stop_id = stop_times.stop_id
+JOIN trips ON stop_times.trip_id = trips.trip_id
+JOIN routes ON trips.route_id = routes.route_id
+JOIN calendar ON trips.service_id = calendar.service_id
+LEFT JOIN (
+  SELECT trip_id, MAX(stop_sequence) AS max_sequence
+  FROM stop_times
+  GROUP BY trip_id
+) AS last_stops ON trips.trip_id = last_stops.trip_id
+WHERE stops.stop_id = ?
+  AND routes.route_id = ?
+  AND time('now', 'localtime') <= stop_times.departure_time
+  AND stop_times.stop_sequence < last_stops.max_sequence
+  AND (
+    (strftime('%w', 'now') = '0' AND calendar.sunday = 1) OR
+    (strftime('%w', 'now') = '1' AND calendar.monday = 1) OR
+    (strftime('%w', 'now') = '2' AND calendar.tuesday = 1) OR
+    (strftime('%w', 'now') = '3' AND calendar.wednesday = 1) OR
+    (strftime('%w', 'now') = '4' AND calendar.thursday = 1) OR
+    (strftime('%w', 'now') = '5' AND calendar.friday = 1) OR
+    (strftime('%w', 'now') = '6' AND calendar.saturday = 1)
+  )
+  AND date('now') BETWEEN
+    substr(calendar.start_date, 1, 4) || '-' || substr(calendar.start_date, 5, 2) || '-' || substr(calendar.start_date, 7, 2)
+    AND
+    substr(calendar.end_date, 1, 4) || '-' || substr(calendar.end_date, 5, 2) || '-' || substr(calendar.end_date, 7, 2)
+ORDER BY stop_times.departure_time
+LIMIT 25
+#+end_src
+
+Pas le genre de requête que j'aurais envie d'écrire sur du JSON imbriqué. =strftime('%w', 'now')= donne directement le jour de la semaine, =time('now', 'localtime')= filtre tout ce qui est déjà parti, et la sous-requête =LEFT JOIN= qui trouve le dernier arrêt de chaque trajet tient en quelques lignes ici alors que c'est un petit casse-tête à coder proprement à la main dans l'application (ratez le cas limite « descente seulement » et l'appli affiche un départ dans lequel on ne peut même pas embarquer). Les dates GTFS sont stockées sous forme d'entiers =YYYYMMDD= plutôt qu'en format ISO, d'où le collage avec =substr()= — un rappel que même une spécification aussi éprouvée garde quelques pièges intégrés (le README du projet a littéralement une section « GTFS gotchas »).
+
+** Détails d'un trajet
+#+begin_example
+┌─────────────────────────────────┐
+│ ← Delson   trajet 12345         │
+├─────────────────────────────────┤
+│  06:12 - Candiac        (grisé) │
+│  06:20 - Delson    ← maintenant │
+│  06:31 - Saint-Constant         │
+│  ...                            │
+│  07:05 - Lucien-L'Allier        │
+└─────────────────────────────────┘
+#+end_example
+
+On touche un départ, on voit tout le trajet : chaque arrêt qu'il fait, dans l'ordre, avec l'arrêt actuel en gras et tout ce qui est déjà passé en gris. Pas besoin de filtrer par calendrier ici, =trip_id= identifie déjà une course précise :
+
+#+begin_src sql
+SELECT stops.stop_id, stops.stop_name,
+       stop_times.arrival_time, stop_times.departure_time, stop_times.stop_sequence
+FROM stop_times
+JOIN stops ON stop_times.stop_id = stops.stop_id
+WHERE stop_times.trip_id = ?
+ORDER BY stop_times.stop_sequence
+#+end_src
+
+Quatre écrans : aucun filtre, une jointure à trois tables, une jointure à six tables sensible au calendrier, puis retour à une requête simple. La complexité de la requête suit la question posée, pas une couche d'abstraction figée — exactement ce qu'on espère de SQL, et ce qui n'arrive pas gratuitement avec un gros bloc JSON.
+
+* Quelques constats éclairants
+Quelques trucs auxquels je ne m'attendais pas en commençant :
+
+- Les fichiers CSV m'avaient fait penser JSON, =.filter()=, =.find()=. Mais GTFS a toujours été relationnel, juste sérialisé en fichiers plats. Laisser node-gtfs bâtir un vrai schéma à partir de ça, clés étrangères comprises, a tout simplifié.
+- SQLite me donnait l'impression d'être un choix « pour commencer ». Ce n'en était pas un. Pour des données aussi statiques et consultées en lecture seule, un fichier =.db= empaqueté est la vraie bonne réponse, pas une solution de dépannage.
+- Les contraintes =CHECK= ont attrapé les lignes invalides dès l'importation au lieu d'un =undefined= silencieux trois écrans plus loin dans l'application.
+- Indexer =stop_times.stop_id= a eu pas mal plus d'impact que je pensais sur un téléphone.
+
+* Là où cette approche atteint ses limites
+Je m'éloigne tranquillement du modèle où la base de données est empaquetée dans l'appli :
+
+- *Pas de temps réel.* Le GTFS statique, c'est l'horaire prévu, pas la réalité. Il ne sait pas qu'un train est en retard ou annulé — ça, c'est un autre flux (GTFS-Realtime).
+- *Ça ne passe pas à l'échelle.* 2,6 Mo, ça passe très bien pour EXO. Le réseau complet de la STM serait beaucoup plus gros, et chaque changement d'horaire obligerait à livrer tout le fichier de nouveau.
+- *La fraîcheur des données devient un problème de déploiement.* Une nouvelle base de données implique une nouvelle version de l'application. Correct pour quelques changements par année, pas viable pour des mises à jour le jour même.
+
+La solution est la même pour les trois : déplacer les requêtes côté serveur, pour que l'application demande simplement « c'est quoi le prochain? » au lieu de traîner tout l'horaire avec elle. Bonne prochaine étape, mais la version SQLite a fait sa job : elle a validé le modèle de requêtes et permis de livrer quelque chose de concret, vite.
+
+* Conclusion
+Convertir des CSV en une base de données SQLite typée et indexée, puis l'interroger en SQL pur, a suffi pour bâtir une application de transport en commun entièrement hors ligne, sans backend. Si vous vous tournez vers un ORM ou un gros fichier JSON par réflexe, ça vaut la peine de vous demander si vos données n'étaient pas relationnelles depuis le début.
+
+Le code source est [[https://github.com/mewfree/MewTransit][sur GitHub]]. [[file:../about][Écrivez-moi]] si vous travaillez avec GTFS vous aussi.

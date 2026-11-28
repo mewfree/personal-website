@@ -1,0 +1,91 @@
+#+title: 🐈 mewagent - un agent IA personnel sur Cloudflare Workers
+#+date: 2026-07-26
+#+tags: IA générative,agents,cloudflare,telegram,openrouter,infrastructure personnelle
+
+* Introduction
+Je voulais un agent IA personnel à qui je pourrais écrire depuis mon cellulaire : quelque chose qui se souvient de trucs sur moi, capable d'aller chercher une page Web, de mettre à jour une note du journal sur ce site, et sinon de rester tranquille jusqu'à ce que j'en aie besoin.
+
+Il existe déjà plusieurs projets dans ce créneau ([[https://openclaw.ai/][OpenClaw]], [[https://hermes-agent.org/][Hermes]] et une tonne de gabarits d'« agents personnels »). J'aime bien l'architecture : des canaux en entrée, des outils et de la mémoire au milieu, un modèle en sortie. Ce dont je ne voulais pas, c'est un VPS à surveiller, de l'authentification multi-utilisateurs ou un bot qui répond à quiconque tombe sur son nom d'utilisateur.
+
+J'ai donc bâti *mewagent* : un agent dans le style d'OpenClaw/Hermes sur un Cloudflare Worker + un webhook Telegram, les modèles gratuits d'OpenRouter et une mémoire à long terme dans Workers KV.
+
+* Pourquoi se donner la peine d'en bâtir un autre?
+** Un ordinateur portable n'est pas un serveur
+La plupart des agents personnels supposent un processus qui roule sur votre machine ou sur un VPS pas cher : faire du /long-polling/ sur Telegram, garder le démon en vie, espérer que l'ordinateur portable soit ouvert quand on écrit depuis l'autobus. Bien correct pour bricoler; pas terrible pour un système toujours en ligne.
+
+Cloudflare Workers vous donne un point de terminaison HTTPS, des secrets et un stockage KV sans avoir à gérer de serveur. Telegram envoie une requête POST au Worker; l'agent s'exécute; vous recevez une réponse. Pas de /long-polling/. Plus de « est-ce que ma passerelle roule encore? ».
+
+** Les modèles gratuits suffisent pour commencer
+Les appels aux LLM passent par [[https://openrouter.ai/][OpenRouter]], avec des modèles gratuits par défaut (=openrouter/free= et d'autres variantes =:free=). Pour des notes, du contexte et un usage léger d'outils, c'est souvent bien assez. Quand ça ne l'est plus, on change une chaîne de caractères pour le modèle, pas toute l'architecture.
+
+En option, on peut router les requêtes via [[https://developers.cloudflare.com/ai-gateway/][Cloudflare AI Gateway]] pour les analytiques, la mise en cache et la limitation de débit. Même code; juste une URL de base différente.
+
+* L'architecture du système
+
+#+begin_example
+Telegram ──POST /telegram──► Worker ──► agent ──► [AI Gateway?] ──► OpenRouter
+                               │
+                               └── MEMORY (KV) : notes + sessions de clavardage
+#+end_example
+
+La boucle de l'agent est simple : charger la session, bâtir un prompt système (persona + souvenirs + guides de projet optionnels), appeler le modèle avec les outils, exécuter les outils pendant quelques tours, enregistrer la réponse. Les commandes slash (=/help=, =/memory=, =/reset=, =/whoami=, =/model=) contournent le LLM.
+
+La liste d'autorisation est vérifiée directement en périphérie (/edge/). Les outils du Worker restent compatibles avec l'environnement Workers : mémoire, récupération Web, date et heure, GitHub en option. Pas de shell, pas de système de fichiers local.
+
+* Pourquoi Telegram
+Pour un agent personnel, la friction côté messagerie compte pas mal plus que la liste de fonctionnalités.
+
+| Plateforme           | Friction                       | Pertinence pour moi       |
+|----------------------+--------------------------------+---------------------------|
+| *Telegram*           | BotFather gratuit + webhook    | meilleur choix par défaut |
+| Discord              | bot gratuit                    | très bien, pour plus tard |
+| WhatsApp / Messenger | API d'affaires, vérification   | lourd pour un usage solo  |
+| Signal               | pas d'API officielle pour bots | mauvais choix             |
+
+Telegram offre un vrai webhook, des conversations privées et une interface mobile que tout le monde a déjà. Les groupes sont ignorés. BotFather permet de désactiver les groupes pour que le bot ne se retrouve jamais dans une discussion publique par accident.
+
+* Sécurité
+** Liste d'autorisation
+Worker + KV pour la mémoire et les sessions. Côté secrets : OpenRouter, jeton du bot Telegram et secret du webhook.
+
+Quand =ALLOWED_TELEGRAM_IDS= est vide, le bot ne répond qu'aux commandes comme =/whoami= — pas d'agent, pas d'outils. On lui envoie un message privé, on copie son identifiant numérique, on configure la liste d'autorisation et on redéploie. Après ça, seuls les identifiants listés ont accès à l'agent.
+
+** Authenticité du webhook
+=TELEGRAM_WEBHOOK_SECRET= est obligatoire. On déploie le Worker, puis on appelle =setWebhook= de Telegram vers =/telegram= avec le même =secret_token=. Secret manquant → =/telegram= renvoie 503. Comparaison à temps constant. Des requêtes POST aléatoires sur un chemin deviné ne peuvent pas déclencher l'agent.
+
+** GitHub avec le principe du moindre privilège
+En option : un jeton d'accès personnel (PAT) granulaire + une liste d'autorisation =GITHUB_REPOS= pour que l'agent puisse modifier des dépôts via l'API GitHub Contents. Le PAT est limité uniquement à Contents sur ces dépôts; la liste d'autorisation sert de vérification stricte dans le code comme deuxième filet de sécurité.
+
+Pour ce site : j'écris au bot pour ajouter une entrée au journal, il lit =src/daily/YYYY-MM-DD.org=, ajoute une puce, fait un commit et me répond avec l'URL. Le CI génère le site; Cloudflare Pages le déploie. Un guide dans le prompt système maintient le style Org-mode.
+
+* À quoi il me sert
+- Parler à un modèle depuis Telegram sans ouvrir de navigateur
+- Garder des notes durables d'une session à l'autre (préférences, contexte de projets) dans KV
+- Ajouter une entrée au [[file:../daily][journal]] public sans éditeur sur mon ordinateur portable
+- Aller chercher une page Web à l'occasion pour un résumé rapide
+
+Ce n'est pas un agent de programmation de bureau. C'est l'assistant toujours joignable dans ma poche.
+
+* Compromis par rapport aux démons de style OpenClaw / Hermes
+
+|                   | mewagent             | agent local/VPS typique |
+|-------------------+----------------------+-------------------------|
+| toujours actif    | Worker en périphérie | processus à superviser  |
+| canal             | Telegram             | souvent plusieurs       |
+| mémoire           | KV (clés simples)    | souvent plus riche      |
+| skills / cron     | prévu                | souvent déjà inclus     |
+| multi-utilisateur | volontairement non   | variable                |
+
+Volontairement plus petit. Vous voulez des démons multicanaux, des boutiques de skills et des graphes de mémoire riches? Prenez un plus gros projet. Vous voulez un bot à propriétaire unique en périphérie capable de modifier votre site hébergé sur Git? Cette approche-là a été vraiment agréable.
+
+* Limites à connaître
+- Les modèles gratuits + le forfait gratuit de Workers suffisent pour un usage léger. Les boucles d'outils qui attendent les LLM profitent d'un forfait Workers payant (temps CPU / durée totale). Une interruption en plein milieu d'une réponse peut déclencher des nouvelles tentatives du webhook Telegram.
+- KV n'est pas un moteur de requêtes. Des clés pour les notes et les sessions suffisent pour l'instant; j'irai vers D1 si les besoins de listage ou de requêtes augmentent.
+- Cron, Discord, Durable Objects par utilisateur, skills en format =SKILL.md= : c'est sur la feuille de route, pas des promesses.
+
+* Pour conclure
+Les agents personnels ont la cote en ce moment. Le vrai sujet intéressant, c'est moins « quel modèle choisir » que *où roule la boucle*, *qui peut lui parler* et *à quels outils on fait confiance sur cet environnement d'exécution*.
+
+mewagent est ma réponse pour le moment : Workers pour la présence, Telegram pour l'accessibilité, OpenRouter pour les modèles, KV pour la mémoire, GitHub pour les quelques chemins d'écriture qui m'importent, et une sécurité fermée par défaut pour qu'un nom de bot trouvable ne soit pas une porte ouverte.
+
+Si vous bâtissez quelque chose de semblable, ou si vous préférez toujours un démon sur VPS, [[file:../about][j'aimerais beaucoup en entendre parler]].

@@ -1,0 +1,262 @@
+#+title: 📚 7 choses que j'ai apprises sur Julia pendant Advent of Code
+#+date: 2022-01-12
+#+tags: informatique,julia,apprentissages,advent of code,algèbre linéaire
+
+* Introduction
+[[file:../blog/aoc-2021-day-1][Dans un billet précédent]], je détaillais ce que j'avais appris lors du jour 1 d'Advent of Code 2021.
+Comme prévu, je n'ai pas eu le temps ni l'énergie d'écrire un article de blog pour chaque casse-tête
+(et je ne les ai même pas tous terminés, en fait).
+
+À la place, je rassemble ici les 7 choses les plus intéressantes que j'ai apprises en [[https://github.com/mewfree/advent-of-meow-2021][essayant de résoudre Advent of Code 2021]].
+
+* ~vec~
+Convertit un tableau ou une matrice en vecteur (un tableau à une dimension). Utile quand on lit des fichiers avec ~readdlm~ (expliqué dans l'article précédent), puisque le résultat est une matrice et que je voulais souvent un simple ~Vector~.
+
+#+begin_src julia :exports both :results code
+julia> vec([1 2 3; 4 5 6])
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+6-element Vector{Int64}:
+ 1
+ 4
+ 2
+ 5
+ 3
+ 6
+#+end_src
+
+* ~transpose~
+« Transpose » une matrice, ce qui veut essentiellement dire inverser les dimensions de la matrice.
+#+begin_src julia :exports both :results value code
+julia> [1 2 3; 4 5 6; 7 8 9]
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×3 Matrix{Int64}:
+ 1  2  3
+ 4  5  6
+ 7  8  9
+#+end_src
+
+#+begin_src julia :exports both :results value code
+julia> transpose([1 2 3; 4 5 6; 7 8 9])
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×3 transpose(::Matrix{Int64}) with eltype Int64:
+ 1  4  7
+ 2  5  8
+ 3  6  9
+#+end_src
+
+Particulièrement utile lorsqu'on la combine avec ~hcat(n...)~ pour convertir un tableau de tableaux en matrice :
+#+begin_src julia :exports both :results value code :session hcat
+julia> n = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3-element Vector{Vector{Int64}}:
+ [1, 2, 3]
+ [4, 5, 6]
+ [7, 8, 9]
+#+end_src
+
+#+begin_src julia :exports both :results value code :session hcat
+julia> nm = hcat(n...)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×3 Matrix{Int64}:
+ 1  4  7
+ 2  5  8
+ 3  6  9
+#+end_src
+
+#+begin_src julia :exports both :results value code :session hcat
+julia> transpose(nm)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×3 transpose(::Matrix{Int64}) with eltype Int64:
+ 1  2  3
+ 4  5  6
+ 7  8  9
+#+end_src
+
+À moins qu'il existe une meilleure façon de passer directement d'un tableau de tableaux à une matrice? Si c'est le cas, n'hésitez pas à [[file:../about][me contacter]]!
+
+Voir aussi [[https://docs.julialang.org/en/v1/base/arrays/#Base.permutedims][~permutedims~]].
+
+* Ensembles (~Set~)
+Une structure semblable à un tableau qui ne conserve que des éléments uniques! Plus efficace que de tout pousser dans un tableau et d'appeler [[https://docs.julialang.org/en/v1/base/collections/#Base.unique][~unique~]] après coup.
+
+Créer un ensemble vide :
+#+begin_src julia :exports both :results code
+julia> Set()
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+Set{Any}()
+#+end_src
+
+Créer un ~Set~ à partir d'un tableau :
+#+begin_src julia :exports both :results code
+julia> Set([1, 2, 2, 3, 3, 3])
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+Set{Int64} with 3 elements:
+  2
+  3
+  1
+#+end_src
+
+* ~broadcast~
+Une fonction super puissante qui applique la même fonction à tous les éléments d'un itérable.
+En gros, c'est la forme longue de la notation par point.
+
+#+begin_src julia :exports both :results code
+julia> broadcast(+, [1, 2, 3], [1, 1, 1])
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3-element Vector{Int64}:
+ 2
+ 3
+ 4
+#+end_src
+
+Identique à :
+#+begin_src julia :exports both :results code
+julia> [1, 2, 3] .+ [1, 1, 1]
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3-element Vector{Int64}:
+ 2
+ 3
+ 4
+#+end_src
+
+* Compréhensions de liste
+Semblables aux compréhensions de liste dans d'autres langages comme Python!
+
+#+begin_src julia :exports both :results code
+julia> [x*2 for x = 1:5]
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+5-element Vector{Int64}:
+  2
+  4
+  6
+  8
+ 10
+#+end_src
+
+L'exemple ci-dessus équivaut à un ~map~ :
+#+begin_src julia :exports both :results code
+julia> map(x -> x*2, 1:5)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+5-element Vector{Int64}:
+  2
+  4
+  6
+  8
+ 10
+#+end_src
+
+Mais il est très facile d'utiliser plusieurs déclarations en même temps :
+#+begin_src julia :exports both :results code
+julia> [(i, j) for i = 1:5, j = [true, false]]
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+5×2 Matrix{Tuple{Int64, Bool}}:
+ (1, 1)  (1, 0)
+ (2, 1)  (2, 0)
+ (3, 1)  (3, 0)
+ (4, 1)  (4, 0)
+ (5, 1)  (5, 0)
+#+end_src
+
+* Indices cartésiens
+Super utile quand on travaille avec des coordonnées en plusieurs dimensions.
+L'intervalle entre deux ~CartesianIndex~ inclut absolument toutes les coordonnées situées entre les deux.
+#+begin_src julia :exports both :results code
+julia> CartesianIndex(1, 1):CartesianIndex(3, 3)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×3 CartesianIndices{2, Tuple{UnitRange{Int64}, UnitRange{Int64}}}:
+ CartesianIndex(1, 1)  CartesianIndex(1, 2)  CartesianIndex(1, 3)
+ CartesianIndex(2, 1)  CartesianIndex(2, 2)  CartesianIndex(2, 3)
+ CartesianIndex(3, 1)  CartesianIndex(3, 2)  CartesianIndex(3, 3)
+#+end_src
+
+On peut aussi obtenir toutes les coordonnées d'un plan :
+#+begin_src julia :exports both :results code
+julia> CartesianIndices([1 2; 3 4; 5 6])
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+3×2 CartesianIndices{2, Tuple{Base.OneTo{Int64}, Base.OneTo{Int64}}}:
+ CartesianIndex(1, 1)  CartesianIndex(1, 2)
+ CartesianIndex(2, 1)  CartesianIndex(2, 2)
+ CartesianIndex(3, 1)  CartesianIndex(3, 2)
+#+end_src
+
+* ~circshift~
+Fait pivoter les données d'un tableau selon un décalage (~step~) :
+#+begin_src julia :exports both :results code
+julia> circshift([1, 2, 3, 4, 5], 1)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+5-element Vector{Int64}:
+ 5
+ 1
+ 2
+ 3
+ 4
+#+end_src
+
+Ça fonctionne aussi à reculons :
+#+begin_src julia :exports both :results code
+julia> circshift([1, 2, 3, 4, 5], -1)
+#+end_src
+
+#+RESULTS:
+#+begin_src julia
+5-element Vector{Int64}:
+ 2
+ 3
+ 4
+ 5
+ 1
+#+end_src
+
+* Conclusion
+Advent of Code est une façon géniale d'apprendre un nouveau langage!
+Faire de l'algèbre linéaire en Julia est un vrai charme et j'aimerais en apprendre encore plus à l'avenir.
+
+Si vous avez des commentaires sur cet article, n'hésitez pas à [[file:../about][me contacter]].
